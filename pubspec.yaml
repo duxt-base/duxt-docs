@@ -1,26 +1,21 @@
-name: duxt_docs
-description: Documentation for Duxt framework
-version: 0.1.0
-publish_to: none
+name: duxtdocs
+description: A documentation site built with Jaspr
+version: 0.0.1
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.10.0
 
 dependencies:
   jaspr: ^0.22.1
-  jaspr_router: ^0.8.1
   jaspr_content: ^0.4.5
-  duxt_ui:
-    path: /Volumes/External/duxt_ui
-  duxt:
-    path: /Volumes/External/duxt
+  jaspr_router: ^0.8.1
 
 dev_dependencies:
-  build_runner: ^2.4.0
+  build_runner: ^2.10.0
   build_web_compilers: ^4.4.8
   jaspr_builder: ^0.22.1
   jaspr_tailwind: ^0.3.6
-  lints: ^4.0.0
+  lints: ^6.0.0
 
 jaspr:
-  mode: client
+  mode: static

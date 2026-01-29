@@ -1,7 +1,7 @@
 ---
 title: Duxt UI
 description: A comprehensive UI component library for Jaspr, inspired by Nuxt UI.
-layout: docs
+layout: ui-layout
 order: 1
 ---
 
@@ -26,7 +26,7 @@ Building beautiful, consistent web interfaces in Jaspr shouldn't require reinven
 Built on Tailwind CSS for maximum flexibility:
 
 ```dart
-UButton(
+DButton(
   label: 'Custom Style',
   classes: 'shadow-lg hover:shadow-xl transition-shadow',
 )
@@ -37,40 +37,36 @@ UButton(
 All components share common properties:
 
 ```dart
-// Every component supports these patterns
-UButton(
-  variant: UButtonVariant.solid,
-  color: UColor.primary,
-  size: USize.md,
+DButton(
+  variant: DButtonVariant.solid,
+  color: DColor.primary,
+  size: DSize.md,
 )
 
-UInput(
-  variant: UInputVariant.outline,
-  color: UColor.primary,
-  size: USize.md,
+DInput(
+  variant: DInputVariant.outline,
+  color: DColor.primary,
+  size: DSize.md,
 )
 
-UCard(
-  variant: UCardVariant.elevated,
+DCard(
+  variant: DCardVariant.elevated,
 )
 ```
 
 ### Dark Mode Support
 
-Components automatically adapt to dark mode. No extra configuration needed:
+Components automatically adapt to dark mode:
 
 ```dart
-// Works in both light and dark mode
-UCard(
+DCard(
   body: [
-    UButton(label: 'Click me', color: UColor.primary),
+    DButton(label: 'Click me', color: DColor.primary),
   ],
 )
 ```
 
 ### Comprehensive Variants
-
-Each component type has carefully designed variants:
 
 **Buttons**: solid, outline, soft, subtle, ghost, link
 
@@ -79,8 +75,6 @@ Each component type has carefully designed variants:
 **Cards**: default, outlined, elevated
 
 ### Color System
-
-Semantic colors for consistent meaning:
 
 | Color | Usage |
 |-------|-------|
@@ -94,8 +88,6 @@ Semantic colors for consistent meaning:
 
 ### Size Scale
 
-Consistent sizing across components:
-
 | Size | Description |
 |------|-------------|
 | `xs` | Extra small - compact UI |
@@ -108,45 +100,43 @@ Consistent sizing across components:
 
 ### Form Components
 
-- [UButton](/components/button) - Buttons and actions
-- [UInput](/components/input) - Text inputs
-- `UTextarea` - Multi-line text
-- `USelect` - Dropdown selection
-- `UCheckbox` - Checkboxes
-- `URadio` - Radio buttons
-- `USwitch` - Toggle switches
+- [DButton](/duxt-ui/components/button) - Buttons and actions
+- [DInput](/duxt-ui/components/input) - Text inputs
+- `DTextarea` - Multi-line text
+- `DSelect` - Dropdown selection
+- `DCheckbox` - Checkboxes
+- `DRadio` - Radio buttons
+- `DSwitch` - Toggle switches
 
 ### Layout Components
 
-- [UCard](/components/card) - Content containers
-- `UDivider` - Visual separators
-- `UContainer` - Page containers
-- `USkeleton` - Loading placeholders
+- [DCard](/duxt-ui/components/card) - Content containers
+- `DDivider` - Visual separators
+- `DContainer` - Page containers
+- `DSkeleton` - Loading placeholders
 
 ### Navigation
 
-- `UTabs` - Tab navigation
-- `UBreadcrumb` - Breadcrumbs
-- `UPagination` - Page navigation
-- `UDropdown` - Dropdown menus
+- `DTabs` - Tab navigation
+- `DBreadcrumb` - Breadcrumbs
+- `DPagination` - Page navigation
+- `DDropdown` - Dropdown menus
 
 ### Feedback
 
-- `UAlert` - Alert messages
-- `UBadge` - Status badges
-- `UTooltip` - Hover tooltips
-- `UModal` - Modal dialogs
-- `UToast` - Toast notifications
+- `DAlert` - Alert messages
+- `DBadge` - Status badges
+- `DTooltip` - Hover tooltips
+- `DModal` - Modal dialogs
+- `DToast` - Toast notifications
 
 ### Data Display
 
-- `UAvatar` - User avatars
-- `UTable` - Data tables
-- `UAccordion` - Collapsible sections
+- `DAvatar` - User avatars
+- `DTable` - Data tables
+- `DAccordion` - Collapsible sections
 
 ## Quick Example
-
-Here's a complete example showing Duxt UI in action:
 
 ```dart
 import 'package:jaspr/jaspr.dart';
@@ -155,17 +145,17 @@ import 'package:duxt_ui/duxt_ui.dart';
 class ProfileCard extends StatelessComponent {
   @override
   Iterable<Component> build(BuildContext context) sync* {
-    yield UCard(
-      variant: UCardVariant.elevated,
+    yield DCard(
+      variant: DCardVariant.elevated,
       header: [
         div(classes: 'flex items-center justify-between', [
           h2(classes: 'text-lg font-semibold', [text('User Profile')]),
-          UBadge(label: 'Pro', color: UColor.primary),
+          DBadge(label: 'Pro', color: DColor.primary),
         ]),
       ],
       body: [
         div(classes: 'flex items-center gap-4', [
-          UAvatar(src: '/avatar.jpg', size: USize.lg),
+          DAvatar(src: '/avatar.jpg', size: DSize.lg),
           div([
             p(classes: 'font-medium', [text('Jane Doe')]),
             p(classes: 'text-sm text-gray-500', [text('jane@example.com')]),
@@ -174,14 +164,14 @@ class ProfileCard extends StatelessComponent {
       ],
       footer: [
         div(classes: 'flex gap-2', [
-          UButton(
+          DButton(
             label: 'Edit Profile',
-            variant: UButtonVariant.outline,
+            variant: DButtonVariant.outline,
           ),
-          UButton(
+          DButton(
             label: 'View Activity',
-            variant: UButtonVariant.solid,
-            color: UColor.primary,
+            variant: DButtonVariant.solid,
+            color: DColor.primary,
           ),
         ]),
       ],
@@ -189,15 +179,6 @@ class ProfileCard extends StatelessComponent {
   }
 }
 ```
-
-## Getting Started
-
-Ready to build with Duxt UI?
-
-1. **[Installation](/getting-started)** - Add Duxt UI to your project
-2. **[Quick Start](/getting-started/quick-start)** - Build your first page
-3. **[Components](/components)** - Explore all components
-4. **[Theming](/duxt-ui/theming)** - Customize the look and feel
 
 ## Requirements
 
