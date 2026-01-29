@@ -1,4 +1,4 @@
-name: duxt-docs
+name: duxt
 type: static
 domain: duxt.dev
 public: build/jaspr
