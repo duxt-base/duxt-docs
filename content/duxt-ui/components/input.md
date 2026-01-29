@@ -21,13 +21,13 @@ DInput(
 ## Input Types
 
 ```dart
-DInput(label: 'Name', type: 'text')
-DInput(label: 'Email', type: 'email')
-DInput(label: 'Password', type: 'password')
-DInput(label: 'Age', type: 'number')
-DInput(label: 'Website', type: 'url')
-DInput(label: 'Search', type: 'search')
-DInput(label: 'Phone', type: 'tel')
+DInput(label: 'Name', type: InputType.text)
+DInput(label: 'Email', type: InputType.email)
+DInput(label: 'Password', type: InputType.password)
+DInput(label: 'Age', type: InputType.number)
+DInput(label: 'Website', type: InputType.url)
+DInput(label: 'Search', type: InputType.search)
+DInput(label: 'Phone', type: InputType.tel)
 ```
 
 ## Variants
@@ -41,21 +41,21 @@ DInput(
 )
 ```
 
-### Filled
-
-```dart
-DInput(
-  label: 'Email',
-  variant: DInputVariant.filled,
-)
-```
-
 ### Soft
 
 ```dart
 DInput(
   label: 'Email',
   variant: DInputVariant.soft,
+)
+```
+
+### Subtle
+
+```dart
+DInput(
+  label: 'Email',
+  variant: DInputVariant.subtle,
 )
 ```
 
@@ -68,25 +68,23 @@ DInput(
 )
 ```
 
+### None
+
+```dart
+DInput(
+  label: 'Email',
+  variant: DInputVariant.none,
+)
+```
+
 ## Sizes
 
 ```dart
-DInput(label: 'XS', size: DSize.xs)
-DInput(label: 'SM', size: DSize.sm)
-DInput(label: 'MD', size: DSize.md)
-DInput(label: 'LG', size: DSize.lg)
-DInput(label: 'XL', size: DSize.xl)
-```
-
-## Colors
-
-```dart
-DInput(label: 'Primary', color: DColor.primary)
-DInput(label: 'Secondary', color: DColor.secondary)
-DInput(label: 'Success', color: DColor.success)
-DInput(label: 'Warning', color: DColor.warning)
-DInput(label: 'Error', color: DColor.error)
-DInput(label: 'Neutral', color: DColor.neutral)
+DInput(label: 'XS', size: DInputSize.xs)
+DInput(label: 'SM', size: DInputSize.sm)
+DInput(label: 'MD', size: DInputSize.md)
+DInput(label: 'LG', size: DInputSize.lg)
+DInput(label: 'XL', size: DInputSize.xl)
 ```
 
 ## States
@@ -120,6 +118,15 @@ DInput(
 )
 ```
 
+### Loading
+
+```dart
+DInput(
+  label: 'Loading',
+  loading: true,
+)
+```
+
 ## Icons
 
 ### Leading Icon
@@ -127,7 +134,7 @@ DInput(
 ```dart
 DInput(
   label: 'Email',
-  leadingIcon: Icons.email,
+  leadingIcon: DIcon(name: 'mail'),
 )
 ```
 
@@ -136,7 +143,7 @@ DInput(
 ```dart
 DInput(
   label: 'Search',
-  trailingIcon: Icons.search,
+  trailingIcon: DIcon(name: 'search'),
 )
 ```
 
@@ -145,9 +152,9 @@ DInput(
 ```dart
 DInput(
   label: 'Password',
-  type: 'password',
-  leadingIcon: Icons.lock,
-  trailingIcon: Icons.eyeOff,
+  type: InputType.password,
+  leadingIcon: DIcon(name: 'lock'),
+  trailingIcon: DIcon(name: 'eye-off'),
 )
 ```
 
@@ -158,30 +165,18 @@ DInput(
 ```dart
 DInput(
   label: 'Email',
-  error: true,
-  errorMessage: 'Please enter a valid email address',
+  error: 'Please enter a valid email address',
   value: 'invalid-email',
 )
 ```
 
-### Success State
-
-```dart
-DInput(
-  label: 'Username',
-  success: true,
-  helperText: 'Username is available',
-  value: 'johndoe',
-)
-```
-
-### Helper Text
+### Hint Text
 
 ```dart
 DInput(
   label: 'Password',
-  type: 'password',
-  helperText: 'Must be at least 8 characters',
+  type: InputType.password,
+  hint: 'Must be at least 8 characters',
 )
 ```
 
@@ -190,7 +185,7 @@ DInput(
 ```dart
 DInput(
   label: 'Email',
-  onChanged: (value) {
+  onInput: (value) {
     print('Input changed: $value');
   },
 )
@@ -216,25 +211,25 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Iterable<Component> build(BuildContext context) sync* {
     yield DCard(
-      body: [
+      children: [
         div(classes: 'space-y-4', [
           DInput(
             label: 'Email',
-            type: 'email',
+            type: InputType.email,
             value: _email,
-            onChanged: (v) => setState(() => _email = v),
+            onInput: (v) => setState(() => _email = v),
           ),
           DInput(
             label: 'Password',
-            type: 'password',
+            type: InputType.password,
             value: _password,
-            onChanged: (v) => setState(() => _password = v),
+            onInput: (v) => setState(() => _password = v),
           ),
           DButton(
             label: 'Sign In',
             loading: _loading,
             block: true,
-            onPressed: _handleSubmit,
+            onClick: _handleSubmit,
           ),
         ]),
       ],
@@ -249,7 +244,7 @@ class _LoginFormState extends State<LoginForm> {
 - Background colors adjust for visibility
 - Border colors soften in dark mode
 - Focus rings remain visible
-- Error/success states stay accessible
+- Error states stay accessible
 
 ## API Reference
 
@@ -257,18 +252,18 @@ class _LoginFormState extends State<LoginForm> {
 |----------|------|---------|-------------|
 | `label` | `String?` | `null` | Input label text |
 | `placeholder` | `String?` | `null` | Placeholder text |
-| `type` | `String` | `text` | Input type |
+| `name` | `String?` | `null` | Input name attribute |
+| `type` | `InputType` | `text` | Input type |
 | `variant` | `DInputVariant` | `outline` | Visual style |
-| `color` | `DColor` | `primary` | Color scheme |
-| `size` | `DSize` | `md` | Input size |
+| `size` | `DInputSize` | `md` | Input size |
 | `value` | `String?` | `null` | Input value |
+| `hint` | `String?` | `null` | Helper/hint text |
+| `error` | `String?` | `null` | Error message (shows error state) |
+| `highlightColor` | `DInputColor?` | `null` | Highlight color |
 | `disabled` | `bool` | `false` | Disable the input |
 | `readonly` | `bool` | `false` | Make read-only |
 | `required` | `bool` | `false` | Mark as required |
-| `error` | `bool` | `false` | Show error state |
-| `errorMessage` | `String?` | `null` | Error message |
-| `success` | `bool` | `false` | Show success state |
-| `helperText` | `String?` | `null` | Helper text |
-| `leadingIcon` | `IconData?` | `null` | Icon at start |
-| `trailingIcon` | `IconData?` | `null` | Icon at end |
-| `onChanged` | `ValueChanged<String>?` | `null` | Value change handler |
+| `loading` | `bool` | `false` | Show loading state |
+| `leadingIcon` | `Component?` | `null` | Icon at start |
+| `trailingIcon` | `Component?` | `null` | Icon at end |
+| `onInput` | `ValueChanged<String>?` | `null` | Value change handler |

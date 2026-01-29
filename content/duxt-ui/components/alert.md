@@ -63,13 +63,13 @@ DAlert(
 ## Colors
 
 ```dart
-DAlert(title: 'Primary', color: DColor.primary)
-DAlert(title: 'Secondary', color: DColor.secondary)
-DAlert(title: 'Success', color: DColor.success)
-DAlert(title: 'Info', color: DColor.info)
-DAlert(title: 'Warning', color: DColor.warning)
-DAlert(title: 'Error', color: DColor.error)
-DAlert(title: 'Neutral', color: DColor.neutral)
+DAlert(title: 'Primary', color: DAlertColor.primary)
+DAlert(title: 'Secondary', color: DAlertColor.secondary)
+DAlert(title: 'Success', color: DAlertColor.success)
+DAlert(title: 'Info', color: DAlertColor.info)
+DAlert(title: 'Warning', color: DAlertColor.warning)
+DAlert(title: 'Error', color: DAlertColor.error)
+DAlert(title: 'Neutral', color: DAlertColor.neutral)
 ```
 
 ## With Icon
@@ -79,7 +79,7 @@ DAlert(
   title: 'Check your email',
   description: 'We sent you a confirmation link.',
   icon: DIcon(name: 'mail'),
-  color: DColor.info,
+  color: DAlertColor.info,
 )
 ```
 
@@ -89,7 +89,7 @@ DAlert(
 DAlert(
   title: 'New message from John',
   description: 'Hey, just checking in on the project.',
-  avatar: DAvatar(src: '/john.jpg', size: DSize.sm),
+  avatar: DAvatar(src: '/john.jpg', size: DAvatarSize.sm),
 )
 ```
 
@@ -99,7 +99,6 @@ DAlert(
 DAlert(
   title: 'Dismissible Alert',
   description: 'Click the X to close this alert.',
-  closable: true,
   onClose: () => print('Alert closed'),
 )
 ```
@@ -110,16 +109,16 @@ DAlert(
 DAlert(
   title: 'Update Available',
   description: 'A new version is ready to install.',
-  color: DColor.info,
+  color: DAlertColor.info,
   actions: [
     DButton(
       label: 'Update Now',
-      size: DSize.sm,
+      size: DButtonSize.sm,
       variant: DButtonVariant.solid,
     ),
     DButton(
       label: 'Later',
-      size: DSize.sm,
+      size: DButtonSize.sm,
       variant: DButtonVariant.ghost,
     ),
   ],
@@ -133,16 +132,15 @@ DAlert(
   title: 'Payment Successful',
   description: 'Your order #12345 has been confirmed.',
   icon: DIcon(name: 'check-circle'),
-  color: DColor.success,
+  color: DAlertColor.success,
   variant: DAlertVariant.soft,
-  closable: true,
   onClose: () => print('Dismissed'),
   actions: [
     DButton(
       label: 'View Order',
-      size: DSize.sm,
+      size: DButtonSize.sm,
       variant: DButtonVariant.outline,
-      color: DColor.success,
+      color: DButtonColor.success,
     ),
   ],
 )
@@ -163,9 +161,8 @@ DAlert(
 | `title` | `String?` | `null` | Alert title |
 | `description` | `String?` | `null` | Alert description |
 | `variant` | `DAlertVariant` | `soft` | Visual style |
-| `color` | `DColor` | `primary` | Color scheme |
+| `color` | `DAlertColor` | `primary` | Color scheme |
 | `icon` | `Component?` | `null` | Leading icon |
 | `avatar` | `Component?` | `null` | Leading avatar |
-| `closable` | `bool` | `false` | Show close button |
-| `onClose` | `VoidCallback?` | `null` | Close callback |
-| `actions` | `List<Component>?` | `null` | Action buttons |
+| `onClose` | `VoidCallback?` | `null` | Close callback (shows close button when set) |
+| `actions` | `List<Component>` | `[]` | Action buttons |

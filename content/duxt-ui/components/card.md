@@ -7,13 +7,13 @@ order: 2
 
 # Card
 
-The `DCard` component provides a flexible container for displaying content with optional header, body, and footer sections.
+The `DCard` component provides a flexible container for displaying content with optional header and footer sections.
 
 ## Basic Usage
 
 ```dart
 DCard(
-  body: [
+  children: [
     p([text('This is a basic card.')]),
   ],
 )
@@ -23,10 +23,11 @@ DCard(
 
 ```dart
 DCard(
-  header: [
-    h3([text('Card Title')]),
-  ],
-  body: [
+  header: DCardHeader(
+    title: 'Card Title',
+    description: 'Optional description',
+  ),
+  children: [
     p([text('Card content goes here.')]),
   ],
 )
@@ -36,12 +37,15 @@ DCard(
 
 ```dart
 DCard(
-  body: [
+  children: [
     p([text('Card content')]),
   ],
-  footer: [
-    DButton(label: 'Action'),
-  ],
+  footer: DCardFooter(
+    children: [
+      DButton(label: 'Cancel', variant: DButtonVariant.ghost),
+      DButton(label: 'Save'),
+    ],
+  ),
 )
 ```
 
@@ -49,13 +53,11 @@ DCard(
 
 ```dart
 DCard(
-  header: [
-    div(classes: 'flex items-center justify-between', [
-      h3(classes: 'font-semibold', [text('User Profile')]),
-      DBadge(label: 'Active'),
-    ]),
-  ],
-  body: [
+  header: DCardHeader(
+    title: 'User Profile',
+    trailing: DBadge(label: 'Active', color: DBadgeColor.success),
+  ),
+  children: [
     div(classes: 'flex items-center gap-4', [
       DAvatar(src: 'user.jpg'),
       div([
@@ -64,59 +66,61 @@ DCard(
       ]),
     ]),
   ],
-  footer: [
-    div(classes: 'flex gap-2', [
+  footer: DCardFooter(
+    children: [
       DButton(label: 'Edit', variant: DButtonVariant.outline),
-      DButton(label: 'Delete', color: DColor.error),
-    ]),
-  ],
+      DButton(label: 'Delete', color: DButtonColor.error),
+    ],
+  ),
 )
 ```
 
 ## Variants
 
-### Default
+### Outline (Default)
 
 ```dart
 DCard(
-  variant: DCardVariant.default_,
-  body: [text('Default card')],
+  variant: DCardVariant.outline,
+  children: [text('Outlined card with border')],
 )
 ```
 
-### Outlined
+### Solid
 
 ```dart
 DCard(
-  variant: DCardVariant.outlined,
-  body: [text('Outlined card')],
+  variant: DCardVariant.solid,
+  children: [text('Solid card with filled background')],
 )
 ```
 
-### Elevated
+### Soft
 
 ```dart
 DCard(
-  variant: DCardVariant.elevated,
-  body: [text('Elevated card')],
+  variant: DCardVariant.soft,
+  children: [text('Soft card with subtle background')],
 )
 ```
 
-## Clickable Card
+### Subtle
 
 ```dart
 DCard(
-  body: [text('Click me!')],
-  onPressed: () => print('Card clicked'),
+  variant: DCardVariant.subtle,
+  children: [text('Subtle card with soft background and border')],
 )
 ```
 
-## As Link
+## No Padding
 
 ```dart
 DCard(
-  body: [text('Click to navigate')],
-  href: '/destination',
+  noPadding: true,
+  children: [
+    img(src: '/image.jpg', classes: 'w-full'),
+  ],
 )
 ```
 
@@ -125,17 +129,32 @@ DCard(
 `DCard` automatically adapts to dark mode:
 - Background colors adjust for proper contrast
 - Borders are optimized for dark backgrounds
-- Shadow effects adapt for visibility
+- Dividers between sections adapt accordingly
 - All variants work seamlessly in both modes
 
 ## API Reference
 
+### DCard
+
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `header` | `List<Component>?` | `null` | Header content |
-| `body` | `List<Component>` | required | Main content |
-| `footer` | `List<Component>?` | `null` | Footer content |
-| `variant` | `DCardVariant` | `default_` | Visual style |
-| `padding` | `bool` | `true` | Add padding to sections |
-| `href` | `String?` | `null` | Link URL |
-| `onPressed` | `VoidCallback?` | `null` | Click handler |
+| `header` | `Component?` | `null` | Header content (use DCardHeader) |
+| `children` | `List<Component>` | `[]` | Main content |
+| `footer` | `Component?` | `null` | Footer content (use DCardFooter) |
+| `variant` | `DCardVariant` | `outline` | Visual style |
+| `noPadding` | `bool` | `false` | Remove body padding |
+| `classes` | `String?` | `null` | Additional CSS classes |
+
+### DCardHeader
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `title` | `String?` | `null` | Header title |
+| `description` | `String?` | `null` | Header description |
+| `trailing` | `Component?` | `null` | Trailing content (badge, button, etc.) |
+
+### DCardFooter
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `children` | `List<Component>` | `[]` | Footer content (typically buttons) |

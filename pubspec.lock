@@ -193,6 +193,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.3"
+  duxt_ui:
+    dependency: "direct main"
+    description:
+      name: duxt_ui
+      sha256: "02aade89e82f72f6cc59068bc3432448d0d79bdeaf1168a4900e314c6c2dc716"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.1"
   fbh_front_matter:
     dependency: transitive
     description:

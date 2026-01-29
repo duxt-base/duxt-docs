@@ -1,6 +1,6 @@
 ---
 title: Button
-description: A button element that can act as a link or trigger an action.
+description: A button element that can trigger an action.
 layout: ui-layout
 order: 1
 ---
@@ -14,7 +14,7 @@ The `DButton` component is a versatile button that supports multiple variants, s
 ```dart
 DButton(
   label: 'Click me',
-  onPressed: () => print('Clicked!'),
+  onClick: () => print('Clicked!'),
 )
 ```
 
@@ -77,23 +77,23 @@ DButton(
 ## Colors
 
 ```dart
-DButton(label: 'Primary', color: DColor.primary)
-DButton(label: 'Secondary', color: DColor.secondary)
-DButton(label: 'Success', color: DColor.success)
-DButton(label: 'Info', color: DColor.info)
-DButton(label: 'Warning', color: DColor.warning)
-DButton(label: 'Error', color: DColor.error)
-DButton(label: 'Neutral', color: DColor.neutral)
+DButton(label: 'Primary', color: DButtonColor.primary)
+DButton(label: 'Secondary', color: DButtonColor.secondary)
+DButton(label: 'Success', color: DButtonColor.success)
+DButton(label: 'Info', color: DButtonColor.info)
+DButton(label: 'Warning', color: DButtonColor.warning)
+DButton(label: 'Error', color: DButtonColor.error)
+DButton(label: 'Neutral', color: DButtonColor.neutral)
 ```
 
 ## Sizes
 
 ```dart
-DButton(label: 'XS', size: DSize.xs)
-DButton(label: 'SM', size: DSize.sm)
-DButton(label: 'MD', size: DSize.md)
-DButton(label: 'LG', size: DSize.lg)
-DButton(label: 'XL', size: DSize.xl)
+DButton(label: 'XS', size: DButtonSize.xs)
+DButton(label: 'SM', size: DButtonSize.sm)
+DButton(label: 'MD', size: DButtonSize.md)
+DButton(label: 'LG', size: DButtonSize.lg)
+DButton(label: 'XL', size: DButtonSize.xl)
 ```
 
 ## With Icons
@@ -101,12 +101,22 @@ DButton(label: 'XL', size: DSize.xl)
 ```dart
 DButton(
   label: 'Download',
-  leadingIcon: Icons.download,
+  leadingIcon: DIcon(name: 'download'),
 )
 
 DButton(
   label: 'Next',
-  trailingIcon: Icons.arrow_right,
+  trailingIcon: DIcon(name: 'arrow-right'),
+)
+```
+
+## Icon Only Button
+
+```dart
+DButton(
+  leadingIcon: DIcon(name: 'plus'),
+  variant: DButtonVariant.ghost,
+  square: true,
 )
 ```
 
@@ -137,16 +147,6 @@ DButton(
 )
 ```
 
-## As Link
-
-```dart
-DButton(
-  label: 'Visit Site',
-  href: 'https://example.com',
-  target: Target.blank,
-)
-```
-
 ## Dark Mode Support
 
 `DButton` automatically adapts to dark mode:
@@ -159,15 +159,14 @@ DButton(
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `label` | `String` | required | Button text |
+| `label` | `String?` | `null` | Button text |
 | `variant` | `DButtonVariant` | `solid` | Visual style |
-| `color` | `DColor` | `primary` | Color scheme |
-| `size` | `DSize` | `md` | Button size |
+| `color` | `DButtonColor` | `primary` | Color scheme |
+| `size` | `DButtonSize` | `md` | Button size |
 | `loading` | `bool` | `false` | Show loading state |
 | `disabled` | `bool` | `false` | Disable interaction |
 | `block` | `bool` | `false` | Full width |
-| `leadingIcon` | `IconData?` | `null` | Icon before label |
-| `trailingIcon` | `IconData?` | `null` | Icon after label |
-| `href` | `String?` | `null` | Link URL |
-| `target` | `Target?` | `null` | Link target |
-| `onPressed` | `VoidCallback?` | `null` | Click handler |
+| `square` | `bool` | `false` | Square button (for icon-only) |
+| `leadingIcon` | `Component?` | `null` | Icon before label |
+| `trailingIcon` | `Component?` | `null` | Icon after label |
+| `onClick` | `VoidCallback?` | `null` | Click handler |

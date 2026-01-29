@@ -17,6 +17,7 @@ import 'package:jaspr_content/theme.dart';
 import 'layouts/duxt_layout.dart';
 import 'layouts/ui_layout.dart';
 import 'layouts/landing_layout.dart';
+import 'components/ui_preview.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
 import 'main.server.options.dart';
@@ -56,6 +57,9 @@ void main() {
           CodeBlock(),
           // Adds zooming and caption support to images.
           Image(zoom: true),
+          // Live Duxt UI component previews
+          UiPreview(),
+          UiPreviewCard(),
         ],
         layouts: [
           // Duxt Framework documentation

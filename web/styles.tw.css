@@ -3,6 +3,8 @@
 /* Tell Tailwind where to scan for classes */
 @source "../content/**/*.md";
 @source "../lib/**/*.dart";
+/* Include duxt_ui package for component styles */
+@source "../packages_duxt_ui/**/*.dart";
 
 /* Set Nunito as default font */
 body {

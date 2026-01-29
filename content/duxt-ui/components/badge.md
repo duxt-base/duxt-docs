@@ -56,23 +56,23 @@ DBadge(
 ## Colors
 
 ```dart
-DBadge(label: 'Primary', color: DColor.primary)
-DBadge(label: 'Secondary', color: DColor.secondary)
-DBadge(label: 'Success', color: DColor.success)
-DBadge(label: 'Info', color: DColor.info)
-DBadge(label: 'Warning', color: DColor.warning)
-DBadge(label: 'Error', color: DColor.error)
-DBadge(label: 'Neutral', color: DColor.neutral)
+DBadge(label: 'Primary', color: DBadgeColor.primary)
+DBadge(label: 'Secondary', color: DBadgeColor.secondary)
+DBadge(label: 'Success', color: DBadgeColor.success)
+DBadge(label: 'Info', color: DBadgeColor.info)
+DBadge(label: 'Warning', color: DBadgeColor.warning)
+DBadge(label: 'Error', color: DBadgeColor.error)
+DBadge(label: 'Neutral', color: DBadgeColor.neutral)
 ```
 
 ## Sizes
 
 ```dart
-DBadge(label: 'XS', size: DSize.xs)
-DBadge(label: 'SM', size: DSize.sm)
-DBadge(label: 'MD', size: DSize.md)
-DBadge(label: 'LG', size: DSize.lg)
-DBadge(label: 'XL', size: DSize.xl)
+DBadge(label: 'XS', size: DBadgeSize.xs)
+DBadge(label: 'SM', size: DBadgeSize.sm)
+DBadge(label: 'MD', size: DBadgeSize.md)
+DBadge(label: 'LG', size: DBadgeSize.lg)
+DBadge(label: 'XL', size: DBadgeSize.xl)
 ```
 
 ## With Icons
@@ -83,7 +83,7 @@ DBadge(label: 'XL', size: DSize.xl)
 DBadge(
   label: 'Active',
   leadingIcon: DIcon(name: 'check'),
-  color: DColor.success,
+  color: DBadgeColor.success,
 )
 ```
 
@@ -93,7 +93,7 @@ DBadge(
 DBadge(
   label: 'Remove',
   trailingIcon: DIcon(name: 'x'),
-  color: DColor.error,
+  color: DBadgeColor.error,
 )
 ```
 
@@ -105,21 +105,21 @@ DBadge(
 // Online status
 DBadge(
   label: 'Online',
-  color: DColor.success,
+  color: DBadgeColor.success,
   variant: DBadgeVariant.soft,
 )
 
 // Pending status
 DBadge(
   label: 'Pending',
-  color: DColor.warning,
+  color: DBadgeColor.warning,
   variant: DBadgeVariant.soft,
 )
 
 // Error status
 DBadge(
   label: 'Failed',
-  color: DColor.error,
+  color: DBadgeColor.error,
   variant: DBadgeVariant.soft,
 )
 ```
@@ -129,9 +129,9 @@ DBadge(
 ```dart
 DBadge(
   label: '5',
-  color: DColor.error,
+  color: DBadgeColor.error,
   variant: DBadgeVariant.solid,
-  size: DSize.xs,
+  size: DBadgeSize.xs,
 )
 ```
 
@@ -139,9 +139,9 @@ DBadge(
 
 ```dart
 Row([
-  DBadge(label: 'Flutter', color: DColor.info),
-  DBadge(label: 'Dart', color: DColor.primary),
-  DBadge(label: 'Web', color: DColor.secondary),
+  DBadge(label: 'Flutter', color: DBadgeColor.info),
+  DBadge(label: 'Dart', color: DBadgeColor.primary),
+  DBadge(label: 'Web', color: DBadgeColor.secondary),
 ])
 ```
 
@@ -154,7 +154,7 @@ DCard(
       h3([text('Project Status')]),
       DBadge(
         label: 'In Progress',
-        color: DColor.warning,
+        color: DBadgeColor.warning,
         variant: DBadgeVariant.soft,
       ),
     ]),
@@ -179,7 +179,7 @@ DCard(
 |----------|------|---------|-------------|
 | `label` | `String` | required | Badge text |
 | `variant` | `DBadgeVariant` | `soft` | Visual style |
-| `color` | `DColor` | `primary` | Color scheme |
-| `size` | `DSize` | `sm` | Badge size |
+| `color` | `DBadgeColor` | `primary` | Color scheme |
+| `size` | `DBadgeSize` | `md` | Badge size |
 | `leadingIcon` | `Component?` | `null` | Icon before label |
 | `trailingIcon` | `Component?` | `null` | Icon after label |
