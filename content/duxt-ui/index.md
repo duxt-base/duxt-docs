@@ -102,39 +102,53 @@ DCard(
 
 - [DButton](/duxt-ui/components/button) - Buttons and actions
 - [DInput](/duxt-ui/components/input) - Text inputs
-- `DTextarea` - Multi-line text
-- `DSelect` - Dropdown selection
-- `DCheckbox` - Checkboxes
-- `DRadio` - Radio buttons
-- `DSwitch` - Toggle switches
+- [DTextarea](/duxt-ui/components/textarea) - Multi-line text
+- [DSelect](/duxt-ui/components/select) - Dropdown selection
+- [DCheckbox](/duxt-ui/components/checkbox) - Checkboxes
+- [DSwitch](/duxt-ui/components/switch) - Toggle switches
+- [DSlider](/duxt-ui/components/slider) - Range sliders
 
 ### Layout Components
 
 - [DCard](/duxt-ui/components/card) - Content containers
-- `DDivider` - Visual separators
-- `DContainer` - Page containers
-- `DSkeleton` - Loading placeholders
+- [DContainer](/duxt-ui/components/container) - Page containers
+- [DSeparator](/duxt-ui/components/separator) - Visual separators
+- [DAccordion](/duxt-ui/components/accordion) - Collapsible sections
+- [DCollapsible](/duxt-ui/components/collapsible) - Single expand/collapse
 
 ### Navigation
 
-- `DTabs` - Tab navigation
-- `DBreadcrumb` - Breadcrumbs
-- `DPagination` - Page navigation
-- `DDropdown` - Dropdown menus
+- [DTabs](/duxt-ui/components/tabs) - Tab navigation
+- [DBreadcrumb](/duxt-ui/components/breadcrumb) - Breadcrumbs
+- [DPagination](/duxt-ui/components/pagination) - Page navigation
+- [DDropdown](/duxt-ui/components/dropdown) - Dropdown menus
 
 ### Feedback
 
-- `DAlert` - Alert messages
-- `DBadge` - Status badges
-- `DTooltip` - Hover tooltips
-- `DModal` - Modal dialogs
-- `DToast` - Toast notifications
+- [DAlert](/duxt-ui/components/alert) - Alert messages
+- [DBadge](/duxt-ui/components/badge) - Status badges
+- [DToast](/duxt-ui/components/toast) - Toast notifications
+- [DSpinner](/duxt-ui/components/spinner) - Loading spinners
+- [DSkeleton](/duxt-ui/components/skeleton) - Loading placeholders
+
+### Overlay
+
+- [DModal](/duxt-ui/components/modal) - Modal dialogs
+- [DSlideover](/duxt-ui/components/slideover) - Slide-out panels
+- [DTooltip](/duxt-ui/components/tooltip) - Hover tooltips
+- [DPopover](/duxt-ui/components/popover) - Click-triggered popovers
 
 ### Data Display
 
-- `DAvatar` - User avatars
-- `DTable` - Data tables
-- `DAccordion` - Collapsible sections
+- [DAvatar](/duxt-ui/components/avatar) - User avatars
+- [DTable](/duxt-ui/components/table) - Data tables
+- [DProgress](/duxt-ui/components/progress) - Progress indicators
+- [DIcon](/duxt-ui/components/icon) - Icon display
+- [DKbd](/duxt-ui/components/kbd) - Keyboard shortcuts
+
+### Theme
+
+- [Theme](/duxt-ui/components/theme) - Theme provider and dark mode
 
 ## Quick Example
 
