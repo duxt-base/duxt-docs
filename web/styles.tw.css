@@ -3,3 +3,8 @@
 /* Tell Tailwind where to scan for classes */
 @source "../content/**/*.md";
 @source "../lib/**/*.dart";
+
+/* Set Nunito as default font */
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+}

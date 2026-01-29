@@ -1,7 +1,7 @@
 ---
 title: Duxt - The Meta-Framework for Jaspr
 description: Build full-stack Dart web apps with module-based architecture, file-based routing, and powerful scaffolding.
-layout: landing
+layout: landing-layout
 ---
 
 <style>

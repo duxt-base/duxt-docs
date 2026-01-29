@@ -126,7 +126,7 @@ header(classes: 'flex items-center justify-between p-4', [
 
 The theme system generates CSS variables that can be used in your styles:
 
-```css
+```
 :root {
   --color-primary: #22c55e;
   --color-secondary: #3b82f6;
