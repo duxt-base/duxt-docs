@@ -8,12 +8,14 @@ class SiteHeader extends StatelessComponent {
   const SiteHeader({
     required this.logo,
     this.logoAlt = 'Duxt',
+    this.version,
     this.items = const [],
     super.key,
   });
 
   final String logo;
   final String logoAlt;
+  final String? version;
   final List<Component> items;
 
   @override
@@ -25,6 +27,8 @@ class SiteHeader extends StatelessComponent {
         a(classes: 'site-logo', href: '/', [
           img(src: logo, alt: logoAlt, width: 32, height: 32),
         ]),
+        if (version != null)
+          span(classes: 'site-version', [text('v$version')]),
         div(classes: 'site-nav', items),
       ]),
     ]);
@@ -58,6 +62,18 @@ class SiteHeader extends StatelessComponent {
       css('img').styles(
         height: 2.rem,
         width: Unit.auto,
+      ),
+    ]),
+    css('.site-version', [
+      css('&').styles(
+        padding: Padding.symmetric(horizontal: 0.5.rem, vertical: 0.125.rem),
+        backgroundColor: Color('#22d3ee20'),
+        color: Color('#22d3ee'),
+        fontFamily: FontFamily('monospace'),
+        raw: {
+          'font-size': '0.75rem',
+          'border-radius': '4px',
+        },
       ),
     ]),
     css('.site-nav', [
