@@ -20,6 +20,7 @@ class LandingLayout extends PageLayoutBase {
       SiteHeader(
         logo: '/images/logo.svg',
         logoAlt: 'Duxt - The Meta-Framework for Jaspr',
+        version: '0.3.2',
         items: [
           NavLink(href: '/duxt', text: 'Duxt'),
           NavLink(href: '/duxt-ui', text: 'Duxt UI'),

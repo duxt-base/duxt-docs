@@ -35,7 +35,7 @@ class DuxtLayout extends PageLayoutBase {
         SidebarDuxt(),
         // Content
         main_(classes: 'flex-1 p-8 max-w-4xl', [
-          article(classes: 'prose prose-invert max-w-none', [child]),
+          article(classes: 'prose dark:prose-invert max-w-none', [child]),
         ]),
       ]),
     ]);
