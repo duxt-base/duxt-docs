@@ -11,13 +11,13 @@ order: 8
 
 Install the Duxt CLI globally:
 
-```bash
+```
 dart pub global activate duxt
 ```
 
 Verify the installation:
 
-```bash
+```
 duxt --version
 ```
 
@@ -35,7 +35,7 @@ duxt --version
 
 Create a new Duxt project with the recommended structure:
 
-```bash
+```
 duxt create my-app
 cd my-app
 duxt dev
@@ -43,7 +43,7 @@ duxt dev
 
 This creates:
 
-```shell
+```
 my-app/
 ├── lib/
 │   ├── home/pages/index.dart       → /
@@ -70,7 +70,7 @@ my-app/
 
 Start development server with hot reload:
 
-```bash
+```
 duxt dev
 ```
 
@@ -82,7 +82,7 @@ This will:
 
 ### Options
 
-```bash
+```
 duxt dev --port=4000        # Frontend port (default: 4000)
 duxt dev --api-port=3001    # API port (default: 3001)
 duxt dev --no-api           # Skip API server
@@ -90,7 +90,7 @@ duxt dev --no-api           # Skip API server
 
 ### Output
 
-```shell
+```
 ╭─────────────────────────────────────╮
 │  Duxt Development Server            │
 ╰─────────────────────────────────────╯
@@ -109,7 +109,7 @@ duxt dev --no-api           # Skip API server
 
 Build your application for production:
 
-```bash
+```
 duxt build
 ```
 
@@ -119,7 +119,7 @@ This creates:
 
 ### Options
 
-```bash
+```
 duxt build --output=.output           # Output directory (default: .output)
 duxt build --target=linux-x64         # Target platform
 duxt build --target=linux-arm64
@@ -130,7 +130,7 @@ duxt build --all-targets              # Build for all platforms
 
 ### Output
 
-```shell
+```
 .output/
 ├── public/              Static frontend files
 ├── server-linux-x64     Linux x64 binary
@@ -154,7 +154,7 @@ Generate various file types:
 
 ### Page
 
-```bash
+```
 duxt g page posts/index
 duxt g p posts/[id]
 duxt g page posts/[id]/edit
@@ -162,35 +162,35 @@ duxt g page posts/[id]/edit
 
 ### Component
 
-```bash
+```
 duxt g component posts/card
 duxt g c posts/card
 ```
 
 ### Model
 
-```bash
+```
 duxt g model post
 duxt g m post id:int title:String content:String
 ```
 
 ### API
 
-```bash
+```
 duxt g api posts
 duxt g a posts
 ```
 
 ### Layout
 
-```bash
+```
 duxt g layout dashboard
 duxt g l dashboard
 ```
 
 ### Module
 
-```bash
+```
 duxt g module posts
 ```
 
@@ -198,13 +198,13 @@ duxt g module posts
 
 Generate a complete CRUD module:
 
-```bash
+```
 duxt scaffold posts title:String content:String author:String
 ```
 
 This generates:
 
-```shell
+```
 lib/posts/
 ├── pages/
 │   ├── index.dart

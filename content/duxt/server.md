@@ -11,7 +11,7 @@ order: 9
 
 Duxt provides a fullstack development experience. The `server/` directory contains your backend code:
 
-```shell
+```
 server/
 ├── main.dart           Entry point
 ├── db.dart             Database connection
@@ -27,7 +27,7 @@ Run `duxt dev` to start both frontend and API server simultaneously.
 
 The default template includes a complete blog example with SQLite:
 
-```bash
+```
 duxt create my_app
 cd my_app
 duxt dev
@@ -269,7 +269,7 @@ Future<List<Post>> fetchPosts() async {
 
 ## Development
 
-```bash
+```
 # Start both frontend and API
 duxt dev
 
@@ -281,7 +281,7 @@ duxt dev --no-api           # Skip API server
 
 ## Production Build
 
-```bash
+```
 # Build for current platform
 duxt build
 
@@ -297,7 +297,7 @@ duxt build --all-targets
 
 ### Output Structure
 
-```shell
+```
 .output/
 ├── public/              Static frontend files
 └── server-<target>      Server binary (e.g., server-linux-x64)
@@ -309,7 +309,7 @@ duxt build --all-targets
 
 **Server:** Run the binary on your server:
 
-```bash
+```
 # On your server
 ./.output/server-linux-x64
 ```
