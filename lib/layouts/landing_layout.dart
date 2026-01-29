@@ -27,8 +27,8 @@ class LandingLayout extends PageLayoutBase {
           ThemeToggle(),
         ],
       ),
-      // Page content
-      child,
+      // Page content with main landmark for accessibility
+      main_([child]),
     ]);
   }
 }

@@ -38,7 +38,7 @@ section.content, main, .content { background: transparent !important; padding: 0
               <span style="color: white; font-weight: 600;">Flak</span>
               <span style="color: #71717a;">@flakerimi</span>
             </div>
-            <span style="color: #52525b; font-size: 14px;">Jan 28, 2026</span>
+            <span style="color: #71717a; font-size: 14px;">Jan 28, 2026</span>
           </div>
         </div>
         <div style="padding: 0 24px 24px;">
@@ -141,7 +141,7 @@ section.content, main, .content { background: transparent !important; padding: 0
             <div style="color: white; font-weight: 600; margin-bottom: 4px;">Jaspr</div>
             <div style="color: #71717a; font-size: 14px;">The modern Dart web framework for building websites</div>
           </div>
-          <svg width="20" height="20" fill="none" stroke="#52525b" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          <svg width="20" height="20" fill="none" stroke="#71717a" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
         </a>
         <a href="https://tailwindcss.com" target="_blank" class="stack-card" style="text-decoration: none; transition: all 0.2s;">
           <div class="stack-icon">
@@ -151,7 +151,7 @@ section.content, main, .content { background: transparent !important; padding: 0
             <div style="color: white; font-weight: 600; margin-bottom: 4px;">Tailwind CSS</div>
             <div style="color: #71717a; font-size: 14px;">Utility-first CSS framework for rapid UI development</div>
           </div>
-          <svg width="20" height="20" fill="none" stroke="#52525b" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          <svg width="20" height="20" fill="none" stroke="#71717a" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
         </a>
         <a href="https://dart.dev" target="_blank" class="stack-card" style="text-decoration: none; transition: all 0.2s;">
           <div class="stack-icon">
@@ -161,7 +161,7 @@ section.content, main, .content { background: transparent !important; padding: 0
             <div style="color: white; font-weight: 600; margin-bottom: 4px;">Dart</div>
             <div style="color: #71717a; font-size: 14px;">Client-optimized language for fast apps on any platform</div>
           </div>
-          <svg width="20" height="20" fill="none" stroke="#52525b" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          <svg width="20" height="20" fill="none" stroke="#71717a" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
         </a>
       </div>
     </div>
@@ -201,7 +201,7 @@ section.content, main, .content { background: transparent !important; padding: 0
         <img src="/images/logo.svg" alt="Duxt" style="height: 24px; width: 24px;" />
         <span style="font-weight: 500;">Duxt</span>
       </div>
-      <p style="color: #52525b; font-size: 14px;">Built with Jaspr and Dart. Open source under MIT License.</p>
+      <p style="color: #71717a; font-size: 14px;">Built with Jaspr and Dart. Open source under MIT License.</p>
     </div>
   </footer>
 </div>

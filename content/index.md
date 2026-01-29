@@ -53,11 +53,11 @@ section.content, main, .content { background: transparent !important; padding: 0
           <span style="margin-left: 12px; color: #71717a; font-size: 14px; font-weight: 500;">Terminal</span>
         </div>
         <div class="terminal-body">
-          <div style="line-height: 1.8; color: #52525b;">// Install the CLI globally</div>
+          <div style="line-height: 1.8; color: #71717a;">// Install the CLI globally</div>
           <div style="line-height: 1.8;"><span style="color: #22d3ee;">$</span> <span style="color: #d4d4d8;">dart pub global activate duxt</span></div>
-          <div style="line-height: 1.8; margin-top: 16px; color: #52525b;">// Create a new project</div>
+          <div style="line-height: 1.8; margin-top: 16px; color: #71717a;">// Create a new project</div>
           <div style="line-height: 1.8;"><span style="color: #22d3ee;">$</span> <span style="color: #d4d4d8;">duxt create my-app</span></div>
-          <div style="line-height: 1.8; margin-top: 16px; color: #52525b;">// Start developing</div>
+          <div style="line-height: 1.8; margin-top: 16px; color: #71717a;">// Start developing</div>
           <div style="line-height: 1.8;"><span style="color: #22d3ee;">$</span> <span style="color: #d4d4d8;">cd my-app && duxt dev</span></div>
           <div style="line-height: 1.8; margin-top: 16px; color: #22c55e;">✓ Server running at http://localhost:8080</div>
         </div>
@@ -123,14 +123,14 @@ section.content, main, .content { background: transparent !important; padding: 0
         <div class="code-box">
           <div style="color: #71717a; margin-bottom: 16px;">pages/</div>
           <div style="color: #d4d4d8; line-height: 1.8;">
-            <div>index.dart <span style="color: #52525b;">→</span> <span style="color: #22d3ee;">/</span></div>
-            <div>about.dart <span style="color: #52525b;">→</span> <span style="color: #22d3ee;">/about</span></div>
+            <div>index.dart <span style="color: #71717a;">→</span> <span style="color: #22d3ee;">/</span></div>
+            <div>about.dart <span style="color: #71717a;">→</span> <span style="color: #22d3ee;">/about</span></div>
             <div>blog/</div>
-            <div style="padding-left: 16px;">index.dart <span style="color: #52525b;">→</span> <span style="color: #22d3ee;">/blog</span></div>
-            <div style="padding-left: 16px;">[slug].dart <span style="color: #52525b;">→</span> <span style="color: #22d3ee;">/blog/:slug</span></div>
+            <div style="padding-left: 16px;">index.dart <span style="color: #71717a;">→</span> <span style="color: #22d3ee;">/blog</span></div>
+            <div style="padding-left: 16px;">[slug].dart <span style="color: #71717a;">→</span> <span style="color: #22d3ee;">/blog/:slug</span></div>
             <div>users/</div>
             <div style="padding-left: 16px;">[id]/</div>
-            <div style="padding-left: 32px;">index.dart <span style="color: #52525b;">→</span> <span style="color: #22d3ee;">/users/:id</span></div>
+            <div style="padding-left: 32px;">index.dart <span style="color: #71717a;">→</span> <span style="color: #22d3ee;">/users/:id</span></div>
           </div>
         </div>
         <div>
@@ -156,11 +156,11 @@ section.content, main, .content { background: transparent !important; padding: 0
           </ul>
         </div>
         <div class="code-box" style="line-height: 1.8;">
-          <div style="color: #52525b; margin-bottom: 4px;">// Generate a new module</div>
+          <div style="color: #71717a; margin-bottom: 4px;">// Generate a new module</div>
           <div style="margin-bottom: 16px;"><span style="color: #22d3ee;">$</span> <span style="color: #d4d4d8;">duxt g module users</span></div>
-          <div style="color: #52525b; margin-bottom: 4px;">// Generate a page</div>
+          <div style="color: #71717a; margin-bottom: 4px;">// Generate a page</div>
           <div style="margin-bottom: 16px;"><span style="color: #22d3ee;">$</span> <span style="color: #d4d4d8;">duxt g page users/profile</span></div>
-          <div style="color: #52525b; margin-bottom: 4px;">// Generate full CRUD</div>
+          <div style="color: #71717a; margin-bottom: 4px;">// Generate full CRUD</div>
           <div style="margin-bottom: 16px;"><span style="color: #22d3ee;">$</span> <span style="color: #d4d4d8;">duxt g crud products</span></div>
           <div style="padding-top: 12px; border-top: 1px solid #27272a; color: #22c55e;">✓ Created 8 files</div>
         </div>
@@ -256,7 +256,7 @@ section.content, main, .content { background: transparent !important; padding: 0
           <img src="/images/logo.svg" alt="Duxt" style="height: 24px; width: 24px;" />
           <span style="font-weight: 500;">Duxt</span>
         </div>
-        <p style="color: #52525b; font-size: 14px;">Built with Jaspr and Dart. Open source under MIT License.</p>
+        <p style="color: #71717a; font-size: 14px;">Built with Jaspr and Dart. Open source under MIT License.</p>
       </div>
     </div>
   </footer>

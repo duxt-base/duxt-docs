@@ -23,7 +23,7 @@ class SiteHeader extends StatelessComponent {
       header(classes: 'site-header', [
         SidebarToggleButton(),
         a(classes: 'site-logo', href: '/', [
-          img(src: logo, alt: logoAlt),
+          img(src: logo, alt: logoAlt, width: 32, height: 32),
         ]),
         div(classes: 'site-nav', items),
       ]),
