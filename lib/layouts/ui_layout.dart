@@ -21,7 +21,7 @@ class UiLayout extends PageLayoutBase {
       SiteHeader(
         logo: '/images/logo.svg',
         logoAlt: 'Duxt',
-        version: '0.3.2',
+        version: '0.3.3',
         items: [
           NavLink(href: '/duxt', text: 'Duxt'),
           NavLink(href: '/duxt-ui', text: 'Duxt UI'),
