@@ -4,4 +4,4 @@ domain: duxt.dev
 public: build/jaspr
 
 build:
-  command: dart pub global run jaspr_cli:jaspr build --sitemap-domain=duxt.dev
+  command: dart pub get && dart pub global run jaspr_cli:jaspr build --sitemap-domain=duxt.dev

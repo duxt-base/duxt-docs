@@ -1,6 +1,6 @@
 ---
 title: Server API
-description: Build backend APIs with DuxtServer.
+description: Build backend APIs with DuxtServer and SQLite.
 layout: duxt-layout
 order: 9
 ---
@@ -9,280 +9,318 @@ order: 9
 
 ## Overview
 
-`DuxtServer` provides a simple, Express-like API for building backend services in Dart. It's built on top of Shelf and provides routing, middleware, and request/response helpers.
+Duxt provides a fullstack development experience. The `server/` directory contains your backend code:
 
-## Getting Started
+```
+server/
+├── main.dart           Entry point
+├── db.dart             Database connection
+├── models/
+│   └── post.dart       Data models
+└── api/
+    └── posts.dart      API routes
+```
 
-Create a new server entry point:
+Run `duxt dev` to start both frontend and API server simultaneously.
+
+## Quick Start
+
+The default template includes a complete blog example with SQLite:
+
+```bash
+duxt create my_app
+cd my_app
+duxt dev
+```
+
+This starts:
+- **Frontend**: http://localhost:4000
+- **API**: http://localhost:3001
+
+## Database Setup
+
+### server/db.dart
 
 ```dart
-// lib/api/server.dart
-import 'package:duxt/server.dart';
+import 'package:sqlite3/sqlite3.dart' as sqlite;
 
-void main() {
-  final server = DuxtServer();
+class Db {
+  static late sqlite.Database _db;
 
-  server.get('/hello', (req, res) {
-    return res.json({'message': 'Hello, World!'});
-  });
+  static void init([String path = 'blog.db']) {
+    _db = sqlite.sqlite3.open(path);
+    _createTables();
+  }
 
-  server.listen(port: 3000);
-  print('Server running on http://localhost:3000');
+  static void _createTables() {
+    _db.execute('''
+      CREATE TABLE IF NOT EXISTS posts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        slug TEXT UNIQUE NOT NULL,
+        content TEXT NOT NULL,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    ''');
+  }
+
+  static sqlite.Database get db => _db;
 }
 ```
 
-Run the server:
+## Models
 
-```
-dart run lib/api/server.dart
-```
-
-## Routing
-
-### Basic Routes
+### server/models/post.dart
 
 ```dart
-final server = DuxtServer();
+import 'package:sqlite3/sqlite3.dart' as sqlite;
+import '../db.dart';
 
-server.get('/posts', (req, res) async {
-  final posts = await db.posts.findAll();
-  return res.json(posts);
-});
+class Post {
+  final int? id;
+  final String title;
+  final String slug;
+  final String content;
 
-server.post('/posts', (req, res) async {
-  final body = req.body;
-  final post = await db.posts.create(body);
-  return res.json(post, status: 201);
-});
+  Post({this.id, required this.title, required this.slug, required this.content});
 
-server.put('/posts/:id', (req, res) async {
-  final id = req.params['id'];
-  final body = req.body;
-  final post = await db.posts.update(id, body);
-  return res.json(post);
-});
+  factory Post.fromRow(sqlite.Row row) => Post(
+    id: row['id'] as int,
+    title: row['title'] as String,
+    slug: row['slug'] as String,
+    content: row['content'] as String,
+  );
 
-server.delete('/posts/:id', (req, res) async {
-  final id = req.params['id'];
-  await db.posts.delete(id);
-  return res.noContent();
-});
+  factory Post.fromJson(Map<String, dynamic> json) => Post(
+    id: json['id'] as int?,
+    title: json['title'] as String,
+    slug: json['slug'] as String,
+    content: json['content'] as String,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'id': id, 'title': title, 'slug': slug, 'content': content,
+  };
+
+  // Repository methods
+  static List<Post> findAll() {
+    return Db.db.select('SELECT * FROM posts ORDER BY created_at DESC')
+        .map(Post.fromRow).toList();
+  }
+
+  static Post? findBySlug(String slug) {
+    final r = Db.db.select('SELECT * FROM posts WHERE slug = ?', [slug]);
+    return r.isEmpty ? null : Post.fromRow(r.first);
+  }
+
+  static Post create(Post post) {
+    Db.db.execute(
+      'INSERT INTO posts (title, slug, content) VALUES (?, ?, ?)',
+      [post.title, post.slug, post.content],
+    );
+    return findById(Db.db.lastInsertRowId)!;
+  }
+
+  static Post? findById(int id) {
+    final r = Db.db.select('SELECT * FROM posts WHERE id = ?', [id]);
+    return r.isEmpty ? null : Post.fromRow(r.first);
+  }
+}
+```
+
+## API Routes
+
+### server/api/posts.dart
+
+```dart
+import 'package:duxt/server.dart';
+import '../models/post.dart';
+
+void registerPostRoutes(DuxtServer server) {
+  // GET /api/posts
+  server.get('/api/posts', (req) {
+    final posts = Post.findAll();
+    return json({'posts': posts.map((p) => p.toJson()).toList()});
+  });
+
+  // GET /api/posts/:slug
+  server.get('/api/posts/:slug', (req) {
+    final slug = req.params['slug'];
+    final post = Post.findBySlug(slug!);
+    if (post == null) return json({'error': 'Not found'}, statusCode: 404);
+    return json({'post': post.toJson()});
+  });
+
+  // POST /api/posts
+  server.post('/api/posts', (req) {
+    final body = req.body as Map<String, dynamic>;
+    final post = Post.create(Post.fromJson(body));
+    return json({'post': post.toJson()}, statusCode: 201);
+  });
+}
+```
+
+## Server Entry Point
+
+### server/main.dart
+
+```dart
+import 'package:duxt/server.dart';
+import 'db.dart';
+import 'models/post.dart';
+import 'api/posts.dart';
+
+void main() {
+  // Initialize database
+  Db.init();
+
+  // Create server with middleware
+  final server = DuxtServer(
+    port: 3001,
+    middleware: [cors(), jsonBody(), logger()],
+  );
+
+  // Register routes
+  registerPostRoutes(server);
+
+  // Start
+  server.start();
+}
+```
+
+## DuxtServer API
+
+### Creating a Server
+
+```dart
+final server = DuxtServer(
+  port: 3001,
+  middleware: [cors(), jsonBody(), logger()],
+);
+```
+
+### Route Methods
+
+```dart
+server.get('/path', handler);
+server.post('/path', handler);
+server.put('/path', handler);
+server.delete('/path', handler);
+server.patch('/path', handler);
 ```
 
 ### Route Parameters
 
 ```dart
-server.get('/users/:id', (req, res) {
-  final id = req.params['id'];
-  return res.json({'userId': id});
-});
-
-server.get('/users/:userId/posts/:postId', (req, res) {
-  final userId = req.params['userId'];
-  final postId = req.params['postId'];
-  return res.json({'userId': userId, 'postId': postId});
-});
-```
-
-### Query Parameters
-
-```dart
-server.get('/posts', (req, res) {
-  final page = int.tryParse(req.query['page'] ?? '1') ?? 1;
-  final limit = int.tryParse(req.query['limit'] ?? '10') ?? 10;
-
-  final posts = await db.posts.findAll(
-    skip: (page - 1) * limit,
-    take: limit,
-  );
-
-  return res.json({
-    'data': posts,
-    'page': page,
-    'limit': limit,
-  });
-});
-```
-
-## Request & Response
-
-### Request Object
-
-```dart
-server.post('/posts', (req, res) async {
-  final body = req.body;
-  final title = body['title'] as String;
-  final id = req.params['id'];
-  final search = req.query['search'];
-  final authHeader = req.headers['authorization'];
-  final url = req.url;
-  final method = req.method;
-
-  return res.json({'received': body});
+server.get('/posts/:id', (req) {
+  final id = req.params['id'];  // Access route params
+  final page = req.query('page'); // Access query params
+  final body = req.body;          // Access JSON body
+  // ...
 });
 ```
 
 ### Response Helpers
 
 ```dart
-return res.json({'message': 'Success'});
-return res.json({'id': newId}, status: 201);
-return res.noContent();
-return res.notFound();
-return res.notFound(message: 'Post not found');
-return res.badRequest(message: 'Invalid input');
-return res.unauthorized();
-return res.forbidden();
-return res.serverError(message: 'Something went wrong');
-return res.send(
-  body: 'Custom response',
-  status: 418,
-  headers: {'X-Custom': 'value'},
-);
-return res.redirect('/new-location');
+return json({'data': data});                    // 200 OK
+return json({'data': data}, statusCode: 201);   // 201 Created
+return json({'error': 'Not found'}, statusCode: 404);
 ```
 
-## Middleware
+## Built-in Middleware
 
-### Built-in Middleware
+### CORS
 
 ```dart
-final server = DuxtServer();
-
-server.use(corsMiddleware(
-  allowedOrigins: ['http://localhost:3000'],
-  allowedMethods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-));
-
-server.use(jsonBodyParser());
-server.use(loggerMiddleware());
+cors(
+  origins: ['*'],  // or specific origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  headers: ['Content-Type', 'Authorization'],
+)
 ```
 
-### Custom Middleware
+### JSON Body Parser
 
 ```dart
-Middleware authMiddleware() {
-  return (handler) {
-    return (request) async {
-      final authHeader = request.headers['authorization'];
-
-      if (authHeader == null || !authHeader.startsWith('Bearer ')) {
-        return Response.json(
-          {'error': 'Unauthorized'},
-          status: 401,
-        );
-      }
-
-      final token = authHeader.substring(7);
-
-      try {
-        final user = await verifyToken(token);
-        final updatedRequest = request.copyWith(
-          context: {...request.context, 'user': user},
-        );
-        return handler(updatedRequest);
-      } catch (e) {
-        return Response.json(
-          {'error': 'Invalid token'},
-          status: 401,
-        );
-      }
-    };
-  };
-}
-
-server.use(authMiddleware());
-
-server.get('/me', (req, res) {
-  final user = req.context['user'] as User;
-  return res.json(user.toJson());
-});
+jsonBody()  // Parses JSON request bodies
 ```
 
-### Route-Specific Middleware
+### Logger
 
 ```dart
-server.get('/admin/users', (req, res) {
-  // Only admin can access
-}, middleware: [authMiddleware(), adminMiddleware()]);
+logger()  // Logs requests: GET /api/posts 200 12ms
 ```
 
-## Error Handling
+## Calling the API from Frontend
 
 ```dart
-server.onError((error, stackTrace, req, res) {
-  print('Error: $error');
-  print(stackTrace);
+import 'dart:convert';
+import 'dart:js_interop';
+import 'package:web/web.dart' as web;
 
-  if (error is ValidationException) {
-    return res.badRequest(message: error.message);
-  }
-
-  if (error is NotFoundException) {
-    return res.notFound(message: error.message);
-  }
-
-  return res.serverError(message: 'Internal server error');
-});
-
-server.post('/posts', (req, res) async {
-  try {
-    final post = await db.posts.create(req.body);
-    return res.json(post, status: 201);
-  } on ValidationException catch (e) {
-    return res.badRequest(message: e.message);
-  }
-});
-```
-
-## Database Integration
-
-```dart
-// lib/api/server.dart
-import 'package:duxt/server.dart';
-import 'db.dart';
-
-void main() async {
-  await Database.init();
-
-  final server = DuxtServer();
-
-  server.use(corsMiddleware());
-  server.use(jsonBodyParser());
-  server.use(loggerMiddleware());
-
-  server.get('/posts', (req, res) async {
-    final posts = await Database.posts.findAll();
-    return res.json(posts.map((p) => p.toJson()).toList());
-  });
-
-  server.get('/posts/:id', (req, res) async {
-    final post = await Database.posts.findById(req.params['id']!);
-    if (post == null) return res.notFound();
-    return res.json(post.toJson());
-  });
-
-  server.post('/posts', (req, res) async {
-    final post = await Database.posts.create(Post.fromJson(req.body));
-    return res.json(post.toJson(), status: 201);
-  });
-
-  server.put('/posts/:id', (req, res) async {
-    final post = await Database.posts.update(
-      req.params['id']!,
-      Post.fromJson(req.body),
-    );
-    if (post == null) return res.notFound();
-    return res.json(post.toJson());
-  });
-
-  server.delete('/posts/:id', (req, res) async {
-    final deleted = await Database.posts.delete(req.params['id']!);
-    if (!deleted) return res.notFound();
-    return res.noContent();
-  });
-
-  server.listen(port: 3000);
+Future<List<Post>> fetchPosts() async {
+  final response = await web.window.fetch('http://localhost:3001/api/posts'.toJS).toDart;
+  final jsText = await response.text().toDart;
+  final data = jsonDecode(jsText.toDart);
+  return (data['posts'] as List).map((p) => Post.fromJson(p)).toList();
 }
 ```
+
+## Development
+
+```bash
+# Start both frontend and API
+duxt dev
+
+# Options
+duxt dev --port=4000        # Frontend port
+duxt dev --api-port=3001    # API port
+duxt dev --no-api           # Skip API server
+```
+
+## Production Build
+
+```bash
+# Build for current platform
+duxt build
+
+# Build for specific target
+duxt build --target=linux-x64
+duxt build --target=linux-arm64
+duxt build --target=macos-x64
+duxt build --target=macos-arm64
+
+# Build for all targets (uses Docker for cross-compilation)
+duxt build --all-targets
+```
+
+### Output Structure
+
+```
+.output/
+├── public/              Static frontend files
+└── server-<target>      Server binary (e.g., server-linux-x64)
+```
+
+### Deployment
+
+**Frontend:** Deploy `public/` to any static hosting (Vercel, Netlify, Cloudflare Pages, nginx).
+
+**Server:** Run the binary on your server:
+
+```bash
+# On your server
+./.output/server-linux-x64
+```
+
+### Cross-Compilation
+
+| Target | Native | Docker |
+|--------|--------|--------|
+| linux-x64 | ✓ (on Linux) | ✓ |
+| linux-arm64 | ✓ (on ARM Linux) | ✓ |
+| macos-x64 | ✓ (on Intel Mac) | ✗ |
+| macos-arm64 | ✓ (on Apple Silicon) | ✗ |
+
+Linux targets can be cross-compiled using Docker. macOS targets must be built on macOS.

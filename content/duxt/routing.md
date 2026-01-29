@@ -77,18 +77,39 @@ class PostDetailPage extends StatelessComponent {
 
 ## Nested Routes
 
-Create nested directories for nested routes:
+Create nested directories for nested routes. You can nest as deep as you want:
+
+```
+lib/company/pages/
+├── index.dart              → /company
+├── about.dart              → /company/about
+└── team/
+    ├── index.dart          → /company/team
+    └── engineering.dart    → /company/team/engineering
+```
+
+### Deep Nesting Example
+
+| File | Route |
+|------|-------|
+| `lib/company/pages/index.dart` | `/company` |
+| `lib/company/pages/about.dart` | `/company/about` |
+| `lib/company/pages/team/index.dart` | `/company/team` |
+| `lib/company/pages/team/engineering.dart` | `/company/team/engineering` |
+| `lib/company/pages/team/design.dart` | `/company/team/design` |
+
+### With Dynamic Parameters
 
 ```
 lib/posts/pages/
-├── index.dart
-├── create.dart
-├── [id].dart
+├── index.dart              → /posts
+├── create.dart             → /posts/create
+├── [id].dart               → /posts/:id
 └── [id]/
-    ├── edit.dart
-    ├── comments.dart
+    ├── edit.dart           → /posts/:id/edit
+    ├── comments.dart       → /posts/:id/comments
     └── comments/
-        └── [commentId].dart
+        └── [commentId].dart → /posts/:id/comments/:commentId
 ```
 
 ## Route Parameters
