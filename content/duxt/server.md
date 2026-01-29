@@ -11,7 +11,7 @@ order: 9
 
 Duxt provides a fullstack development experience. The `server/` directory contains your backend code:
 
-```
+```text
 server/
 ├── main.dart           Entry point
 ├── db.dart             Database connection
@@ -297,7 +297,7 @@ duxt build --all-targets
 
 ### Output Structure
 
-```
+```text
 .output/
 ├── public/              Static frontend files
 └── server-<target>      Server binary (e.g., server-linux-x64)

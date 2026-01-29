@@ -79,7 +79,7 @@ class PostDetailPage extends StatelessComponent {
 
 Create nested directories for nested routes. You can nest as deep as you want:
 
-```
+```text
 lib/company/pages/
 ├── index.dart              → /company
 ├── about.dart              → /company/about
@@ -100,7 +100,7 @@ lib/company/pages/
 
 ### With Dynamic Parameters
 
-```
+```text
 lib/posts/pages/
 ├── index.dart              → /posts
 ├── create.dart             → /posts/create
@@ -253,7 +253,7 @@ a(href: '/posts', [text('View Posts')])
 
 Routes are automatically generated when you run:
 
-```
+```bash
 duxt dev
 duxt build
 ```

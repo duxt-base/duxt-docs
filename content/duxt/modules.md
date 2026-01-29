@@ -22,7 +22,7 @@ This approach makes it easy to:
 
 A typical Duxt project has this structure:
 
-```
+```text
 lib/
 ├── posts/
 │   ├── pages/
@@ -57,13 +57,13 @@ lib/
 
 Use the CLI to generate a new module:
 
-```
+```bash
 duxt g module posts
 ```
 
 This creates the full module structure:
 
-```
+```text
 Created lib/posts/
   ├── pages/
   │   └── index.dart
@@ -121,7 +121,7 @@ class PostCard extends StatelessComponent {
 
 Generate a component with the CLI:
 
-```
+```bash
 duxt g component posts/card title:String excerpt:String
 duxt g c posts/card title:String
 ```
@@ -170,7 +170,7 @@ class Post {
 
 Generate a model with fields:
 
-```
+```bash
 duxt g model post title:String content:String author:String createdAt:DateTime
 ```
 

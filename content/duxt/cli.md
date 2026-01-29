@@ -43,7 +43,7 @@ duxt dev
 
 This creates:
 
-```
+```text
 my-app/
 ├── lib/
 │   ├── home/pages/index.dart       → /
@@ -90,7 +90,7 @@ duxt dev --no-api           # Skip API server
 
 ### Output
 
-```
+```text
 ╭─────────────────────────────────────╮
 │  Duxt Development Server            │
 ╰─────────────────────────────────────╯
@@ -130,7 +130,7 @@ duxt build --all-targets              # Build for all platforms
 
 ### Output
 
-```
+```text
 .output/
 ├── public/              Static frontend files
 ├── server-linux-x64     Linux x64 binary
@@ -204,7 +204,7 @@ duxt scaffold posts title:String content:String author:String
 
 This generates:
 
-```
+```text
 lib/posts/
 ├── pages/
 │   ├── index.dart
