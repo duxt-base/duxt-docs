@@ -22,7 +22,7 @@ This approach makes it easy to:
 
 A typical Duxt project has this structure:
 
-```text
+```shell
 lib/
 ├── posts/
 │   ├── pages/
@@ -63,7 +63,7 @@ duxt g module posts
 
 This creates the full module structure:
 
-```text
+```shell
 Created lib/posts/
   ├── pages/
   │   └── index.dart
