@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Dark mode uses .dark class on html element (synced by theme script) */
+@custom-variant dark (.dark &);
 
 /* Source files for Tailwind to scan */
 @source "../lib/**/*.dart";
@@ -21,7 +25,23 @@
 }
 
 @layer base {
-  html {
+  :root {
+    --preview-bg: #f4f4f5;
+    --code-bg: #fafafa;
+    --code-text: #18181b;
+    --code-line-num: #a1a1aa;
+    --code-border: #e4e4e7;
+  }
+
+  .dark, :root[data-theme="dark"] {
+    --preview-bg: #18181b;
+    --code-bg: #0f0f10;
+    --code-text: #e4e4e7;
+    --code-line-num: #52525b;
+    --code-border: #27272a;
+  }
+
+  html, body, * {
     font-family: 'Nunito', system-ui, -apple-system, sans-serif;
   }
 
@@ -30,33 +50,53 @@
     @apply dark:bg-zinc-950 dark:text-gray-100;
   }
 
-  /* Light mode code blocks */
+  /* Ensure header navigation has consistent styling */
+  .site-header, .site-header * {
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif !important;
+  }
+
+  /* Code blocks - use CSS variables */
   .prose pre {
-    @apply bg-zinc-100 text-zinc-800 border border-zinc-200;
+    background-color: var(--code-bg) !important;
+    color: var(--code-text) !important;
+    border: none !important;
   }
 
   .prose code {
-    @apply bg-zinc-100 text-zinc-800 px-1 py-0.5 rounded;
+    background-color: var(--code-bg) !important;
+    color: var(--code-text) !important;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  pre, code, .prose pre, .prose code, .font-mono {
+    font-family: 'JetBrains Mono', monospace !important;
+  }
+
+  /* Ensure spans inside code also use the font */
+  pre span, code span {
+    font-family: inherit !important;
+  }
+
+  /* Light mode code block - use filter to adjust colors */
+  :root:not(.dark):not([data-theme="dark"]) pre code,
+  :root[data-theme="light"] pre code {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  :root:not(.dark):not([data-theme="dark"]) pre,
+  :root[data-theme="light"] pre {
+    background-color: var(--code-bg) !important;
   }
 
   .prose pre code {
     @apply bg-transparent p-0;
   }
 
-  /* Dark mode code blocks */
-  .dark .prose pre,
-  :root[data-theme="dark"] .prose pre {
-    @apply bg-zinc-900 text-zinc-100 border-zinc-800;
-  }
-
-  .dark .prose code,
-  :root[data-theme="dark"] .prose code {
-    @apply bg-zinc-800 text-zinc-100;
-  }
-
-  .dark .prose pre code,
-  :root[data-theme="dark"] .prose pre code {
-    @apply bg-transparent;
+  /* Dark mode - CSS variables handle this automatically */
+  .prose pre code {
+    background: transparent !important;
   }
 }
 

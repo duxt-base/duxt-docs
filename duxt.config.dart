@@ -1,7 +1,7 @@
 /// Duxt configuration
 class DuxtConfig {
   static const app = (
-    name: 'duxt_docs_new',
+    name: 'duxt_docs',
     description: 'A Duxt application',
   );
 
