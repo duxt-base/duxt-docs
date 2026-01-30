@@ -29,6 +29,35 @@
     @apply bg-white text-gray-900;
     @apply dark:bg-zinc-950 dark:text-gray-100;
   }
+
+  /* Light mode code blocks */
+  .prose pre {
+    @apply bg-zinc-100 text-zinc-800 border border-zinc-200;
+  }
+
+  .prose code {
+    @apply bg-zinc-100 text-zinc-800 px-1 py-0.5 rounded;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* Dark mode code blocks */
+  .dark .prose pre,
+  :root[data-theme="dark"] .prose pre {
+    @apply bg-zinc-900 text-zinc-100 border-zinc-800;
+  }
+
+  .dark .prose code,
+  :root[data-theme="dark"] .prose code {
+    @apply bg-zinc-800 text-zinc-100;
+  }
+
+  .dark .prose pre code,
+  :root[data-theme="dark"] .prose pre code {
+    @apply bg-transparent;
+  }
 }
 
 /* Duxt UI component state classes */
