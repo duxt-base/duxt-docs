@@ -1,6 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_content/jaspr_content.dart';
+import 'package:duxt/content.dart';
 import 'package:jaspr_content/components/theme_toggle.dart';
 
 import '../components/nav_link.dart';
@@ -15,12 +15,13 @@ class LandingLayout extends PageLayoutBase {
 
   @override
   Component buildBody(Page page, Component child) {
-    return div([
+    return div(classes: 'min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100', [
       // Shared header
       SiteHeader(
         logo: '/images/logo.svg',
         logoAlt: 'Duxt - The Meta-Framework for Jaspr',
-        version: '0.3.3',
+        duxtVersion: '0.3.7',
+        duxtUiVersion: '0.2.3',
         items: [
           NavLink(href: '/duxt', text: 'Duxt'),
           NavLink(href: '/duxt-ui', text: 'Duxt UI'),
@@ -29,7 +30,7 @@ class LandingLayout extends PageLayoutBase {
         ],
       ),
       // Page content with main landmark for accessibility
-      main_([child]),
+      main_(classes: 'pt-16', [child]),
     ]);
   }
 }

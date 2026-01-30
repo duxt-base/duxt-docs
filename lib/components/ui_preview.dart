@@ -1,10 +1,219 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
-import 'package:jaspr_content/jaspr_content.dart';
+import 'package:duxt/content.dart';
 import 'package:duxt_ui/duxt_ui.dart';
 
-/// Custom component for rendering live Duxt UI component previews in markdown.
-/// Shows live preview on top and code example below (like Nuxt UI).
+/// Registers Duxt UI components for use directly in markdown.
+///
+/// Usage in markdown:
+/// ```markdown
+/// <DButton label="Click me" variant="solid" color="primary" />
+/// <DInput placeholder="Type here..." />
+/// <DBadge label="New" color="success" />
+/// ```
+class DuxtUiComponents extends CustomComponentBase {
+  const DuxtUiComponents();
+
+  @override
+  final Pattern pattern = 'D';  // Matches components starting with D (DButton, DInput, etc.)
+
+  @override
+  Component apply(String name, Map<String, String> attributes, Component? child) {
+    return _buildComponent(name, attributes, child);
+  }
+
+  Component _buildComponent(String name, Map<String, String> attrs, Component? child) {
+    switch (name) {
+      case 'DButton':
+        return DButton(
+          label: attrs['label'] ?? 'Button',
+          variant: _parseButtonVariant(attrs['variant']),
+          color: _parseButtonColor(attrs['color']),
+          size: _parseButtonSize(attrs['size']),
+        );
+
+      case 'DInput':
+        return DInput(
+          placeholder: attrs['placeholder'],
+          size: _parseInputSize(attrs['size']),
+        );
+
+      case 'DBadge':
+        return DBadge(
+          label: attrs['label'] ?? '',
+          color: _parseBadgeColor(attrs['color']),
+        );
+
+      case 'DAvatar':
+        return DAvatar(
+          alt: attrs['alt'] ?? '',
+          size: _parseAvatarSize(attrs['size']),
+        );
+
+      case 'DAlert':
+        return DAlert(
+          title: attrs['title'] ?? '',
+          description: attrs['description'] ?? '',
+          color: _parseAlertColor(attrs['color']),
+        );
+
+      case 'DSpinner':
+        return DSpinner(
+          size: _parseSpinnerSize(attrs['size']),
+        );
+
+      case 'DProgress':
+        return DProgress(
+          value: (int.tryParse(attrs['value'] ?? '50') ?? 50).toDouble(),
+        );
+
+      case 'DSwitch':
+        return DSwitch(
+          checked: attrs['checked'] == 'true',
+        );
+
+      case 'DCheckbox':
+        return DCheckbox(
+          label: attrs['label'] ?? '',
+          checked: attrs['checked'] == 'true',
+        );
+
+      case 'DSkeleton':
+        return DSkeleton(
+          classes: attrs['classes'] ?? 'h-4 w-full',
+        );
+
+      case 'DKbd':
+        final keys = attrs['keys']?.split(',') ?? ['⌘'];
+        return DKbd(keys: keys);
+
+      case 'DIcon':
+        return DIcon(
+          name: _parseIconName(attrs['name']),
+          size: _parseIconSize(attrs['size']),
+        );
+
+      case 'DSeparator':
+        return DSeparator();
+
+      default:
+        return div(classes: 'text-zinc-500', [
+          Component.text('Unknown component: $name'),
+        ]);
+    }
+  }
+
+  DButtonVariant _parseButtonVariant(String? v) {
+    switch (v) {
+      case 'outline': return DButtonVariant.outline;
+      case 'ghost': return DButtonVariant.ghost;
+      case 'soft': return DButtonVariant.soft;
+      case 'link': return DButtonVariant.link;
+      default: return DButtonVariant.solid;
+    }
+  }
+
+  DButtonColor _parseButtonColor(String? c) {
+    switch (c) {
+      case 'secondary': return DButtonColor.secondary;
+      case 'success': return DButtonColor.success;
+      case 'warning': return DButtonColor.warning;
+      case 'error': return DButtonColor.error;
+      case 'info': return DButtonColor.info;
+      case 'neutral': return DButtonColor.neutral;
+      default: return DButtonColor.primary;
+    }
+  }
+
+  DButtonSize _parseButtonSize(String? s) {
+    switch (s) {
+      case 'xs': return DButtonSize.xs;
+      case 'sm': return DButtonSize.sm;
+      case 'lg': return DButtonSize.lg;
+      case 'xl': return DButtonSize.xl;
+      default: return DButtonSize.md;
+    }
+  }
+
+  DInputSize _parseInputSize(String? s) {
+    switch (s) {
+      case 'xs': return DInputSize.xs;
+      case 'sm': return DInputSize.sm;
+      case 'lg': return DInputSize.lg;
+      case 'xl': return DInputSize.xl;
+      default: return DInputSize.md;
+    }
+  }
+
+  DBadgeColor _parseBadgeColor(String? c) {
+    switch (c) {
+      case 'secondary': return DBadgeColor.secondary;
+      case 'success': return DBadgeColor.success;
+      case 'warning': return DBadgeColor.warning;
+      case 'error': return DBadgeColor.error;
+      case 'info': return DBadgeColor.info;
+      case 'neutral': return DBadgeColor.neutral;
+      default: return DBadgeColor.primary;
+    }
+  }
+
+  DAvatarSize _parseAvatarSize(String? s) {
+    switch (s) {
+      case 'xs': return DAvatarSize.xs;
+      case 'sm': return DAvatarSize.sm;
+      case 'lg': return DAvatarSize.lg;
+      case 'xl': return DAvatarSize.xl;
+      case '2xl': return DAvatarSize.xl;
+      case '3xl': return DAvatarSize.xl;
+      default: return DAvatarSize.md;
+    }
+  }
+
+  DAlertColor _parseAlertColor(String? c) {
+    switch (c) {
+      case 'success': return DAlertColor.success;
+      case 'warning': return DAlertColor.warning;
+      case 'error': return DAlertColor.error;
+      default: return DAlertColor.info;
+    }
+  }
+
+  DSpinnerSize _parseSpinnerSize(String? s) {
+    switch (s) {
+      case 'xs': return DSpinnerSize.xs;
+      case 'sm': return DSpinnerSize.sm;
+      case 'lg': return DSpinnerSize.lg;
+      case 'xl': return DSpinnerSize.lg;
+      default: return DSpinnerSize.md;
+    }
+  }
+
+  DIconSize _parseIconSize(String? s) {
+    switch (s) {
+      case 'xs': return DIconSize.xs;
+      case 'sm': return DIconSize.sm;
+      case 'lg': return DIconSize.lg;
+      case 'xl': return DIconSize.xl;
+      default: return DIconSize.md;
+    }
+  }
+
+  String _parseIconName(String? name) {
+    switch (name) {
+      case 'home': return DIconNames.home;
+      case 'settings': return DIconNames.settings;
+      case 'search': return DIconNames.search;
+      case 'user': return DIconNames.user;
+      case 'check': return DIconNames.check;
+      case 'x': return DIconNames.check;
+      case 'plus': return DIconNames.plus;
+      case 'minus': return DIconNames.minus;
+      default: return DIconNames.home;
+    }
+  }
+}
+
+/// Showcase wrapper - shows live component + code (like Nuxt UI)
 class UiPreview extends CustomComponentBase {
   const UiPreview();
 
@@ -22,28 +231,28 @@ class UiPreview extends CustomComponentBase {
     final codeExample = _getCodeExample(name);
 
     return div(
-      classes: 'not-prose my-6 rounded-xl border border-zinc-800 overflow-hidden',
+      classes: 'not-prose my-6 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden',
       [
         // Live Preview area
         div(
-          classes: 'p-8 bg-zinc-900/50 flex items-center justify-center min-h-[180px]',
+          classes: 'p-8 bg-zinc-100/50 dark:bg-zinc-900/50 flex items-center justify-center min-h-[180px]',
           styles: Styles(raw: {
-            'background-image': 'radial-gradient(circle at 1px 1px, rgb(63 63 70 / 0.4) 1px, transparent 0)',
+            'background-image': 'radial-gradient(circle at 1px 1px, rgb(161 161 170 / 0.3) 1px, transparent 0)',
             'background-size': '24px 24px',
           }),
           [preview],
         ),
         // Code area
         div(
-          classes: 'border-t border-zinc-800 bg-zinc-950',
+          classes: 'border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950',
           [
             div(
-              classes: 'flex items-center justify-between px-4 py-2 border-b border-zinc-800',
+              classes: 'flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800',
               [
                 span(classes: 'text-xs text-zinc-500', [Component.text('dart')]),
                 button(
                   type: ButtonType.button,
-                  classes: 'p-1.5 text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800 rounded transition-colors',
+                  classes: 'p-1.5 text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded transition-colors',
                   attributes: {'aria-label': 'Copy code'},
                   [
                     RawText('<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>'),
@@ -55,7 +264,7 @@ class UiPreview extends CustomComponentBase {
               classes: 'p-4 overflow-x-auto',
               [
                 pre(classes: 'text-sm', [
-                  code(classes: 'language-dart text-zinc-300', [
+                  code(classes: 'language-dart text-zinc-700 dark:text-zinc-300', [
                     RawText(codeExample),
                   ]),
                 ]),
@@ -315,23 +524,23 @@ class UiPreviewCard extends CustomComponentBase {
     final preview = _getPreviewComponent(componentName);
 
     return div(
-      classes: 'rounded-xl border border-zinc-800 overflow-hidden',
+      classes: 'rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden',
       [
         div(
-          classes: 'aspect-[4/3] bg-zinc-900/50 flex items-center justify-center p-4',
+          classes: 'aspect-[4/3] bg-zinc-100/50 dark:bg-zinc-900/50 flex items-center justify-center p-4',
           styles: Styles(raw: {
-            'background-image': 'radial-gradient(circle at 1px 1px, rgb(63 63 70 / 0.3) 1px, transparent 0)',
+            'background-image': 'radial-gradient(circle at 1px 1px, rgb(161 161 170 / 0.3) 1px, transparent 0)',
             'background-size': '20px 20px',
           }),
           [preview],
         ),
-        div(classes: 'p-4 border-t border-zinc-800', [
+        div(classes: 'p-4 border-t border-zinc-200 dark:border-zinc-800', [
           h3(classes: 'font-semibold', [
-            a(href: href, classes: 'text-white hover:text-cyan-400 transition-colors', [
+            a(href: href, classes: 'text-zinc-900 dark:text-white hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors', [
               Component.text(title),
             ]),
           ]),
-          p(classes: 'text-sm text-zinc-400 mt-1', [
+          p(classes: 'text-sm text-zinc-500 dark:text-zinc-400 mt-1', [
             Component.text(description),
           ]),
         ]),
@@ -373,28 +582,6 @@ class UiPreviewCard extends CustomComponentBase {
         return div(classes: 'w-full max-w-[180px] space-y-2 scale-90', [
           DSkeleton(classes: 'h-3 w-full'),
           DSkeleton(classes: 'h-3 w-3/4'),
-        ]);
-
-      case 'icon':
-        return div(classes: 'flex items-center gap-3 text-zinc-300', [
-          DIcon(name: DIconNames.home, size: DIconSize.md),
-          DIcon(name: DIconNames.settings, size: DIconSize.md),
-          DIcon(name: DIconNames.search, size: DIconSize.md),
-        ]);
-
-      case 'kbd':
-        return div(classes: 'flex items-center gap-1 scale-90', [
-          DKbd(keys: ['⌘']),
-          DKbd(keys: ['K']),
-        ]);
-
-      case 'alert':
-        return div(classes: 'w-full max-w-[220px] scale-90', [
-          DAlert(
-            title: 'Note',
-            description: 'This is important.',
-            color: DAlertColor.info,
-          ),
         ]);
 
       case 'spinner':
@@ -439,14 +626,6 @@ class UiPreviewCard extends CustomComponentBase {
           DPagination(currentPage: 2, totalPages: 5),
         ]);
 
-      case 'separator':
-        return div(classes: 'w-full max-w-[150px] scale-90', [
-          div(classes: 'text-xs text-zinc-500 mb-2', [Component.text('Above')]),
-          DSeparator(),
-          div(classes: 'text-xs text-zinc-500 mt-2', [Component.text('Below')]),
-        ]);
-
-      // Placeholder for components we don't have simple previews for
       default:
         return div(classes: 'w-16 h-16 rounded-lg bg-zinc-800 flex items-center justify-center', [
           span(classes: 'text-zinc-500 text-xs', [Component.text(name)]),

@@ -1,6 +1,5 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_content/theme.dart';
 
 /// A styled navigation link for the header.
 class NavLink extends StatelessComponent {
@@ -15,26 +14,10 @@ class NavLink extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return Component.fragment([
-      Document.head(children: [Style(styles: _styles)]),
-      a(classes: 'nav-link', href: href, [Component.text(text)]),
-    ]);
+    return a(
+      classes: 'px-3 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-500/10 rounded-md transition-all',
+      href: href,
+      [Component.text(text)],
+    );
   }
-
-  static List<StyleRule> get _styles => [
-    css('.nav-link', [
-      css('&').styles(
-        padding: Padding.symmetric(horizontal: 0.75.rem, vertical: 0.5.rem),
-        fontSize: 0.875.rem,
-        fontWeight: FontWeight.w500,
-        color: ContentColors.text,
-        radius: BorderRadius.circular(0.375.rem),
-        transition: Transition('all', duration: 150.ms),
-      ),
-      css('&:hover').styles(
-        color: ContentColors.primary,
-        backgroundColor: Color('#06b6d410'),
-      ),
-    ]),
-  ];
 }
