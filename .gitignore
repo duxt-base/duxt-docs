@@ -24,3 +24,4 @@ Thumbs.db
 *.g.dart
 *.freezed.dart
 .output/
+.output/public/about/index.html
