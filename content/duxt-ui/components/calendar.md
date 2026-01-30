@@ -11,7 +11,7 @@ The `DCalendar` component provides a date picker grid with month/year navigation
 
 ## Basic Usage
 
-```dart
+```
 DCalendar(
   selectedDate: selectedDate,
   onDateSelect: (date) => setState(() => selectedDate = date),
@@ -20,7 +20,7 @@ DCalendar(
 
 ## With Initial Date
 
-```dart
+```
 DCalendar(
   selectedDate: DateTime(2024, 6, 15),
   onDateSelect: (date) => handleDateSelect(date),
@@ -31,7 +31,7 @@ DCalendar(
 
 ### Minimum Date
 
-```dart
+```
 DCalendar(
   selectedDate: selectedDate,
   minDate: DateTime.now(),  // Can't select past dates
@@ -41,7 +41,7 @@ DCalendar(
 
 ### Maximum Date
 
-```dart
+```
 DCalendar(
   selectedDate: selectedDate,
   maxDate: DateTime.now().add(Duration(days: 30)),  // Only next 30 days
@@ -51,7 +51,7 @@ DCalendar(
 
 ### Date Range
 
-```dart
+```
 DCalendar(
   selectedDate: selectedDate,
   minDate: DateTime(2024, 1, 1),
@@ -64,7 +64,7 @@ DCalendar(
 
 ### Monday (Default)
 
-```dart
+```
 DCalendar(
   firstDayOfWeek: 1,  // Monday
   selectedDate: selectedDate,
@@ -74,7 +74,7 @@ DCalendar(
 
 ### Sunday
 
-```dart
+```
 DCalendar(
   firstDayOfWeek: 0,  // Sunday
   selectedDate: selectedDate,
@@ -84,7 +84,7 @@ DCalendar(
 
 ## In a Form
 
-```dart
+```
 class DatePickerForm extends StatefulComponent {
   @override
   State createState() => _DatePickerFormState();
@@ -119,7 +119,7 @@ class _DatePickerFormState extends State<DatePickerForm> {
 
 ## With Popover
 
-```dart
+```
 class DatePickerInput extends StatefulComponent {
   @override
   State createState() => _DatePickerInputState();
@@ -162,7 +162,7 @@ class _DatePickerInputState extends State<DatePickerInput> {
 
 ## Booking Calendar
 
-```dart
+```
 class BookingCalendar extends StatefulComponent {
   @override
   State createState() => _BookingCalendarState();
@@ -214,7 +214,7 @@ class _BookingCalendarState extends State<BookingCalendar> {
 
 ## Appointment Scheduler
 
-```dart
+```
 DCard(
   body: [
     div(classes: 'grid md:grid-cols-2 gap-6', [
@@ -254,7 +254,7 @@ DCard(
 
 ## Event Calendar
 
-```dart
+```
 class EventCalendar extends StatefulComponent {
   final List<Event> events;
 

@@ -11,7 +11,7 @@ The `DButton` component is a versatile button that supports multiple variants, s
 
 ## Basic Usage
 
-```dart
+```
 DButton(
   label: 'Click me',
   onClick: () => print('Clicked!'),
@@ -22,7 +22,7 @@ DButton(
 
 ### Solid
 
-```dart
+```
 DButton(
   label: 'Solid Button',
   variant: DButtonVariant.solid,
@@ -31,7 +31,7 @@ DButton(
 
 ### Outline
 
-```dart
+```
 DButton(
   label: 'Outline Button',
   variant: DButtonVariant.outline,
@@ -40,7 +40,7 @@ DButton(
 
 ### Soft
 
-```dart
+```
 DButton(
   label: 'Soft Button',
   variant: DButtonVariant.soft,
@@ -49,7 +49,7 @@ DButton(
 
 ### Subtle
 
-```dart
+```
 DButton(
   label: 'Subtle Button',
   variant: DButtonVariant.subtle,
@@ -58,7 +58,7 @@ DButton(
 
 ### Ghost
 
-```dart
+```
 DButton(
   label: 'Ghost Button',
   variant: DButtonVariant.ghost,
@@ -67,7 +67,7 @@ DButton(
 
 ### Link
 
-```dart
+```
 DButton(
   label: 'Link Button',
   variant: DButtonVariant.link,
@@ -76,7 +76,7 @@ DButton(
 
 ## Colors
 
-```dart
+```
 DButton(label: 'Primary', color: DButtonColor.primary)
 DButton(label: 'Secondary', color: DButtonColor.secondary)
 DButton(label: 'Success', color: DButtonColor.success)
@@ -88,7 +88,7 @@ DButton(label: 'Neutral', color: DButtonColor.neutral)
 
 ## Sizes
 
-```dart
+```
 DButton(label: 'XS', size: DButtonSize.xs)
 DButton(label: 'SM', size: DButtonSize.sm)
 DButton(label: 'MD', size: DButtonSize.md)
@@ -98,7 +98,7 @@ DButton(label: 'XL', size: DButtonSize.xl)
 
 ## With Icons
 
-```dart
+```
 DButton(
   label: 'Download',
   leadingIcon: DIcon(name: 'download'),
@@ -112,7 +112,7 @@ DButton(
 
 ## Icon Only Button
 
-```dart
+```
 DButton(
   leadingIcon: DIcon(name: 'plus'),
   variant: DButtonVariant.ghost,
@@ -122,7 +122,7 @@ DButton(
 
 ## Loading State
 
-```dart
+```
 DButton(
   label: 'Submit',
   loading: true,
@@ -131,7 +131,7 @@ DButton(
 
 ## Disabled State
 
-```dart
+```
 DButton(
   label: 'Disabled',
   disabled: true,
@@ -140,7 +140,7 @@ DButton(
 
 ## Full Width
 
-```dart
+```
 DButton(
   label: 'Full Width',
   block: true,

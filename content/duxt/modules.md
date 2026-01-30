@@ -76,7 +76,7 @@ Created lib/posts/
 
 Files in the `pages/` directory automatically generate routes. See [File-Based Routing](/duxt/routing) for details.
 
-```dart
+```
 // lib/posts/pages/index.dart
 import 'package:duxt/duxt.dart';
 
@@ -94,7 +94,7 @@ class PostsPage extends DuxtPage {
 
 Reusable UI components go in the `components/` directory. These are not routed.
 
-```dart
+```
 // lib/posts/components/post_card.dart
 import 'package:jaspr/jaspr.dart';
 import '../model.dart';
@@ -130,7 +130,7 @@ duxt g c posts/card title:String
 
 Data models are defined in `model.dart` with JSON serialization:
 
-```dart
+```
 // lib/posts/model.dart
 class Post {
   final String id;
@@ -178,7 +178,7 @@ duxt g model post title:String content:String author:String createdAt:DateTime
 
 API methods for the module go in `api.dart`:
 
-```dart
+```
 // lib/posts/api.dart
 import 'package:duxt/duxt.dart';
 import 'model.dart';

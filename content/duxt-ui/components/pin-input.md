@@ -11,7 +11,7 @@ The `DPinInput` component provides individual digit input fields for PIN codes, 
 
 ## Basic Usage
 
-```dart
+```
 DPinInput(
   label: 'Enter PIN',
   onChange: (value) => print('PIN: $value'),
@@ -20,7 +20,7 @@ DPinInput(
 
 ## Length
 
-```dart
+```
 // 4 digits (default)
 DPinInput(
   length: 4,
@@ -42,7 +42,7 @@ DPinInput(
 
 ## Sizes
 
-```dart
+```
 DPinInput(size: DPinInputSize.xs, ...)
 DPinInput(size: DPinInputSize.sm, ...)
 DPinInput(size: DPinInputSize.md, ...)  // Default
@@ -54,7 +54,7 @@ DPinInput(size: DPinInputSize.xl, ...)
 
 ### Number (Default)
 
-```dart
+```
 DPinInput(
   type: DPinInputType.number,
   onChange: (value) => {},
@@ -63,7 +63,7 @@ DPinInput(
 
 ### Text
 
-```dart
+```
 DPinInput(
   type: DPinInputType.text,
   onChange: (value) => {},
@@ -72,7 +72,7 @@ DPinInput(
 
 ### Password (Masked)
 
-```dart
+```
 DPinInput(
   type: DPinInputType.password,
   onChange: (value) => {},
@@ -81,7 +81,7 @@ DPinInput(
 
 ## Colors
 
-```dart
+```
 DPinInput(color: DColor.primary, ...)
 DPinInput(color: DColor.secondary, ...)
 DPinInput(color: DColor.success, ...)
@@ -91,7 +91,7 @@ DPinInput(color: DColor.error, ...)
 
 ## With Placeholder
 
-```dart
+```
 DPinInput(
   placeholder: '○',
   onChange: (value) => {},
@@ -100,7 +100,7 @@ DPinInput(
 
 ## Controlled Value
 
-```dart
+```
 class PinInputExample extends StatefulComponent {
   @override
   State createState() => _PinInputExampleState();
@@ -128,7 +128,7 @@ class _PinInputExampleState extends State<PinInputExample> {
 
 Triggered when all digits are filled:
 
-```dart
+```
 DPinInput(
   label: 'Verification code',
   length: 6,
@@ -142,7 +142,7 @@ DPinInput(
 
 ## Autofocus
 
-```dart
+```
 DPinInput(
   label: 'Enter code',
   autofocus: true,
@@ -152,7 +152,7 @@ DPinInput(
 
 ## Required
 
-```dart
+```
 DPinInput(
   label: 'PIN',
   required: true,
@@ -162,7 +162,7 @@ DPinInput(
 
 ## With Error
 
-```dart
+```
 DPinInput(
   label: 'Verification code',
   error: 'Invalid code. Please try again.',
@@ -172,7 +172,7 @@ DPinInput(
 
 ## With Hint
 
-```dart
+```
 DPinInput(
   label: 'Verification code',
   hint: 'Enter the 6-digit code sent to your email',
@@ -183,7 +183,7 @@ DPinInput(
 
 ## Disabled
 
-```dart
+```
 DPinInput(
   label: 'PIN',
   value: '1234',
@@ -193,7 +193,7 @@ DPinInput(
 
 ## OTP Verification Example
 
-```dart
+```
 class OTPVerification extends StatefulComponent {
   @override
   State createState() => _OTPVerificationState();
@@ -271,7 +271,7 @@ class _OTPVerificationState extends State<OTPVerification> {
 
 ## Two-Factor Authentication Example
 
-```dart
+```
 DCard(
   header: [
     div(classes: 'flex items-center gap-3', [

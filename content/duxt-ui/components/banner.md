@@ -11,7 +11,7 @@ The `DBanner` component displays a full-width notification bar for announcements
 
 ## Basic Usage
 
-```dart
+```
 DBanner(
   title: 'New Feature',
   description: 'Check out our latest update!',
@@ -21,7 +21,7 @@ DBanner(
 
 ## Colors
 
-```dart
+```
 DBanner(title: 'Primary', color: DBannerColor.primary)
 DBanner(title: 'Secondary', color: DBannerColor.secondary)
 DBanner(title: 'Success', color: DBannerColor.success)
@@ -34,7 +34,7 @@ DBanner(title: 'Error', color: DBannerColor.error)
 
 ### Solid (Default)
 
-```dart
+```
 DBanner(
   variant: DBannerVariant.solid,
   title: 'Announcement',
@@ -44,7 +44,7 @@ DBanner(
 
 ### Outline
 
-```dart
+```
 DBanner(
   variant: DBannerVariant.outline,
   title: 'Notice',
@@ -54,7 +54,7 @@ DBanner(
 
 ### Soft
 
-```dart
+```
 DBanner(
   variant: DBannerVariant.soft,
   title: 'Tip',
@@ -65,7 +65,7 @@ DBanner(
 
 ### Subtle
 
-```dart
+```
 DBanner(
   variant: DBannerVariant.subtle,
   title: 'Update',
@@ -75,7 +75,7 @@ DBanner(
 
 ## Position
 
-```dart
+```
 // Top (default)
 DBanner(
   position: DBannerPosition.top,
@@ -93,7 +93,7 @@ DBanner(
 
 Make the banner stick to the top or bottom of the viewport:
 
-```dart
+```
 DBanner(
   sticky: true,
   position: DBannerPosition.top,
@@ -104,7 +104,7 @@ DBanner(
 
 ## With Icon
 
-```dart
+```
 DBanner(
   icon: DIcon(name: 'megaphone', size: 20),
   title: 'Announcement',
@@ -114,7 +114,7 @@ DBanner(
 
 ## With Actions
 
-```dart
+```
 DBanner(
   title: 'New Feature Available',
   description: 'Try our new dashboard.',
@@ -127,7 +127,7 @@ DBanner(
 
 ## Non-Closable
 
-```dart
+```
 DBanner(
   title: 'Maintenance',
   description: 'Scheduled maintenance in 1 hour.',
@@ -140,7 +140,7 @@ DBanner(
 
 ### Announcement Banner
 
-```dart
+```
 DBannerAnnouncement(
   message: 'Version 2.0 is here with amazing new features!',
   linkText: 'See what\'s new',
@@ -151,7 +151,7 @@ DBannerAnnouncement(
 
 ### Maintenance Banner
 
-```dart
+```
 DBannerMaintenance(
   message: 'Scheduled maintenance on Saturday, 2 AM - 4 AM UTC.',
   onClose: () => dismissMaintenance(),
@@ -160,7 +160,7 @@ DBannerMaintenance(
 
 ### Cookie Consent Banner
 
-```dart
+```
 DBannerCookieConsent(
   privacyPolicyHref: '/privacy',
   onAccept: () => acceptCookies(),
@@ -170,7 +170,7 @@ DBannerCookieConsent(
 
 ## Complete Example
 
-```dart
+```
 class AppWithBanner extends StatefulComponent {
   @override
   State createState() => _AppWithBannerState();

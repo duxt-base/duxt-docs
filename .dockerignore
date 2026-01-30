@@ -1,0 +1,25 @@
+# Git
+.git
+.gitignore
+
+# Dart build artifacts
+.dart_tool
+build
+.output
+.duxt
+
+# IDE
+.idea
+.vscode
+*.iml
+
+# Database (local dev only)
+*.db
+*.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

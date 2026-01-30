@@ -11,7 +11,7 @@ The `DInputNumber` component provides a numeric input field with increment/decre
 
 ## Basic Usage
 
-```dart
+```
 DInputNumber(
   label: 'Quantity',
   onChange: (value) => print('Value: $value'),
@@ -20,7 +20,7 @@ DInputNumber(
 
 ## Controlled Value
 
-```dart
+```
 class InputNumberExample extends StatefulComponent {
   @override
   State createState() => _InputNumberExampleState();
@@ -42,7 +42,7 @@ class _InputNumberExampleState extends State<InputNumberExample> {
 
 ## Min and Max Values
 
-```dart
+```
 DInputNumber(
   label: 'Quantity',
   value: 5,
@@ -54,7 +54,7 @@ DInputNumber(
 
 ## Step Value
 
-```dart
+```
 // Step by 1 (default)
 DInputNumber(
   label: 'Count',
@@ -86,7 +86,7 @@ DInputNumber(
 
 ## Sizes
 
-```dart
+```
 DInputNumber(size: DInputNumberSize.xs, ...)
 DInputNumber(size: DInputNumberSize.sm, ...)
 DInputNumber(size: DInputNumberSize.md, ...)  // Default
@@ -96,7 +96,7 @@ DInputNumber(size: DInputNumberSize.xl, ...)
 
 ## Colors
 
-```dart
+```
 DInputNumber(color: DColor.primary, ...)
 DInputNumber(color: DColor.secondary, ...)
 DInputNumber(color: DColor.success, ...)
@@ -106,7 +106,7 @@ DInputNumber(color: DColor.error, ...)
 
 ## With Placeholder
 
-```dart
+```
 DInputNumber(
   label: 'Amount',
   placeholder: 'Enter amount',
@@ -116,7 +116,7 @@ DInputNumber(
 
 ## Required
 
-```dart
+```
 DInputNumber(
   label: 'Quantity',
   required: true,
@@ -127,7 +127,7 @@ DInputNumber(
 
 ## With Hint
 
-```dart
+```
 DInputNumber(
   label: 'Quantity',
   min: 1,
@@ -139,7 +139,7 @@ DInputNumber(
 
 ## With Error
 
-```dart
+```
 DInputNumber(
   label: 'Quantity',
   error: 'Quantity must be at least 1',
@@ -149,7 +149,7 @@ DInputNumber(
 
 ## Disabled
 
-```dart
+```
 DInputNumber(
   label: 'Quantity',
   value: 5,
@@ -159,7 +159,7 @@ DInputNumber(
 
 ## Cart Quantity Example
 
-```dart
+```
 class CartItem extends StatefulComponent {
   final Product product;
   final int initialQuantity;
@@ -215,7 +215,7 @@ class _CartItemState extends State<CartItem> {
 
 ## Settings Example
 
-```dart
+```
 DCard(
   header: [h3([text('Display Settings')])],
   body: [
@@ -254,7 +254,7 @@ DCard(
 
 ## Duration Picker Example
 
-```dart
+```
 div(classes: 'flex items-center gap-4', [
   DInputNumber(
     label: 'Hours',

@@ -11,7 +11,7 @@ The `DPagination` and `DPaginationSimple` components provide navigation controls
 
 ## Basic Usage
 
-```dart
+```
 DPagination(
   total: 100,
   pageSize: 10,
@@ -24,7 +24,7 @@ DPagination(
 
 For a minimal prev/next interface:
 
-```dart
+```
 DPaginationSimple(
   currentPage: 1,
   totalPages: 10,
@@ -36,7 +36,7 @@ DPaginationSimple(
 
 ### Solid
 
-```dart
+```
 DPagination(
   variant: DPaginationVariant.solid,
   total: 100,
@@ -48,7 +48,7 @@ DPagination(
 
 ### Outline
 
-```dart
+```
 DPagination(
   variant: DPaginationVariant.outline,
   total: 100,
@@ -60,7 +60,7 @@ DPagination(
 
 ### Soft
 
-```dart
+```
 DPagination(
   variant: DPaginationVariant.soft,
   total: 100,
@@ -72,7 +72,7 @@ DPagination(
 
 ### Subtle
 
-```dart
+```
 DPagination(
   variant: DPaginationVariant.subtle,
   total: 100,
@@ -84,7 +84,7 @@ DPagination(
 
 ### Ghost
 
-```dart
+```
 DPagination(
   variant: DPaginationVariant.ghost,
   total: 100,
@@ -98,7 +98,7 @@ DPagination(
 
 Control how many page numbers show around the current page:
 
-```dart
+```
 // Shows: 1 ... 4 5 [6] 7 8 ... 10
 DPagination(
   total: 100,
@@ -120,7 +120,7 @@ DPagination(
 
 ## Show/Hide Navigation
 
-```dart
+```
 // Hide first/last buttons
 DPagination(
   showFirstLast: false,
@@ -142,7 +142,7 @@ DPagination(
 
 ## Custom Labels
 
-```dart
+```
 DPagination(
   total: 100,
   pageSize: 10,
@@ -159,7 +159,7 @@ DPagination(
 
 Display current page information:
 
-```dart
+```
 div(classes: 'flex items-center justify-between', [
   p(classes: 'text-sm text-gray-500', [
     text('Showing ${start + 1} to ${end} of $total results'),
@@ -175,7 +175,7 @@ div(classes: 'flex items-center justify-between', [
 
 ## Complete Table Example
 
-```dart
+```
 class PaginatedTable extends StatefulComponent {
   @override
   State createState() => _PaginatedTableState();
@@ -230,7 +230,7 @@ class _PaginatedTableState extends State<PaginatedTable> {
 
 ## Simple Pagination Example
 
-```dart
+```
 div(classes: 'flex items-center justify-between', [
   p(classes: 'text-sm text-gray-500', [
     text('Page $currentPage of $totalPages'),

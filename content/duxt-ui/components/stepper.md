@@ -11,7 +11,7 @@ The `DStepper` component displays progress through a multi-step process with num
 
 ## Basic Usage
 
-```dart
+```
 DStepper(
   currentStep: 1,
   steps: [
@@ -25,7 +25,7 @@ DStepper(
 
 ## Horizontal (Default)
 
-```dart
+```
 DStepper(
   orientation: DStepperOrientation.horizontal,
   currentStep: 2,
@@ -40,7 +40,7 @@ DStepper(
 
 ## Vertical
 
-```dart
+```
 DStepper(
   orientation: DStepperOrientation.vertical,
   currentStep: 1,
@@ -55,7 +55,7 @@ DStepper(
 
 ## With Descriptions
 
-```dart
+```
 DStepper(
   currentStep: 0,
   steps: [
@@ -81,7 +81,7 @@ DStepper(
 
 ## With Custom Icons
 
-```dart
+```
 DStepper(
   currentStep: 1,
   steps: [
@@ -109,7 +109,7 @@ DStepper(
 
 Allow users to navigate by clicking on steps:
 
-```dart
+```
 class MultiStepForm extends StatefulComponent {
   @override
   State createState() => _MultiStepFormState();
@@ -146,7 +146,7 @@ Steps have three states:
 - **Current**: The active step (indigo, numbered)
 - **Completed**: Steps before the current step (green, checkmark)
 
-```dart
+```
 DStepper(
   currentStep: 2,  // Steps 0 and 1 are completed, step 2 is current
   steps: [
@@ -160,7 +160,7 @@ DStepper(
 
 ## Complete Multi-Step Form
 
-```dart
+```
 class CheckoutWizard extends StatefulComponent {
   @override
   State createState() => _CheckoutWizardState();
@@ -227,7 +227,7 @@ class _CheckoutWizardState extends State<CheckoutWizard> {
 
 ## Registration Flow
 
-```dart
+```
 DStepper(
   orientation: DStepperOrientation.vertical,
   currentStep: registrationStep,
@@ -258,7 +258,7 @@ DStepper(
 
 ## In Modal
 
-```dart
+```
 DModal(
   open: showWizard,
   onClose: closeWizard,

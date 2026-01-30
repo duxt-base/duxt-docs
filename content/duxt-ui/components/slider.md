@@ -11,7 +11,7 @@ The `DSlider` component allows users to select a value from a continuous range b
 
 ## Basic Usage
 
-```dart
+```
 DSlider(
   value: 50,
   min: 0,
@@ -22,7 +22,7 @@ DSlider(
 
 ## Controlled State
 
-```dart
+```
 class SliderExample extends StatefulComponent {
   @override
   State createState() => _SliderExampleState();
@@ -48,7 +48,7 @@ class _SliderExampleState extends State<SliderExample> {
 
 ## With Label
 
-```dart
+```
 DSlider(
   label: 'Volume',
   value: 75,
@@ -62,7 +62,7 @@ DSlider(
 
 Display the current value:
 
-```dart
+```
 DSlider(
   label: 'Brightness',
   value: 60,
@@ -75,7 +75,7 @@ DSlider(
 
 ## Sizes
 
-```dart
+```
 DSlider(value: 50, size: DSize.xs)
 DSlider(value: 50, size: DSize.sm)
 DSlider(value: 50, size: DSize.md)  // Default
@@ -85,7 +85,7 @@ DSlider(value: 50, size: DSize.xl)
 
 ## Colors
 
-```dart
+```
 DSlider(value: 50, color: DColor.primary)
 DSlider(value: 50, color: DColor.secondary)
 DSlider(value: 50, color: DColor.success)
@@ -98,7 +98,7 @@ DSlider(value: 50, color: DColor.error)
 
 Control the increment:
 
-```dart
+```
 // Steps of 10
 DSlider(
   value: 50,
@@ -122,7 +122,7 @@ DSlider(
 
 ## Custom Range
 
-```dart
+```
 // Temperature
 DSlider(
   label: 'Temperature',
@@ -148,7 +148,7 @@ DSlider(
 
 ## Disabled State
 
-```dart
+```
 DSlider(
   label: 'Disabled',
   value: 50,
@@ -158,7 +158,7 @@ DSlider(
 
 ## Volume Control Example
 
-```dart
+```
 class VolumeControl extends StatefulComponent {
   @override
   State createState() => _VolumeControlState();
@@ -201,7 +201,7 @@ class _VolumeControlState extends State<VolumeControl> {
 
 ## Price Range Example
 
-```dart
+```
 class PriceFilter extends StatefulComponent {
   @override
   State createState() => _PriceFilterState();
@@ -242,7 +242,7 @@ class _PriceFilterState extends State<PriceFilter> {
 
 ## Settings Example
 
-```dart
+```
 DCard(
   header: [h3([text('Display Settings')])],
   body: [

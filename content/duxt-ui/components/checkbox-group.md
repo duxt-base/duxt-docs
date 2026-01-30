@@ -11,7 +11,7 @@ The `DCheckboxGroup` component provides a convenient way to manage multiple rela
 
 ## Basic Usage
 
-```dart
+```
 DCheckboxGroup<String>(
   label: 'Interests',
   options: [
@@ -26,7 +26,7 @@ DCheckboxGroup<String>(
 
 ## Controlled State
 
-```dart
+```
 class CheckboxGroupExample extends StatefulComponent {
   @override
   State createState() => _CheckboxGroupExampleState();
@@ -56,7 +56,7 @@ class _CheckboxGroupExampleState extends State<CheckboxGroupExample> {
 
 ## Sizes
 
-```dart
+```
 DCheckboxGroup<String>(size: DCheckboxSize.xs, ...)
 DCheckboxGroup<String>(size: DCheckboxSize.sm, ...)
 DCheckboxGroup<String>(size: DCheckboxSize.md, ...)  // Default
@@ -66,7 +66,7 @@ DCheckboxGroup<String>(size: DCheckboxSize.xl, ...)
 
 ## Colors
 
-```dart
+```
 DCheckboxGroup<String>(color: DCheckboxColor.primary, ...)
 DCheckboxGroup<String>(color: DCheckboxColor.gray, ...)
 DCheckboxGroup<String>(color: DCheckboxColor.success, ...)
@@ -78,7 +78,7 @@ DCheckboxGroup<String>(color: DCheckboxColor.error, ...)
 
 ### Vertical (Default)
 
-```dart
+```
 DCheckboxGroup<String>(
   orientation: DCheckboxGroupOrientation.vertical,
   options: options,
@@ -88,7 +88,7 @@ DCheckboxGroup<String>(
 
 ### Horizontal
 
-```dart
+```
 DCheckboxGroup<String>(
   orientation: DCheckboxGroupOrientation.horizontal,
   options: options,
@@ -98,7 +98,7 @@ DCheckboxGroup<String>(
 
 ## With Descriptions
 
-```dart
+```
 DCheckboxGroup<String>(
   label: 'Notification preferences',
   options: [
@@ -124,7 +124,7 @@ DCheckboxGroup<String>(
 
 ## Disabled Options
 
-```dart
+```
 DCheckboxGroup<String>(
   label: 'Features',
   options: [
@@ -143,7 +143,7 @@ DCheckboxGroup<String>(
 
 ## Disabled Group
 
-```dart
+```
 DCheckboxGroup<String>(
   label: 'Features',
   disabled: true,
@@ -154,7 +154,7 @@ DCheckboxGroup<String>(
 
 ## Required
 
-```dart
+```
 DCheckboxGroup<String>(
   label: 'Terms',
   required: true,
@@ -174,7 +174,7 @@ DCheckboxGroup<String>(
 
 ## With Error
 
-```dart
+```
 DCheckboxGroup<String>(
   label: 'Select at least one option',
   error: 'Please select at least one interest',
@@ -185,7 +185,7 @@ DCheckboxGroup<String>(
 
 ## With Hint
 
-```dart
+```
 DCheckboxGroup<String>(
   label: 'Interests',
   hint: 'Select all that apply',
@@ -198,7 +198,7 @@ DCheckboxGroup<String>(
 
 For form submission with array values:
 
-```dart
+```
 DCheckboxGroup<String>(
   name: 'interests',  // Submits as interests[]
   options: options,
@@ -208,7 +208,7 @@ DCheckboxGroup<String>(
 
 ## Permissions Example
 
-```dart
+```
 DCheckboxGroup<String>(
   label: 'User permissions',
   value: userPermissions,
@@ -241,7 +241,7 @@ DCheckboxGroup<String>(
 
 ## Filter Example
 
-```dart
+```
 DCard(
   header: [h4([text('Filter by category')])],
   body: [

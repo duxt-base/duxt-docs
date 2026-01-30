@@ -11,7 +11,7 @@ The `DInput` component is a versatile text input field that supports multiple ty
 
 ## Basic Usage
 
-```dart
+```
 DInput(
   label: 'Email',
   placeholder: 'Enter your email',
@@ -20,7 +20,7 @@ DInput(
 
 ## Input Types
 
-```dart
+```
 DInput(label: 'Name', type: InputType.text)
 DInput(label: 'Email', type: InputType.email)
 DInput(label: 'Password', type: InputType.password)
@@ -34,7 +34,7 @@ DInput(label: 'Phone', type: InputType.tel)
 
 ### Outline (Default)
 
-```dart
+```
 DInput(
   label: 'Email',
   variant: DInputVariant.outline,
@@ -43,7 +43,7 @@ DInput(
 
 ### Soft
 
-```dart
+```
 DInput(
   label: 'Email',
   variant: DInputVariant.soft,
@@ -52,7 +52,7 @@ DInput(
 
 ### Subtle
 
-```dart
+```
 DInput(
   label: 'Email',
   variant: DInputVariant.subtle,
@@ -61,7 +61,7 @@ DInput(
 
 ### Ghost
 
-```dart
+```
 DInput(
   label: 'Email',
   variant: DInputVariant.ghost,
@@ -70,7 +70,7 @@ DInput(
 
 ### None
 
-```dart
+```
 DInput(
   label: 'Email',
   variant: DInputVariant.none,
@@ -79,7 +79,7 @@ DInput(
 
 ## Sizes
 
-```dart
+```
 DInput(label: 'XS', size: DInputSize.xs)
 DInput(label: 'SM', size: DInputSize.sm)
 DInput(label: 'MD', size: DInputSize.md)
@@ -91,7 +91,7 @@ DInput(label: 'XL', size: DInputSize.xl)
 
 ### Disabled
 
-```dart
+```
 DInput(
   label: 'Disabled Input',
   disabled: true,
@@ -101,7 +101,7 @@ DInput(
 
 ### Read-only
 
-```dart
+```
 DInput(
   label: 'Read Only',
   readonly: true,
@@ -111,7 +111,7 @@ DInput(
 
 ### Required
 
-```dart
+```
 DInput(
   label: 'Required Field',
   required: true,
@@ -120,7 +120,7 @@ DInput(
 
 ### Loading
 
-```dart
+```
 DInput(
   label: 'Loading',
   loading: true,
@@ -131,7 +131,7 @@ DInput(
 
 ### Leading Icon
 
-```dart
+```
 DInput(
   label: 'Email',
   leadingIcon: DIcon(name: 'mail'),
@@ -140,7 +140,7 @@ DInput(
 
 ### Trailing Icon
 
-```dart
+```
 DInput(
   label: 'Search',
   trailingIcon: DIcon(name: 'search'),
@@ -149,7 +149,7 @@ DInput(
 
 ### Both Icons
 
-```dart
+```
 DInput(
   label: 'Password',
   type: InputType.password,
@@ -162,7 +162,7 @@ DInput(
 
 ### Error State
 
-```dart
+```
 DInput(
   label: 'Email',
   error: 'Please enter a valid email address',
@@ -172,7 +172,7 @@ DInput(
 
 ### Hint Text
 
-```dart
+```
 DInput(
   label: 'Password',
   type: InputType.password,
@@ -182,7 +182,7 @@ DInput(
 
 ## Form Integration
 
-```dart
+```
 DInput(
   label: 'Email',
   onInput: (value) {
@@ -193,7 +193,7 @@ DInput(
 
 Complete form example:
 
-```dart
+```
 class LoginForm extends StatefulComponent {
   @override
   State<LoginForm> createState() => _LoginFormState();

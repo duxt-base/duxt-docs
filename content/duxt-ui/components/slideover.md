@@ -11,7 +11,7 @@ The `DSlideover` component (also known as a drawer) displays a panel that slides
 
 ## Basic Usage
 
-```dart
+```
 DSlideover(
   open: isOpen,
   title: 'Panel Title',
@@ -26,7 +26,7 @@ DSlideover(
 
 ### Right (Default)
 
-```dart
+```
 DSlideover(
   open: isOpen,
   side: DSlideoverSide.right,
@@ -37,7 +37,7 @@ DSlideover(
 
 ### Left
 
-```dart
+```
 DSlideover(
   open: isOpen,
   side: DSlideoverSide.left,
@@ -48,7 +48,7 @@ DSlideover(
 
 ### Top
 
-```dart
+```
 DSlideover(
   open: isOpen,
   side: DSlideoverSide.top,
@@ -59,7 +59,7 @@ DSlideover(
 
 ### Bottom
 
-```dart
+```
 DSlideover(
   open: isOpen,
   side: DSlideoverSide.bottom,
@@ -70,7 +70,7 @@ DSlideover(
 
 ## With Description
 
-```dart
+```
 DSlideover(
   open: isOpen,
   title: 'Edit Profile',
@@ -87,7 +87,7 @@ DSlideover(
 
 ## Custom Header
 
-```dart
+```
 DSlideover(
   open: isOpen,
   header: [
@@ -106,7 +106,7 @@ DSlideover(
 
 ## With Footer
 
-```dart
+```
 DSlideover(
   open: isOpen,
   title: 'Edit Item',
@@ -135,7 +135,7 @@ DSlideover(
 
 ## Navigation Drawer Example
 
-```dart
+```
 class NavigationDrawer extends StatefulComponent {
   @override
   State createState() => _NavigationDrawerState();
@@ -187,7 +187,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
 
 ## Filter Panel Example
 
-```dart
+```
 DSlideover(
   open: showFilters,
   side: DSlideoverSide.right,
@@ -253,7 +253,7 @@ DSlideover(
 
 ## Shopping Cart Example
 
-```dart
+```
 DSlideover(
   open: showCart,
   side: DSlideoverSide.right,
@@ -295,7 +295,7 @@ DSlideover(
 
 ## Close Behavior
 
-```dart
+```
 DSlideover(
   open: isOpen,
   closeOnOverlay: true,   // Close when clicking backdrop

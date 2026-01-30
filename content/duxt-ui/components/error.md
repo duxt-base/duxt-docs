@@ -11,7 +11,7 @@ The `DError` component provides styled error state displays for handling errors 
 
 ## Basic Usage
 
-```dart
+```
 DError(
   title: 'Something went wrong',
   description: 'Please try again later.',
@@ -20,7 +20,7 @@ DError(
 
 ## With Retry
 
-```dart
+```
 DError(
   title: 'Failed to load data',
   description: 'An error occurred while fetching your data.',
@@ -32,7 +32,7 @@ DError(
 
 ### Warning
 
-```dart
+```
 DError(
   severity: DErrorSeverity.warning,
   title: 'Connection unstable',
@@ -42,7 +42,7 @@ DError(
 
 ### Error (Default)
 
-```dart
+```
 DError(
   severity: DErrorSeverity.error,
   title: 'Something went wrong',
@@ -52,7 +52,7 @@ DError(
 
 ### Fatal
 
-```dart
+```
 DError(
   severity: DErrorSeverity.fatal,
   title: 'Critical error',
@@ -62,7 +62,7 @@ DError(
 
 ## With Error Code
 
-```dart
+```
 DError(
   title: 'Request failed',
   description: 'The server returned an error response.',
@@ -73,7 +73,7 @@ DError(
 
 ## Custom Icon
 
-```dart
+```
 DError(
   icon: '🔒',
   title: 'Access denied',
@@ -83,7 +83,7 @@ DError(
 
 ## With Icon Component
 
-```dart
+```
 DError(
   iconComponent: DIcon(name: 'wifi-off', size: 48, classes: 'text-red-500'),
   title: 'No connection',
@@ -94,7 +94,7 @@ DError(
 
 ## With Custom Action
 
-```dart
+```
 DError(
   title: 'Session expired',
   description: 'Your session has expired. Please log in again.',
@@ -107,7 +107,7 @@ DError(
 
 ## Sizes
 
-```dart
+```
 DError(size: DSize.xs, title: 'Error')
 DError(size: DSize.sm, title: 'Error')
 DError(size: DSize.md, title: 'Error')  // Default
@@ -117,7 +117,7 @@ DError(size: DSize.xl, title: 'Error')
 
 ## Without Padding
 
-```dart
+```
 DError(
   padded: false,
   title: 'Error',
@@ -129,7 +129,7 @@ DError(
 
 ### 404 Error
 
-```dart
+```
 DError404(
   action: DButton(
     label: 'Go Home',
@@ -140,7 +140,7 @@ DError404(
 
 ### 500 Error
 
-```dart
+```
 DError500(
   onRetry: () => reload(),
   action: DButton(
@@ -153,7 +153,7 @@ DError500(
 
 ### Network Error
 
-```dart
+```
 DErrorNetwork(
   onRetry: () => retryConnection(),
 )
@@ -161,7 +161,7 @@ DErrorNetwork(
 
 ## Error Boundary Pattern
 
-```dart
+```
 class ErrorBoundary extends StatefulComponent {
   final List<Component> children;
 
@@ -191,7 +191,7 @@ class _ErrorBoundaryState extends State<ErrorBoundary> {
 
 ## In Data Loading
 
-```dart
+```
 class DataView extends StatefulComponent {
   @override
   State createState() => _DataViewState();

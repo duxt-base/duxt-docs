@@ -13,13 +13,13 @@ The `DSpinner` and `DLoading` components provide visual feedback during asynchro
 
 ### Basic Usage
 
-```dart
+```
 DSpinner()
 ```
 
 ### Sizes
 
-```dart
+```
 DSpinner(size: DSize.xs)  // 16px
 DSpinner(size: DSize.sm)  // 20px
 DSpinner(size: DSize.md)  // 24px (default)
@@ -28,7 +28,7 @@ DSpinner(size: DSize.lg)  // 32px
 
 ### Custom Color
 
-```dart
+```
 DSpinner(color: 'text-primary-600')
 DSpinner(color: 'text-success-500')
 DSpinner(color: 'text-white')  // For dark backgrounds
@@ -36,7 +36,7 @@ DSpinner(color: 'text-white')  // For dark backgrounds
 
 ### In Button
 
-```dart
+```
 DButton(
   label: 'Submitting...',
   loading: true,  // Automatically shows spinner
@@ -56,7 +56,7 @@ DButton(
 
 ### Basic Usage
 
-```dart
+```
 DLoading(
   loading: isLoading,
   child: [
@@ -68,7 +68,7 @@ DLoading(
 
 ### With Message
 
-```dart
+```
 DLoading(
   loading: isLoading,
   message: 'Loading data...',
@@ -80,7 +80,7 @@ DLoading(
 
 ### Full Page Loading
 
-```dart
+```
 if (pageLoading)
   div(classes: 'fixed inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-50', [
     div(classes: 'text-center', [
@@ -92,7 +92,7 @@ if (pageLoading)
 
 ## Loading States Example
 
-```dart
+```
 class DataFetchExample extends StatefulComponent {
   @override
   State createState() => _DataFetchExampleState();
@@ -163,7 +163,7 @@ class _DataFetchExampleState extends State<DataFetchExample> {
 
 For a better UX, consider using skeleton loading:
 
-```dart
+```
 if (loading)
   div(classes: 'space-y-3', [
     DSkeleton(height: 20, width: '60%'),
@@ -177,7 +177,7 @@ else
 
 ## Button Loading States
 
-```dart
+```
 class FormSubmit extends StatefulComponent {
   @override
   State createState() => _FormSubmitState();
@@ -215,7 +215,7 @@ class _FormSubmitState extends State<FormSubmit> {
 
 ## Inline Loading
 
-```dart
+```
 div(classes: 'flex items-center gap-2', [
   if (checking)
     DSpinner(size: DSize.sm),

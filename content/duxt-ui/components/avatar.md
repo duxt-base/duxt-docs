@@ -13,7 +13,7 @@ The `DAvatar` component displays user profile images, initials, or icons with va
 
 ### With Image
 
-```dart
+```
 DAvatar(
   src: '/images/user.jpg',
   alt: 'John Doe',
@@ -22,7 +22,7 @@ DAvatar(
 
 ### With Initials
 
-```dart
+```
 DAvatar(
   text: 'JD',
 )
@@ -30,7 +30,7 @@ DAvatar(
 
 ### With Icon
 
-```dart
+```
 DAvatar(
   icon: DIcon(name: 'user'),
 )
@@ -40,7 +40,7 @@ DAvatar(
 
 DAvatar supports 9 sizes from `xxxs` to `xxxl`:
 
-```dart
+```
 DAvatar(text: 'A', size: DAvatarSize.xxxs)  // 16px
 DAvatar(text: 'A', size: DAvatarSize.xxs)   // 20px
 DAvatar(text: 'A', size: DAvatarSize.xs)    // 24px
@@ -56,7 +56,7 @@ DAvatar(text: 'A', size: DAvatarSize.xxxl)  // 80px
 
 Display a status indicator on the avatar:
 
-```dart
+```
 // Online status (bottom right)
 DAvatar(
   src: '/user.jpg',
@@ -83,7 +83,7 @@ DAvatar(
 
 Display multiple avatars together with an overflow indicator:
 
-```dart
+```
 DAvatarGroup(
   avatars: [
     DAvatar(src: '/user1.jpg'),
@@ -102,7 +102,7 @@ DAvatarGroup(
 
 When an image fails to load, DAvatar gracefully falls back:
 
-```dart
+```
 // Primary: image, Fallback: initials
 DAvatar(
   src: '/may-not-exist.jpg',
@@ -120,7 +120,7 @@ DAvatar(
 
 ### User Profile Header
 
-```dart
+```
 div(classes: 'flex items-center gap-4', [
   DAvatar(
     src: '/profile.jpg',
@@ -137,7 +137,7 @@ div(classes: 'flex items-center gap-4', [
 
 ### Comment List
 
-```dart
+```
 div(classes: 'flex gap-3', [
   DAvatar(
     text: 'MK',
@@ -152,7 +152,7 @@ div(classes: 'flex gap-3', [
 
 ### Team Members
 
-```dart
+```
 div([
   p(classes: 'text-sm text-gray-500 mb-2', [text('Team members')]),
   DAvatarGroup(

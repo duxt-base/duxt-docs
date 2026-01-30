@@ -11,7 +11,7 @@ The `DTextarea` component provides a multi-line text input field for longer cont
 
 ## Basic Usage
 
-```dart
+```
 DTextarea(
   label: 'Description',
   placeholder: 'Enter a description...',
@@ -22,7 +22,7 @@ DTextarea(
 
 Control the visible height:
 
-```dart
+```
 DTextarea(
   label: 'Message',
   rows: 5,  // Default is 3
@@ -33,7 +33,7 @@ DTextarea(
 
 Automatically grow with content:
 
-```dart
+```
 DTextarea(
   label: 'Notes',
   autoresize: true,
@@ -44,7 +44,7 @@ DTextarea(
 
 ### Outline (Default)
 
-```dart
+```
 DTextarea(
   label: 'Description',
   variant: DInputVariant.outline,
@@ -53,7 +53,7 @@ DTextarea(
 
 ### Soft
 
-```dart
+```
 DTextarea(
   label: 'Description',
   variant: DInputVariant.soft,
@@ -62,7 +62,7 @@ DTextarea(
 
 ### Subtle
 
-```dart
+```
 DTextarea(
   label: 'Description',
   variant: DInputVariant.subtle,
@@ -71,7 +71,7 @@ DTextarea(
 
 ### Ghost
 
-```dart
+```
 DTextarea(
   label: 'Description',
   variant: DInputVariant.ghost,
@@ -80,7 +80,7 @@ DTextarea(
 
 ## Sizes
 
-```dart
+```
 DTextarea(label: 'XS', size: DSize.xs)
 DTextarea(label: 'SM', size: DSize.sm)
 DTextarea(label: 'MD', size: DSize.md)  // Default
@@ -92,7 +92,7 @@ DTextarea(label: 'XL', size: DSize.xl)
 
 ### Disabled
 
-```dart
+```
 DTextarea(
   label: 'Description',
   value: 'This content cannot be edited.',
@@ -102,7 +102,7 @@ DTextarea(
 
 ### Read-only
 
-```dart
+```
 DTextarea(
   label: 'Terms',
   value: 'Read-only content...',
@@ -112,7 +112,7 @@ DTextarea(
 
 ### Required
 
-```dart
+```
 DTextarea(
   label: 'Description',
   required: true,
@@ -123,7 +123,7 @@ DTextarea(
 
 ### Error State
 
-```dart
+```
 DTextarea(
   label: 'Description',
   error: 'Description must be at least 20 characters.',
@@ -132,7 +132,7 @@ DTextarea(
 
 ### With Hint
 
-```dart
+```
 DTextarea(
   label: 'Bio',
   hint: 'Tell us about yourself (max 500 characters)',
@@ -141,7 +141,7 @@ DTextarea(
 
 ## Character Counter
 
-```dart
+```
 class TextareaWithCounter extends StatefulComponent {
   @override
   State createState() => _TextareaWithCounterState();
@@ -177,7 +177,7 @@ class _TextareaWithCounterState extends State<TextareaWithCounter> {
 
 ## Complete Form Example
 
-```dart
+```
 DCard(
   header: [
     h3([text('Leave a Review')]),

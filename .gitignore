@@ -1,34 +1,26 @@
-# Files and directories created by pub.
-**/doc/api/
+# Dart/Flutter
 .dart_tool/
 .packages
+build/
+pubspec.lock
 
-# Conventional directory for build output.
-/build/
+# Duxt
+.duxt/
 
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
+# IDE
 .idea/
+*.iml
+.vscode/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Database
+*.db
+*.db-journal
+
+# OS
 .DS_Store
+Thumbs.db
 
-# Duxt UI package copy for Tailwind scanning
-packages_duxt_ui/
+# Generated
+*.g.dart
+*.freezed.dart
+.output/

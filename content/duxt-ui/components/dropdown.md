@@ -11,7 +11,7 @@ The `DDropdown` component displays a contextual menu of actions when triggered b
 
 ## Basic Usage
 
-```dart
+```
 DDropdown(
   trigger: DButton(label: 'Options'),
   items: [
@@ -24,7 +24,7 @@ DDropdown(
 
 ## With Icons
 
-```dart
+```
 DDropdown(
   trigger: DButton(
     label: 'Actions',
@@ -52,7 +52,7 @@ DDropdown(
 
 ## With Dividers
 
-```dart
+```
 DDropdown(
   trigger: DButton(label: 'Menu'),
   items: [
@@ -70,7 +70,7 @@ DDropdown(
 
 ## Disabled Items
 
-```dart
+```
 DDropdown(
   trigger: DButton(label: 'Actions'),
   items: [
@@ -86,7 +86,7 @@ DDropdown(
 
 ## Icon Button Trigger
 
-```dart
+```
 DDropdown(
   trigger: DButton(
     leadingIcon: DIcon(name: 'more-vertical'),
@@ -102,7 +102,7 @@ DDropdown(
 
 ## User Menu Example
 
-```dart
+```
 DDropdown(
   trigger: div(classes: 'flex items-center gap-2 cursor-pointer', [
     DAvatar(src: '/user.jpg', size: DAvatarSize.sm),
@@ -137,7 +137,7 @@ DDropdown(
 
 ## Table Row Actions
 
-```dart
+```
 DTable<User>(
   columns: [
     DTableColumn(key: 'name', label: 'Name'),

@@ -11,7 +11,7 @@ The `DCollapsible` component provides a single expandable/collapsible section, u
 
 ## Basic Usage
 
-```dart
+```
 DCollapsible(
   trigger: [
     DButton(
@@ -27,7 +27,7 @@ DCollapsible(
 
 ## Default Open
 
-```dart
+```
 DCollapsible(
   defaultOpen: true,
   trigger: [...],
@@ -37,7 +37,7 @@ DCollapsible(
 
 ## Custom Trigger
 
-```dart
+```
 DCollapsible(
   trigger: [
     div(classes: 'flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg', [
@@ -60,7 +60,7 @@ DCollapsible(
 
 ## Using Helper Components
 
-```dart
+```
 DCollapsible(
   children: [
     DCollapsibleTrigger(
@@ -85,7 +85,7 @@ DCollapsible(
 
 ## On Open Change
 
-```dart
+```
 DCollapsible(
   onOpenChange: (isOpen) {
     print('Collapsible is now: ${isOpen ? 'open' : 'closed'}');
@@ -97,7 +97,7 @@ DCollapsible(
 
 ## FAQ Item Example
 
-```dart
+```
 class FAQItem extends StatelessComponent {
   final String question;
   final String answer;
@@ -141,7 +141,7 @@ div(classes: 'divide-y', [
 
 ## Nested Content Example
 
-```dart
+```
 DCard(
   body: [
     DCollapsible(
@@ -179,7 +179,7 @@ DCard(
 
 ## Code Block Example
 
-```dart
+```
 DCollapsible(
   trigger: [
     div(classes: 'flex items-center gap-2 text-sm text-gray-500 cursor-pointer hover:text-gray-700', [
@@ -200,7 +200,7 @@ DCollapsible(
 
 ## Controlled State
 
-```dart
+```
 class ControlledCollapsible extends StatefulComponent {
   @override
   State createState() => _ControlledCollapsibleState();

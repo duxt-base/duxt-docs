@@ -15,7 +15,7 @@ Duxt provides state management utilities for handling async data loading in SPA 
 
 Use `DuxtState<T, D>` for pages that load a single data source:
 
-```dart
+```
 import 'package:jaspr/jaspr.dart';
 import 'package:duxt/duxt.dart';
 import '../api.dart';
@@ -74,7 +74,7 @@ DuxtState manages three states automatically:
 
 Handle different error types in buildError:
 
-```dart
+```
 @override
 Component buildError(Object error) {
   if (error is ApiException) {
@@ -111,7 +111,7 @@ Component buildError(Object error) {
 
 Call `reload()` to refresh the data:
 
-```dart
+```
 class _PostsState extends DuxtState<PostsPage, List<Post>> {
   @override
   Future<List<Post>> load() => PostsApi.getAll();
@@ -140,7 +140,7 @@ class _PostsState extends DuxtState<PostsPage, List<Post>> {
 
 Use `DuxtMultiState` when you need to load multiple data sources in parallel:
 
-```dart
+```
 class DashboardPage extends StatefulComponent {
   const DashboardPage({super.key});
 
@@ -185,7 +185,7 @@ class _DashboardState extends DuxtMultiState<DashboardPage> {
 
 For standalone async state management outside of `DuxtState`, use `AsyncData<T>`:
 
-```dart
+```
 import 'package:jaspr/jaspr.dart';
 import 'package:duxt/duxt.dart';
 
@@ -253,7 +253,7 @@ class _MyPageState extends State<MyPage> {
 
 For navigation utilities, see the [Routing](/duxt/routing) documentation.
 
-```dart
+```
 // Navigate programmatically
 context.push('/posts');
 context.back();

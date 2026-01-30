@@ -11,7 +11,7 @@ The `DToast` and `DToaster` components provide a notification system for display
 
 ## Basic Usage
 
-```dart
+```
 DToast(
   title: 'Success',
   description: 'Your changes have been saved.',
@@ -21,7 +21,7 @@ DToast(
 
 ## Colors
 
-```dart
+```
 DToast(title: 'Primary', color: DColor.primary)
 DToast(title: 'Secondary', color: DColor.secondary)
 DToast(title: 'Success', color: DColor.success)
@@ -34,7 +34,7 @@ DToast(title: 'Error', color: DColor.error)
 
 ### Solid
 
-```dart
+```
 DToast(
   title: 'Solid Toast',
   variant: DToastVariant.solid,
@@ -44,7 +44,7 @@ DToast(
 
 ### Outline
 
-```dart
+```
 DToast(
   title: 'Outline Toast',
   variant: DToastVariant.outline,
@@ -54,7 +54,7 @@ DToast(
 
 ### Soft
 
-```dart
+```
 DToast(
   title: 'Soft Toast',
   variant: DToastVariant.soft,
@@ -64,7 +64,7 @@ DToast(
 
 ### Subtle
 
-```dart
+```
 DToast(
   title: 'Subtle Toast',
   variant: DToastVariant.subtle,
@@ -74,7 +74,7 @@ DToast(
 
 ## With Custom Icon
 
-```dart
+```
 DToast(
   title: 'Download Complete',
   description: 'Your file is ready.',
@@ -85,7 +85,7 @@ DToast(
 
 ## Closable Toast
 
-```dart
+```
 DToast(
   title: 'Notification',
   description: 'You have a new message.',
@@ -96,7 +96,7 @@ DToast(
 
 ## With Action
 
-```dart
+```
 DToast(
   title: 'Event Created',
   description: 'Your event has been scheduled.',
@@ -114,7 +114,7 @@ DToast(
 
 Create toast data with semantic colors:
 
-```dart
+```
 // Success toast
 final successToast = ToastData.success(
   title: 'Saved!',
@@ -144,7 +144,7 @@ final infoToast = ToastData.info(
 
 Use `DToaster` to manage multiple toasts:
 
-```dart
+```
 class MyApp extends StatefulComponent {
   @override
   State createState() => _MyAppState();
@@ -196,7 +196,7 @@ class _MyAppState extends State<MyApp> {
 
 ## Complete Example
 
-```dart
+```
 class NotificationExample extends StatefulComponent {
   @override
   State createState() => _NotificationExampleState();

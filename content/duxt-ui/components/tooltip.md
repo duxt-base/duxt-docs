@@ -11,7 +11,7 @@ The `DTooltip` component displays additional information when hovering over an e
 
 ## Basic Usage
 
-```dart
+```
 DTooltip(
   content: 'This is a tooltip',
   child: DButton(label: 'Hover me'),
@@ -20,7 +20,7 @@ DTooltip(
 
 ## Positions
 
-```dart
+```
 // Top (default)
 DTooltip(
   content: 'Top tooltip',
@@ -52,7 +52,7 @@ DTooltip(
 
 ## With Icon Button
 
-```dart
+```
 DTooltip(
   content: 'Delete item',
   child: DButton(
@@ -66,7 +66,7 @@ DTooltip(
 
 ## Action Bar Example
 
-```dart
+```
 div(classes: 'flex items-center gap-1', [
   DTooltip(
     content: 'Edit',
@@ -110,7 +110,7 @@ div(classes: 'flex items-center gap-1', [
 
 ## With Rich Content
 
-```dart
+```
 DTooltip(
   content: div([
     p(classes: 'font-medium', [text('Keyboard Shortcut')]),
@@ -124,7 +124,7 @@ DTooltip(
 
 Control when the tooltip appears:
 
-```dart
+```
 DTooltip(
   content: 'This appears after 500ms',
   delay: 500,  // milliseconds
@@ -134,7 +134,7 @@ DTooltip(
 
 ## Information Tooltips
 
-```dart
+```
 div(classes: 'flex items-center gap-2', [
   span([text('API Key')]),
   DTooltip(
@@ -150,7 +150,7 @@ div(classes: 'flex items-center gap-2', [
 
 ## Form Field Help
 
-```dart
+```
 div(classes: 'space-y-1', [
   div(classes: 'flex items-center gap-2', [
     label([text('Password')]),
@@ -179,7 +179,7 @@ div(classes: 'space-y-1', [
 
 For truncated content:
 
-```dart
+```
 DTable<User>(
   columns: [
     DTableColumn(
@@ -200,7 +200,7 @@ DTable<User>(
 
 ## Status Indicator
 
-```dart
+```
 div(classes: 'flex items-center gap-2', [
   DTooltip(
     content: 'Online since 2 hours ago',

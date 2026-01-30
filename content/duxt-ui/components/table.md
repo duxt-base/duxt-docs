@@ -11,7 +11,7 @@ The `DTable` component displays data in a tabular format with support for custom
 
 ## Basic Usage
 
-```dart
+```
 DTable<Map<String, String>>(
   columns: [
     DTableColumn(key: 'name', label: 'Name'),
@@ -28,7 +28,7 @@ DTable<Map<String, String>>(
 
 ## With Custom Row Key
 
-```dart
+```
 DTable<User>(
   columns: [...],
   data: users,
@@ -38,7 +38,7 @@ DTable<User>(
 
 ## Striped Rows
 
-```dart
+```
 DTable<User>(
   columns: [...],
   data: users,
@@ -48,7 +48,7 @@ DTable<User>(
 
 ## Hoverable Rows
 
-```dart
+```
 DTable<User>(
   columns: [...],
   data: users,
@@ -58,7 +58,7 @@ DTable<User>(
 
 ## Bordered Table
 
-```dart
+```
 DTable<User>(
   columns: [...],
   data: users,
@@ -68,7 +68,7 @@ DTable<User>(
 
 ## Custom Cell Rendering
 
-```dart
+```
 DTable<User>(
   columns: [
     DTableColumn(
@@ -113,7 +113,7 @@ DTable<User>(
 
 ## Empty State
 
-```dart
+```
 DTable<User>(
   columns: [
     DTableColumn(key: 'name', label: 'Name'),
@@ -134,7 +134,7 @@ DTable<User>(
 
 ## Complete Example
 
-```dart
+```
 class UsersTable extends StatelessComponent {
   final List<User> users;
 

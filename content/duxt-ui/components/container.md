@@ -11,7 +11,7 @@ The `DContainer` component provides a centered, max-width container for page con
 
 ## Basic Usage
 
-```dart
+```
 DContainer(
   children: [
     h1([text('Page Title')]),
@@ -24,7 +24,7 @@ DContainer(
 
 Control the maximum width:
 
-```dart
+```
 // Extra small (max-w-screen-xs: 475px)
 DContainer(
   size: DContainerSize.xs,
@@ -72,7 +72,7 @@ DContainer(
 
 Add responsive horizontal padding:
 
-```dart
+```
 DContainer(
   padded: true,  // Adds px-4 sm:px-6 lg:px-8
   children: [
@@ -83,7 +83,7 @@ DContainer(
 
 ## Page Layout Example
 
-```dart
+```
 class PageLayout extends StatelessComponent {
   final List<Component> children;
 
@@ -141,7 +141,7 @@ class PageLayout extends StatelessComponent {
 
 For readable text content:
 
-```dart
+```
 DContainer(
   size: DContainerSize.md,  // 768px max
   padded: true,
@@ -161,7 +161,7 @@ DContainer(
 
 For wide dashboard layouts:
 
-```dart
+```
 DContainer(
   size: DContainerSize.xxl,  // 1536px max
   padded: true,
@@ -184,7 +184,7 @@ DContainer(
 
 Combine full-width backgrounds with contained content:
 
-```dart
+```
 div([
   // Hero section - full width background
   section(classes: 'bg-primary-600 text-white', [
@@ -220,7 +220,7 @@ div([
 
 While generally not recommended, you can nest containers for special layouts:
 
-```dart
+```
 DContainer(
   size: DContainerSize.xl,
   padded: true,

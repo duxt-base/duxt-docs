@@ -13,7 +13,7 @@ Duxt UI provides three progress components: `DProgress` (linear), `DProgressCirc
 
 ### Basic Usage
 
-```dart
+```
 DProgress(
   value: 65,
   max: 100,
@@ -22,7 +22,7 @@ DProgress(
 
 ### With Label
 
-```dart
+```
 DProgress(
   value: 65,
   max: 100,
@@ -32,7 +32,7 @@ DProgress(
 
 ### Colors
 
-```dart
+```
 DProgress(value: 65, color: DColor.primary)
 DProgress(value: 65, color: DColor.secondary)
 DProgress(value: 65, color: DColor.success)
@@ -43,7 +43,7 @@ DProgress(value: 65, color: DColor.error)
 
 ### Sizes
 
-```dart
+```
 DProgress(value: 65, size: DSize.xs)
 DProgress(value: 65, size: DSize.sm)
 DProgress(value: 65, size: DSize.md)
@@ -53,7 +53,7 @@ DProgress(value: 65, size: DSize.xl)
 
 ### Animations
 
-```dart
+```
 // Pulse animation
 DProgress(
   value: 65,
@@ -69,7 +69,7 @@ DProgress(
 
 ### Custom Colors
 
-```dart
+```
 DProgress(
   value: 65,
   trackColor: 'bg-gray-100',
@@ -81,7 +81,7 @@ DProgress(
 
 ### Basic Usage
 
-```dart
+```
 DProgressCircular(
   value: 75,
   max: 100,
@@ -90,7 +90,7 @@ DProgressCircular(
 
 ### With Center Label
 
-```dart
+```
 DProgressCircular(
   value: 75,
   max: 100,
@@ -100,7 +100,7 @@ DProgressCircular(
 
 ### Sizes
 
-```dart
+```
 DProgressCircular(value: 75, size: DSize.sm)  // 48px
 DProgressCircular(value: 75, size: DSize.md)  // 64px
 DProgressCircular(value: 75, size: DSize.lg)  // 80px
@@ -109,7 +109,7 @@ DProgressCircular(value: 75, size: DSize.xl)  // 96px
 
 ### Stroke Width
 
-```dart
+```
 DProgressCircular(
   value: 75,
   strokeWidth: 8,  // Thicker stroke
@@ -118,7 +118,7 @@ DProgressCircular(
 
 ### Indeterminate
 
-```dart
+```
 DProgressCircular(
   indeterminate: true,  // Spinning animation
 )
@@ -126,7 +126,7 @@ DProgressCircular(
 
 ### Custom Center Content
 
-```dart
+```
 DProgressCircular(
   value: 75,
   max: 100,
@@ -140,7 +140,7 @@ DProgressCircular(
 
 ### Basic Usage
 
-```dart
+```
 DProgressSteps(
   value: 2,
   steps: 5,
@@ -149,7 +149,7 @@ DProgressSteps(
 
 ### With Labels
 
-```dart
+```
 DProgressSteps(
   value: 2,
   steps: 5,
@@ -159,7 +159,7 @@ DProgressSteps(
 
 ### Colors
 
-```dart
+```
 DProgressSteps(
   value: 3,
   steps: 5,
@@ -169,7 +169,7 @@ DProgressSteps(
 
 ## Upload Progress Example
 
-```dart
+```
 class FileUpload extends StatefulComponent {
   @override
   State createState() => _FileUploadState();
@@ -231,7 +231,7 @@ class _FileUploadState extends State<FileUpload> {
 
 ## Checkout Steps Example
 
-```dart
+```
 class CheckoutStepper extends StatefulComponent {
   @override
   State createState() => _CheckoutStepperState();
@@ -286,7 +286,7 @@ class _CheckoutStepperState extends State<CheckoutStepper> {
 
 ## Loading State Example
 
-```dart
+```
 DCard(
   body: [
     if (loading)

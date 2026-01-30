@@ -11,7 +11,7 @@ The `DRadioGroup` component allows users to select a single option from a list o
 
 ## Basic Usage
 
-```dart
+```
 DRadioGroup<String>(
   name: 'plan',
   label: 'Select a plan',
@@ -26,7 +26,7 @@ DRadioGroup<String>(
 
 ## Controlled State
 
-```dart
+```
 class RadioGroupExample extends StatefulComponent {
   @override
   State createState() => _RadioGroupExampleState();
@@ -54,7 +54,7 @@ class _RadioGroupExampleState extends State<RadioGroupExample> {
 
 ## Sizes
 
-```dart
+```
 DRadioGroup<String>(
   size: DRadioGroupSize.xs,
   name: 'size-xs',
@@ -88,7 +88,7 @@ DRadioGroup<String>(
 
 ## Colors
 
-```dart
+```
 DRadioGroup<String>(color: DRadioGroupColor.primary, ...)
 DRadioGroup<String>(color: DRadioGroupColor.gray, ...)
 DRadioGroup<String>(color: DRadioGroupColor.success, ...)
@@ -100,7 +100,7 @@ DRadioGroup<String>(color: DRadioGroupColor.error, ...)
 
 ### Vertical (Default)
 
-```dart
+```
 DRadioGroup<String>(
   orientation: DRadioGroupOrientation.vertical,
   name: 'vertical',
@@ -110,7 +110,7 @@ DRadioGroup<String>(
 
 ### Horizontal
 
-```dart
+```
 DRadioGroup<String>(
   orientation: DRadioGroupOrientation.horizontal,
   name: 'horizontal',
@@ -120,7 +120,7 @@ DRadioGroup<String>(
 
 ## With Descriptions
 
-```dart
+```
 DRadioGroup<String>(
   name: 'plan',
   label: 'Select a plan',
@@ -147,7 +147,7 @@ DRadioGroup<String>(
 
 ## Disabled Options
 
-```dart
+```
 DRadioGroup<String>(
   name: 'plan',
   options: [
@@ -166,7 +166,7 @@ DRadioGroup<String>(
 
 ## Disabled Group
 
-```dart
+```
 DRadioGroup<String>(
   name: 'plan',
   disabled: true,
@@ -177,7 +177,7 @@ DRadioGroup<String>(
 
 ## Required
 
-```dart
+```
 DRadioGroup<String>(
   name: 'plan',
   label: 'Select a plan',
@@ -189,7 +189,7 @@ DRadioGroup<String>(
 
 ## With Error
 
-```dart
+```
 DRadioGroup<String>(
   name: 'plan',
   label: 'Select a plan',
@@ -201,7 +201,7 @@ DRadioGroup<String>(
 
 ## With Hint
 
-```dart
+```
 DRadioGroup<String>(
   name: 'plan',
   label: 'Select a plan',
@@ -213,7 +213,7 @@ DRadioGroup<String>(
 
 ## Payment Method Example
 
-```dart
+```
 DRadioGroup<String>(
   name: 'payment',
   label: 'Payment method',
@@ -241,7 +241,7 @@ DRadioGroup<String>(
 
 ## Shipping Options Example
 
-```dart
+```
 DRadioGroup<String>(
   name: 'shipping',
   label: 'Shipping method',

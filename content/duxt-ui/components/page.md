@@ -13,7 +13,7 @@ Duxt UI provides a set of components for building landing pages and marketing co
 
 A responsive page header with title, description, and optional actions:
 
-```dart
+```
 DPageHeader(
   title: 'Welcome to Our Platform',
   description: 'Build amazing applications with our powerful tools and APIs.',
@@ -26,7 +26,7 @@ DPageHeader(
 
 ### With Headline
 
-```dart
+```
 DPageHeader(
   headline: 'New Feature',
   title: 'Introducing Dark Mode',
@@ -36,7 +36,7 @@ DPageHeader(
 
 ### With Icon
 
-```dart
+```
 DPageHeader(
   icon: div(classes: 'w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center', [
     DIcon(name: 'zap', size: 32, classes: 'text-primary-600'),
@@ -48,7 +48,7 @@ DPageHeader(
 
 ### Alignment
 
-```dart
+```
 // Left aligned (default)
 DPageHeader(
   align: DPageHeaderAlign.left,
@@ -75,7 +75,7 @@ DPageHeader(
 
 A prominent hero section for landing pages:
 
-```dart
+```
 DPageHero(
   headline: 'Introducing v2.0',
   title: 'The Modern Way to Build Web Apps',
@@ -89,7 +89,7 @@ DPageHero(
 
 ### With Gradient Background
 
-```dart
+```
 DPageHero(
   gradient: true,
   title: 'Build Faster, Ship Sooner',
@@ -102,7 +102,7 @@ DPageHero(
 
 ### Custom Gradient
 
-```dart
+```
 DPageHero(
   gradient: true,
   gradientClasses: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950',
@@ -113,7 +113,7 @@ DPageHero(
 
 ### Left Aligned Hero
 
-```dart
+```
 DPageHero(
   align: DPageHeaderAlign.left,
   title: 'Enterprise Ready',
@@ -126,7 +126,7 @@ DPageHero(
 
 ### With Custom Content
 
-```dart
+```
 DPageHero(
   children: [
     div(classes: 'grid grid-cols-2 gap-8', [
@@ -146,7 +146,7 @@ DPageHero(
 
 A call-to-action section for conversions:
 
-```dart
+```
 DPageCTA(
   title: 'Ready to get started?',
   description: 'Join thousands of developers building with our platform.',
@@ -159,7 +159,7 @@ DPageCTA(
 
 ### Card Style
 
-```dart
+```
 DPageCTA(
   card: true,
   title: 'Get the newsletter',
@@ -173,7 +173,7 @@ DPageCTA(
 
 ### Gradient Background
 
-```dart
+```
 DPageCTA(
   gradient: true,
   title: 'Start building today',
@@ -191,7 +191,7 @@ DPageCTA(
 
 ### With Icon
 
-```dart
+```
 DPageCTA(
   card: true,
   icon: div(classes: 'w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center', [
@@ -207,7 +207,7 @@ DPageCTA(
 
 ## Complete Landing Page Example
 
-```dart
+```
 class LandingPage extends StatelessComponent {
   @override
   Iterable<Component> build(BuildContext context) sync* {

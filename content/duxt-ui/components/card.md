@@ -11,7 +11,7 @@ The `DCard` component provides a flexible container for displaying content with 
 
 ## Basic Usage
 
-```dart
+```
 DCard(
   children: [
     p([text('This is a basic card.')]),
@@ -21,7 +21,7 @@ DCard(
 
 ## With Header
 
-```dart
+```
 DCard(
   header: DCardHeader(
     title: 'Card Title',
@@ -35,7 +35,7 @@ DCard(
 
 ## With Footer
 
-```dart
+```
 DCard(
   children: [
     p([text('Card content')]),
@@ -51,7 +51,7 @@ DCard(
 
 ## Complete Example
 
-```dart
+```
 DCard(
   header: DCardHeader(
     title: 'User Profile',
@@ -79,7 +79,7 @@ DCard(
 
 ### Outline (Default)
 
-```dart
+```
 DCard(
   variant: DCardVariant.outline,
   children: [text('Outlined card with border')],
@@ -88,7 +88,7 @@ DCard(
 
 ### Solid
 
-```dart
+```
 DCard(
   variant: DCardVariant.solid,
   children: [text('Solid card with filled background')],
@@ -97,7 +97,7 @@ DCard(
 
 ### Soft
 
-```dart
+```
 DCard(
   variant: DCardVariant.soft,
   children: [text('Soft card with subtle background')],
@@ -106,7 +106,7 @@ DCard(
 
 ### Subtle
 
-```dart
+```
 DCard(
   variant: DCardVariant.subtle,
   children: [text('Subtle card with soft background and border')],
@@ -115,7 +115,7 @@ DCard(
 
 ## No Padding
 
-```dart
+```
 DCard(
   noPadding: true,
   children: [

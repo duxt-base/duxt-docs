@@ -11,7 +11,7 @@ The `DFileUpload` component provides a drag-and-drop file upload area with suppo
 
 ## Basic Usage
 
-```dart
+```
 DFileUpload(
   label: 'Upload files',
   onChange: (files) {
@@ -24,7 +24,7 @@ DFileUpload(
 
 ## Sizes
 
-```dart
+```
 DFileUpload(size: DFileUploadSize.sm, ...)
 DFileUpload(size: DFileUploadSize.md, ...)  // Default
 DFileUpload(size: DFileUploadSize.lg, ...)
@@ -32,7 +32,7 @@ DFileUpload(size: DFileUploadSize.lg, ...)
 
 ## Colors
 
-```dart
+```
 DFileUpload(color: DColor.primary, ...)
 DFileUpload(color: DColor.secondary, ...)
 DFileUpload(color: DColor.success, ...)
@@ -41,7 +41,7 @@ DFileUpload(color: DColor.info, ...)
 
 ## Accept Specific File Types
 
-```dart
+```
 // Images only
 DFileUpload(
   label: 'Upload image',
@@ -73,7 +73,7 @@ DFileUpload(
 
 ## Multiple Files
 
-```dart
+```
 DFileUpload(
   label: 'Upload files',
   multiple: true,
@@ -83,7 +83,7 @@ DFileUpload(
 
 ## Max File Size
 
-```dart
+```
 DFileUpload(
   label: 'Upload file',
   maxSize: 5 * 1024 * 1024,  // 5 MB in bytes
@@ -93,7 +93,7 @@ DFileUpload(
 
 ## Max Number of Files
 
-```dart
+```
 DFileUpload(
   label: 'Upload files',
   multiple: true,
@@ -104,7 +104,7 @@ DFileUpload(
 
 ## Custom Text
 
-```dart
+```
 DFileUpload(
   label: 'Upload profile picture',
   dropzoneText: 'Drag your photo here or ',
@@ -115,7 +115,7 @@ DFileUpload(
 
 ## Custom Icon
 
-```dart
+```
 DFileUpload(
   label: 'Upload files',
   icon: DIcon(name: 'image', size: 40),
@@ -125,7 +125,7 @@ DFileUpload(
 
 ## With Hint
 
-```dart
+```
 DFileUpload(
   label: 'Upload resume',
   accept: '.pdf,.doc,.docx',
@@ -137,7 +137,7 @@ DFileUpload(
 
 ## With Error
 
-```dart
+```
 DFileUpload(
   label: 'Upload file',
   error: 'File size exceeds the maximum limit',
@@ -147,7 +147,7 @@ DFileUpload(
 
 ## Required
 
-```dart
+```
 DFileUpload(
   label: 'Upload document',
   required: true,
@@ -157,7 +157,7 @@ DFileUpload(
 
 ## Disabled
 
-```dart
+```
 DFileUpload(
   label: 'Upload disabled',
   disabled: true,
@@ -166,7 +166,7 @@ DFileUpload(
 
 ## Profile Picture Upload Example
 
-```dart
+```
 class ProfilePictureUpload extends StatefulComponent {
   @override
   State createState() => _ProfilePictureUploadState();
@@ -228,7 +228,7 @@ class _ProfilePictureUploadState extends State<ProfilePictureUpload> {
 
 ## Document Upload Form Example
 
-```dart
+```
 DCard(
   header: [h3([text('Submit Application')])],
   body: [
@@ -268,7 +268,7 @@ DCard(
 
 The `onChange` callback receives a list of `DUploadedFile` objects with the following properties:
 
-```dart
+```
 class DUploadedFile {
   final String name;       // File name
   final int size;          // Size in bytes

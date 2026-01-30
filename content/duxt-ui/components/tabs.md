@@ -11,7 +11,7 @@ The `DTabs` component organizes content into multiple tabbed sections, allowing 
 
 ## Basic Usage
 
-```dart
+```
 DTabs(
   items: [
     DTabItem(
@@ -41,7 +41,7 @@ DTabs(
 
 ## With Default Value
 
-```dart
+```
 DTabs(
   defaultValue: 'security',
   items: [
@@ -54,7 +54,7 @@ DTabs(
 
 ## With Icons
 
-```dart
+```
 DTabs(
   items: [
     DTabItem(
@@ -81,7 +81,7 @@ DTabs(
 
 ## Vertical Orientation
 
-```dart
+```
 DTabs(
   orientation: DTabsOrientation.vertical,
   items: [
@@ -94,7 +94,7 @@ DTabs(
 
 ## Disabled Tabs
 
-```dart
+```
 DTabs(
   items: [
     DTabItem(label: 'Active', value: 'active', content: [...]),
@@ -113,7 +113,7 @@ DTabs(
 
 For external state management:
 
-```dart
+```
 class ControlledTabsExample extends StatefulComponent {
   @override
   State createState() => _ControlledTabsExampleState();
@@ -153,7 +153,7 @@ class _ControlledTabsExampleState extends State<ControlledTabsExample> {
 
 Control whether inactive tab content is removed from the DOM:
 
-```dart
+```
 DTabs(
   unmountOnHide: true,  // Remove inactive content from DOM
   items: [
@@ -165,7 +165,7 @@ DTabs(
 
 ## On Select Callback
 
-```dart
+```
 DTabs(
   onSelect: (value) {
     print('Selected tab: $value');
@@ -179,7 +179,7 @@ DTabs(
 
 ## Complete Example
 
-```dart
+```
 DTabs(
   defaultValue: 'profile',
   items: [

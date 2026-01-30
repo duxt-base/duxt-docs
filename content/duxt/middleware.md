@@ -21,7 +21,7 @@ Middleware in Duxt allows you to run code before a route is rendered. Common use
 
 Extend `DuxtMiddleware` and implement the `handle` method:
 
-```dart
+```
 // lib/shared/middleware/auth_middleware.dart
 import 'package:duxt/duxt.dart';
 
@@ -43,7 +43,7 @@ class AuthMiddleware extends DuxtMiddleware {
 
 Apply middleware to pages via the middleware getter:
 
-```dart
+```
 // lib/dashboard/pages/index.dart
 import 'package:duxt/duxt.dart';
 import '../../shared/middleware/auth_middleware.dart';
@@ -66,7 +66,7 @@ class DashboardPage extends DuxtPage {
 
 Multiple middleware run in order:
 
-```dart
+```
 @override
 List<DuxtMiddleware> get middleware => [
   AuthMiddleware(),
@@ -81,7 +81,7 @@ List<DuxtMiddleware> get middleware => [
 
 Continue to the page (or next middleware):
 
-```dart
+```
 return MiddlewareResult.next();
 ```
 
@@ -89,7 +89,7 @@ return MiddlewareResult.next();
 
 Redirect to a different route:
 
-```dart
+```
 return MiddlewareResult.redirect('/login');
 return MiddlewareResult.redirect('/login?redirect=${route.path}');
 ```
@@ -98,7 +98,7 @@ return MiddlewareResult.redirect('/login?redirect=${route.path}');
 
 Stop navigation entirely:
 
-```dart
+```
 return MiddlewareResult.abort();
 ```
 
@@ -106,7 +106,7 @@ return MiddlewareResult.abort();
 
 ### Auth Middleware
 
-```dart
+```
 class AuthMiddleware extends DuxtMiddleware {
   @override
   Future<MiddlewareResult> handle(RouteState route) async {
@@ -124,7 +124,7 @@ class AuthMiddleware extends DuxtMiddleware {
 
 ### Guest Middleware
 
-```dart
+```
 class GuestMiddleware extends DuxtMiddleware {
   @override
   Future<MiddlewareResult> handle(RouteState route) async {
@@ -141,7 +141,7 @@ class GuestMiddleware extends DuxtMiddleware {
 
 ### Role Middleware
 
-```dart
+```
 class RoleMiddleware extends DuxtMiddleware {
   final List<String> allowedRoles;
 
@@ -174,7 +174,7 @@ class AdminPage extends DuxtPage {
 
 ### Feature Flag Middleware
 
-```dart
+```
 class FeatureFlagMiddleware extends DuxtMiddleware {
   final String featureName;
 
@@ -197,7 +197,7 @@ class FeatureFlagMiddleware extends DuxtMiddleware {
 
 Apply middleware to all routes in your app configuration:
 
-```dart
+```
 // lib/app.dart
 import 'package:duxt/duxt.dart';
 

@@ -65,3 +65,4 @@ Your app is running at `http://localhost:4000`
 - **[Layouts](/duxt/layouts)** - Wrap pages with reusable components
 - **[CLI Commands](/duxt/cli)** - Full CLI reference
 - **[Server API](/duxt/server)** - Build backend APIs
+- **[Deployment](/duxt/deploy)** - Deploy to production

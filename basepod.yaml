@@ -3,5 +3,4 @@ type: static
 domain: duxt.dev
 public: build/jaspr
 
-build:
-  command: dart pub get && dart pub global run jaspr_cli:jaspr build --sitemap-domain=duxt.dev
+# Build locally with duxt build, then deploy pre-built files

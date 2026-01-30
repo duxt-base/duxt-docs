@@ -11,7 +11,7 @@ The `DForm` component provides a form wrapper with built-in validation support, 
 
 ## Basic Usage
 
-```dart
+```
 DForm(
   onSubmit: (data) {
     print('Form data: $data');
@@ -28,7 +28,7 @@ DForm(
 
 ## With Validation
 
-```dart
+```
 DForm(
   validateOnSubmit: true,
   onValidate: (data) {
@@ -66,7 +66,7 @@ DForm(
 
 ## Form ID and Name
 
-```dart
+```
 DForm(
   id: 'login-form',
   name: 'loginForm',
@@ -77,7 +77,7 @@ DForm(
 
 ## Disabled Form
 
-```dart
+```
 DForm(
   disabled: true,  // Disables all form interactions
   onSubmit: (data) => {},
@@ -87,7 +87,7 @@ DForm(
 
 ## Reset Handling
 
-```dart
+```
 DForm(
   onSubmit: (data) => handleSubmit(data),
   onReset: () {
@@ -108,7 +108,7 @@ DForm(
 
 Position action buttons at the end of the form:
 
-```dart
+```
 // Right-aligned (default)
 DFormActions(
   children: [
@@ -146,7 +146,7 @@ DFormActions(
 
 Create horizontal field layouts:
 
-```dart
+```
 // Two columns (default)
 DFormRow(
   children: [
@@ -170,7 +170,7 @@ DFormRow(
 
 Group related fields with an optional title:
 
-```dart
+```
 DFormSection(
   title: 'Personal Information',
   description: 'Please enter your details',
@@ -186,7 +186,7 @@ DFormSection(
 
 ## Complete Registration Form Example
 
-```dart
+```
 DForm(
   id: 'registration-form',
   validateOnSubmit: true,
@@ -264,7 +264,7 @@ DForm(
 
 ## Contact Form Example
 
-```dart
+```
 DCard(
   header: [h3([text('Contact Us')])],
   body: [

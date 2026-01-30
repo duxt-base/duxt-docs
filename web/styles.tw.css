@@ -1,12 +1,57 @@
 @import "tailwindcss";
 
-/* Tell Tailwind where to scan for classes */
-@source "../content/**/*.md";
+/* Source files for Tailwind to scan */
 @source "../lib/**/*.dart";
-/* Include duxt_ui package for component styles */
-@source "../packages_duxt_ui/**/*.dart";
+@source "../content/**/*.md";
+@source "../.duxt/packages/**/*.dart";
 
-/* Set Nunito as default font */
-body {
-  font-family: 'Nunito', system-ui, sans-serif;
+@theme {
+  /* Primary color - cyan (Duxt brand #06b6d4) */
+  --color-primary-50: #ecfeff;
+  --color-primary-100: #cffafe;
+  --color-primary-200: #a5f3fc;
+  --color-primary-300: #67e8f9;
+  --color-primary-400: #22d3ee;
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+  --color-primary-700: #0e7490;
+  --color-primary-800: #155e75;
+  --color-primary-900: #164e63;
+  --color-primary-950: #083344;
+}
+
+@layer base {
+  html {
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+    @apply dark:bg-zinc-950 dark:text-gray-100;
+  }
+}
+
+/* Duxt UI component state classes */
+.disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
+}
+
+.disabled\:opacity-75:disabled {
+  opacity: 0.75;
+}
+
+.aria-disabled\:cursor-not-allowed[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.aria-disabled\:opacity-75[aria-disabled="true"] {
+  opacity: 0.75;
+}
+
+.focus-visible\:outline-2:focus-visible {
+  outline-width: 2px;
+}
+
+.focus-visible\:outline-offset-2:focus-visible {
+  outline-offset: 2px;
 }

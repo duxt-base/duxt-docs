@@ -25,7 +25,7 @@ Building beautiful, consistent web interfaces in Jaspr shouldn't require reinven
 
 Built on Tailwind CSS for maximum flexibility:
 
-```dart
+```
 DButton(
   label: 'Custom Style',
   classes: 'shadow-lg hover:shadow-xl transition-shadow',
@@ -36,7 +36,7 @@ DButton(
 
 All components share common properties:
 
-```dart
+```
 DButton(
   variant: DButtonVariant.solid,
   color: DColor.primary,
@@ -58,7 +58,7 @@ DCard(
 
 Components automatically adapt to dark mode:
 
-```dart
+```
 DCard(
   body: [
     DButton(label: 'Click me', color: DColor.primary),
@@ -152,7 +152,7 @@ DCard(
 
 ## Quick Example
 
-```dart
+```
 import 'package:jaspr/jaspr.dart';
 import 'package:duxt_ui/duxt_ui.dart';
 

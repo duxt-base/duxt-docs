@@ -11,7 +11,7 @@ The `DBadge` component displays small labels for status indicators, counts, or c
 
 ## Basic Usage
 
-```dart
+```
 DBadge(label: 'New')
 ```
 
@@ -19,7 +19,7 @@ DBadge(label: 'New')
 
 ### Solid
 
-```dart
+```
 DBadge(
   label: 'Solid',
   variant: DBadgeVariant.solid,
@@ -28,7 +28,7 @@ DBadge(
 
 ### Outline
 
-```dart
+```
 DBadge(
   label: 'Outline',
   variant: DBadgeVariant.outline,
@@ -37,7 +37,7 @@ DBadge(
 
 ### Soft
 
-```dart
+```
 DBadge(
   label: 'Soft',
   variant: DBadgeVariant.soft,
@@ -46,7 +46,7 @@ DBadge(
 
 ### Subtle
 
-```dart
+```
 DBadge(
   label: 'Subtle',
   variant: DBadgeVariant.subtle,
@@ -55,7 +55,7 @@ DBadge(
 
 ## Colors
 
-```dart
+```
 DBadge(label: 'Primary', color: DBadgeColor.primary)
 DBadge(label: 'Secondary', color: DBadgeColor.secondary)
 DBadge(label: 'Success', color: DBadgeColor.success)
@@ -67,7 +67,7 @@ DBadge(label: 'Neutral', color: DBadgeColor.neutral)
 
 ## Sizes
 
-```dart
+```
 DBadge(label: 'XS', size: DBadgeSize.xs)
 DBadge(label: 'SM', size: DBadgeSize.sm)
 DBadge(label: 'MD', size: DBadgeSize.md)
@@ -79,7 +79,7 @@ DBadge(label: 'XL', size: DBadgeSize.xl)
 
 ### Leading Icon
 
-```dart
+```
 DBadge(
   label: 'Active',
   leadingIcon: DIcon(name: 'check'),
@@ -89,7 +89,7 @@ DBadge(
 
 ### Trailing Icon
 
-```dart
+```
 DBadge(
   label: 'Remove',
   trailingIcon: DIcon(name: 'x'),
@@ -101,7 +101,7 @@ DBadge(
 
 ### Status Indicators
 
-```dart
+```
 // Online status
 DBadge(
   label: 'Online',
@@ -126,7 +126,7 @@ DBadge(
 
 ### Notification Count
 
-```dart
+```
 DBadge(
   label: '5',
   color: DBadgeColor.error,
@@ -137,7 +137,7 @@ DBadge(
 
 ### Category Labels
 
-```dart
+```
 Row([
   DBadge(label: 'Flutter', color: DBadgeColor.info),
   DBadge(label: 'Dart', color: DBadgeColor.primary),
@@ -147,7 +147,7 @@ Row([
 
 ### In Card Headers
 
-```dart
+```
 DCard(
   header: [
     div(classes: 'flex items-center justify-between', [

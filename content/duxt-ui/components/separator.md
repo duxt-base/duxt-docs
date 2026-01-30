@@ -11,7 +11,7 @@ The `DSeparator` component provides a visual divider between content sections.
 
 ## Basic Usage
 
-```dart
+```
 div([
   text('Section 1'),
   DSeparator(),
@@ -21,7 +21,7 @@ div([
 
 ## Horizontal (Default)
 
-```dart
+```
 div(classes: 'space-y-4', [
   p([text('First paragraph')]),
   DSeparator(orientation: DOrientation.horizontal),
@@ -31,7 +31,7 @@ div(classes: 'space-y-4', [
 
 ## Vertical
 
-```dart
+```
 div(classes: 'flex items-center gap-4 h-6', [
   span([text('Item 1')]),
   DSeparator(orientation: DOrientation.vertical),
@@ -43,7 +43,7 @@ div(classes: 'flex items-center gap-4 h-6', [
 
 ## Custom Color
 
-```dart
+```
 DSeparator(color: 'border-primary-500')
 DSeparator(color: 'border-gray-300 dark:border-gray-600')
 DSeparator(color: 'border-dashed border-gray-400')
@@ -53,7 +53,7 @@ DSeparator(color: 'border-dashed border-gray-400')
 
 Create a separator with centered text:
 
-```dart
+```
 div(classes: 'flex items-center gap-4', [
   div(classes: 'flex-1', [DSeparator()]),
   span(classes: 'text-sm text-gray-500', [text('OR')]),
@@ -63,7 +63,7 @@ div(classes: 'flex items-center gap-4', [
 
 ## In Forms
 
-```dart
+```
 DCard(
   body: [
     div(classes: 'space-y-4', [
@@ -91,7 +91,7 @@ DCard(
 
 ## In Navigation
 
-```dart
+```
 nav(classes: 'flex items-center gap-2', [
   a(href: '/', [text('Home')]),
   DSeparator(orientation: DOrientation.vertical),
@@ -105,7 +105,7 @@ nav(classes: 'flex items-center gap-2', [
 
 ## In Cards
 
-```dart
+```
 DCard(
   body: [
     div(classes: 'space-y-4', [
@@ -137,7 +137,7 @@ DCard(
 
 ## Spacing Control
 
-```dart
+```
 div([
   text('Content above'),
 
@@ -159,19 +159,19 @@ div([
 
 ## Dashed Style
 
-```dart
+```
 DSeparator(classes: 'border-dashed')
 ```
 
 ## Thick Separator
 
-```dart
+```
 DSeparator(classes: 'border-t-2')
 ```
 
 ## Section Divider Example
 
-```dart
+```
 class SectionDivider extends StatelessComponent {
   final String label;
 

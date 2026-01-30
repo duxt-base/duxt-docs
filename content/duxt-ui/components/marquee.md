@@ -11,7 +11,7 @@ The `DMarquee` component creates a smooth, infinite scrolling animation for disp
 
 ## Basic Usage
 
-```dart
+```
 DMarquee(
   children: [
     img(src: '/logos/logo1.svg', classes: 'h-8'),
@@ -27,7 +27,7 @@ DMarquee(
 
 ### Left (Default)
 
-```dart
+```
 DMarquee(
   direction: DMarqueeDirection.left,
   children: [...],
@@ -36,7 +36,7 @@ DMarquee(
 
 ### Right
 
-```dart
+```
 DMarquee(
   direction: DMarqueeDirection.right,
   children: [...],
@@ -47,7 +47,7 @@ DMarquee(
 
 Control the animation speed with the `duration` property (in seconds):
 
-```dart
+```
 // Slow
 DMarquee(
   duration: 40,
@@ -65,7 +65,7 @@ DMarquee(
 
 By default, the marquee pauses when hovered:
 
-```dart
+```
 // Enabled (default)
 DMarquee(
   pauseOnHover: true,
@@ -81,7 +81,7 @@ DMarquee(
 
 ## Custom Gap
 
-```dart
+```
 DMarquee(
   gap: 'gap-12',
   children: [...],
@@ -90,7 +90,7 @@ DMarquee(
 
 ## Logo Showcase
 
-```dart
+```
 div(classes: 'py-12 bg-gray-50 dark:bg-gray-900', [
   p(classes: 'text-center text-sm text-gray-500 mb-8', [
     text('Trusted by leading companies'),
@@ -112,7 +112,7 @@ div(classes: 'py-12 bg-gray-50 dark:bg-gray-900', [
 
 ## Testimonials
 
-```dart
+```
 DMarquee(
   duration: 40,
   gap: 'gap-6',
@@ -136,7 +136,7 @@ DMarquee(
 
 ## Technology Stack
 
-```dart
+```
 div(classes: 'py-8', [
   p(classes: 'text-center font-semibold mb-6', [text('Built with')]),
   DMarquee(
@@ -163,7 +163,7 @@ div(classes: 'py-8', [
 
 Add gradient overlays to create a fade effect at the edges:
 
-```dart
+```
 div(classes: 'relative', [
   // Left fade
   div(classes: 'absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10', []),
@@ -181,7 +181,7 @@ div(classes: 'relative', [
 
 Create a dynamic effect with multiple marquees:
 
-```dart
+```
 div(classes: 'space-y-4', [
   DMarquee(
     direction: DMarqueeDirection.left,

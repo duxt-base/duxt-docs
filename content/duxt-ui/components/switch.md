@@ -11,7 +11,7 @@ The `DSwitch` component provides a toggle control for binary choices, commonly u
 
 ## Basic Usage
 
-```dart
+```
 DSwitch(
   label: 'Enable notifications',
   onChange: (checked) => print('Enabled: $checked'),
@@ -20,7 +20,7 @@ DSwitch(
 
 ## Controlled State
 
-```dart
+```
 class SwitchExample extends StatefulComponent {
   @override
   State createState() => _SwitchExampleState();
@@ -42,7 +42,7 @@ class _SwitchExampleState extends State<SwitchExample> {
 
 ## Sizes
 
-```dart
+```
 DSwitch(label: 'XS Switch', size: DSize.xs)
 DSwitch(label: 'SM Switch', size: DSize.sm)
 DSwitch(label: 'MD Switch', size: DSize.md)  // Default
@@ -52,7 +52,7 @@ DSwitch(label: 'XL Switch', size: DSize.xl)
 
 ## Colors
 
-```dart
+```
 DSwitch(label: 'Primary', checked: true, color: DColor.primary)
 DSwitch(label: 'Gray', checked: true, color: DColor.neutral)
 DSwitch(label: 'Success', checked: true, color: DColor.success)
@@ -64,7 +64,7 @@ DSwitch(label: 'Error', checked: true, color: DColor.error)
 
 Custom labels displayed on the track:
 
-```dart
+```
 DSwitch(
   label: 'Availability',
   onLabel: 'On',
@@ -77,7 +77,7 @@ DSwitch(
 
 Icons displayed inside the thumb:
 
-```dart
+```
 DSwitch(
   label: 'Dark mode',
   onIcon: DIcon(name: 'moon', size: 12),
@@ -88,7 +88,7 @@ DSwitch(
 
 ## With Description
 
-```dart
+```
 DSwitch(
   label: 'Email notifications',
   description: 'Receive email updates about your account activity',
@@ -98,7 +98,7 @@ DSwitch(
 
 ## Disabled State
 
-```dart
+```
 DSwitch(
   label: 'Disabled off',
   disabled: true,
@@ -113,7 +113,7 @@ DSwitch(
 
 ## Required
 
-```dart
+```
 DSwitch(
   label: 'Accept terms',
   required: true,
@@ -123,7 +123,7 @@ DSwitch(
 
 ## Settings Panel Example
 
-```dart
+```
 class SettingsPanel extends StatefulComponent {
   @override
   State createState() => _SettingsPanelState();
@@ -194,7 +194,7 @@ class _SettingsPanelState extends State<SettingsPanel> {
 
 ## Feature Flags Example
 
-```dart
+```
 DCard(
   header: [
     div(classes: 'flex items-center justify-between', [

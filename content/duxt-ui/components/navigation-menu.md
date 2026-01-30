@@ -11,7 +11,7 @@ Duxt UI provides flexible navigation components for building horizontal navbars,
 
 ## Basic Horizontal Menu
 
-```dart
+```
 DNavigationMenu(
   items: [
     DNavigationItem(label: 'Home', href: '/'),
@@ -24,7 +24,7 @@ DNavigationMenu(
 
 ## Vertical Menu
 
-```dart
+```
 DNavigationMenu(
   orientation: DNavigationOrientation.vertical,
   items: [
@@ -40,7 +40,7 @@ DNavigationMenu(
 
 ### Basic Item
 
-```dart
+```
 DNavigationItem(
   label: 'Dashboard',
   href: '/dashboard',
@@ -49,7 +49,7 @@ DNavigationItem(
 
 ### With Icon
 
-```dart
+```
 DNavigationItem(
   label: 'Settings',
   href: '/settings',
@@ -59,7 +59,7 @@ DNavigationItem(
 
 ### Active State
 
-```dart
+```
 DNavigationItem(
   label: 'Dashboard',
   href: '/dashboard',
@@ -69,7 +69,7 @@ DNavigationItem(
 
 ### With Badge
 
-```dart
+```
 DNavigationItem(
   label: 'Notifications',
   href: '/notifications',
@@ -80,7 +80,7 @@ DNavigationItem(
 
 ### Disabled Item
 
-```dart
+```
 DNavigationItem(
   label: 'Premium Feature',
   href: '/premium',
@@ -90,7 +90,7 @@ DNavigationItem(
 
 ### Click Handler
 
-```dart
+```
 DNavigationItem(
   label: 'Logout',
   icon: DIcon(name: 'log-out', size: 16),
@@ -102,7 +102,7 @@ DNavigationItem(
 
 Items with children render as dropdown menus:
 
-```dart
+```
 DNavigationMenu(
   items: [
     DNavigationItem(label: 'Home', href: '/'),
@@ -132,7 +132,7 @@ DNavigationMenu(
 
 Use `DVerticalNavigation` and `DNavigationGroup` for grouped sidebar navigation:
 
-```dart
+```
 DVerticalNavigation(
   groups: [
     DNavigationGroup(
@@ -178,7 +178,7 @@ DVerticalNavigation(
 
 ## In Header
 
-```dart
+```
 header(classes: 'border-b', [
   div(classes: 'container mx-auto px-4', [
     div(classes: 'flex items-center justify-between h-16', [
@@ -216,7 +216,7 @@ header(classes: 'border-b', [
 
 ## In Sidebar
 
-```dart
+```
 aside(classes: 'w-64 border-r h-screen', [
   // Logo
   div(classes: 'h-16 flex items-center px-4 border-b', [

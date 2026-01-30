@@ -11,7 +11,7 @@ The `DCarousel` component displays a slideshow of images or content with navigat
 
 ## Basic Usage
 
-```dart
+```
 DCarousel(
   items: [
     DCarouselItem(image: '/slides/slide1.jpg', alt: 'First slide'),
@@ -23,7 +23,7 @@ DCarousel(
 
 ## With Custom Content
 
-```dart
+```
 DCarousel(
   items: [
     DCarouselItem(
@@ -47,7 +47,7 @@ DCarousel(
 
 ## Without Arrows
 
-```dart
+```
 DCarousel(
   showArrows: false,
   items: [
@@ -59,7 +59,7 @@ DCarousel(
 
 ## Without Dots
 
-```dart
+```
 DCarousel(
   showDots: false,
   items: [
@@ -71,7 +71,7 @@ DCarousel(
 
 ## Minimal Controls
 
-```dart
+```
 DCarousel(
   showArrows: false,
   showDots: false,
@@ -84,7 +84,7 @@ DCarousel(
 
 ## Product Gallery
 
-```dart
+```
 DCarousel(
   classes: 'rounded-lg overflow-hidden',
   items: [
@@ -98,7 +98,7 @@ DCarousel(
 
 ## Hero Carousel
 
-```dart
+```
 DCarousel(
   classes: 'h-[500px]',
   items: [
@@ -140,7 +140,7 @@ DCarousel(
 
 ## Testimonials Carousel
 
-```dart
+```
 DCarousel(
   classes: 'bg-gray-50 dark:bg-gray-800 rounded-xl p-8',
   items: testimonials.map((t) => DCarouselItem(
@@ -162,7 +162,7 @@ DCarousel(
 
 ## In a Card
 
-```dart
+```
 DCard(
   classes: 'overflow-hidden',
   body: [

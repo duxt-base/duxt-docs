@@ -11,13 +11,13 @@ The `DKBD` component displays keyboard keys and shortcuts in a styled badge form
 
 ## Basic Usage
 
-```dart
+```
 DKBD(keys: ['Ctrl', 'S'])
 ```
 
 ## Single Key
 
-```dart
+```
 DKBD(keys: ['Enter'])
 DKBD(keys: ['Esc'])
 DKBD(keys: ['Tab'])
@@ -25,7 +25,7 @@ DKBD(keys: ['Tab'])
 
 ## Key Combinations
 
-```dart
+```
 // Save
 DKBD(keys: ['Ctrl', 'S'])
 
@@ -44,7 +44,7 @@ DKBD(keys: ['Ctrl', 'K'])
 
 ## Mac Style Keys
 
-```dart
+```
 // Command + S
 DKBD(keys: ['⌘', 'S'])
 
@@ -57,7 +57,7 @@ DKBD(keys: ['⌃', '⌥', '⌫'])
 
 ## In Tooltips
 
-```dart
+```
 DTooltip(
   content: div(classes: 'flex items-center gap-2', [
     span([text('Save')]),
@@ -73,7 +73,7 @@ DTooltip(
 
 ## In Menu Items
 
-```dart
+```
 DDropdown(
   trigger: DButton(label: 'File'),
   items: [
@@ -100,7 +100,7 @@ DDropdown(
 
 ## Keyboard Shortcuts Help
 
-```dart
+```
 DCard(
   header: [
     h3([text('Keyboard Shortcuts')]),
@@ -129,7 +129,7 @@ Component shortcutRow(String label, List<String> keys) {
 
 ## Command Palette Item
 
-```dart
+```
 div(classes: 'flex items-center justify-between p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded', [
   div(classes: 'flex items-center gap-3', [
     DIcon(name: 'file-plus', size: 16, classes: 'text-gray-400'),
@@ -141,7 +141,7 @@ div(classes: 'flex items-center justify-between p-2 hover:bg-gray-100 dark:hover
 
 ## Inline Usage
 
-```dart
+```
 p([
   text('Press '),
   DKBD(keys: ['Enter']),
@@ -153,7 +153,7 @@ p([
 
 ## Navigation Instructions
 
-```dart
+```
 div(classes: 'text-sm text-gray-500 flex items-center gap-4', [
   div(classes: 'flex items-center gap-1', [
     DKBD(keys: ['↑']),
@@ -173,7 +173,7 @@ div(classes: 'text-sm text-gray-500 flex items-center gap-4', [
 
 ## Sizes
 
-```dart
+```
 DKBD(keys: ['Ctrl', 'S'], size: DSize.xs)
 DKBD(keys: ['Ctrl', 'S'], size: DSize.sm)
 DKBD(keys: ['Ctrl', 'S'], size: DSize.md)  // Default

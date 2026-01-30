@@ -41,7 +41,7 @@ This starts:
 
 ### server/db.dart
 
-```dart
+```
 import 'package:sqlite3/sqlite3.dart' as sqlite;
 
 class Db {
@@ -72,7 +72,7 @@ class Db {
 
 ### server/models/post.dart
 
-```dart
+```
 import 'package:sqlite3/sqlite3.dart' as sqlite;
 import '../db.dart';
 
@@ -132,7 +132,7 @@ class Post {
 
 ### server/api/posts.dart
 
-```dart
+```
 import 'package:duxt/server.dart';
 import '../models/post.dart';
 
@@ -164,7 +164,7 @@ void registerPostRoutes(DuxtServer server) {
 
 ### server/main.dart
 
-```dart
+```
 import 'package:duxt/server.dart';
 import 'db.dart';
 import 'models/post.dart';
@@ -192,7 +192,7 @@ void main() {
 
 ### Creating a Server
 
-```dart
+```
 final server = DuxtServer(
   port: 3001,
   middleware: [cors(), jsonBody(), logger()],
@@ -201,7 +201,7 @@ final server = DuxtServer(
 
 ### Route Methods
 
-```dart
+```
 server.get('/path', handler);
 server.post('/path', handler);
 server.put('/path', handler);
@@ -211,7 +211,7 @@ server.patch('/path', handler);
 
 ### Route Parameters
 
-```dart
+```
 server.get('/posts/:id', (req) {
   final id = req.params['id'];  // Access route params
   final page = req.query('page'); // Access query params
@@ -222,7 +222,7 @@ server.get('/posts/:id', (req) {
 
 ### Response Helpers
 
-```dart
+```
 return json({'data': data});                    // 200 OK
 return json({'data': data}, statusCode: 201);   // 201 Created
 return json({'error': 'Not found'}, statusCode: 404);
@@ -232,7 +232,7 @@ return json({'error': 'Not found'}, statusCode: 404);
 
 ### CORS
 
-```dart
+```
 cors(
   origins: ['*'],  // or specific origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -242,19 +242,19 @@ cors(
 
 ### JSON Body Parser
 
-```dart
+```
 jsonBody()  // Parses JSON request bodies
 ```
 
 ### Logger
 
-```dart
+```
 logger()  // Logs requests: GET /api/posts 200 12ms
 ```
 
 ## Calling the API from Frontend
 
-```dart
+```
 import 'dart:convert';
 import 'dart:js_interop';
 import 'package:web/web.dart' as web;

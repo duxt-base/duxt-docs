@@ -11,7 +11,7 @@ The `DModal` component displays content in a dialog overlay, useful for confirma
 
 ## Basic Usage
 
-```dart
+```
 DModal(
   open: isOpen,
   title: 'Confirm Action',
@@ -34,7 +34,7 @@ DModal(
 
 ## Sizes
 
-```dart
+```
 DModal(open: true, title: 'XS Modal', size: DModalSize.xs, ...)
 DModal(open: true, title: 'SM Modal', size: DModalSize.sm, ...)
 DModal(open: true, title: 'MD Modal', size: DModalSize.md, ...)  // Default
@@ -45,7 +45,7 @@ DModal(open: true, title: 'Full Modal', size: DModalSize.full, ...)
 
 ## With Description
 
-```dart
+```
 DModal(
   open: isOpen,
   title: 'Delete Item',
@@ -58,7 +58,7 @@ DModal(
 
 ## Custom Header
 
-```dart
+```
 DModal(
   open: isOpen,
   header: [
@@ -77,7 +77,7 @@ DModal(
 
 ### Close on Overlay Click
 
-```dart
+```
 DModal(
   open: isOpen,
   closeOnOverlay: true,  // Default: true
@@ -88,7 +88,7 @@ DModal(
 
 ### Close on Escape Key
 
-```dart
+```
 DModal(
   open: isOpen,
   closeOnEscape: true,  // Default: true
@@ -101,7 +101,7 @@ DModal(
 
 For modals that require explicit action:
 
-```dart
+```
 DModal(
   open: isOpen,
   preventClose: true,
@@ -120,7 +120,7 @@ DModal(
 
 ## Form Modal Example
 
-```dart
+```
 class EditProfileModal extends StatefulComponent {
   final bool open;
   final void Function() onClose;
@@ -175,7 +175,7 @@ class _EditProfileModalState extends State<EditProfileModal> {
 
 ## Confirmation Modal
 
-```dart
+```
 DModal(
   open: showDeleteConfirm,
   title: 'Delete Project',

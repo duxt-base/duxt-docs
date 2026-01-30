@@ -11,7 +11,7 @@ The `DBreadcrumb` component displays the current page location within a navigati
 
 ## Basic Usage
 
-```dart
+```
 DBreadcrumb(
   items: [
     DBreadcrumbItem(label: 'Home', href: '/'),
@@ -26,7 +26,7 @@ DBreadcrumb(
 
 ### Slash (Default)
 
-```dart
+```
 DBreadcrumb(
   separator: DBreadcrumbSeparator.slash,
   items: [...],
@@ -36,7 +36,7 @@ DBreadcrumb(
 
 ### Chevron
 
-```dart
+```
 DBreadcrumb(
   separator: DBreadcrumbSeparator.chevron,
   items: [...],
@@ -46,7 +46,7 @@ DBreadcrumb(
 
 ### Arrow
 
-```dart
+```
 DBreadcrumb(
   separator: DBreadcrumbSeparator.arrow,
   items: [...],
@@ -56,7 +56,7 @@ DBreadcrumb(
 
 ### Dot
 
-```dart
+```
 DBreadcrumb(
   separator: DBreadcrumbSeparator.dot,
   items: [...],
@@ -66,7 +66,7 @@ DBreadcrumb(
 
 ## With Icons
 
-```dart
+```
 DBreadcrumb(
   items: [
     DBreadcrumbItem(
@@ -91,7 +91,7 @@ DBreadcrumb(
 
 For a compact breadcrumb:
 
-```dart
+```
 DBreadcrumb(
   items: [
     DBreadcrumbItem(
@@ -108,7 +108,7 @@ DBreadcrumb(
 
 ## In Page Header
 
-```dart
+```
 div(classes: 'space-y-4', [
   DBreadcrumb(
     separator: DBreadcrumbSeparator.chevron,
@@ -127,7 +127,7 @@ div(classes: 'space-y-4', [
 
 Generate breadcrumbs from a path:
 
-```dart
+```
 class DynamicBreadcrumb extends StatelessComponent {
   final String path;
 
@@ -175,7 +175,7 @@ class DynamicBreadcrumb extends StatelessComponent {
 
 For very deep hierarchies:
 
-```dart
+```
 DBreadcrumb(
   items: [
     DBreadcrumbItem(label: 'Home', href: '/'),

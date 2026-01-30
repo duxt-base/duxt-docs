@@ -57,7 +57,7 @@ This section provides complete API documentation for all Duxt UI components.
 
 ### Colors (UColor)
 
-```dart
+```
 enum UColor {
   primary,
   secondary,
@@ -71,7 +71,7 @@ enum UColor {
 
 ### Sizes (USize)
 
-```dart
+```
 enum USize {
   xs,  // Extra small
   sm,  // Small
@@ -96,7 +96,7 @@ Each component has its own variant enum. Common patterns include:
 
 ### Theme Configuration
 
-```dart
+```
 final theme = UTheme(
   colors: UColors(
     primary: Color(0xFF4F46E5),
@@ -112,7 +112,7 @@ final theme = UTheme(
 
 Wrap your app with `UThemeProvider`:
 
-```dart
+```
 UThemeProvider(
   theme: theme,
   child: MyApp(),
@@ -121,7 +121,7 @@ UThemeProvider(
 
 Access theme in components:
 
-```dart
+```
 final theme = UTheme.of(context);
 ```
 
@@ -129,13 +129,13 @@ final theme = UTheme.of(context);
 
 Import all components:
 
-```dart
+```
 import 'package:duxt_ui/duxt_ui.dart';
 ```
 
 Import specific components:
 
-```dart
+```
 import 'package:duxt_ui/components/button.dart';
 import 'package:duxt_ui/components/card.dart';
 ```

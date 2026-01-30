@@ -11,7 +11,7 @@ Duxt UI provides styled link components for navigation, external links, and soci
 
 ## Basic Link
 
-```dart
+```
 DLink(
   label: 'Learn more',
   href: '/about',
@@ -22,7 +22,7 @@ DLink(
 
 External links automatically open in a new tab with proper security attributes:
 
-```dart
+```
 DLink(
   label: 'View on GitHub',
   href: 'https://github.com/example/repo',
@@ -34,7 +34,7 @@ External links show a small arrow indicator by default.
 
 ## Colors
 
-```dart
+```
 DLink(color: DLinkColor.primary, label: 'Primary', href: '#')
 DLink(color: DLinkColor.neutral, label: 'Neutral', href: '#')
 DLink(color: DLinkColor.inherit, label: 'Inherit', href: '#')
@@ -42,7 +42,7 @@ DLink(color: DLinkColor.inherit, label: 'Inherit', href: '#')
 
 ## With Underline
 
-```dart
+```
 // Underline on hover (default)
 DLink(
   label: 'Hover underline',
@@ -59,7 +59,7 @@ DLink(
 
 ## Active State
 
-```dart
+```
 DLink(
   label: 'Current Page',
   href: '/dashboard',
@@ -69,7 +69,7 @@ DLink(
 
 ## Disabled Link
 
-```dart
+```
 DLink(
   label: 'Unavailable',
   href: '#',
@@ -79,7 +79,7 @@ DLink(
 
 ## With Icons
 
-```dart
+```
 // Leading icon
 DLink(
   label: 'Documentation',
@@ -97,7 +97,7 @@ DLink(
 
 ## With Children
 
-```dart
+```
 DLink(
   href: '/profile',
   children: [
@@ -111,7 +111,7 @@ DLink(
 
 A navigation-specific link with padding and hover background:
 
-```dart
+```
 DNavLink(
   label: 'Dashboard',
   href: '/dashboard',
@@ -121,7 +121,7 @@ DNavLink(
 
 ### With Icon
 
-```dart
+```
 DNavLink(
   label: 'Settings',
   href: '/settings',
@@ -133,7 +133,7 @@ DNavLink(
 
 Styled for social media icons:
 
-```dart
+```
 DSocialLink(
   href: 'https://twitter.com/example',
   icon: DIcon(name: 'twitter'),
@@ -143,7 +143,7 @@ DSocialLink(
 
 ### With Visible Label
 
-```dart
+```
 DSocialLink(
   href: 'https://github.com/example',
   icon: DIcon(name: 'github'),
@@ -154,7 +154,7 @@ DSocialLink(
 
 ## In Navigation
 
-```dart
+```
 nav(classes: 'flex items-center gap-6', [
   DLink(
     label: 'Home',
@@ -185,7 +185,7 @@ nav(classes: 'flex items-center gap-6', [
 
 ## In Footer
 
-```dart
+```
 footer(classes: 'border-t py-8', [
   div(classes: 'flex justify-between items-center', [
     p(classes: 'text-sm text-gray-500', [
@@ -219,7 +219,7 @@ footer(classes: 'border-t py-8', [
 
 ## Breadcrumb Links
 
-```dart
+```
 nav(classes: 'flex items-center gap-2 text-sm', [
   DLink(label: 'Home', href: '/', color: DLinkColor.neutral),
   span(classes: 'text-gray-400', [text('/')]),

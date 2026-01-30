@@ -11,7 +11,7 @@ order: 4
 
 The `Api` class provides a static HTTP client with built-in authentication, error handling, and JSON support.
 
-```dart
+```
 import 'package:duxt/duxt.dart';
 
 // Make a GET request
@@ -27,7 +27,7 @@ final newPost = await Api.post('/posts', body: {
 
 Configure the API client once in your app initialization:
 
-```dart
+```
 // lib/main.dart
 import 'package:duxt/duxt.dart';
 
@@ -53,7 +53,7 @@ void main() {
 
 ### GET
 
-```dart
+```
 final data = await Api.get('/posts');
 
 // With query parameters
@@ -66,7 +66,7 @@ final data = await Api.get('/posts', query: {
 
 ### POST
 
-```dart
+```
 final data = await Api.post('/posts', body: {
   'title': 'My Post',
   'content': 'Post content here',
@@ -75,7 +75,7 @@ final data = await Api.post('/posts', body: {
 
 ### PUT
 
-```dart
+```
 await Api.put('/posts/123', body: {
   'title': 'Updated Title',
   'content': 'Updated content',
@@ -84,7 +84,7 @@ await Api.put('/posts/123', body: {
 
 ### PATCH
 
-```dart
+```
 await Api.patch('/posts/123', body: {
   'title': 'Only update title',
 });
@@ -92,7 +92,7 @@ await Api.patch('/posts/123', body: {
 
 ### DELETE
 
-```dart
+```
 await Api.delete('/posts/123');
 ```
 
@@ -100,7 +100,7 @@ await Api.delete('/posts/123');
 
 Set an authentication token that's automatically included in all requests:
 
-```dart
+```
 Api.setAuth('your-jwt-token');
 
 Api.clearAuth();
@@ -112,7 +112,7 @@ if (Api.isAuthenticated) {
 
 Example login flow:
 
-```dart
+```
 class AuthApi {
   static Future<User> login(String email, String password) async {
     final data = await Api.post('/auth/login', body: {
@@ -139,7 +139,7 @@ class AuthApi {
 
 The API client throws `ApiException` on errors:
 
-```dart
+```
 try {
   final posts = await Api.get('/posts');
 } on ApiException catch (e) {
@@ -163,7 +163,7 @@ try {
 
 Organize API calls into module-specific classes:
 
-```dart
+```
 // lib/posts/api.dart
 import 'package:duxt/duxt.dart';
 import 'model.dart';
@@ -209,7 +209,7 @@ class PostsApi {
 
 Use it in your pages:
 
-```dart
+```
 final posts = await PostsApi.getAll(page: 1);
 final post = await PostsApi.getOne('123');
 await PostsApi.create(title: 'New', content: 'Content');

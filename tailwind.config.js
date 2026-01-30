@@ -3,7 +3,8 @@ module.exports = {
   content: [
     './{lib,web}/**/*.dart',
     './content/**/*.md',
-    './packages_duxt_ui/**/*.dart',
+    './.duxt/packages/**/*.dart',
+    './web/safelist.html',
   ],
   darkMode: 'class',
   safelist: [

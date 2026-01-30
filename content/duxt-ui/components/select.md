@@ -11,7 +11,7 @@ The `DSelect` component provides a dropdown for selecting one or multiple option
 
 ## Basic Usage
 
-```dart
+```
 DSelect<String>(
   label: 'Country',
   placeholder: 'Select a country',
@@ -28,7 +28,7 @@ DSelect<String>(
 
 ## With Default Value
 
-```dart
+```
 DSelect<String>(
   label: 'Status',
   value: 'active',
@@ -43,7 +43,7 @@ DSelect<String>(
 
 ## Sizes
 
-```dart
+```
 DSelect<String>(label: 'XS', size: DSize.xs, options: [...])
 DSelect<String>(label: 'SM', size: DSize.sm, options: [...])
 DSelect<String>(label: 'MD', size: DSize.md, options: [...])  // Default
@@ -55,7 +55,7 @@ DSelect<String>(label: 'XL', size: DSize.xl, options: [...])
 
 Enable filtering options:
 
-```dart
+```
 DSelect<String>(
   label: 'Country',
   searchable: true,
@@ -74,7 +74,7 @@ DSelect<String>(
 
 Allow clearing the selection:
 
-```dart
+```
 DSelect<String>(
   label: 'Category',
   clearable: true,
@@ -86,7 +86,7 @@ DSelect<String>(
 
 ## Multiple Selection
 
-```dart
+```
 DSelect<String>(
   label: 'Tags',
   multiple: true,
@@ -104,7 +104,7 @@ DSelect<String>(
 
 ## With Icons
 
-```dart
+```
 DSelect<String>(
   label: 'Priority',
   leadingIcon: DIcon(name: 'flag'),
@@ -121,7 +121,7 @@ DSelect<String>(
 
 Organize options into groups:
 
-```dart
+```
 DSelect<String>(
   label: 'Timezone',
   optionGroups: [
@@ -156,7 +156,7 @@ DSelect<String>(
 
 ## Disabled Options
 
-```dart
+```
 DSelect<String>(
   label: 'Plan',
   options: [
@@ -176,7 +176,7 @@ DSelect<String>(
 
 ### Disabled
 
-```dart
+```
 DSelect<String>(
   label: 'Region',
   disabled: true,
@@ -187,7 +187,7 @@ DSelect<String>(
 
 ### Loading
 
-```dart
+```
 DSelect<String>(
   label: 'Data',
   loading: true,
@@ -197,7 +197,7 @@ DSelect<String>(
 
 ### Error
 
-```dart
+```
 DSelect<String>(
   label: 'Category',
   error: 'Please select a category',
@@ -208,7 +208,7 @@ DSelect<String>(
 
 ## Complete Form Example
 
-```dart
+```
 class UserSettingsForm extends StatefulComponent {
   @override
   State createState() => _UserSettingsFormState();

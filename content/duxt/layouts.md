@@ -15,7 +15,7 @@ Layouts in Duxt provide a way to wrap pages with common UI elements like headers
 
 Extend `DuxtLayout` and implement the `build` method:
 
-```dart
+```
 // lib/shared/layouts/default_layout.dart
 import 'package:duxt/duxt.dart';
 
@@ -50,7 +50,7 @@ duxt g l dashboard
 
 Apply a layout to a page using the `layout` getter:
 
-```dart
+```
 // lib/pages/index.dart
 import 'package:duxt/duxt.dart';
 import '../shared/layouts/default_layout.dart';
@@ -73,7 +73,7 @@ class HomePage extends DuxtPage {
 
 Layouts can extend other layouts for nested structures:
 
-```dart
+```
 // lib/shared/layouts/dashboard_layout.dart
 import 'package:duxt/duxt.dart';
 import 'default_layout.dart';
@@ -104,7 +104,7 @@ The rendering order is: DefaultLayout -> DashboardLayout -> Page
 
 ### Marketing Layout
 
-```dart
+```
 class MarketingLayout extends DuxtLayout {
   @override
   Component build(BuildContext context, Component child) {
@@ -128,7 +128,7 @@ class MarketingLayout extends DuxtLayout {
 
 ### Dashboard Layout
 
-```dart
+```
 class DashboardLayout extends DuxtLayout {
   @override
   Component build(BuildContext context, Component child) {
@@ -154,7 +154,7 @@ class DashboardLayout extends DuxtLayout {
 
 ### Auth Layout
 
-```dart
+```
 class AuthLayout extends DuxtLayout {
   @override
   Component build(BuildContext context, Component child) {

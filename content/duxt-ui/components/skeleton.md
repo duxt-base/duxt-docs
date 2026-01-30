@@ -11,13 +11,13 @@ The `DSkeleton` component provides placeholder content while data is loading, im
 
 ## Basic Usage
 
-```dart
+```
 DSkeleton()  // Default rectangle
 ```
 
 ## Custom Dimensions
 
-```dart
+```
 // Fixed width and height
 DSkeleton(width: 200, height: 20)
 
@@ -33,13 +33,13 @@ DSkeleton(height: 24)  // width defaults to 100%
 
 ### Rectangle (Default)
 
-```dart
+```
 DSkeleton(width: 200, height: 100)
 ```
 
 ### Circle
 
-```dart
+```
 DSkeleton(
   width: 48,
   height: 48,
@@ -49,7 +49,7 @@ DSkeleton(
 
 ### Rounded
 
-```dart
+```
 DSkeleton(
   width: 200,
   height: 40,
@@ -61,7 +61,7 @@ DSkeleton(
 
 Mimic text content:
 
-```dart
+```
 div(classes: 'space-y-2', [
   DSkeleton(height: 20, width: '70%'),  // Title
   DSkeleton(height: 16),                 // Line 1
@@ -72,7 +72,7 @@ div(classes: 'space-y-2', [
 
 ## Card Skeleton
 
-```dart
+```
 DCard(
   body: [
     div(classes: 'space-y-4', [
@@ -104,7 +104,7 @@ DCard(
 
 ## Table Skeleton
 
-```dart
+```
 DCard(
   noPadding: true,
   body: [
@@ -134,7 +134,7 @@ DCard(
 
 ## List Skeleton
 
-```dart
+```
 div(classes: 'space-y-4', [
   for (var i = 0; i < 4; i++)
     div(classes: 'flex items-center gap-3', [
@@ -149,7 +149,7 @@ div(classes: 'space-y-4', [
 
 ## Complete Loading Pattern
 
-```dart
+```
 class UserProfile extends StatefulComponent {
   @override
   State createState() => _UserProfileState();
@@ -213,7 +213,7 @@ class _UserProfileState extends State<UserProfile> {
 
 ## Grid Skeleton
 
-```dart
+```
 div(classes: 'grid grid-cols-3 gap-4', [
   for (var i = 0; i < 6; i++)
     DCard(
@@ -232,7 +232,7 @@ div(classes: 'grid grid-cols-3 gap-4', [
 
 Skeletons have a built-in pulse animation:
 
-```dart
+```
 // Default animation
 DSkeleton(height: 16)
 

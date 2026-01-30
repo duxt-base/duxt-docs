@@ -13,7 +13,7 @@ Duxt UI provides a set of components for building chat and messaging interfaces:
 
 Display a single chat message bubble:
 
-```dart
+```
 DChatMessage(
   message: ChatMessageData(
     id: '1',
@@ -26,7 +26,7 @@ DChatMessage(
 
 ### User vs Assistant Messages
 
-```dart
+```
 // User message (aligned right, colored background)
 DChatMessage(
   message: ChatMessageData(
@@ -50,7 +50,7 @@ DChatMessage(
 
 ### With Custom Avatar
 
-```dart
+```
 DChatMessage(
   message: message,
   avatar: DAvatar(
@@ -62,7 +62,7 @@ DChatMessage(
 
 ### Hide Avatar or Timestamp
 
-```dart
+```
 DChatMessage(
   message: message,
   showAvatar: false,
@@ -72,7 +72,7 @@ DChatMessage(
 
 ### Custom Bubble Colors
 
-```dart
+```
 DChatMessage(
   message: message,
   userBgColor: 'bg-blue-600 text-white',
@@ -82,7 +82,7 @@ DChatMessage(
 
 ### Loading State
 
-```dart
+```
 DChatMessage(
   message: ChatMessageData(
     id: 'loading',
@@ -98,7 +98,7 @@ DChatMessage(
 
 Display a scrollable list of messages:
 
-```dart
+```
 DChatMessages(
   messages: [
     ChatMessageData(
@@ -125,7 +125,7 @@ DChatMessages(
 
 ### Auto-Scroll
 
-```dart
+```
 DChatMessages(
   messages: messages,
   autoScrollToBottom: true,  // Default: true
@@ -134,7 +134,7 @@ DChatMessages(
 
 ### Custom Empty State
 
-```dart
+```
 DChatMessages(
   messages: [],
   emptyState: div(classes: 'text-center', [
@@ -151,7 +151,7 @@ DChatMessages(
 
 ### Hide Avatars/Timestamps
 
-```dart
+```
 DChatMessages(
   messages: messages,
   showAvatars: false,
@@ -163,7 +163,7 @@ DChatMessages(
 
 Input area for composing messages:
 
-```dart
+```
 DChatPrompt(
   placeholder: 'Type a message...',
   onInput: (value) => setState(() => message = value),
@@ -173,7 +173,7 @@ DChatPrompt(
 
 ### With Submit Button
 
-```dart
+```
 DChatPrompt(
   placeholder: 'Type a message...',
   onInput: (value) => setState(() => message = value),
@@ -188,7 +188,7 @@ DChatPrompt(
 
 ### With Attachment Button
 
-```dart
+```
 DChatPrompt(
   placeholder: 'Type a message...',
   leadingSlot: DButton(
@@ -209,7 +209,7 @@ DChatPrompt(
 
 ### Controlled Value
 
-```dart
+```
 DChatPrompt(
   value: messageText,
   placeholder: 'Type a message...',
@@ -219,7 +219,7 @@ DChatPrompt(
 
 ### Disabled State
 
-```dart
+```
 DChatPrompt(
   placeholder: 'Waiting for response...',
   disabled: true,
@@ -228,7 +228,7 @@ DChatPrompt(
 
 ### Auto Focus
 
-```dart
+```
 DChatPrompt(
   placeholder: 'Type a message...',
   autoFocus: true,
@@ -238,7 +238,7 @@ DChatPrompt(
 
 ### Row Configuration
 
-```dart
+```
 DChatPrompt(
   placeholder: 'Type a message...',
   minRows: 1,  // Minimum height
@@ -249,7 +249,7 @@ DChatPrompt(
 
 ## Complete Chat Interface Example
 
-```dart
+```
 class ChatInterface extends StatefulComponent {
   @override
   State createState() => _ChatInterfaceState();
@@ -352,7 +352,7 @@ class _ChatInterfaceState extends State<ChatInterface> {
 
 ## ChatMessageData Model
 
-```dart
+```
 class ChatMessageData {
   final String id;          // Unique identifier
   final String content;     // Message text

@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "9.0.0"
+  ansicolor:
+    dependency: transitive
+    description:
+      name: ansicolor
+      sha256: "50e982d500bc863e1d703448afdbf9e5a72eb48840a4f766fa361ffd6877055f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   archive:
     dependency: transitive
     description:
@@ -101,10 +109,10 @@ packages:
     dependency: "direct dev"
     description:
       name: build_web_compilers
-      sha256: "4ca510ac973d6e06fba3782b4046a8784f622bfbc56dbfe33c550c3adfe55be1"
+      sha256: a70897a160d2bc5f9cea01d68a4fc5437f7672ecb3ba1c1cf2328d07ce73c9fe
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.8"
+    version: "4.4.9"
   built_collection:
     dependency: transitive
     description:
@@ -193,14 +201,20 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.3"
+  duxt:
+    dependency: "direct main"
+    description:
+      path: "../duxt"
+      relative: true
+    source: path
+    version: "0.3.7"
   duxt_ui:
     dependency: "direct main"
     description:
-      name: duxt_ui
-      sha256: "02aade89e82f72f6cc59068bc3432448d0d79bdeaf1168a4900e314c6c2dc716"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1"
+      path: "../duxt_ui"
+      relative: true
+    source: path
+    version: "0.2.3"
   fbh_front_matter:
     dependency: transitive
     description:
@@ -353,14 +367,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.8.1"
-  jaspr_tailwind:
-    dependency: "direct dev"
-    description:
-      name: jaspr_tailwind
-      sha256: ecc9c1d43d16b11e1f194b25122b7c56df3232cf4c0cf2ada11cad575a7c842f
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.6"
   json_annotation:
     dependency: transitive
     description:
@@ -674,7 +680,7 @@ packages:
     source: hosted
     version: "1.2.1"
   web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: web
       sha256: "868d88a33d8a87b18ffc05f9f030ba328ffefba92d6c127917a2ba740f9cfe4a"

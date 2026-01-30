@@ -11,7 +11,7 @@ The `DAlert` component displays important messages, warnings, or feedback to use
 
 ## Basic Usage
 
-```dart
+```
 DAlert(
   title: 'Heads up!',
   description: 'This is an informational alert.',
@@ -22,7 +22,7 @@ DAlert(
 
 ### Solid
 
-```dart
+```
 DAlert(
   title: 'Solid Alert',
   description: 'This uses a solid background.',
@@ -32,7 +32,7 @@ DAlert(
 
 ### Outline
 
-```dart
+```
 DAlert(
   title: 'Outline Alert',
   description: 'This uses an outline style.',
@@ -42,7 +42,7 @@ DAlert(
 
 ### Soft
 
-```dart
+```
 DAlert(
   title: 'Soft Alert',
   description: 'This uses a soft, muted background.',
@@ -52,7 +52,7 @@ DAlert(
 
 ### Subtle
 
-```dart
+```
 DAlert(
   title: 'Subtle Alert',
   description: 'This uses a subtle styling.',
@@ -62,7 +62,7 @@ DAlert(
 
 ## Colors
 
-```dart
+```
 DAlert(title: 'Primary', color: DAlertColor.primary)
 DAlert(title: 'Secondary', color: DAlertColor.secondary)
 DAlert(title: 'Success', color: DAlertColor.success)
@@ -74,7 +74,7 @@ DAlert(title: 'Neutral', color: DAlertColor.neutral)
 
 ## With Icon
 
-```dart
+```
 DAlert(
   title: 'Check your email',
   description: 'We sent you a confirmation link.',
@@ -85,7 +85,7 @@ DAlert(
 
 ## With Avatar
 
-```dart
+```
 DAlert(
   title: 'New message from John',
   description: 'Hey, just checking in on the project.',
@@ -95,7 +95,7 @@ DAlert(
 
 ## Closable Alert
 
-```dart
+```
 DAlert(
   title: 'Dismissible Alert',
   description: 'Click the X to close this alert.',
@@ -105,7 +105,7 @@ DAlert(
 
 ## With Actions
 
-```dart
+```
 DAlert(
   title: 'Update Available',
   description: 'A new version is ready to install.',
@@ -127,7 +127,7 @@ DAlert(
 
 ## Complete Example
 
-```dart
+```
 DAlert(
   title: 'Payment Successful',
   description: 'Your order #12345 has been confirmed.',

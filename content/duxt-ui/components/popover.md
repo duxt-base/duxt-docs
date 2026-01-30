@@ -11,7 +11,7 @@ The `DPopover` component displays a floating panel with rich content when trigge
 
 ## Basic Usage
 
-```dart
+```
 DPopover(
   trigger: DButton(label: 'Click me'),
   children: [
@@ -24,7 +24,7 @@ DPopover(
 
 ## Positions
 
-```dart
+```
 // Top (default)
 DPopover(
   position: DPopoverPosition.top,
@@ -56,7 +56,7 @@ DPopover(
 
 ## User Menu Example
 
-```dart
+```
 DPopover(
   trigger: div(classes: 'flex items-center gap-2 cursor-pointer', [
     DAvatar(src: '/user.jpg', size: DAvatarSize.sm),
@@ -94,7 +94,7 @@ DPopover(
 
 ## Notification Panel
 
-```dart
+```
 DPopover(
   trigger: div(classes: 'relative', [
     DButton(
@@ -146,7 +146,7 @@ DPopover(
 
 ## Date Picker Trigger
 
-```dart
+```
 DPopover(
   trigger: DInput(
     label: 'Date',
@@ -167,7 +167,7 @@ DPopover(
 
 ## Color Picker
 
-```dart
+```
 DPopover(
   trigger: div(classes: 'flex items-center gap-2 cursor-pointer', [
     div(
@@ -195,7 +195,7 @@ DPopover(
 
 ## Settings Quick Access
 
-```dart
+```
 DPopover(
   trigger: DButton(
     leadingIcon: DIcon(name: 'settings'),
@@ -240,7 +240,7 @@ DPopover(
 
 ## Form in Popover
 
-```dart
+```
 DPopover(
   trigger: DButton(
     label: 'Add Item',

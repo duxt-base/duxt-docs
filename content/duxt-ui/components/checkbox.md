@@ -11,7 +11,7 @@ The `DCheckbox` component allows users to select one or multiple options from a 
 
 ## Basic Usage
 
-```dart
+```
 DCheckbox(
   label: 'Accept terms and conditions',
   onChange: (checked) => print('Checked: $checked'),
@@ -20,7 +20,7 @@ DCheckbox(
 
 ## Controlled State
 
-```dart
+```
 class CheckboxExample extends StatefulComponent {
   @override
   State createState() => _CheckboxExampleState();
@@ -42,7 +42,7 @@ class _CheckboxExampleState extends State<CheckboxExample> {
 
 ## Sizes
 
-```dart
+```
 DCheckbox(label: 'XS Checkbox', size: DSize.xs)
 DCheckbox(label: 'SM Checkbox', size: DSize.sm)
 DCheckbox(label: 'MD Checkbox', size: DSize.md)  // Default
@@ -52,7 +52,7 @@ DCheckbox(label: 'XL Checkbox', size: DSize.xl)
 
 ## Colors
 
-```dart
+```
 DCheckbox(label: 'Primary', checked: true, color: DColor.primary)
 DCheckbox(label: 'Gray', checked: true, color: DColor.neutral)
 DCheckbox(label: 'Success', checked: true, color: DColor.success)
@@ -62,7 +62,7 @@ DCheckbox(label: 'Error', checked: true, color: DColor.error)
 
 ## With Description
 
-```dart
+```
 DCheckbox(
   label: 'Marketing emails',
   description: 'Receive emails about new products and features',
@@ -72,7 +72,7 @@ DCheckbox(
 
 ## With Hint
 
-```dart
+```
 DCheckbox(
   label: 'Remember me',
   hint: 'Stay logged in for 30 days',
@@ -84,7 +84,7 @@ DCheckbox(
 
 For parent checkboxes that have partially selected children:
 
-```dart
+```
 DCheckbox(
   label: 'Select all',
   indeterminate: someSelected && !allSelected,
@@ -95,7 +95,7 @@ DCheckbox(
 
 ## Disabled State
 
-```dart
+```
 DCheckbox(
   label: 'Disabled option',
   disabled: true,
@@ -110,7 +110,7 @@ DCheckbox(
 
 ## Required
 
-```dart
+```
 DCheckbox(
   label: 'I accept the privacy policy',
   required: true,
@@ -120,7 +120,7 @@ DCheckbox(
 
 ## With Error
 
-```dart
+```
 DCheckbox(
   label: 'Terms and conditions',
   error: 'You must accept the terms to continue',
@@ -132,7 +132,7 @@ DCheckbox(
 
 For multiple related checkboxes:
 
-```dart
+```
 class CheckboxGroupExample extends StatefulComponent {
   @override
   State createState() => _CheckboxGroupExampleState();
@@ -180,7 +180,7 @@ class _CheckboxGroupExampleState extends State<CheckboxGroupExample> {
 
 ## Select All Pattern
 
-```dart
+```
 class SelectAllExample extends StatefulComponent {
   final List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 
@@ -234,7 +234,7 @@ class _SelectAllExampleState extends State<SelectAllExample> {
 
 ## Form Integration
 
-```dart
+```
 DCard(
   header: [h3([text('Newsletter Preferences')])],
   body: [

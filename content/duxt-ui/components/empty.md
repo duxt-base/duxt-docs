@@ -11,7 +11,7 @@ The `DEmpty` component provides styled empty state displays for when there's no 
 
 ## Basic Usage
 
-```dart
+```
 DEmpty(
   title: 'No items',
   description: 'You haven\'t added any items yet.',
@@ -20,7 +20,7 @@ DEmpty(
 
 ## With Icon
 
-```dart
+```
 DEmpty(
   icon: '📭',
   title: 'No messages',
@@ -30,7 +30,7 @@ DEmpty(
 
 ## With Icon Component
 
-```dart
+```
 DEmpty(
   iconComponent: DIcon(name: 'inbox', size: 48, classes: 'text-gray-400'),
   title: 'No notifications',
@@ -40,7 +40,7 @@ DEmpty(
 
 ## With Action
 
-```dart
+```
 DEmpty(
   icon: '📁',
   title: 'No projects',
@@ -55,7 +55,7 @@ DEmpty(
 
 ## Sizes
 
-```dart
+```
 DEmpty(size: DSize.xs, title: 'No data')
 DEmpty(size: DSize.sm, title: 'No data')
 DEmpty(size: DSize.md, title: 'No data')  // Default
@@ -65,7 +65,7 @@ DEmpty(size: DSize.xl, title: 'No data')
 
 ## Without Padding
 
-```dart
+```
 DEmpty(
   padded: false,
   title: 'No items',
@@ -75,7 +75,7 @@ DEmpty(
 
 ## Custom Children
 
-```dart
+```
 DEmpty(
   icon: '🔍',
   title: 'No results',
@@ -94,7 +94,7 @@ DEmpty(
 
 ### No Data
 
-```dart
+```
 DEmptyNoData(
   action: DButton(
     label: 'Add Data',
@@ -105,7 +105,7 @@ DEmptyNoData(
 
 ### No Results
 
-```dart
+```
 DEmptyNoResults(
   searchTerm: 'flutter',
   action: DButton(
@@ -118,7 +118,7 @@ DEmptyNoResults(
 
 ## In Tables
 
-```dart
+```
 DTable<User>(
   columns: columns,
   data: users,
@@ -137,7 +137,7 @@ DTable<User>(
 
 ## In Cards
 
-```dart
+```
 DCard(
   body: [
     if (items.isEmpty)
@@ -155,7 +155,7 @@ DCard(
 
 ## Conditional Rendering
 
-```dart
+```
 if (loading)
   DSpinner()
 else if (error != null)

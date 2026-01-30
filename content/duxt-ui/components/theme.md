@@ -13,7 +13,7 @@ Duxt UI provides a theme system with `DThemeProvider` for managing application t
 
 Wrap your application with `DThemeProvider` to enable theme management:
 
-```dart
+```
 class App extends StatelessComponent {
   @override
   Iterable<Component> build(BuildContext context) sync* {
@@ -30,7 +30,7 @@ class App extends StatelessComponent {
 
 ## Theme Modes
 
-```dart
+```
 // Light mode only
 DThemeProvider(
   mode: DThemeMode.light,
@@ -54,7 +54,7 @@ DThemeProvider(
 
 Define a custom theme with your brand colors:
 
-```dart
+```
 final customTheme = DuxtTheme(
   // Primary color (brand color)
   primary: DColorScale(
@@ -90,13 +90,13 @@ DThemeProvider(
 
 A toggle component for switching between light and dark modes:
 
-```dart
+```
 DColorModeSwitch()
 ```
 
 ### With Callback
 
-```dart
+```
 DColorModeSwitch(
   onModeChange: (isDark) {
     print('Dark mode: $isDark');
@@ -106,7 +106,7 @@ DColorModeSwitch(
 
 ### In Header
 
-```dart
+```
 header(classes: 'flex items-center justify-between p-4', [
   // Logo
   a(href: '/', [text('MyApp')]),
@@ -164,7 +164,7 @@ Duxt UI provides semantic colors that convey meaning:
 
 ### Using Colors
 
-```dart
+```
 // In components
 DButton(color: DColor.primary)
 DAlert(color: DColor.success)
@@ -178,7 +178,7 @@ final ringClass = ringColor(DColor.info);  // 'ring-info-500'
 
 ### Text Colors
 
-```dart
+```
 // Pre-defined text colors
 DTextColors.highlighted  // Primary text color
 DTextColors.defaultText  // Default text
@@ -189,7 +189,7 @@ DTextColors.inverted     // Inverted (for dark backgrounds)
 
 ### Background Colors
 
-```dart
+```
 // Pre-defined backgrounds
 DBgColors.defaultBg  // Default background
 DBgColors.elevated   // Slightly elevated (cards)
@@ -199,7 +199,7 @@ DBgColors.inverted   // Inverted background
 
 ## Complete App Example
 
-```dart
+```
 void main() {
   runApp(App());
 }
@@ -260,7 +260,7 @@ class App extends StatelessComponent {
 
 All Duxt UI components automatically support dark mode. For custom elements, use Tailwind's dark mode classes:
 
-```dart
+```
 div(
   classes: 'bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100',
   [

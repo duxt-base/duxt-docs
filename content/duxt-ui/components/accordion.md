@@ -11,7 +11,7 @@ The `DAccordion` component displays collapsible content panels, useful for FAQs,
 
 ## Basic Usage
 
-```dart
+```
 DAccordion(
   items: [
     DAccordionItem(
@@ -40,7 +40,7 @@ DAccordion(
 
 Allow multiple panels to be open simultaneously:
 
-```dart
+```
 DAccordion(
   multiple: true,
   items: [
@@ -55,7 +55,7 @@ DAccordion(
 
 ### Soft
 
-```dart
+```
 DAccordion(
   variant: DAccordionVariant.soft,
   items: [...],
@@ -64,7 +64,7 @@ DAccordion(
 
 ### Ghost
 
-```dart
+```
 DAccordion(
   variant: DAccordionVariant.ghost,
   items: [...],
@@ -73,7 +73,7 @@ DAccordion(
 
 ## Colors
 
-```dart
+```
 DAccordion(
   color: DColor.primary,
   items: [...],
@@ -92,7 +92,7 @@ DAccordion(
 
 ## Sizes
 
-```dart
+```
 DAccordion(size: DSize.xs, items: [...])
 DAccordion(size: DSize.sm, items: [...])
 DAccordion(size: DSize.md, items: [...])  // Default
@@ -102,7 +102,7 @@ DAccordion(size: DSize.xl, items: [...])
 
 ## With Icons
 
-```dart
+```
 DAccordion(
   items: [
     DAccordionItem(
@@ -132,7 +132,7 @@ DAccordion(
 
 ## With Descriptions
 
-```dart
+```
 DAccordion(
   items: [
     DAccordionItem(
@@ -157,7 +157,7 @@ DAccordion(
 
 ## Disabled Items
 
-```dart
+```
 DAccordion(
   items: [
     DAccordionItem(label: 'Available', content: [...]),
@@ -173,7 +173,7 @@ DAccordion(
 
 ## Default Open Items
 
-```dart
+```
 DAccordion(
   defaultValue: ['faq-1'],  // Open this item by default
   items: [
@@ -193,7 +193,7 @@ DAccordion(
 
 ## On Value Change
 
-```dart
+```
 DAccordion(
   onValueChange: (values) {
     print('Open items: $values');
@@ -204,7 +204,7 @@ DAccordion(
 
 ## FAQ Example
 
-```dart
+```
 DCard(
   header: [
     h2(classes: 'text-xl font-semibold', [text('Frequently Asked Questions')]),

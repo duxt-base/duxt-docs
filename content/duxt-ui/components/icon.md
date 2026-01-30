@@ -11,7 +11,7 @@ The `DIcon` component displays icons by name, supporting various icon libraries.
 
 ## Basic Usage
 
-```dart
+```
 DIcon(name: 'home')
 DIcon(name: 'settings')
 DIcon(name: 'user')
@@ -19,7 +19,7 @@ DIcon(name: 'user')
 
 ## Sizes
 
-```dart
+```
 DIcon(name: 'star', size: 12)
 DIcon(name: 'star', size: 16)
 DIcon(name: 'star', size: 20)  // Default
@@ -30,7 +30,7 @@ DIcon(name: 'star', size: 48)
 
 ## Colors
 
-```dart
+```
 // Using Tailwind classes
 DIcon(name: 'heart', classes: 'text-red-500')
 DIcon(name: 'check', classes: 'text-green-500')
@@ -46,7 +46,7 @@ div(classes: 'text-primary-600', [
 
 ## In Buttons
 
-```dart
+```
 DButton(
   label: 'Edit',
   leadingIcon: DIcon(name: 'edit'),
@@ -67,7 +67,7 @@ DButton(
 
 ## In Inputs
 
-```dart
+```
 DInput(
   label: 'Search',
   leadingIcon: DIcon(name: 'search'),
@@ -88,7 +88,7 @@ DInput(
 
 ## In Alerts
 
-```dart
+```
 DAlert(
   icon: DIcon(name: 'check-circle'),
   title: 'Success',
@@ -107,7 +107,7 @@ DAlert(
 ## Common Icons
 
 ### Navigation
-```dart
+```
 DIcon(name: 'home')
 DIcon(name: 'menu')
 DIcon(name: 'chevron-left')
@@ -119,7 +119,7 @@ DIcon(name: 'arrow-right')
 ```
 
 ### Actions
-```dart
+```
 DIcon(name: 'plus')
 DIcon(name: 'minus')
 DIcon(name: 'x')
@@ -134,7 +134,7 @@ DIcon(name: 'refresh-cw')
 ```
 
 ### Communication
-```dart
+```
 DIcon(name: 'mail')
 DIcon(name: 'message-circle')
 DIcon(name: 'phone')
@@ -143,7 +143,7 @@ DIcon(name: 'bell')
 ```
 
 ### User Interface
-```dart
+```
 DIcon(name: 'search')
 DIcon(name: 'settings')
 DIcon(name: 'filter')
@@ -154,7 +154,7 @@ DIcon(name: 'eye-off')
 ```
 
 ### Status
-```dart
+```
 DIcon(name: 'check-circle')
 DIcon(name: 'x-circle')
 DIcon(name: 'alert-circle')
@@ -164,7 +164,7 @@ DIcon(name: 'help-circle')
 ```
 
 ### Media
-```dart
+```
 DIcon(name: 'image')
 DIcon(name: 'video')
 DIcon(name: 'music')
@@ -175,7 +175,7 @@ DIcon(name: 'pause')
 ```
 
 ### Social
-```dart
+```
 DIcon(name: 'heart')
 DIcon(name: 'star')
 DIcon(name: 'thumbs-up')
@@ -185,7 +185,7 @@ DIcon(name: 'bookmark')
 
 ## Icon with Text
 
-```dart
+```
 // Horizontal alignment
 div(classes: 'flex items-center gap-2', [
   DIcon(name: 'calendar', size: 16),
@@ -201,7 +201,7 @@ div(classes: 'inline-flex items-center gap-1 px-2 py-1 bg-gray-100 rounded', [
 
 ## Loading State
 
-```dart
+```
 // Spinning icon
 DIcon(name: 'loader', classes: 'animate-spin')
 
@@ -213,7 +213,7 @@ DSpinner(size: DSize.sm)
 
 `DIcon` inherits the text color from its parent, so it automatically adapts to dark mode when using semantic color classes or when the parent element adapts.
 
-```dart
+```
 // This icon will adapt to dark mode
 div(classes: 'text-gray-600 dark:text-gray-400', [
   DIcon(name: 'info'),

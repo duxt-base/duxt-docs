@@ -11,7 +11,7 @@ Duxt UI provides components for building pricing pages with plan cards, feature 
 
 ## Basic Pricing Plan
 
-```dart
+```
 DPricingPlan(
   name: 'Starter',
   description: 'Perfect for individuals and small projects.',
@@ -31,7 +31,7 @@ DPricingPlan(
 
 ## Highlighted Plan
 
-```dart
+```
 DPricingPlan(
   name: 'Pro',
   description: 'Best for growing businesses.',
@@ -52,7 +52,7 @@ DPricingPlan(
 
 ## With Discount
 
-```dart
+```
 DPricingPlan(
   name: 'Enterprise',
   price: '79',
@@ -75,7 +75,7 @@ DPricingPlan(
 
 Features can be marked as included or not:
 
-```dart
+```
 features: [
   DPricingFeature(text: 'Unlimited users', included: true),
   DPricingFeature(text: 'API access', included: true),
@@ -88,7 +88,7 @@ Included features show a green checkmark, excluded features show a red X with st
 
 ## Disabled Plan
 
-```dart
+```
 DPricingPlan(
   name: 'Legacy',
   description: 'This plan is no longer available.',
@@ -103,7 +103,7 @@ DPricingPlan(
 
 Display multiple plans in a responsive grid:
 
-```dart
+```
 DPricingPlans(
   title: 'Choose your plan',
   description: 'Start free and scale as you grow.',
@@ -132,7 +132,7 @@ DPricingPlans(
 
 ## Grid Columns
 
-```dart
+```
 DPricingPlans(columns: DPricingPlansColumns.two, plans: [...])
 DPricingPlans(columns: DPricingPlansColumns.three, plans: [...])  // Default
 DPricingPlans(columns: DPricingPlansColumns.four, plans: [...])
@@ -140,7 +140,7 @@ DPricingPlans(columns: DPricingPlansColumns.four, plans: [...])
 
 ## With Billing Toggle
 
-```dart
+```
 class PricingPage extends StatefulComponent {
   @override
   State createState() => _PricingPageState();
@@ -183,7 +183,7 @@ class _PricingPageState extends State<PricingPage> {
 
 ## Custom Header
 
-```dart
+```
 DPricingPlan(
   name: 'Custom',
   price: '0',
@@ -200,7 +200,7 @@ DPricingPlan(
 
 ## Custom Footer
 
-```dart
+```
 DPricingPlan(
   name: 'Pro',
   price: '29',
@@ -213,7 +213,7 @@ DPricingPlan(
 
 ## Complete Example
 
-```dart
+```
 class PricingSection extends StatefulComponent {
   @override
   State createState() => _PricingSectionState();

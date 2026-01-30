@@ -11,7 +11,7 @@ The `DScrollArea` component provides a scrollable container with thin, styled sc
 
 ## Basic Usage
 
-```dart
+```
 DScrollArea(
   maxHeight: '300px',
   children: [
@@ -26,7 +26,7 @@ DScrollArea(
 
 ### Vertical (Default)
 
-```dart
+```
 DScrollArea(
   orientation: DScrollOrientation.vertical,
   maxHeight: '400px',
@@ -36,7 +36,7 @@ DScrollArea(
 
 ### Horizontal
 
-```dart
+```
 DScrollArea(
   orientation: DScrollOrientation.horizontal,
   maxWidth: '600px',
@@ -51,7 +51,7 @@ DScrollArea(
 
 ### Both Directions
 
-```dart
+```
 DScrollArea(
   orientation: DScrollOrientation.both,
   maxHeight: '400px',
@@ -69,7 +69,7 @@ DScrollArea(
 
 Scrollbar appears when content overflows:
 
-```dart
+```
 DScrollArea(
   scrollbarVisibility: DScrollbarVisibility.auto,
   maxHeight: '300px',
@@ -81,7 +81,7 @@ DScrollArea(
 
 Scrollbar is always visible with a track:
 
-```dart
+```
 DScrollArea(
   scrollbarVisibility: DScrollbarVisibility.always,
   maxHeight: '300px',
@@ -93,7 +93,7 @@ DScrollArea(
 
 Scrollbar only visible when hovering:
 
-```dart
+```
 DScrollArea(
   scrollbarVisibility: DScrollbarVisibility.hover,
   maxHeight: '300px',
@@ -105,7 +105,7 @@ DScrollArea(
 
 Scrollbar is completely hidden:
 
-```dart
+```
 DScrollArea(
   scrollbarVisibility: DScrollbarVisibility.never,
   maxHeight: '300px',
@@ -115,7 +115,7 @@ DScrollArea(
 
 ## Chat Messages
 
-```dart
+```
 DScrollArea(
   maxHeight: '500px',
   classes: 'bg-gray-50 dark:bg-gray-900 rounded-lg',
@@ -133,7 +133,7 @@ DScrollArea(
 
 ## Code Preview
 
-```dart
+```
 DScrollArea(
   orientation: DScrollOrientation.both,
   maxHeight: '400px',
@@ -148,7 +148,7 @@ DScrollArea(
 
 ## Table with Fixed Header
 
-```dart
+```
 div(classes: 'border rounded-lg', [
   // Fixed header
   div(classes: 'bg-gray-50 dark:bg-gray-800 border-b', [
@@ -184,7 +184,7 @@ div(classes: 'border rounded-lg', [
 
 ## Horizontal Card Gallery
 
-```dart
+```
 DScrollArea(
   orientation: DScrollOrientation.horizontal,
   scrollbarVisibility: DScrollbarVisibility.hover,
@@ -208,7 +208,7 @@ DScrollArea(
 
 ## Sidebar Navigation
 
-```dart
+```
 aside(classes: 'w-64 border-r h-screen flex flex-col', [
   // Header
   div(classes: 'h-16 flex items-center px-4 border-b', [
@@ -234,7 +234,7 @@ aside(classes: 'w-64 border-r h-screen flex flex-col', [
 
 ## Modal with Scrollable Content
 
-```dart
+```
 DModal(
   open: isOpen,
   onClose: () => close(),

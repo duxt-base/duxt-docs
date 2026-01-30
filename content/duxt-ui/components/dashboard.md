@@ -13,7 +13,7 @@ Duxt UI provides a comprehensive set of components for building admin dashboards
 
 A collapsible sidebar with navigation items:
 
-```dart
+```
 DDashboardSidebar(
   header: div(classes: 'p-4', [
     img(src: '/logo.svg', classes: 'h-8'),
@@ -60,7 +60,7 @@ DDashboardSidebar(
 
 ### Collapsible Sidebar
 
-```dart
+```
 DDashboardSidebar(
   initialCollapsed: false,
   onCollapseChange: (collapsed) {
@@ -72,7 +72,7 @@ DDashboardSidebar(
 
 ### Mobile Overlay
 
-```dart
+```
 DDashboardSidebar(
   mobileOpen: isMobileMenuOpen,
   onMobileClose: () => setState(() => isMobileMenuOpen = false),
@@ -82,7 +82,7 @@ DDashboardSidebar(
 
 ### Background Variants
 
-```dart
+```
 // Gray background (default)
 DDashboardSidebar(
   background: DSidebarBackground.gray,
@@ -98,7 +98,7 @@ DDashboardSidebar(
 
 ### Sidebar Position
 
-```dart
+```
 // Left side (default)
 DDashboardSidebar(
   side: DSidebarSide.left,
@@ -116,7 +116,7 @@ DDashboardSidebar(
 
 ### Basic Item
 
-```dart
+```
 DSidebarItem(
   label: 'Dashboard',
   icon: DIcon(name: 'home'),
@@ -126,7 +126,7 @@ DSidebarItem(
 
 ### Active State
 
-```dart
+```
 DSidebarItem(
   label: 'Dashboard',
   icon: DIcon(name: 'home'),
@@ -137,7 +137,7 @@ DSidebarItem(
 
 ### With Badge
 
-```dart
+```
 DSidebarItem(
   label: 'Notifications',
   icon: DIcon(name: 'bell'),
@@ -148,7 +148,7 @@ DSidebarItem(
 
 ### Disabled Item
 
-```dart
+```
 DSidebarItem(
   label: 'Premium Feature',
   icon: DIcon(name: 'star'),
@@ -160,7 +160,7 @@ DSidebarItem(
 
 Group related items with a label:
 
-```dart
+```
 DSidebarSection(
   label: 'Navigation',
   children: [
@@ -182,7 +182,7 @@ DSidebarSection(
 
 A horizontal navigation bar:
 
-```dart
+```
 DDashboardNavbar(
   leading: DButton(
     leadingIcon: DIcon(name: 'menu'),
@@ -204,7 +204,7 @@ DDashboardNavbar(
 
 ### Background Variants
 
-```dart
+```
 DDashboardNavbar(
   background: DNavbarBackground.white,  // Default
   ...
@@ -223,7 +223,7 @@ DDashboardNavbar(
 
 ### Without Border
 
-```dart
+```
 DDashboardNavbar(
   bordered: false,
   title: 'Dashboard',
@@ -234,7 +234,7 @@ DDashboardNavbar(
 
 A search input with keyboard shortcut hint:
 
-```dart
+```
 DDashboardSearch(
   placeholder: 'Search...',
   onInput: (value) => search(value),
@@ -244,7 +244,7 @@ DDashboardSearch(
 
 ### Sizes
 
-```dart
+```
 DDashboardSearch(size: DSearchSize.sm, ...)
 DDashboardSearch(size: DSearchSize.md, ...)  // Default
 DDashboardSearch(size: DSearchSize.lg, ...)
@@ -252,7 +252,7 @@ DDashboardSearch(size: DSearchSize.lg, ...)
 
 ### Custom Shortcut
 
-```dart
+```
 DDashboardSearch(
   shortcut: 'K',  // Shows ⌘K or Ctrl+K
   onFocus: () => openCommandPalette(),
@@ -261,7 +261,7 @@ DDashboardSearch(
 
 ### Expand on Focus
 
-```dart
+```
 DDashboardSearch(
   expandOnFocus: true,
   placeholder: 'Search...',
@@ -273,7 +273,7 @@ DDashboardSearch(
 
 A compact search button for triggering a search modal:
 
-```dart
+```
 DDashboardSearchButton(
   shortcut: 'K',
   onClick: () => openSearchModal(),
@@ -284,7 +284,7 @@ DDashboardSearchButton(
 
 A flexible panel for content areas:
 
-```dart
+```
 DDashboardPanel(
   grow: true,  // Fill available space
   children: [
@@ -295,7 +295,7 @@ DDashboardPanel(
 
 ### Resizable Panel
 
-```dart
+```
 DDashboardPanel(
   resizable: true,
   resizeDirection: DPanelResizeDirection.right,
@@ -310,7 +310,7 @@ DDashboardPanel(
 
 ## Complete Dashboard Layout Example
 
-```dart
+```
 class DashboardLayout extends StatefulComponent {
   @override
   State createState() => _DashboardLayoutState();
