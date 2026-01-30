@@ -17,16 +17,18 @@ class SidebarDuxt extends StatelessComponent {
           _buildGroup('Core Concepts', [
             _buildLink('Modules', '/duxt/modules'),
             _buildLink('Routing', '/duxt/routing'),
+            _buildLink('Pages', '/duxt/pages'),
             _buildLink('Layouts', '/duxt/layouts'),
             _buildLink('Middleware', '/duxt/middleware'),
           ]),
-          _buildGroup('Features', [
+          _buildGroup('Data & State', [
             _buildLink('API Client', '/duxt/api-client'),
             _buildLink('State Management', '/duxt/state'),
             _buildLink('Server API', '/duxt/server'),
           ]),
-          _buildGroup('CLI', [
-            _buildLink('Commands', '/duxt/cli'),
+          _buildGroup('Tools', [
+            _buildLink('CLI Commands', '/duxt/cli'),
+            _buildLink('Content System', '/duxt/content'),
           ]),
           _buildGroup('Deployment', [
             _buildLink('Deploy', '/duxt/deploy'),

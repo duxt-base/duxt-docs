@@ -59,10 +59,18 @@ Your app is running at `http://localhost:4000`
 
 - **[Modules](/duxt/modules)** - Organize code by feature
 - **[Routing](/duxt/routing)** - File-based routing system
+- **[Pages](/duxt/pages)** - Create pages with layouts, middleware, and async data
+- **[Layouts](/duxt/layouts)** - Wrap pages with reusable components
+- **[Middleware](/duxt/middleware)** - Protect routes and control flow
+
+## Data & State
+
 - **[API Client](/duxt/api-client)** - Making HTTP requests
 - **[State Management](/duxt/state)** - Handle async data loading
-- **[Middleware](/duxt/middleware)** - Protect routes and control flow
-- **[Layouts](/duxt/layouts)** - Wrap pages with reusable components
-- **[CLI Commands](/duxt/cli)** - Full CLI reference
 - **[Server API](/duxt/server)** - Build backend APIs
+
+## Tools & Content
+
+- **[CLI Commands](/duxt/cli)** - Full CLI reference
+- **[Content System](/duxt/content)** - Build documentation sites with markdown
 - **[Deployment](/duxt/deploy)** - Deploy to production

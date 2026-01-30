@@ -27,32 +27,58 @@ import 'package:duxt/duxt.dart';
 
 class AuthMiddleware extends DuxtMiddleware {
   @override
-  Future<MiddlewareResult> handle(RouteState route) async {
-    final token = await TokenStorage.getToken();
+  String get name => 'auth';
 
-    if (token == null) {
-      return MiddlewareResult.redirect('/login');
+  @override
+  Future<bool> handle(DuxtContext context, Future<void> Function() next) async {
+    final isAuthenticated = context.state['isAuthenticated'] ?? false;
+
+    if (!isAuthenticated) {
+      context.redirect('/login');
+      return false;
     }
 
-    return MiddlewareResult.next();
+    await next();
+    return true;
   }
+}
+```
+
+## DuxtMiddleware API
+
+| Property/Method | Type | Description |
+|-----------------|------|-------------|
+| `name` | `String` | Unique identifier for the middleware |
+| `global` | `bool` | If true, runs on all routes (default: false) |
+| `handle()` | `Future<bool>` | Main logic - return true to continue, false to abort |
+
+## DuxtContext
+
+The context object provides access to route information and control flow:
+
+```
+class DuxtContext {
+  final String path;              // Current route path
+  final Map<String, String> params;   // Route parameters
+  final Map<String, String> query;    // Query parameters
+  final Map<String, dynamic> state;   // Shared state
+
+  void redirect(String path);     // Redirect to another route
+  void error(int code, String msg); // Return an error
 }
 ```
 
 ## Using Middleware
 
-Apply middleware to pages via the middleware getter:
+Apply middleware to pages via the `middleware` getter:
 
 ```
 // lib/dashboard/pages/index.dart
 import 'package:duxt/duxt.dart';
-import '../../shared/middleware/auth_middleware.dart';
 
 class DashboardPage extends DuxtPage {
   @override
-  List<DuxtMiddleware> get middleware => [
-    AuthMiddleware(),
-  ];
+  List<String> get middleware => ['auth'];
 
   @override
   Component build(BuildContext context) {
@@ -64,42 +90,43 @@ class DashboardPage extends DuxtPage {
 }
 ```
 
-Multiple middleware run in order:
-
-```
-@override
-List<DuxtMiddleware> get middleware => [
-  AuthMiddleware(),
-  AdminMiddleware(),
-  FeatureFlagMiddleware('beta'),
-];
-```
-
 ## Middleware Results
 
-### next()
+### Return `true` - Continue
 
-Continue to the page (or next middleware):
+Allow navigation to proceed:
 
 ```
-return MiddlewareResult.next();
+await next();
+return true;
 ```
 
-### redirect()
+### Return `false` - Abort
+
+Stop navigation (usually after redirect):
+
+```
+context.redirect('/login');
+return false;
+```
+
+### Redirect
 
 Redirect to a different route:
 
 ```
-return MiddlewareResult.redirect('/login');
-return MiddlewareResult.redirect('/login?redirect=${route.path}');
+context.redirect('/login');
+context.redirect('/login?redirect=${context.path}');
+return false;
 ```
 
-### abort()
+### Error
 
-Stop navigation entirely:
+Return an error response:
 
 ```
-return MiddlewareResult.abort();
+context.error(403, 'Access denied');
+return false;
 ```
 
 ## Common Patterns
@@ -109,32 +136,44 @@ return MiddlewareResult.abort();
 ```
 class AuthMiddleware extends DuxtMiddleware {
   @override
-  Future<MiddlewareResult> handle(RouteState route) async {
-    final isAuthenticated = await AuthService.isAuthenticated();
+  String get name => 'auth';
+
+  @override
+  Future<bool> handle(DuxtContext context, Future<void> Function() next) async {
+    final isAuthenticated = context.state['isAuthenticated'] ?? false;
 
     if (!isAuthenticated) {
-      final returnUrl = Uri.encodeComponent(route.path);
-      return MiddlewareResult.redirect('/login?redirect=$returnUrl');
+      final returnUrl = Uri.encodeComponent(context.path);
+      context.redirect('/login?redirect=$returnUrl');
+      return false;
     }
 
-    return MiddlewareResult.next();
+    await next();
+    return true;
   }
 }
 ```
 
 ### Guest Middleware
 
+Redirect authenticated users away from login/register pages:
+
 ```
 class GuestMiddleware extends DuxtMiddleware {
   @override
-  Future<MiddlewareResult> handle(RouteState route) async {
-    final isAuthenticated = await AuthService.isAuthenticated();
+  String get name => 'guest';
+
+  @override
+  Future<bool> handle(DuxtContext context, Future<void> Function() next) async {
+    final isAuthenticated = context.state['isAuthenticated'] ?? false;
 
     if (isAuthenticated) {
-      return MiddlewareResult.redirect('/dashboard');
+      context.redirect('/dashboard');
+      return false;
     }
 
-    return MiddlewareResult.next();
+    await next();
+    return true;
   }
 }
 ```
@@ -148,27 +187,20 @@ class RoleMiddleware extends DuxtMiddleware {
   RoleMiddleware(this.allowedRoles);
 
   @override
-  Future<MiddlewareResult> handle(RouteState route) async {
-    final user = await AuthService.getCurrentUser();
+  String get name => 'role';
 
-    if (user == null) {
-      return MiddlewareResult.redirect('/login');
-    }
-
-    if (!allowedRoles.contains(user.role)) {
-      return MiddlewareResult.redirect('/unauthorized');
-    }
-
-    return MiddlewareResult.next();
-  }
-}
-
-// Usage
-class AdminPage extends DuxtPage {
   @override
-  List<DuxtMiddleware> get middleware => [
-    RoleMiddleware(['admin', 'superadmin']),
-  ];
+  Future<bool> handle(DuxtContext context, Future<void> Function() next) async {
+    final userRole = context.state['role'] as String?;
+
+    if (userRole == null || !allowedRoles.contains(userRole)) {
+      context.redirect('/unauthorized');
+      return false;
+    }
+
+    await next();
+    return true;
+  }
 }
 ```
 
@@ -181,32 +213,41 @@ class FeatureFlagMiddleware extends DuxtMiddleware {
   FeatureFlagMiddleware(this.featureName);
 
   @override
-  Future<MiddlewareResult> handle(RouteState route) async {
-    final isEnabled = await FeatureFlags.isEnabled(featureName);
+  String get name => 'feature-$featureName';
 
-    if (!isEnabled) {
-      return MiddlewareResult.redirect('/coming-soon');
+  @override
+  Future<bool> handle(DuxtContext context, Future<void> Function() next) async {
+    final features = context.state['features'] as Map<String, bool>? ?? {};
+
+    if (features[featureName] != true) {
+      context.redirect('/coming-soon');
+      return false;
     }
 
-    return MiddlewareResult.next();
+    await next();
+    return true;
   }
 }
 ```
 
 ## Global Middleware
 
-Apply middleware to all routes in your app configuration:
+Set `global` to `true` to run middleware on all routes:
 
 ```
-// lib/app.dart
-import 'package:duxt/duxt.dart';
-
-class AppConfig extends DuxtApp {
+class LoggingMiddleware extends DuxtMiddleware {
   @override
-  List<DuxtMiddleware> get globalMiddleware => [
-    LoggingMiddleware(),
-    AnalyticsMiddleware(),
-  ];
+  String get name => 'logging';
+
+  @override
+  bool get global => true;
+
+  @override
+  Future<bool> handle(DuxtContext context, Future<void> Function() next) async {
+    print('Navigating to: ${context.path}');
+    await next();
+    return true;
+  }
 }
 ```
 
