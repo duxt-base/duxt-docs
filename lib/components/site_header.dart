@@ -26,16 +26,32 @@ class SiteHeader extends StatelessComponent {
       Document.head(children: [
         Style(styles: _styles),
         Style(styles: _themeStyles),
-        // Force dark mode as default
+        // Sync dark mode class with data-theme attribute
         RawText('''<script>
           (function() {
-            var theme = localStorage.getItem('theme') || 'dark';
+            // Initial theme setup - check jaspr:theme first, then theme, default to dark
+            var theme = localStorage.getItem('jaspr:theme') || localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', theme);
             if (theme === 'dark') {
               document.documentElement.classList.add('dark');
             } else {
               document.documentElement.classList.remove('dark');
             }
+
+            // Watch for data-theme attribute changes (from ThemeToggle)
+            var observer = new MutationObserver(function(mutations) {
+              mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'data-theme') {
+                  var newTheme = document.documentElement.getAttribute('data-theme');
+                  if (newTheme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                }
+              });
+            });
+            observer.observe(document.documentElement, { attributes: true });
           })();
         </script>'''),
       ]),
