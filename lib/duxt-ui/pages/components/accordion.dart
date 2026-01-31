@@ -89,34 +89,41 @@ class AccordionPage extends StatelessComponent {
 )'''),
             ]),
 
-            // Multiple Open
-            _section('Multiple Open', [
+            // Item With Value
+            _section('Item With Value', [
               ComponentPreviewCard(preview: [
                 div(classes: 'w-full max-w-md', [
                   DAccordion(
-                    multiple: true,
+                    defaultValue: 'first',
                     items: [
                       DAccordionItem(
                         label: 'Section One',
-                        content: Component.text('Content for section one.'),
+                        value: 'first',
+                        content: Component.text('Content for section one (open by default via value).'),
                       ),
                       DAccordionItem(
                         label: 'Section Two',
+                        value: 'second',
                         content: Component.text('Content for section two.'),
                       ),
                       DAccordionItem(
                         label: 'Section Three',
+                        value: 'third',
                         content: Component.text('Content for section three.'),
                       ),
                     ],
                   ),
                 ]),
               ], code: '''DAccordion(
-  multiple: true,
+  defaultValue: 'first',  // Opens item with this value
   items: [
-    DAccordionItem(label: 'Section One', content: ...),
-    DAccordionItem(label: 'Section Two', content: ...),
-    DAccordionItem(label: 'Section Three', content: ...),
+    DAccordionItem(
+      label: 'Section One',
+      value: 'first',
+      content: ...,
+    ),
+    DAccordionItem(label: 'Section Two', value: 'second', content: ...),
+    DAccordionItem(label: 'Section Three', value: 'third', content: ...),
   ],
 )'''),
             ]),
@@ -276,12 +283,10 @@ DAccordion(size: DSize.lg, items: [...])'''),
                 ]),
                 tbody([
                   _apiRow('items', 'List<DAccordionItem>', 'required', 'List of accordion items'),
-                  _apiRow('defaultValue', 'String?', 'null', 'Initially open item value'),
-                  _apiRow('multiple', 'bool', 'false', 'Allow multiple items open at once'),
+                  _apiRow('defaultValue', 'String?', 'null', 'Initially open item by value'),
                   _apiRow('color', 'DColor', 'primary', 'Color theme'),
                   _apiRow('variant', 'DAccordionVariant', 'soft', 'Visual variant (soft, ghost)'),
                   _apiRow('size', 'DSize', 'md', 'Size of the accordion'),
-                  _apiRow('onValueChange', 'ValueChanged<List<String>>?', 'null', 'Callback when open items change'),
                 ]),
               ]),
             ]),
@@ -304,6 +309,7 @@ DAccordion(size: DSize.lg, items: [...])'''),
                   _apiRow('icon', 'Component?', 'null', 'Optional icon before label'),
                   _apiRow('disabled', 'bool', 'false', 'Disable this item'),
                   _apiRow('value', 'String?', 'null', 'Unique value (defaults to item-index)'),
+                  _apiRow('defaultOpen', 'bool', 'false', 'Whether this item is initially open'),
                 ]),
               ]),
             ]),

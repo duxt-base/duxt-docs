@@ -42,14 +42,18 @@ class CodePreview extends AsyncStatelessComponent {
   @override
   Future<Component> build(BuildContext context) async {
     if (!_initialized) {
-      Highlighter.initialize(['dart', 'yaml', 'json', 'html', 'css', 'javascript', 'typescript']);
+      Highlighter.initialize(['dart']);
       _initialized = true;
     }
 
-    final highlighter = Highlighter(
-      language: _isTerminal ? 'bash' : language,
-      theme: await HighlighterTheme.loadDarkTheme(),
-    );
+    // Only use highlighter for dart, fallback to plain text for others
+    Highlighter? highlighter;
+    if (language == 'dart') {
+      highlighter = Highlighter(
+        language: 'dart',
+        theme: await HighlighterTheme.loadDarkTheme(),
+      );
+    }
 
     // Split source into lines for line numbers
     final lines = source.split('\n');
@@ -105,7 +109,12 @@ class CodePreview extends AsyncStatelessComponent {
               [
                 code(
                   styles: Styles(raw: {'font-family': 'JetBrains Mono, monospace !important'}),
-                  [_buildSpan(highlighter.highlight(source))],
+                  [
+                    if (highlighter != null)
+                      _buildSpan(highlighter.highlight(source))
+                    else
+                      Component.text(source),
+                  ],
                 ),
               ],
             ),

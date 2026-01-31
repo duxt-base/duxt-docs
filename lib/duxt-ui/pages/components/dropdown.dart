@@ -21,17 +21,17 @@ class DropdownPage extends StatelessComponent {
                 DDropdown(
                   trigger: DButton(label: 'Options'),
                   items: [
-                    DDropdownItem(label: 'Edit', onClick: () {}),
-                    DDropdownItem(label: 'Duplicate', onClick: () {}),
-                    DDropdownItem(label: 'Delete', onClick: () {}),
+                    DDropdownItem(label: 'Edit', href: '#edit'),
+                    DDropdownItem(label: 'Duplicate', href: '#duplicate'),
+                    DDropdownItem(label: 'Delete', href: '#delete'),
                   ],
                 ),
               ], code: '''DDropdown(
   trigger: DButton(label: 'Options'),
   items: [
-    DDropdownItem(label: 'Edit', onClick: () => handleEdit()),
-    DDropdownItem(label: 'Duplicate', onClick: () => handleDuplicate()),
-    DDropdownItem(label: 'Delete', onClick: () => handleDelete()),
+    DDropdownItem(label: 'Edit', href: '/edit'),
+    DDropdownItem(label: 'Duplicate', href: '/duplicate'),
+    DDropdownItem(label: 'Delete', href: '/delete'),
   ],
 )'''),
             ]),
@@ -41,35 +41,35 @@ class DropdownPage extends StatelessComponent {
                 DDropdown(
                   trigger: DButton(
                     label: 'Actions',
-                    trailingIcon: DIcon(name: 'chevron-down'),
+                    trailingIcon: DIcon(name: DIconNames.chevronDown),
                   ),
                   items: [
                     DDropdownItem(
                       label: 'Edit',
                       icon: 'edit',
-                      onClick: () {},
+                      href: '#edit',
                     ),
                     DDropdownItem(
                       label: 'Copy',
                       icon: 'copy',
-                      onClick: () {},
+                      href: '#copy',
                     ),
                     DDropdownItem(
                       label: 'Share',
                       icon: 'share',
-                      onClick: () {},
+                      href: '#share',
                     ),
                   ],
                 ),
               ], code: '''DDropdown(
   trigger: DButton(
     label: 'Actions',
-    trailingIcon: DIcon(name: 'chevron-down'),
+    trailingIcon: DIcon(name: DIconNames.chevronDown),
   ),
   items: [
-    DDropdownItem(label: 'Edit', icon: DIcon(name: 'edit'), onClick: () {}),
-    DDropdownItem(label: 'Copy', icon: DIcon(name: 'copy'), onClick: () {}),
-    DDropdownItem(label: 'Share', icon: DIcon(name: 'share'), onClick: () {}),
+    DDropdownItem(label: 'Edit', icon: 'edit', href: '/edit'),
+    DDropdownItem(label: 'Copy', icon: 'copy', href: '/copy'),
+    DDropdownItem(label: 'Share', icon: 'share', href: '/share'),
   ],
 )'''),
             ]),
@@ -79,23 +79,23 @@ class DropdownPage extends StatelessComponent {
                 DDropdown(
                   trigger: DButton(label: 'Menu'),
                   items: [
-                    DDropdownItem(label: 'View', onClick: () {}),
-                    DDropdownItem(label: 'Edit', onClick: () {}),
-                    DDropdownItem(label: '---', divider: true),
+                    DDropdownItem(label: 'View', href: '#view'),
+                    DDropdownItem(label: 'Edit', href: '#edit'),
+                    DDropdownItem.divider(),
                     DDropdownItem(
                       label: 'Delete',
                       icon: 'trash',
-                      onClick: () {},
+                      href: '#delete',
                     ),
                   ],
                 ),
               ], code: '''DDropdown(
   trigger: DButton(label: 'Menu'),
   items: [
-    DDropdownItem(label: 'View', onClick: () {}),
-    DDropdownItem(label: 'Edit', onClick: () {}),
-    DDropdownItem(divider: true),  // Divider
-    DDropdownItem(label: 'Delete', icon: DIcon(name: 'trash'), onClick: () {}),
+    DDropdownItem(label: 'View', href: '/view'),
+    DDropdownItem(label: 'Edit', href: '/edit'),
+    DDropdownItem.divider(),  // Divider
+    DDropdownItem(label: 'Delete', icon: 'trash', href: '/delete'),
   ],
 )'''),
             ]),
@@ -105,17 +105,17 @@ class DropdownPage extends StatelessComponent {
                 DDropdown(
                   trigger: DButton(label: 'Actions'),
                   items: [
-                    DDropdownItem(label: 'Edit', onClick: () {}),
+                    DDropdownItem(label: 'Edit', href: '#edit'),
                     DDropdownItem(label: 'Archive', disabled: true),
-                    DDropdownItem(label: 'Delete', onClick: () {}),
+                    DDropdownItem(label: 'Delete', href: '#delete'),
                   ],
                 ),
               ], code: '''DDropdown(
   trigger: DButton(label: 'Actions'),
   items: [
-    DDropdownItem(label: 'Edit', onClick: () {}),
+    DDropdownItem(label: 'Edit', href: '/edit'),
     DDropdownItem(label: 'Archive', disabled: true),  // Cannot be clicked
-    DDropdownItem(label: 'Delete', onClick: () {}),
+    DDropdownItem(label: 'Delete', href: '/delete'),
   ],
 )'''),
             ]),
@@ -129,8 +129,8 @@ class DropdownPage extends StatelessComponent {
                     square: true,
                   ),
                   items: [
-                    DDropdownItem(label: 'Edit', icon: 'edit', onClick: () {}),
-                    DDropdownItem(label: 'Delete', icon: 'trash', onClick: () {}),
+                    DDropdownItem(label: 'Edit', icon: 'edit', href: '#edit'),
+                    DDropdownItem(label: 'Delete', icon: 'trash', href: '#delete'),
                   ],
                 ),
               ], code: '''DDropdown(
@@ -140,8 +140,8 @@ class DropdownPage extends StatelessComponent {
     square: true,
   ),
   items: [
-    DDropdownItem(label: 'Edit', icon: DIcon(name: 'edit')),
-    DDropdownItem(label: 'Delete', icon: DIcon(name: 'trash')),
+    DDropdownItem(label: 'Edit', icon: 'edit', href: '/edit'),
+    DDropdownItem(label: 'Delete', icon: 'trash', href: '/delete'),
   ],
 )'''),
             ]),
@@ -155,25 +155,25 @@ class DropdownPage extends StatelessComponent {
                     DIcon(name: 'chevron-down', size: DIconSize.sm),
                   ]),
                   items: [
-                    DDropdownItem(label: 'Profile', icon: 'user', onClick: () {}),
-                    DDropdownItem(label: 'Settings', icon: 'settings', onClick: () {}),
-                    DDropdownItem(label: 'Billing', icon: 'credit-card', onClick: () {}),
-                    DDropdownItem(label: '---', divider: true),
-                    DDropdownItem(label: 'Sign out', icon: 'log-out', onClick: () {}),
+                    DDropdownItem(label: 'Profile', icon: 'user', href: '/profile'),
+                    DDropdownItem(label: 'Settings', icon: 'settings', href: '/settings'),
+                    DDropdownItem(label: 'Billing', icon: 'credit-card', href: '/billing'),
+                    DDropdownItem.divider(),
+                    DDropdownItem(label: 'Sign out', icon: 'log-out', href: '/logout'),
                   ],
                 ),
               ], code: '''DDropdown(
   trigger: div(classes: 'flex items-center gap-2 cursor-pointer', [
     DAvatar(src: '/user.jpg', size: DAvatarSize.sm),
     span([Component.text('John Doe')]),
-    DIcon(name: 'chevron-down', size: 16),
+    DIcon(name: 'chevron-down', size: DIconSize.sm),
   ]),
   items: [
-    DDropdownItem(label: 'Profile', icon: DIcon(name: 'user'), onClick: () {}),
-    DDropdownItem(label: 'Settings', icon: DIcon(name: 'settings'), onClick: () {}),
-    DDropdownItem(label: 'Billing', icon: DIcon(name: 'credit-card'), onClick: () {}),
-    DDropdownItem(divider: true),
-    DDropdownItem(label: 'Sign out', icon: DIcon(name: 'log-out'), onClick: () {}),
+    DDropdownItem(label: 'Profile', icon: 'user', href: '/profile'),
+    DDropdownItem(label: 'Settings', icon: 'settings', href: '/settings'),
+    DDropdownItem(label: 'Billing', icon: 'credit-card', href: '/billing'),
+    DDropdownItem.divider(),
+    DDropdownItem(label: 'Sign out', icon: 'log-out', href: '/logout'),
   ],
 )'''),
             ]),

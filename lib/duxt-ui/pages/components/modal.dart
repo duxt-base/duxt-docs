@@ -14,90 +14,120 @@ class ModalPage extends StatelessComponent {
       sidebar: SidebarUi(),
       body: Component.fragment([
             h1([Component.text('Modal')]),
-            p(classes: 'text-xl text-zinc-500 dark:text-zinc-400', [Component.text('A dialog overlay for focused user interactions.')]),
+            p(classes: 'text-xl text-zinc-500 dark:text-zinc-400', [Component.text('A dialog overlay for focused user interactions. Uses the native HTML dialog element.')]),
 
             _section('Basic Usage', [
+              p(classes: 'text-zinc-400 mb-4', [
+                Component.text('The Modal component uses the native <dialog> element with automatic focus trapping, backdrop, and Escape key support.'),
+              ]),
               ComponentPreviewCard(preview: [
-                DButton(label: 'Open Modal'),
+                DModal(
+                  trigger: DButton(label: 'Open Modal'),
+                  title: 'Confirm Action',
+                  children: [
+                    p([Component.text('Are you sure you want to proceed?')]),
+                  ],
+                  footer: div(classes: 'flex gap-2 justify-end', [
+                    DButton(label: 'Cancel', variant: DButtonVariant.ghost),
+                    DButton(label: 'Confirm'),
+                  ]),
+                ),
               ], code: '''DModal(
-  open: isOpen,
+  trigger: DButton(label: 'Open Modal'),
   title: 'Confirm Action',
   children: [
     p([Component.text('Are you sure you want to proceed?')]),
   ],
-  footer: [
-    DButton(
-      label: 'Cancel',
-      variant: DButtonVariant.ghost,
-      onClick: () => setState(() => isOpen = false),
-    ),
-    DButton(
-      label: 'Confirm',
-      onClick: () => handleConfirm(),
-    ),
-  ],
+  footer: div(classes: 'flex gap-2 justify-end', [
+    DButton(label: 'Cancel', variant: DButtonVariant.ghost),
+    DButton(label: 'Confirm'),
+  ]),
 )'''),
             ]),
 
             _section('Sizes', [
               ComponentPreviewCard(preview: [
                 div(classes: 'flex flex-wrap gap-3', [
-                  DButton(label: 'XS', size: DButtonSize.sm),
-                  DButton(label: 'SM', size: DButtonSize.sm),
-                  DButton(label: 'MD', size: DButtonSize.sm),
-                  DButton(label: 'LG', size: DButtonSize.sm),
-                  DButton(label: 'XL', size: DButtonSize.sm),
-                  DButton(label: 'Full', size: DButtonSize.sm),
+                  DModal(
+                    trigger: DButton(label: 'XS', size: DButtonSize.sm),
+                    size: DModalSize.xs,
+                    title: 'Extra Small Modal',
+                    children: [Component.text('This is an extra small modal.')],
+                  ),
+                  DModal(
+                    trigger: DButton(label: 'SM', size: DButtonSize.sm),
+                    size: DModalSize.sm,
+                    title: 'Small Modal',
+                    children: [Component.text('This is a small modal.')],
+                  ),
+                  DModal(
+                    trigger: DButton(label: 'MD', size: DButtonSize.sm),
+                    size: DModalSize.md,
+                    title: 'Medium Modal',
+                    children: [Component.text('This is a medium modal (default).')],
+                  ),
+                  DModal(
+                    trigger: DButton(label: 'LG', size: DButtonSize.sm),
+                    size: DModalSize.lg,
+                    title: 'Large Modal',
+                    children: [Component.text('This is a large modal.')],
+                  ),
+                  DModal(
+                    trigger: DButton(label: 'XL', size: DButtonSize.sm),
+                    size: DModalSize.xl,
+                    title: 'Extra Large Modal',
+                    children: [Component.text('This is an extra large modal.')],
+                  ),
                 ]),
-              ], code: '''DModal(open: true, title: 'XS Modal', size: DModalSize.xs, ...)
-DModal(open: true, title: 'SM Modal', size: DModalSize.sm, ...)
-DModal(open: true, title: 'MD Modal', size: DModalSize.md, ...)  // Default
-DModal(open: true, title: 'LG Modal', size: DModalSize.lg, ...)
-DModal(open: true, title: 'XL Modal', size: DModalSize.xl, ...)
-DModal(open: true, title: 'Full Modal', size: DModalSize.full, ...)'''),
+              ], code: '''DModal(trigger: DButton(label: 'XS'), size: DModalSize.xs, ...)
+DModal(trigger: DButton(label: 'SM'), size: DModalSize.sm, ...)
+DModal(trigger: DButton(label: 'MD'), size: DModalSize.md, ...)  // Default
+DModal(trigger: DButton(label: 'LG'), size: DModalSize.lg, ...)
+DModal(trigger: DButton(label: 'XL'), size: DModalSize.xl, ...)'''),
             ]),
 
             _section('With Description', [
               ComponentPreviewCard(preview: [
-                DButton(label: 'Delete Item', color: DButtonColor.error),
+                DModal(
+                  trigger: DButton(label: 'Delete Item', color: DButtonColor.error),
+                  title: 'Delete Item',
+                  description: 'This action cannot be undone.',
+                  children: [
+                    p([Component.text('Are you sure you want to delete this item permanently?')]),
+                  ],
+                  footer: div(classes: 'flex gap-2 justify-end', [
+                    DButton(label: 'Cancel', variant: DButtonVariant.ghost),
+                    DButton(label: 'Delete', color: DButtonColor.error),
+                  ]),
+                ),
               ], code: '''DModal(
-  open: isOpen,
+  trigger: DButton(label: 'Delete Item', color: DButtonColor.error),
   title: 'Delete Item',
   description: 'This action cannot be undone.',
   children: [
-    p([Component.text('Are you sure you want to delete this item?')]),
+    p([Component.text('Are you sure you want to delete this item permanently?')]),
   ],
+  footer: div(classes: 'flex gap-2 justify-end', [
+    DButton(label: 'Cancel', variant: DButtonVariant.ghost),
+    DButton(label: 'Delete', color: DButtonColor.error),
+  ]),
 )'''),
             ]),
 
-            _section('Close Behavior', [
+            _section('Fullscreen Mode', [
               ComponentPreviewCard(preview: [
-                div(classes: 'flex flex-wrap gap-3', [
-                  DButton(label: 'Close on Overlay', variant: DButtonVariant.outline),
-                  DButton(label: 'Close on Escape', variant: DButtonVariant.outline),
-                  DButton(label: 'Prevent Close', variant: DButtonVariant.outline),
-                ]),
-              ], code: '''// Close on overlay click (default: true)
-DModal(
-  open: isOpen,
-  closeOnOverlay: true,
-  onClose: () => setState(() => isOpen = false),
-  children: [...],
-)
-
-// Close on escape key (default: true)
-DModal(
-  open: isOpen,
-  closeOnEscape: true,
-  onClose: () => setState(() => isOpen = false),
-  children: [...],
-)
-
-// Prevent close - requires explicit action
-DModal(
-  open: isOpen,
-  preventClose: true,
-  title: 'Required Action',
+                DModal(
+                  trigger: DButton(label: 'Fullscreen Modal'),
+                  title: 'Fullscreen View',
+                  fullscreen: true,
+                  children: [
+                    p([Component.text('This modal takes up the entire screen.')]),
+                  ],
+                ),
+              ], code: '''DModal(
+  trigger: DButton(label: 'Fullscreen Modal'),
+  title: 'Fullscreen View',
+  fullscreen: true,
   children: [...],
 )'''),
             ]),
@@ -114,20 +144,19 @@ DModal(
                   ]),
                 ]),
                 tbody([
-                  _apiRow('open', 'bool', 'required', 'Whether modal is visible'),
+                  _apiRow('trigger', 'Component', 'required', 'Element that opens the modal'),
                   _apiRow('title', 'String?', 'null', 'Modal title'),
                   _apiRow('description', 'String?', 'null', 'Subtitle below title'),
-                  _apiRow('header', 'List<Component>?', 'null', 'Custom header content'),
-                  _apiRow('children', 'List<Component>', 'required', 'Modal body content'),
-                  _apiRow('footer', 'List<Component>?', 'null', 'Footer content'),
-                  _apiRow('size', 'DModalSize', 'md', 'Modal width'),
+                  _apiRow('header', 'Component?', 'null', 'Custom header content'),
+                  _apiRow('children', 'List<Component>', '[]', 'Modal body content'),
+                  _apiRow('footer', 'Component?', 'null', 'Footer content'),
+                  _apiRow('size', 'DModalSize', 'md', 'Modal width (xs, sm, md, lg, xl, xxl, xxxl, xxxxl, xxxxxl, full)'),
                   _apiRow('closeOnOverlay', 'bool', 'true', 'Close when clicking backdrop'),
-                  _apiRow('closeOnEscape', 'bool', 'true', 'Close on Escape key'),
-                  _apiRow('preventClose', 'bool', 'false', 'Disable all close methods'),
-                  _apiRow('onClose', 'VoidCallback?', 'null', 'Close callback'),
+                  _apiRow('fullscreen', 'bool', 'false', 'Fullscreen mode'),
                 ]),
               ]),
             ]),
+
           ]),
     );
   }

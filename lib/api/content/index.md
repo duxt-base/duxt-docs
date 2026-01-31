@@ -1,7 +1,7 @@
 ---
 title: API Reference
 description: Complete API documentation for Duxt UI components.
-layout: docs
+layout: ui-layout
 order: 1
 ---
 

@@ -13,7 +13,7 @@ Supports **PostgreSQL**, **MySQL**, and **SQLite**.
 
 ## Installation
 
-```yaml
+```
 dependencies:
   duxt_orm: ^0.1.0
 ```

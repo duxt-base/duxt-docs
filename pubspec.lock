@@ -214,7 +214,7 @@ packages:
       path: "../duxt_ui"
       relative: true
     source: path
-    version: "0.2.3"
+    version: "0.2.4"
   fbh_front_matter:
     dependency: transitive
     description:

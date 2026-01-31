@@ -27,20 +27,21 @@ class DocsLayout extends PageLayoutBase {
   String get name => layoutName;
 
   @override
+  Iterable<Component> buildHead(Page page) sync* {
+    yield* super.buildHead(page);
+    yield Style(styles: _layoutStyles);
+  }
+
+  @override
   Component buildBody(Page page, Component child) {
     final hasSidebar = sidebar != null;
 
-    return Component.fragment([
-      Document.head(children: [
-        Style(styles: _layoutStyles),
-      ]),
-      div(classes: 'scaffold', [
-        const SiteHeader(),
-        div(classes: 'scaffold-container has-header', [
-          if (hasSidebar) aside(classes: 'scaffold-sidebar', [sidebar!]),
-          main_(classes: 'scaffold-main ${hasSidebar ? "has-sidebar" : ""}', [
-            article(classes: 'scaffold-content prose dark:prose-invert', [child]),
-          ]),
+    return div(classes: 'scaffold', [
+      const SiteHeader(),
+      div(classes: 'scaffold-container has-header', [
+        if (hasSidebar) aside(classes: 'scaffold-sidebar', [sidebar!]),
+        main_(classes: 'scaffold-main ${hasSidebar ? "has-sidebar" : ""}', [
+          article(classes: 'scaffold-content prose dark:prose-invert', [child]),
         ]),
       ]),
     ]);

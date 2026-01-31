@@ -50,7 +50,7 @@ class CollapsiblePage extends StatelessComponent {
                 div(classes: 'w-full max-w-md', [
                   DCollapsible(
                     defaultOpen: true,
-                    trigger: DCollapsibleTrigger(label: 'Repository Info', open: true),
+                    trigger: DCollapsibleTrigger(label: 'Repository Info'),
                     children: [
                       DCollapsibleContent(
                         children: [
@@ -70,10 +70,7 @@ class CollapsiblePage extends StatelessComponent {
                 ]),
               ], code: '''DCollapsible(
   defaultOpen: true,
-  trigger: DCollapsibleTrigger(
-    label: 'Repository Info',
-    open: true,
-  ),
+  trigger: DCollapsibleTrigger(label: 'Repository Info'),
   children: [
     DCollapsibleContent(children: [...]),
   ],
@@ -245,7 +242,6 @@ class CollapsiblePage extends StatelessComponent {
                   _apiRow('children', 'List<Component>', 'required', 'Content to show when expanded'),
                   _apiRow('defaultOpen', 'bool', 'false', 'Whether initially open'),
                   _apiRow('disabled', 'bool', 'false', 'Disable toggle interaction'),
-                  _apiRow('onOpenChange', 'VoidCallback?', 'null', 'Callback when open state changes'),
                 ]),
               ]),
             ]),
@@ -263,7 +259,6 @@ class CollapsiblePage extends StatelessComponent {
                 ]),
                 tbody([
                   _apiRow('label', 'String', 'required', 'Text label for the trigger'),
-                  _apiRow('open', 'bool', 'false', 'Whether the collapsible is open (for chevron rotation)'),
                   _apiRow('icon', 'Component?', 'null', 'Optional icon before the label'),
                 ]),
               ]),

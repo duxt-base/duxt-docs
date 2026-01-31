@@ -5,6 +5,7 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
+import 'package:duxt_ui/src/components/form/slider.dart' as _slider;
 import 'package:jaspr_content/components/_internal/code_block_copy_button.dart'
     as _code_block_copy_button;
 import 'package:jaspr_content/components/_internal/zoomable_image.dart'
@@ -33,6 +34,10 @@ import 'package:jaspr_content/components/theme_toggle.dart' as _theme_toggle;
 ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
   clients: {
+    _slider.DSlider: ClientTarget<_slider.DSlider>(
+      'duxt_ui:slider',
+      params: __sliderDSlider,
+    ),
     _code_block_copy_button.CodeBlockCopyButton:
         ClientTarget<_code_block_copy_button.CodeBlockCopyButton>(
           'jaspr_content:code_block_copy_button',
@@ -54,6 +59,19 @@ ServerOptions get defaultServerOptions => ServerOptions(
   ],
 );
 
+Map<String, Object?> __sliderDSlider(_slider.DSlider c) => {
+  'label': c.label,
+  'value': c.value,
+  'min': c.min,
+  'max': c.max,
+  'step': c.step,
+  'name': c.name,
+  'size': c.size,
+  'color': c.color,
+  'disabled': c.disabled,
+  'showValue': c.showValue,
+  'hint': c.hint,
+};
 Map<String, Object?> __zoomable_imageZoomableImage(
   _zoomable_image.ZoomableImage c,
 ) => {'src': c.src, 'alt': c.alt, 'caption': c.caption};

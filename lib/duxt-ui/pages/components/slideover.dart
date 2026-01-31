@@ -17,29 +17,45 @@ class SlideoverPage extends StatelessComponent {
             p(classes: 'text-xl text-zinc-500 dark:text-zinc-400', [Component.text('A panel that slides in from the edge of the screen.')]),
 
             _section('Basic Usage', [
+              p(classes: 'text-zinc-400 mb-4', [
+                Component.text('The Slideover component includes its own trigger and manages state internally via JavaScript.'),
+              ]),
               ComponentPreviewCard(preview: [
-                DButton(label: 'Open Slideover'),
+                DSlideover(
+                  trigger: DButton(label: 'Open Slideover'),
+                  title: 'Panel Title',
+                  children: [
+                    Component.text('Slideover content goes here.'),
+                  ],
+                ),
               ], code: '''DSlideover(
-  open: isOpen,
+  trigger: DButton(label: 'Open Slideover'),
   title: 'Panel Title',
   children: [
     Component.text('Slideover content goes here.'),
   ],
-  onClose: () => setState(() => isOpen = false),
 )'''),
             ]),
 
             _section('Sides', [
               ComponentPreviewCard(preview: [
                 div(classes: 'flex flex-wrap gap-3', [
-                  DButton(label: 'Right', variant: DButtonVariant.outline),
-                  DButton(label: 'Left', variant: DButtonVariant.outline),
-                  DButton(label: 'Top', variant: DButtonVariant.outline),
-                  DButton(label: 'Bottom', variant: DButtonVariant.outline),
+                  DSlideover(
+                    trigger: DButton(label: 'Right', variant: DButtonVariant.outline),
+                    side: DSlideoverSide.right,
+                    title: 'Right Panel',
+                    children: [Component.text('Content from the right.')],
+                  ),
+                  DSlideover(
+                    trigger: DButton(label: 'Left', variant: DButtonVariant.outline),
+                    side: DSlideoverSide.left,
+                    title: 'Left Panel',
+                    children: [Component.text('Content from the left.')],
+                  ),
                 ]),
               ], code: '''// Right (Default)
 DSlideover(
-  open: isOpen,
+  trigger: DButton(label: 'Right'),
   side: DSlideoverSide.right,
   title: 'Right Panel',
   children: [...],
@@ -47,34 +63,58 @@ DSlideover(
 
 // Left
 DSlideover(
-  open: isOpen,
+  trigger: DButton(label: 'Left'),
   side: DSlideoverSide.left,
   title: 'Left Panel',
   children: [...],
-)
+)'''),
+            ]),
 
-// Top
-DSlideover(
-  open: isOpen,
-  side: DSlideoverSide.top,
-  title: 'Top Panel',
-  children: [...],
-)
-
-// Bottom
-DSlideover(
-  open: isOpen,
-  side: DSlideoverSide.bottom,
-  title: 'Bottom Panel',
+            _section('Sizes', [
+              ComponentPreviewCard(preview: [
+                div(classes: 'flex flex-wrap gap-3', [
+                  DSlideover(
+                    trigger: DButton(label: 'Small', size: DButtonSize.sm),
+                    size: DSlideoverSize.sm,
+                    title: 'Small Panel',
+                    children: [Component.text('Small slideover.')],
+                  ),
+                  DSlideover(
+                    trigger: DButton(label: 'Medium', size: DButtonSize.sm),
+                    size: DSlideoverSize.md,
+                    title: 'Medium Panel',
+                    children: [Component.text('Medium slideover.')],
+                  ),
+                  DSlideover(
+                    trigger: DButton(label: 'Large', size: DButtonSize.sm),
+                    size: DSlideoverSize.lg,
+                    title: 'Large Panel',
+                    children: [Component.text('Large slideover.')],
+                  ),
+                ]),
+              ], code: '''DSlideover(
+  trigger: DButton(label: 'Small'),
+  size: DSlideoverSize.sm,  // sm, md, lg, xl, full
+  title: 'Panel',
   children: [...],
 )'''),
             ]),
 
             _section('With Description', [
               ComponentPreviewCard(preview: [
-                DButton(label: 'Edit Profile'),
+                DSlideover(
+                  trigger: DButton(label: 'Edit Profile'),
+                  title: 'Edit Profile',
+                  description: 'Update your personal information.',
+                  children: [
+                    div(classes: 'space-y-4', [
+                      DInput(label: 'Name'),
+                      DInput(label: 'Email'),
+                    ]),
+                  ],
+                ),
               ], code: '''DSlideover(
-  open: isOpen,
+  trigger: DButton(label: 'Edit Profile'),
   title: 'Edit Profile',
   description: 'Update your personal information.',
   children: [
@@ -83,52 +123,38 @@ DSlideover(
       DInput(label: 'Email'),
     ]),
   ],
-  onClose: () => setState(() => isOpen = false),
 )'''),
             ]),
 
             _section('With Footer', [
               ComponentPreviewCard(preview: [
-                DButton(label: 'Open Form'),
+                DSlideover(
+                  trigger: DButton(label: 'Open Form'),
+                  title: 'Edit Item',
+                  children: [
+                    div(classes: 'space-y-4', [
+                      DInput(label: 'Name'),
+                      DTextarea(label: 'Description'),
+                    ]),
+                  ],
+                  footer: div(classes: 'flex gap-2 justify-end', [
+                    DButton(label: 'Cancel', variant: DButtonVariant.ghost),
+                    DButton(label: 'Save'),
+                  ]),
+                ),
               ], code: '''DSlideover(
-  open: isOpen,
+  trigger: DButton(label: 'Open Form'),
   title: 'Edit Item',
   children: [
     div(classes: 'space-y-4', [
-      DInput(label: 'Name', value: item.name),
-      DTextarea(label: 'Description', value: item.description),
+      DInput(label: 'Name'),
+      DTextarea(label: 'Description'),
     ]),
   ],
-  footer: [
-    div(classes: 'flex gap-2', [
-      DButton(
-        label: 'Cancel',
-        variant: DButtonVariant.ghost,
-        onClick: () => setState(() => isOpen = false),
-      ),
-      DButton(
-        label: 'Save',
-        onClick: () => saveItem(),
-      ),
-    ]),
-  ],
-  onClose: () => setState(() => isOpen = false),
-)'''),
-            ]),
-
-            _section('Close Behavior', [
-              ComponentPreviewCard(preview: [
-                div(classes: 'flex flex-wrap gap-3', [
-                  DButton(label: 'Close on Overlay', variant: DButtonVariant.soft),
-                  DButton(label: 'Close on Escape', variant: DButtonVariant.soft),
-                ]),
-              ], code: '''DSlideover(
-  open: isOpen,
-  closeOnOverlay: true,   // Close when clicking backdrop
-  closeOnEscape: true,    // Close on Escape key
-  preventClose: false,    // Allow all close methods
-  onClose: () => setState(() => isOpen = false),
-  children: [...],
+  footer: div(classes: 'flex gap-2 justify-end', [
+    DButton(label: 'Cancel', variant: DButtonVariant.ghost),
+    DButton(label: 'Save'),
+  ]),
 )'''),
             ]),
 
@@ -144,20 +170,18 @@ DSlideover(
                   ]),
                 ]),
                 tbody([
-                  _apiRow('open', 'bool', 'required', 'Whether slideover is visible'),
-                  _apiRow('side', 'DSlideoverSide', 'right', 'Edge to slide from'),
+                  _apiRow('trigger', 'Component', 'required', 'Element that opens the slideover'),
+                  _apiRow('side', 'DSlideoverSide', 'right', 'Edge to slide from (left, right)'),
+                  _apiRow('size', 'DSlideoverSize', 'md', 'Panel width (sm, md, lg, xl, full)'),
                   _apiRow('title', 'String?', 'null', 'Panel title'),
                   _apiRow('description', 'String?', 'null', 'Subtitle below title'),
-                  _apiRow('header', 'List<Component>?', 'null', 'Custom header content'),
-                  _apiRow('children', 'List<Component>', 'required', 'Panel body content'),
-                  _apiRow('footer', 'List<Component>?', 'null', 'Footer content'),
+                  _apiRow('children', 'List<Component>', '[]', 'Panel body content'),
+                  _apiRow('footer', 'Component?', 'null', 'Footer content'),
                   _apiRow('closeOnOverlay', 'bool', 'true', 'Close when clicking backdrop'),
-                  _apiRow('closeOnEscape', 'bool', 'true', 'Close on Escape key'),
-                  _apiRow('preventClose', 'bool', 'false', 'Disable all close methods'),
-                  _apiRow('onClose', 'VoidCallback?', 'null', 'Close callback'),
                 ]),
               ]),
             ]),
+
           ]),
     );
   }

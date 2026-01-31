@@ -31,46 +31,50 @@ class CalendarPage extends StatelessComponent {
             _section('With Selected Date', [
               ComponentPreviewCard(preview: [
                 DCalendar(
-                  selectedDate: DateTime(2025, 1, 15),
+                  selectedDate: '2025-01-15',
+                  initialMonth: 1,
+                  initialYear: 2025,
                 ),
               ], code: '''DCalendar(
-  selectedDate: DateTime(2025, 1, 15),
+  selectedDate: '2025-01-15',
+  initialMonth: 1,
+  initialYear: 2025,
 )'''),
             ]),
 
-            // Date Selection Callback
-            _section('Date Selection', [
+            // Date Selection with Form
+            _section('Form Integration', [
               p(classes: 'text-zinc-400 mb-4', [
-                Component.text('Use the onDateSelect callback to handle date selection.'),
+                Component.text('Use the name attribute to include the selected date in form submissions.'),
               ]),
               ComponentPreviewCard(preview: [
                 DCalendar(
-                  selectedDate: DateTime(2025, 1, 20),
-                  onDateSelect: (date) {
-                    // Handle date selection
-                  },
+                  name: 'selected_date',
+                  selectedDate: '2025-01-20',
+                  initialMonth: 1,
+                  initialYear: 2025,
                 ),
               ], code: '''DCalendar(
-  selectedDate: DateTime(2025, 1, 20),
-  onDateSelect: (date) {
-    print('Selected: \$date');
-  },
+  name: 'selected_date',  // Value will be submitted as YYYY-MM-DD
+  selectedDate: '2025-01-20',
 )'''),
             ]),
 
             // With Min/Max Date
             _section('Date Range Constraints', [
               p(classes: 'text-zinc-400 mb-4', [
-                Component.text('Restrict selectable dates with minDate and maxDate.'),
+                Component.text('Restrict selectable dates with minDate and maxDate (YYYY-MM-DD format).'),
               ]),
               ComponentPreviewCard(preview: [
                 DCalendar(
-                  minDate: DateTime(2025, 1, 5),
-                  maxDate: DateTime(2025, 1, 25),
+                  minDate: '2025-01-05',
+                  maxDate: '2025-01-25',
+                  initialMonth: 1,
+                  initialYear: 2025,
                 ),
               ], code: '''DCalendar(
-  minDate: DateTime(2025, 1, 5),
-  maxDate: DateTime(2025, 1, 25),
+  minDate: '2025-01-05',
+  maxDate: '2025-01-25',
 )'''),
             ]),
 
@@ -113,28 +117,32 @@ DCalendar(firstDayOfWeek: 0)'''),
               div(classes: 'not-prose', [
                 ul(classes: 'space-y-2 text-zinc-300', [
                   li(classes: 'flex items-start gap-2', [
-                    span(classes: 'text-cyan-400', [Component.text('*')]),
+                    span(classes: 'text-cyan-400', [Component.text('•')]),
                     Component.text('Month and year navigation with arrow buttons'),
                   ]),
                   li(classes: 'flex items-start gap-2', [
-                    span(classes: 'text-cyan-400', [Component.text('*')]),
+                    span(classes: 'text-cyan-400', [Component.text('•')]),
                     Component.text('Today is highlighted with a distinct style'),
                   ]),
                   li(classes: 'flex items-start gap-2', [
-                    span(classes: 'text-cyan-400', [Component.text('*')]),
+                    span(classes: 'text-cyan-400', [Component.text('•')]),
                     Component.text('Selected date is visually indicated'),
                   ]),
                   li(classes: 'flex items-start gap-2', [
-                    span(classes: 'text-cyan-400', [Component.text('*')]),
+                    span(classes: 'text-cyan-400', [Component.text('•')]),
                     Component.text('Disabled dates are styled appropriately'),
                   ]),
                   li(classes: 'flex items-start gap-2', [
-                    span(classes: 'text-cyan-400', [Component.text('*')]),
+                    span(classes: 'text-cyan-400', [Component.text('•')]),
                     Component.text('Dark mode support'),
                   ]),
                   li(classes: 'flex items-start gap-2', [
-                    span(classes: 'text-cyan-400', [Component.text('*')]),
+                    span(classes: 'text-cyan-400', [Component.text('•')]),
                     Component.text('Configurable first day of week'),
+                  ]),
+                  li(classes: 'flex items-start gap-2', [
+                    span(classes: 'text-cyan-400', [Component.text('•')]),
+                    Component.text('Form integration via hidden input'),
                   ]),
                 ]),
               ]),
@@ -153,11 +161,13 @@ DCalendar(firstDayOfWeek: 0)'''),
                   ]),
                 ]),
                 tbody([
-                  _apiRow('selectedDate', 'DateTime?', 'null', 'Currently selected date'),
-                  _apiRow('onDateSelect', 'ValueChanged<DateTime>?', 'null', 'Callback when date is selected'),
-                  _apiRow('minDate', 'DateTime?', 'null', 'Minimum selectable date'),
-                  _apiRow('maxDate', 'DateTime?', 'null', 'Maximum selectable date'),
+                  _apiRow('selectedDate', 'String?', 'null', 'Selected date (YYYY-MM-DD format)'),
+                  _apiRow('initialMonth', 'int?', 'current', 'Initial display month (1-12)'),
+                  _apiRow('initialYear', 'int?', 'current', 'Initial display year'),
+                  _apiRow('minDate', 'String?', 'null', 'Minimum selectable date (YYYY-MM-DD)'),
+                  _apiRow('maxDate', 'String?', 'null', 'Maximum selectable date (YYYY-MM-DD)'),
                   _apiRow('firstDayOfWeek', 'int', '1', 'First day of week (0=Sun, 1=Mon)'),
+                  _apiRow('name', 'String?', 'null', 'Form field name for submission'),
                   _apiRow('classes', 'String?', 'null', 'Additional CSS classes'),
                 ]),
               ]),

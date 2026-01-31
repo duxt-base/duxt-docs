@@ -6,6 +6,7 @@
 
 import 'package:jaspr/client.dart';
 
+import 'package:duxt_ui/src/components/form/slider.dart' deferred as _slider;
 import 'package:jaspr_content/components/_internal/code_block_copy_button.dart'
     deferred as _code_block_copy_button;
 import 'package:jaspr_content/components/_internal/zoomable_image.dart'
@@ -31,6 +32,22 @@ import 'package:jaspr_content/components/theme_toggle.dart'
 /// ```
 ClientOptions get defaultClientOptions => ClientOptions(
   clients: {
+    'duxt_ui:slider': ClientLoader(
+      (p) => _slider.DSlider(
+        label: p['label'] as String?,
+        value: p['value'] as double,
+        min: p['min'] as double,
+        max: p['max'] as double,
+        step: p['step'] as double,
+        name: p['name'] as String?,
+        size: p['size'] as String,
+        color: p['color'] as String,
+        disabled: p['disabled'] as bool,
+        showValue: p['showValue'] as bool,
+        hint: p['hint'] as String?,
+      ),
+      loader: _slider.loadLibrary,
+    ),
     'jaspr_content:code_block_copy_button': ClientLoader(
       (p) => _code_block_copy_button.CodeBlockCopyButton(),
       loader: _code_block_copy_button.loadLibrary,
