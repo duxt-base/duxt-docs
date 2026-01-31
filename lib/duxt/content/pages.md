@@ -110,7 +110,7 @@ The context provides route information and control flow:
 ```
 class DuxtContext {
   final String path;                  // Current path
-  final Map<String, String> params;   // Route params (/posts/[id] → {id: '123'})
+  final Map<String, String> params;   // Route params (/posts/_id_ → {id: '123'})
   final Map<String, String> query;    // Query params (?page=1 → {page: '1'})
   final Map<String, dynamic> state;   // Shared state
 
@@ -124,7 +124,7 @@ class DuxtContext {
 ```
 @override
 Future<void> asyncData(DuxtContext context) async {
-  // Route: /posts/[id]
+  // Route: /posts/_id_
   // URL: /posts/123
   final postId = context.params['id'];  // '123'
 
@@ -243,7 +243,7 @@ class ProfilePage extends DuxtPage {
 ### Single Parameter
 
 ```
-// lib/posts/pages/[id].dart → /posts/:id
+// lib/posts/pages/_id_.dart → /posts/:id
 class PostPage extends DuxtPage with AsyncDataMixin {
   @override
   Future<void> asyncData(DuxtContext context) async {
@@ -256,7 +256,7 @@ class PostPage extends DuxtPage with AsyncDataMixin {
 ### Multiple Parameters
 
 ```
-// lib/users/pages/[userId]/posts/[postId].dart → /users/:userId/posts/:postId
+// lib/users/pages/_userId_/posts/_postId_.dart → /users/:userId/posts/:postId
 class UserPostPage extends DuxtPage with AsyncDataMixin {
   @override
   Future<void> asyncData(DuxtContext context) async {
@@ -269,7 +269,7 @@ class UserPostPage extends DuxtPage with AsyncDataMixin {
 ### Catch-All Routes
 
 ```
-// lib/docs/pages/[...slug].dart → /docs/*
+// lib/docs/pages/_...slug_.dart → /docs/*
 class DocsPage extends DuxtPage with AsyncDataMixin {
   @override
   Future<void> asyncData(DuxtContext context) async {

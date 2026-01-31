@@ -27,7 +27,7 @@ lib/
 ├── posts/
 │   ├── pages/
 │   │   ├── index.dart
-│   │   ├── [id].dart
+│   │   ├── _id_.dart
 │   │   └── create.dart
 │   ├── components/
 │   │   ├── post_card.dart

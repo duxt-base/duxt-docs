@@ -58,7 +58,7 @@ my-app/
 │   ├── showcase/pages/index.dart   → /showcase
 │   ├── blog/pages/                 (fullstack example)
 │   │   ├── index.dart              → /blog
-│   │   └── [slug].dart             → /blog/:slug
+│   │   └── _slug_.dart             → /blog/:slug
 │   └── shared/layouts/default.dart
 ├── server/
 │   ├── main.dart                   Entry point
@@ -233,7 +233,7 @@ This generates:
 lib/posts/
 ├── pages/
 │   ├── index.dart          List all posts
-│   ├── [id].dart           View single post
+│   ├── _id_.dart           View single post
 │   ├── create.dart         Create new post
 │   └── [id]/edit.dart      Edit post
 ├── components/
