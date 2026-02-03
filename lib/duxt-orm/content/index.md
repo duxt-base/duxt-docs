@@ -15,7 +15,7 @@ Supports **PostgreSQL**, **MySQL**, and **SQLite**.
 
 ```
 dependencies:
-  duxt_orm: ^0.1.0
+  duxt_orm: ^0.2.0
 ```
 
 ## Quick Start
@@ -83,21 +83,25 @@ await DuxtOrm.migrate();
 ### 3. Use It
 
 ```dart
+// Create a query interface
+final users = Model<User>();
+final posts = Model<Post>();
+
 // Create
 final user = User(email: 'test@example.com', name: 'Test');
 await user.save();
 
 // Query all
-final users = await Model.all<User>();
+final allUsers = await users.all();
 
 // Find by ID
-final user = await Model.find<User>(1);
+final user = await users.find(1);
 
 // Query with conditions
-final admins = await Model.where<User>('role', 'admin').get();
+final admins = await users.where('role', 'admin').get();
 
 // Query builder
-final results = await Model.query<User>()
+final results = await users.query()
     .where('is_active', 1)
     .orderByDesc('created_at')
     .limit(10)
@@ -109,11 +113,22 @@ await user.save();
 
 // Delete
 await user.destroy();
+
+// Relations with eager loading
+final publishedPosts = await posts.query()
+    .with_(['category', 'author'])  // Eager load relations
+    .where('published', 1)
+    .get();
+
+for (final post in publishedPosts) {
+  print(post.category?.name);  // Already loaded!
+}
 ```
 
 ## Documentation
 
 - **[Models](/duxt-orm/models)** - Define and register models
+- **[Relations](/duxt-orm/relations)** - HasMany, BelongsTo, HasOne with eager loading
 - **[Schema](/duxt-orm/schema)** - Column types and modifiers
 - **[Queries](/duxt-orm/queries)** - Query builder reference
 - **[Transactions](/duxt-orm/transactions)** - Transactions and raw queries

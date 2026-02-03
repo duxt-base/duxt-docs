@@ -11,12 +11,12 @@ Models in Duxt ORM follow the ActiveRecord pattern. Each model maps to a databas
 
 ## Defining a Model
 
-Extend the `Model` class and implement required methods:
+Extend the `Entity` class and implement required methods:
 
 ```dart
 import 'package:duxt_orm/duxt_orm.dart';
 
-class Post extends Model {
+class Post extends Entity {
   int? _id;
   String title;
   String slug;
@@ -65,7 +65,7 @@ class Post extends Model {
 
   // Required: Register with schema
   static void register() {
-    Model.registerModel<Post>(
+    Entity.registerModel<Post>(
       Post.fromRow,
       schema: {
         'id': Column.integer().primaryKey().autoIncrement(),
@@ -103,10 +103,14 @@ void main() async {
 
 ## CRUD Operations
 
+Use `Model<T>()` for clean Rails-like queries:
+
 ### Create
 
 ```dart
-// Create and save in one step
+final posts = Model<Post>();
+
+// Create and save
 final post = Post(
   title: 'Hello World',
   slug: 'hello-world',
@@ -116,31 +120,42 @@ final post = Post(
 await post.save();
 
 print(post.id); // Auto-assigned ID
+
+// Or create in one step
+final newPost = await posts.create({
+  'title': 'Hello',
+  'slug': 'hello',
+  'user_id': 1,
+});
 ```
 
 ### Read
 
 ```dart
+final posts = Model<Post>();
+
 // Find by ID
-final post = await Model.find<Post>(1);
+final post = await posts.find(1);
 
 // Find or throw
-final post = await Model.findOrFail<Post>(1);
+final post = await posts.findOrFail(1);
 
 // Get all
-final posts = await Model.all<Post>();
+final allPosts = await posts.all();
 
 // Get first
-final first = await Model.first<Post>();
+final first = await posts.first();
 
 // Count
-final count = await Model.count<Post>();
+final count = await posts.count();
 ```
 
 ### Update
 
 ```dart
-final post = await Model.find<Post>(1);
+final posts = Model<Post>();
+final post = await posts.find(1);
+
 if (post != null) {
   post.title = 'Updated Title';
   post.published = true;
@@ -151,7 +166,9 @@ if (post != null) {
 ### Delete
 
 ```dart
-final post = await Model.find<Post>(1);
+final posts = Model<Post>();
+final post = await posts.find(1);
+
 if (post != null) {
   await post.destroy();
 }
@@ -162,29 +179,26 @@ if (post != null) {
 Override the auto-inferred table name:
 
 ```dart
-Model.registerModel<User>(
+Entity.registerModel<User>(
   User.fromRow,
   tableName: 'app_users',  // Instead of 'users'
   schema: { ... },
 );
 ```
 
-## Timestamps
+## Model<T> Query Interface
 
-The ORM doesn't auto-manage timestamps. Add them to your `toMap()`:
-
-```dart
-@override
-Map<String, dynamic> toMap() => {
-  'title': title,
-  // ...other fields
-  'updated_at': DateTime.now().toIso8601String(),
-};
-```
-
-For new records, set `created_at`:
+The `Model<T>` class provides a clean API for queries:
 
 ```dart
-await post.save();
-// The model's save() can check if id is null to set created_at
+final posts = Model<Post>();
+
+// All queries flow from this interface
+await posts.all();
+await posts.find(1);
+await posts.where('published', true).get();
+await posts.create({'title': 'New Post', ...});
+await posts.count();
 ```
+
+This gives you Rails-like syntax without the complexity.

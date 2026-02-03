@@ -7,36 +7,44 @@ order: 4
 
 # Query Builder
 
-Duxt ORM provides a fluent query builder for constructing database queries.
+Duxt ORM provides a fluent query builder with Rails-like syntax using `Model<T>`.
 
 ## Basic Queries
+
+### Setup
+
+```dart
+// Create a query interface for any model
+final users = Model<User>();
+final posts = Model<Post>();
+```
 
 ### Retrieve All Records
 
 ```dart
-final users = await Model.all<User>();
+final allUsers = await users.all();
 ```
 
 ### Find by ID
 
 ```dart
-final user = await Model.find<User>(1);
+final user = await users.find(1);
 // Returns null if not found
 
-final user = await Model.findOrFail<User>(1);
+final user = await users.findOrFail(1);
 // Throws exception if not found
 ```
 
 ### First Record
 
 ```dart
-final user = await Model.first<User>();
+final user = await users.first();
 ```
 
 ### Count Records
 
 ```dart
-final count = await Model.count<User>();
+final count = await users.count();
 ```
 
 ## Where Clauses
@@ -45,68 +53,68 @@ final count = await Model.count<User>();
 
 ```dart
 // Equality
-Model.where<User>('is_active', 1)
+users.where('is_active', 1)
 
 // With operator
-Model.where<User>('age', 18, '>=')
-Model.where<User>('status', 'banned', '!=')
+users.where('age', 18, '>=')
+users.where('status', 'banned', '!=')
 ```
 
 ### Multiple Conditions
 
 ```dart
-Model.query<User>()
+await users.query()
     .where('is_active', 1)
     .where('role', 'admin')
-    .get()
+    .get();
 ```
 
 ### OR Conditions
 
 ```dart
-Model.query<User>()
+await users.query()
     .where('role', 'admin')
     .orWhere('role', 'moderator')
-    .get()
+    .get();
 ```
 
 ### NULL Checks
 
 ```dart
 // Where column IS NULL
-Model.query<User>().whereNull('deleted_at').get()
+users.query().whereNull('deleted_at').get()
 
 // Where column IS NOT NULL
-Model.query<User>().whereNotNull('email_verified_at').get()
+users.query().whereNotNull('email_verified_at').get()
 ```
 
 ### IN Clause
 
 ```dart
 // Where column IN (values)
-Model.query<User>().whereIn('id', [1, 2, 3]).get()
+users.query().whereIn('id', [1, 2, 3]).get()
 
 // Where column NOT IN (values)
-Model.query<User>().whereNotIn('status', ['banned', 'suspended']).get()
+users.query().whereNotIn('status', ['banned', 'suspended']).get()
 ```
 
 ### BETWEEN
 
 ```dart
-Model.query<User>().whereBetween('age', 18, 65).get()
+users.query().whereBetween('age', 18, 65).get()
 ```
 
 ### LIKE
 
 ```dart
-Model.query<User>().whereLike('name', '%john%').get()
-Model.query<User>().whereLike('email', '%@gmail.com').get()
+users.query().whereLike('name', '%john%').get()
+users.query().whereLike('email', '%@gmail.com').get()
 ```
 
 ### Raw WHERE
 
 ```dart
-Model.query<User>()
+users.query()
     .whereRaw('created_at > DATE_SUB(NOW(), INTERVAL 7 DAY)')
     .get()
 ```
@@ -114,65 +122,75 @@ Model.query<User>()
 ## Ordering
 
 ```dart
+final users = Model<User>();
+
 // Ascending
-Model.query<User>().orderBy('name').get()
+users.query().orderBy('name').get()
 
 // Descending
-Model.query<User>().orderByDesc('created_at').get()
+users.query().orderByDesc('created_at').get()
 
 // Shortcuts for created_at
-Model.query<User>().latest().get()  // ORDER BY created_at DESC
-Model.query<User>().oldest().get()  // ORDER BY created_at ASC
+users.query().latest().get()  // ORDER BY created_at DESC
+users.query().oldest().get()  // ORDER BY created_at ASC
 ```
 
 ## Pagination
 
 ```dart
-Model.query<User>()
+final users = Model<User>();
+
+await users.query()
     .orderByDesc('created_at')
     .skip(20)   // OFFSET 20
     .take(10)   // LIMIT 10
-    .get()
+    .get();
 ```
 
 Or use `limit` and `offset`:
 
 ```dart
-Model.query<User>()
+await users.query()
     .limit(10)
     .offset(20)
-    .get()
+    .get();
 ```
 
 ## Aggregates
 
 ```dart
+final users = Model<User>();
+
 // Count with conditions
-final activeCount = await Model.query<User>()
+final activeCount = await users
     .where('is_active', 1)
     .count();
 
 // Sum
-final totalRevenue = await Model.query<Order>().sum('total');
+final orders = Model<Order>();
+final totalRevenue = await orders.query().sum('total');
 
 // Average
-final avgAge = await Model.query<User>().avg('age');
+final avgAge = await users.query().avg('age');
 
 // Max and Min
-final maxPrice = await Model.query<Product>().max('price');
-final minPrice = await Model.query<Product>().min('price');
+final products = Model<Product>();
+final maxPrice = await products.query().max('price');
+final minPrice = await products.query().min('price');
 ```
 
 ## Existence Checks
 
 ```dart
+final users = Model<User>();
+
 // Check if any records exist
-if (await Model.where<User>('email', email).exists()) {
+if (await users.where('email', email).exists()) {
   print('Email already taken');
 }
 
 // Check if no records exist
-if (await Model.where<User>('role', 'admin').doesntExist()) {
+if (await users.where('role', 'admin').doesntExist()) {
   print('No admins yet');
 }
 ```
@@ -180,12 +198,15 @@ if (await Model.where<User>('role', 'admin').doesntExist()) {
 ## Pluck (Single Column)
 
 ```dart
+final users = Model<User>();
+
 // Get list of values from one column
-final emails = await Model.query<User>().pluck('email');
+final emails = await users.query().pluck('email');
 // ['john@example.com', 'jane@example.com', ...]
 
-final ids = await Model.query<User>()
+final ids = await users
     .where('is_active', 1)
+    .query()
     .pluck('id');
 // [1, 3, 5, 7, ...]
 ```
@@ -193,7 +214,9 @@ final ids = await Model.query<User>()
 ## Select Specific Columns
 
 ```dart
-final users = await Model.query<User>()
+final users = Model<User>();
+
+final result = await users.query()
     .select(['id', 'name', 'email'])
     .get();
 ```
@@ -203,7 +226,9 @@ final users = await Model.query<User>()
 ### Update Multiple Records
 
 ```dart
-await Model.query<User>()
+final users = Model<User>();
+
+await users.query()
     .where('last_login', DateTime(2023), '<')
     .update({'is_active': 0});
 ```
@@ -211,7 +236,9 @@ await Model.query<User>()
 ### Delete Multiple Records
 
 ```dart
-await Model.query<User>()
+final users = Model<User>();
+
+await users.query()
     .where('is_active', 0)
     .delete();
 ```
@@ -219,20 +246,25 @@ await Model.query<User>()
 ### Increment / Decrement
 
 ```dart
+final posts = Model<Post>();
+
 // Increment by 1
-await Model.query<Post>().where('id', 1).increment('views');
+await posts.where('id', 1).query().increment('views');
 
 // Increment by custom amount
-await Model.query<Product>().where('id', 1).increment('stock', 10);
+final products = Model<Product>();
+await products.where('id', 1).query().increment('stock', 10);
 
 // Decrement
-await Model.query<Product>().where('id', 1).decrement('stock', 5);
+await products.where('id', 1).query().decrement('stock', 5);
 ```
 
 ## Chaining Example
 
 ```dart
-final recentActiveAdmins = await Model.query<User>()
+final users = Model<User>();
+
+final recentActiveAdmins = await users.query()
     .select(['id', 'name', 'email', 'last_login'])
     .where('is_active', 1)
     .where('role', 'admin')
@@ -241,4 +273,42 @@ final recentActiveAdmins = await Model.query<User>()
     .orderByDesc('last_login')
     .limit(10)
     .get();
+```
+
+## Complete Example
+
+```dart
+import 'package:duxt_orm/duxt_orm.dart';
+
+void main() async {
+  // Initialize
+  User.register();
+  Post.register();
+  await DuxtOrm.init(config);
+
+  // Use Model<T> for queries
+  final users = Model<User>();
+  final posts = Model<Post>();
+
+  // Find user
+  final user = await users.find(1);
+
+  // Get user's published posts
+  final userPosts = await posts
+      .where('user_id', user!.id)
+      .where('published', true)
+      .query()
+      .orderByDesc('created_at')
+      .get();
+
+  // Create new post
+  final newPost = await posts.create({
+    'title': 'Hello World',
+    'slug': 'hello-world',
+    'user_id': user.id,
+    'published': true,
+  });
+
+  print('Created post: ${newPost.title}');
+}
 ```
