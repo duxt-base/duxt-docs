@@ -16,6 +16,7 @@ class SidebarOrm extends StatelessComponent {
         _group('Core', [
           _link('Models', '/duxt-orm/models'),
           _link('Schema', '/duxt-orm/schema'),
+          _link('Relations', '/duxt-orm/relations'),
         ]),
         _group('Data', [
           _link('Queries', '/duxt-orm/queries'),
