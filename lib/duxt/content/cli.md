@@ -33,6 +33,7 @@ duxt --version
 | `duxt g <type> <name>` | Generate module, page, component, etc. |
 | `duxt scaffold <name>` | Generate full CRUD module |
 | `duxt d <type> <name>` | Delete module, page, component, etc. |
+| `duxt docs <subcommand>` | Generate and manage documentation |
 | `duxt info` | Show project information |
 | `duxt clean` | Clean build artifacts and caches |
 | `duxt update` | Update Duxt CLI to latest version |
@@ -224,7 +225,7 @@ duxt g l dashboard
 Generate a complete CRUD module with pages, components, model, and API:
 
 ```
-duxt scaffold posts title:String content:String author:String
+duxt scaffold posts title:string content:text author:string --orm
 ```
 
 This generates:
@@ -234,28 +235,69 @@ lib/posts/
 ├── pages/
 │   ├── index.dart          List all posts
 │   ├── _id_.dart           View single post
-│   ├── create.dart         Create new post
-│   └── [id]/edit.dart      Edit post
+│   └── new.dart            Create new post
 ├── components/
 │   ├── post_card.dart
-│   ├── post_form.dart
-│   └── post_list.dart
+│   └── post_form.dart
 └── model.dart
 
-server/
-├── models/post.dart
-└── api/posts.dart
+lib/models/post.dart         DuxtORM Entity model
+
+server/api/posts.dart        REST API routes
+```
+
+### Options
+
+```
+duxt scaffold posts title:string --orm      # Generate DuxtORM model
+duxt scaffold posts title:string --no-api   # SSR-only (no REST endpoints)
+duxt scaffold posts title:string --force    # Overwrite existing files
 ```
 
 ### Field Types
 
-| Type | Example |
-|------|---------|
-| `String` | `title:String` |
-| `int` | `count:int` |
-| `double` | `price:double` |
-| `bool` | `isActive:bool` |
-| `DateTime` | `createdAt:DateTime` |
+| Syntax | Dart Type | DB Column | Description |
+|--------|-----------|-----------|-------------|
+| `string` | `String` | `VARCHAR(255)` | Short text |
+| `text` | `String` | `TEXT` | Long text content |
+| `int` | `int` | `INTEGER` | Integer number |
+| `double` | `double` | `DECIMAL` | Decimal number |
+| `bool` | `bool` | `BOOLEAN` | True/false |
+| `datetime` | `DateTime?` | `TIMESTAMP` | Date and time |
+| `email` | `String` | `VARCHAR(255)` | Email (validated in UI) |
+| `image` | `String?` | `VARCHAR(500)` | Image URL/path |
+| `attachment` | `String?` | `VARCHAR(500)` | File attachment |
+
+### Relations (v0.4.1+)
+
+Define relationships directly in the scaffold command:
+
+```
+# BelongsTo - Creates foreign key
+duxt scaffold posts category:belongsTo:Category --orm
+
+# ToMany - Creates pivot table for many-to-many
+duxt scaffold posts tags:toMany:Tag --orm
+
+# Full example with multiple relations
+duxt scaffold posts \
+  title:string \
+  content:text \
+  category:belongsTo:Category \
+  tags:toMany:Tag \
+  --orm
+```
+
+The `belongsTo:Model` syntax:
+- Creates a foreign key column (`category_id`)
+- Registers a `BelongsTo<Category>` relation
+- Adds a relation accessor (`Category? get category`)
+
+The `toMany:Model` syntax:
+- Creates a pivot table (`post_tags`)
+- Registers a `BelongsToMany<Tag>` relation
+- Adds relation methods (`attach`, `detach`, `sync`)
+- Adds a relation accessor (`List<Tag> get tags`)
 
 ## duxt d (delete)
 
@@ -323,6 +365,46 @@ duxt update
 ```
 
 This runs `dart pub global activate duxt` to get the latest version.
+
+## duxt docs
+
+Generate and manage project documentation:
+
+### duxt docs generate
+
+Generate API documentation from code comments:
+
+```
+duxt docs generate
+duxt docs generate --output=docs/api
+duxt docs generate --format=html
+```
+
+This scans your `lib/models/` directory and generates markdown documentation for each model, including fields and methods.
+
+### duxt docs page
+
+Create a documentation page:
+
+```
+duxt docs page getting-started
+```
+
+Creates `docs/getting-started.md` with a template structure.
+
+### duxt docs tutorial
+
+Create a tutorial page with step-by-step structure:
+
+```
+duxt docs tutorial building-a-blog
+```
+
+Creates `docs/tutorials/building-a-blog.md` with:
+- Prerequisites section
+- Step-by-step instructions
+- Code examples
+- Troubleshooting guide
 
 ## duxt version
 
