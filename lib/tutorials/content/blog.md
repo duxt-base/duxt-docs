@@ -15,7 +15,7 @@ In this tutorial, you'll build a complete blog application with categories, tags
 
 ## Step 1: Create a New Project
 
-```bash
+```
 duxt create my_blog --template minimal
 cd my_blog
 dart pub get
@@ -25,7 +25,7 @@ dart pub get
 
 Categories help organize your blog posts.
 
-```bash
+```
 duxt scaffold categories name:string slug:string description:text color:string --orm
 ```
 
@@ -41,7 +41,7 @@ This generates:
 
 Tags provide flexible labeling for posts.
 
-```bash
+```
 duxt scaffold tags name:string slug:string color:string --orm
 ```
 
@@ -49,7 +49,7 @@ duxt scaffold tags name:string slug:string color:string --orm
 
 Posts are the main content, with a relationship to categories.
 
-```bash
+```
 duxt scaffold posts title:string slug:string content:text excerpt:text published:bool category:belongsTo:Category --orm
 ```
 
@@ -59,7 +59,7 @@ The `category:belongsTo:Category` syntax creates a foreign key relationship.
 
 Allow readers to comment on posts.
 
-```bash
+```
 duxt scaffold comments content:text author:string email:string approved:bool post:belongsTo:Post --orm
 ```
 
@@ -67,7 +67,7 @@ duxt scaffold comments content:text author:string email:string approved:bool pos
 
 Update `lib/app.dart` with the scaffolded routes:
 
-```dart
+```
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
@@ -117,7 +117,7 @@ class App extends StatelessComponent {
 
 Update `lib/main.server.dart`:
 
-```dart
+```
 import 'dart:io';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/server.dart';
@@ -162,7 +162,7 @@ void main() async {
 
 Update `server/db.dart`:
 
-```dart
+```
 import 'dart:io';
 import 'package:duxt_orm/duxt_orm.dart';
 import 'package:my_blog/models/category.dart';
@@ -196,7 +196,7 @@ class Db {
 
 Update `server/main.dart`:
 
-```dart
+```
 import 'dart:io';
 import 'package:duxt/server.dart';
 import 'db.dart';
@@ -226,7 +226,7 @@ void main() async {
 
 ## Step 9: Run the Development Server
 
-```bash
+```
 duxt dev
 ```
 
@@ -264,7 +264,7 @@ Clean, modern design with Tailwind CSS classes.
 
 ## Full Commands Reference
 
-```bash
+```
 # Create project
 duxt create my_blog --template minimal
 

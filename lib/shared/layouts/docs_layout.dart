@@ -8,6 +8,7 @@ import '../components/sidebar_ui.dart';
 import '../components/sidebar_orm.dart';
 import '../components/sidebar_signals.dart';
 import '../components/sidebar_cli.dart';
+import '../components/sidebar_html.dart';
 
 /// Unified documentation layout that works for all doc sections.
 ///
@@ -145,6 +146,14 @@ class CliLayout extends DocsLayout {
   const CliLayout() : super(
     sidebar: const SidebarCli(),
     layoutName: 'cli-layout',
+  );
+}
+
+/// Duxt HTML docs layout (with SidebarHtml)
+class HtmlLayout extends DocsLayout {
+  const HtmlLayout() : super(
+    sidebar: const SidebarHtml(),
+    layoutName: 'html-layout',
   );
 }
 

@@ -24,7 +24,7 @@ Files map directly to URL paths:
 | `lib/users/pages/index.dart` | `/users` |
 | `lib/users/pages/settings.dart` | `/users/settings` |
 
-```dart
+```
 // lib/posts/pages/index.dart → /posts
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
@@ -51,7 +51,7 @@ Use `_param_` syntax for dynamic segments (Dart-compatible alternative to Next.j
 | `lib/posts/pages/_id_/edit.dart` | `/posts/:id/edit` |
 | `lib/users/pages/_userId_/posts/_postId_.dart` | `/users/:userId/posts/:postId` |
 
-```dart
+```
 // lib/posts/pages/_id_.dart → /posts/:id
 import 'package:jaspr/jaspr.dart';
 
@@ -127,7 +127,7 @@ lib/blog/pages/
 
 Route parameters are passed to your component via the route builder. Access them through `RouteState`:
 
-```dart
+```
 // In app.dart or routes configuration
 Route(
   path: '/posts/:id',
@@ -144,7 +144,7 @@ Route(
 
 Your component receives typed parameters:
 
-```dart
+```
 class PostDetailPage extends StatelessComponent {
   final String id;
   final String? search;
@@ -165,7 +165,7 @@ class PostDetailPage extends StatelessComponent {
 
 Duxt automatically detects required parameters from your component constructor and adds them as dynamic route segments:
 
-```dart
+```
 // lib/blog/pages/post.dart
 class BlogPostPage extends StatelessComponent {
   final String slug;  // Required param detected!
@@ -182,7 +182,7 @@ This means you can also just name your file normally and let Duxt infer the dyna
 
 Navigate between routes programmatically using context extensions:
 
-```dart
+```
 import 'package:jaspr/jaspr.dart';
 import 'package:duxt/duxt.dart';
 
@@ -215,7 +215,7 @@ class MyPage extends StatelessComponent {
 
 ### Available Navigation Methods
 
-```dart
+```
 // Navigate to a path (adds to history)
 context.push('/posts');
 
@@ -239,7 +239,7 @@ context.preload('/posts');
 
 You can also get the router directly:
 
-```dart
+```
 final router = useRouter(context);
 router.push('/posts');
 router.back();
@@ -249,7 +249,7 @@ router.back();
 
 Use jaspr_router's `Link` component or standard anchor tags:
 
-```dart
+```
 import 'package:jaspr_router/jaspr_router.dart';
 
 // Jaspr Router Link (client-side navigation)

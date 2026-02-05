@@ -13,7 +13,7 @@ Duxt ORM provides a fluent query builder with Rails-like syntax using `Model<T>`
 
 ### Setup
 
-```dart
+```
 // Create a query interface for any model
 final users = Model<User>();
 final posts = Model<Post>();
@@ -21,13 +21,13 @@ final posts = Model<Post>();
 
 ### Retrieve All Records
 
-```dart
+```
 final allUsers = await users.all();
 ```
 
 ### Find by ID
 
-```dart
+```
 final user = await users.find(1);
 // Returns null if not found
 
@@ -37,13 +37,13 @@ final user = await users.findOrFail(1);
 
 ### First Record
 
-```dart
+```
 final user = await users.first();
 ```
 
 ### Count Records
 
-```dart
+```
 final count = await users.count();
 ```
 
@@ -51,7 +51,7 @@ final count = await users.count();
 
 ### Simple Where
 
-```dart
+```
 // Equality
 users.where('is_active', 1)
 
@@ -62,7 +62,7 @@ users.where('status', 'banned', '!=')
 
 ### Multiple Conditions
 
-```dart
+```
 await users.query()
     .where('is_active', 1)
     .where('role', 'admin')
@@ -71,7 +71,7 @@ await users.query()
 
 ### OR Conditions
 
-```dart
+```
 await users.query()
     .where('role', 'admin')
     .orWhere('role', 'moderator')
@@ -80,7 +80,7 @@ await users.query()
 
 ### NULL Checks
 
-```dart
+```
 // Where column IS NULL
 users.query().whereNull('deleted_at').get()
 
@@ -90,7 +90,7 @@ users.query().whereNotNull('email_verified_at').get()
 
 ### IN Clause
 
-```dart
+```
 // Where column IN (values)
 users.query().whereIn('id', [1, 2, 3]).get()
 
@@ -100,20 +100,20 @@ users.query().whereNotIn('status', ['banned', 'suspended']).get()
 
 ### BETWEEN
 
-```dart
+```
 users.query().whereBetween('age', 18, 65).get()
 ```
 
 ### LIKE
 
-```dart
+```
 users.query().whereLike('name', '%john%').get()
 users.query().whereLike('email', '%@gmail.com').get()
 ```
 
 ### Raw WHERE
 
-```dart
+```
 users.query()
     .whereRaw('created_at > DATE_SUB(NOW(), INTERVAL 7 DAY)')
     .get()
@@ -121,7 +121,7 @@ users.query()
 
 ## Ordering
 
-```dart
+```
 final users = Model<User>();
 
 // Ascending
@@ -137,7 +137,7 @@ users.query().oldest().get()  // ORDER BY created_at ASC
 
 ## Pagination
 
-```dart
+```
 final users = Model<User>();
 
 await users.query()
@@ -149,7 +149,7 @@ await users.query()
 
 Or use `limit` and `offset`:
 
-```dart
+```
 await users.query()
     .limit(10)
     .offset(20)
@@ -158,7 +158,7 @@ await users.query()
 
 ## Aggregates
 
-```dart
+```
 final users = Model<User>();
 
 // Count with conditions
@@ -181,7 +181,7 @@ final minPrice = await products.query().min('price');
 
 ## Existence Checks
 
-```dart
+```
 final users = Model<User>();
 
 // Check if any records exist
@@ -197,7 +197,7 @@ if (await users.where('role', 'admin').doesntExist()) {
 
 ## Pluck (Single Column)
 
-```dart
+```
 final users = Model<User>();
 
 // Get list of values from one column
@@ -213,7 +213,7 @@ final ids = await users
 
 ## Select Specific Columns
 
-```dart
+```
 final users = Model<User>();
 
 final result = await users.query()
@@ -225,7 +225,7 @@ final result = await users.query()
 
 ### Update Multiple Records
 
-```dart
+```
 final users = Model<User>();
 
 await users.query()
@@ -235,7 +235,7 @@ await users.query()
 
 ### Delete Multiple Records
 
-```dart
+```
 final users = Model<User>();
 
 await users.query()
@@ -245,7 +245,7 @@ await users.query()
 
 ### Increment / Decrement
 
-```dart
+```
 final posts = Model<Post>();
 
 // Increment by 1
@@ -261,7 +261,7 @@ await products.where('id', 1).query().decrement('stock', 5);
 
 ## Chaining Example
 
-```dart
+```
 final users = Model<User>();
 
 final recentActiveAdmins = await users.query()
@@ -277,7 +277,7 @@ final recentActiveAdmins = await users.query()
 
 ## Complete Example
 
-```dart
+```
 import 'package:duxt_orm/duxt_orm.dart';
 
 void main() async {

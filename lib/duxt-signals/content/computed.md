@@ -11,7 +11,7 @@ Computed signals derive their value from other signals and automatically update 
 
 ## Creating Computed Signals
 
-```dart
+```
 final firstName = signal('John');
 final lastName = signal('Doe');
 
@@ -27,7 +27,7 @@ print(fullName()); // "Jane Doe" - auto updated!
 
 Computed signals automatically track which signals they read:
 
-```dart
+```
 final a = signal(1);
 final b = signal(2);
 final c = signal(3);
@@ -44,7 +44,7 @@ c.set(30); // sum does NOT recompute
 
 Computed signals can depend on other computed signals:
 
-```dart
+```
 final price = signal(100);
 final quantity = signal(2);
 final taxRate = signal(0.1);
@@ -63,7 +63,7 @@ print(total()); // 330 - all computed values updated
 
 Dependencies are tracked dynamically based on what's actually read:
 
-```dart
+```
 final useMetric = signal(true);
 final meters = signal(100);
 final feet = signal(328);
@@ -88,7 +88,7 @@ print(distance()); // "328 feet"
 
 Computed signals are read-only:
 
-```dart
+```
 final doubled = computed(() => count() * 2);
 
 doubled.set(10); // Throws UnsupportedError!
@@ -99,7 +99,7 @@ doubled.update((v) => v + 1); // Throws UnsupportedError!
 
 You can listen to computed signals just like regular signals:
 
-```dart
+```
 final count = signal(0);
 final doubled = computed(() => count() * 2);
 
@@ -114,7 +114,7 @@ count.set(5); // Prints: "Doubled: 10"
 
 Computed signals cache their value and only recompute when dependencies change:
 
-```dart
+```
 var computeCount = 0;
 
 final expensive = computed(() {
@@ -141,7 +141,7 @@ print(computeCount); // 2
 ### Keep Computations Pure
 Computed functions should be pure (no side effects):
 
-```dart
+```
 // Good
 final total = computed(() => items().fold(0, (sum, i) => sum + i.price));
 
@@ -155,7 +155,7 @@ final total = computed(() {
 ### Use Effects for Side Effects
 When you need side effects, use `effect()`:
 
-```dart
+```
 effect(() {
   print('Total: ${total()}');
 });
@@ -164,7 +164,7 @@ effect(() {
 ### Avoid Heavy Computations
 If a computation is expensive, consider using `untracked()` for parts that don't need tracking:
 
-```dart
+```
 final result = computed(() {
   final config = untracked(() => expensiveConfig());
   return process(data(), config);

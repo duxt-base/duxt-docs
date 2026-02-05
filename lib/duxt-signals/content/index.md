@@ -13,7 +13,7 @@ order: 1
 
 Signals are reactive primitives that hold a value and automatically notify dependents when that value changes. They provide a simple, fine-grained approach to state management without the complexity of streams or state management libraries.
 
-```dart
+```
 // Create a signal
 final count = signal(0);
 
@@ -44,7 +44,7 @@ Pure Dart with no framework dependencies. Use with Jaspr, Flutter, or any Dart a
 ### Signals
 The basic unit of reactive state. Holds a value and notifies listeners when changed.
 
-```dart
+```
 final name = signal('John');
 print(name()); // "John"
 name.set('Jane');
@@ -53,7 +53,7 @@ name.set('Jane');
 ### Computed
 Derived values that automatically update when dependencies change.
 
-```dart
+```
 final firstName = signal('John');
 final lastName = signal('Doe');
 final fullName = computed(() => '${firstName()} ${lastName()}');
@@ -63,7 +63,7 @@ final fullName = computed(() => '${firstName()} ${lastName()}');
 ### Effects
 Side effects that run when signals change.
 
-```dart
+```
 effect(() {
   print('Name changed to: ${name()}');
 });
@@ -72,7 +72,7 @@ effect(() {
 ### Form Signals
 Specialized signals for form state with validation.
 
-```dart
+```
 final email = formField('', validators: [
   required(),
   email('Invalid email'),

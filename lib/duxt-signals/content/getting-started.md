@@ -13,20 +13,20 @@ Get up and running with duxt_signals in minutes.
 
 Add `duxt_signals` to your `pubspec.yaml`:
 
-```yaml
+```
 dependencies:
   duxt_signals: ^0.1.0
 ```
 
 Then run:
 
-```bash
+```
 dart pub get
 ```
 
 ## Import
 
-```dart
+```
 import 'package:duxt_signals/duxt_signals.dart';
 ```
 
@@ -34,19 +34,19 @@ import 'package:duxt_signals/duxt_signals.dart';
 
 Create a signal with an initial value:
 
-```dart
+```
 final count = signal(0);
 ```
 
 Read the value using call syntax:
 
-```dart
+```
 print(count()); // 0
 ```
 
 Update the value:
 
-```dart
+```
 count.set(5);
 print(count()); // 5
 
@@ -59,7 +59,7 @@ print(count()); // 6
 
 Create derived state that automatically updates:
 
-```dart
+```
 final price = signal(100);
 final quantity = signal(2);
 
@@ -75,7 +75,7 @@ print(total()); // 300 - automatically updated!
 
 Run side effects when signals change:
 
-```dart
+```
 final name = signal('John');
 
 effect(() {
@@ -91,7 +91,7 @@ name.set('Jane');
 
 Create form fields with validation:
 
-```dart
+```
 final email = formField('', validators: [
   required('Email is required'),
   email('Invalid email format'),

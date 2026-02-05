@@ -11,7 +11,7 @@ Effects run side effects when signals change. Use them for logging, DOM updates,
 
 ## Creating Effects
 
-```dart
+```
 final count = signal(0);
 
 effect(() {
@@ -27,7 +27,7 @@ count.set(5);
 
 Effects automatically track which signals they read:
 
-```dart
+```
 final name = signal('John');
 final age = signal(25);
 
@@ -44,7 +44,7 @@ age.set(26);      // Effect does NOT run
 
 The `effect()` function returns a dispose function:
 
-```dart
+```
 final dispose = effect(() {
   print('Count: ${count()}');
 });
@@ -61,7 +61,7 @@ count.set(3); // Effect does NOT run
 
 ### Logging
 
-```dart
+```
 effect(() {
   console.log({
     'user': currentUser()?.toJson(),
@@ -72,7 +72,7 @@ effect(() {
 
 ### API Calls
 
-```dart
+```
 effect(() {
   final query = searchQuery();
   if (query.isNotEmpty) {
@@ -85,7 +85,7 @@ effect(() {
 
 ### Local Storage
 
-```dart
+```
 effect(() {
   localStorage.setItem('settings', jsonEncode(settings()));
 });
@@ -93,7 +93,7 @@ effect(() {
 
 ### DOM Updates (Jaspr)
 
-```dart
+```
 effect(() {
   final theme = isDarkMode() ? 'dark' : 'light';
   document.body?.setAttribute('data-theme', theme);
@@ -104,7 +104,7 @@ effect(() {
 
 Use `batch()` to group multiple signal updates:
 
-```dart
+```
 final a = signal(1);
 final b = signal(2);
 
@@ -129,7 +129,7 @@ batch(() {
 
 Use `untracked()` to read signals without creating dependencies:
 
-```dart
+```
 effect(() {
   final name = user().name; // Creates dependency
   final config = untracked(() => appConfig()); // No dependency
@@ -143,7 +143,7 @@ effect(() {
 ### Keep Effects Focused
 Each effect should do one thing:
 
-```dart
+```
 // Good
 effect(() {
   localStorage.setItem('user', jsonEncode(user()));
@@ -165,7 +165,7 @@ effect(() {
 ### Avoid Modifying Signals in Effects
 Don't create infinite loops:
 
-```dart
+```
 // Dangerous!
 effect(() {
   count.set(count() + 1); // Infinite loop!
@@ -178,7 +178,7 @@ final doubled = computed(() => count() * 2);
 ### Dispose When Done
 Always dispose effects when they're no longer needed:
 
-```dart
+```
 class MyComponent {
   late final void Function() _disposeEffect;
 

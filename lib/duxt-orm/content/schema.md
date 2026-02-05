@@ -11,7 +11,7 @@ Define your table schema when registering models. The schema is used for auto-mi
 
 ## Column Types
 
-```dart
+```
 Column.integer()        // INTEGER
 Column.bigInteger()     // BIGINT
 Column.string(255)      // VARCHAR(255)
@@ -30,7 +30,7 @@ Column.binary()         // BLOB
 
 Chain modifiers to define constraints:
 
-```dart
+```
 // Primary key with auto-increment
 Column.integer().primaryKey().autoIncrement()
 
@@ -55,7 +55,7 @@ Column.integer().references('users', 'uid') // References users(uid)
 
 ## Complete Example
 
-```dart
+```
 static void register() {
   Model.registerModel<Post>(
     Post.fromRow,
@@ -118,7 +118,7 @@ Auto-increment behavior varies by database:
 - **MySQL**: Uses `AUTO_INCREMENT`
 - **SQLite**: Uses `INTEGER PRIMARY KEY` (implicit auto-increment)
 
-```dart
+```
 'id': Column.integer().primaryKey().autoIncrement(),
 // PostgreSQL: id SERIAL PRIMARY KEY
 // MySQL: id INT PRIMARY KEY AUTO_INCREMENT
@@ -134,7 +134,7 @@ Indexes are created automatically for:
 
 For composite or custom indexes, use raw migrations:
 
-```dart
+```
 await DuxtOrm.execute(
   'CREATE INDEX idx_posts_user_date ON posts(user_id, created_at)'
 );

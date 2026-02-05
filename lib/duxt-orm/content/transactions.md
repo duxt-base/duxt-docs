@@ -11,7 +11,7 @@ order: 5
 
 Wrap multiple operations in a transaction for atomicity:
 
-```dart
+```
 await DuxtOrm.transaction((tx) async {
   // Create user
   await tx.query(
@@ -41,7 +41,7 @@ await DuxtOrm.transaction((tx) async {
 - **Success**: Transaction auto-commits when the callback completes
 - **Error**: Transaction auto-rolls back if an exception is thrown
 
-```dart
+```
 try {
   await DuxtOrm.transaction((tx) async {
     await tx.query('INSERT INTO accounts (balance) VALUES (?)', [1000]);
@@ -59,7 +59,7 @@ try {
 
 For more control:
 
-```dart
+```
 final tx = await DuxtOrm.beginTransaction();
 
 try {
@@ -79,7 +79,7 @@ try {
 
 ### SELECT Queries
 
-```dart
+```
 final results = await DuxtOrm.raw(
   'SELECT * FROM users WHERE email = ?',
   ['test@example.com'],
@@ -92,7 +92,7 @@ for (final row in results) {
 
 ### Complex SELECT
 
-```dart
+```
 final results = await DuxtOrm.raw('''
   SELECT
     u.id,
@@ -112,7 +112,7 @@ final results = await DuxtOrm.raw('''
 
 Use `execute()` for statements that don't return rows:
 
-```dart
+```
 // Returns number of affected rows
 final affected = await DuxtOrm.execute(
   'UPDATE users SET is_active = ? WHERE last_login < ?',
@@ -124,7 +124,7 @@ print('Deactivated $affected users');
 
 ### Bulk Insert
 
-```dart
+```
 final users = [
   ['john@example.com', 'John'],
   ['jane@example.com', 'Jane'],
@@ -141,7 +141,7 @@ for (final user in users) {
 
 Or with a single statement (database-specific syntax):
 
-```dart
+```
 // PostgreSQL
 await DuxtOrm.execute('''
   INSERT INTO users (email, name) VALUES
@@ -155,7 +155,7 @@ await DuxtOrm.execute('''
 
 Always use parameter binding to prevent SQL injection:
 
-```dart
+```
 // GOOD - Parameters are escaped
 await DuxtOrm.raw(
   'SELECT * FROM users WHERE email = ?',
@@ -172,7 +172,7 @@ await DuxtOrm.raw(
 
 ### PostgreSQL
 
-```dart
+```
 // RETURNING clause
 final result = await DuxtOrm.raw(
   'INSERT INTO users (email, name) VALUES (\$1, \$2) RETURNING id, created_at',
@@ -189,7 +189,7 @@ await DuxtOrm.raw(
 
 ### MySQL
 
-```dart
+```
 // Get last insert ID
 await DuxtOrm.execute(
   'INSERT INTO users (email, name) VALUES (?, ?)',
@@ -206,7 +206,7 @@ await DuxtOrm.execute('''
 
 ### SQLite
 
-```dart
+```
 // UPSERT (SQLite 3.24+)
 await DuxtOrm.execute('''
   INSERT INTO settings (key, value) VALUES (?, ?)
@@ -219,7 +219,7 @@ final changes = await DuxtOrm.raw('SELECT changes()');
 
 ## Connection Management
 
-```dart
+```
 // Close connection when done
 await DuxtOrm.close();
 

@@ -13,7 +13,7 @@ Models in Duxt ORM follow the ActiveRecord pattern. Each model maps to a databas
 
 Extend the `Entity` class and implement required methods:
 
-```dart
+```
 import 'package:duxt_orm/duxt_orm.dart';
 
 class Post extends Entity {
@@ -86,7 +86,7 @@ class Post extends Entity {
 
 Call `register()` on each model before initializing the ORM:
 
-```dart
+```
 void main() async {
   // Register all models
   User.register();
@@ -107,7 +107,7 @@ Use `Model<T>()` for clean Rails-like queries:
 
 ### Create
 
-```dart
+```
 final posts = Model<Post>();
 
 // Create and save
@@ -131,7 +131,7 @@ final newPost = await posts.create({
 
 ### Read
 
-```dart
+```
 final posts = Model<Post>();
 
 // Find by ID
@@ -152,7 +152,7 @@ final count = await posts.count();
 
 ### Update
 
-```dart
+```
 final posts = Model<Post>();
 final post = await posts.find(1);
 
@@ -165,7 +165,7 @@ if (post != null) {
 
 ### Delete
 
-```dart
+```
 final posts = Model<Post>();
 final post = await posts.find(1);
 
@@ -178,7 +178,7 @@ if (post != null) {
 
 Override the auto-inferred table name:
 
-```dart
+```
 Entity.registerModel<User>(
   User.fromRow,
   tableName: 'app_users',  // Instead of 'users'
@@ -190,7 +190,7 @@ Entity.registerModel<User>(
 
 The `Model<T>` class provides a clean API for queries:
 
-```dart
+```
 final posts = Model<Post>();
 
 // All queries flow from this interface

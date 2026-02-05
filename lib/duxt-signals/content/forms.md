@@ -13,7 +13,7 @@ duxt_signals provides specialized form signals for managing form state with vali
 
 Create a form field with validators:
 
-```dart
+```
 final email = formField('', validators: [
   required('Email is required'),
   email('Invalid email format'),
@@ -35,48 +35,48 @@ print(email.error);   // null
 ## Built-in Validators
 
 ### required
-```dart
+```
 required('Field is required')
 ```
 
 ### requiredValue
 For nullable types:
-```dart
+```
 requiredValue<int>('Select a value')
 ```
 
 ### minLength / maxLength
-```dart
+```
 minLength(3, 'At least 3 characters')
 maxLength(100, 'Max 100 characters')
 ```
 
 ### email
-```dart
+```
 email('Invalid email address')
 ```
 
 ### pattern
-```dart
+```
 pattern(RegExp(r'^\d{5}$'), 'Must be 5 digits')
 ```
 
 ### min / max
 For numbers:
-```dart
+```
 min(1, 'Must be at least 1')
 max(100, 'Cannot exceed 100')
 ```
 
 ### notEmpty
 For lists:
-```dart
+```
 notEmpty<int>('Select at least one item')
 ```
 
 ### compose
 Combine validators:
-```dart
+```
 compose([
   required(),
   minLength(8),
@@ -88,7 +88,7 @@ compose([
 
 FormField tracks additional state beyond the value:
 
-```dart
+```
 final name = formField('');
 
 // touched - has the field been focused/blurred?
@@ -112,7 +112,7 @@ print(name.isValid); // true/false
 
 Reset to initial state:
 
-```dart
+```
 final name = formField('initial');
 
 name.set('changed');
@@ -128,7 +128,7 @@ name.reset();
 
 Group multiple fields together:
 
-```dart
+```
 final nameField = formField('', validators: [required()]);
 final emailField = formField('', validators: [email()]);
 final ageField = formField(18, validators: [min(18)]);
@@ -156,7 +156,7 @@ print(form.isValid); // false
 ### validate
 Validate all fields:
 
-```dart
+```
 if (form.validate()) {
   print('Form is valid!');
 }
@@ -165,21 +165,21 @@ if (form.validate()) {
 ### touchAll
 Mark all fields as touched:
 
-```dart
+```
 form.touchAll();
 ```
 
 ### reset
 Reset all fields:
 
-```dart
+```
 form.reset();
 ```
 
 ### setValues
 Set multiple values:
 
-```dart
+```
 form.setValues({
   'name': 'John Doe',
   'email': 'john@example.com',
@@ -189,7 +189,7 @@ form.setValues({
 ### submit
 Submit if valid:
 
-```dart
+```
 form.submit((data) async {
   await api.createUser(data);
 });
@@ -197,7 +197,7 @@ form.submit((data) async {
 
 ## Using with DuxtUI
 
-```dart
+```
 DInput(
   label: 'Email',
   value: emailField(),
@@ -209,7 +209,7 @@ DInput(
 
 ## Complete Form Example
 
-```dart
+```
 // Define fields
 final titleField = formField('', validators: [
   required('Title is required'),

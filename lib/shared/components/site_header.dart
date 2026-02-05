@@ -41,8 +41,11 @@ class SiteHeader extends StatelessComponent {
         else
           nav(classes: 'site-nav', [
             NavLink(href: '/duxt', text: 'Duxt'),
+            NavLink(href: '/duxt-cli', text: "Duxt CLI"),
             NavLink(href: '/duxt-ui', text: 'Duxt UI'),
             NavLink(href: '/duxt-orm', text: 'Duxt ORM'),
+            NavLink(href: '/duxt-html', text: 'Duxt HTML'),
+            NavLink(href: '/duxt-signals', text: 'Duxt Signals'),
             NavLink(href: '/about', text: 'About'),
           ]),
         // Right side - only show if no custom items (items handle their own right content)
@@ -91,112 +94,115 @@ class SiteHeader extends StatelessComponent {
   }
 
   static List<StyleRule> get _styles => [
-    // CSS Variables
-    css(':root', [
-      css('&').styles(raw: {
-        '--background': '#09090b',
-        '--text': '#e4e4e7',
-        '--nav-text': '#a1a1aa',
-        '--nav-hover': '#22d3ee',
-      }),
-    ]),
-    css(':root[data-theme="light"]', [
-      css('&').styles(raw: {
-        '--background': '#cbd5e1',
-        '--text': '#1e293b',
-        '--nav-text': '#3f3f46',
-        '--nav-hover': '#0891b2',
-      }),
-    ]),
+        // CSS Variables
+        css(':root', [
+          css('&').styles(raw: {
+            '--background': '#09090b',
+            '--text': '#e4e4e7',
+            '--nav-text': '#a1a1aa',
+            '--nav-hover': '#22d3ee',
+          }),
+        ]),
+        css(':root[data-theme="light"]', [
+          css('&').styles(raw: {
+            '--background': '#cbd5e1',
+            '--text': '#1e293b',
+            '--nav-text': '#3f3f46',
+            '--nav-hover': '#0891b2',
+          }),
+        ]),
 
-    // Nav links
-    css('.nav-link', [
-      css('&').styles(raw: {
-        'color': 'var(--nav-text)',
-        'font-family': "'Nunito', system-ui, sans-serif",
-      }),
-      css('&:hover').styles(raw: {
-        'color': 'var(--nav-hover)',
-        'background-color': 'rgba(6, 182, 212, 0.1)',
-      }),
-    ]),
-    css('.nav-link.nav-link-active', [
-      css('&').styles(raw: {
-        'color': 'var(--nav-hover) !important',
-        'background-color': 'rgba(6, 182, 212, 0.15)',
-      }),
-    ]),
+        // Nav links
+        css('.nav-link', [
+          css('&').styles(raw: {
+            'color': 'var(--nav-text)',
+            'font-family': "'Nunito', system-ui, sans-serif",
+          }),
+          css('&:hover').styles(raw: {
+            'color': 'var(--nav-hover)',
+            'background-color': 'rgba(6, 182, 212, 0.1)',
+          }),
+        ]),
+        css('.nav-link.nav-link-active', [
+          css('&').styles(raw: {
+            'color': 'var(--nav-hover) !important',
+            'background-color': 'rgba(6, 182, 212, 0.15)',
+          }),
+        ]),
 
-    // Header
-    css('.site-header', [
-      css('&').styles(
-        position: Position.fixed(top: Unit.zero, left: Unit.zero, right: Unit.zero),
-        zIndex: ZIndex(100),
-        height: Unit.pixels(64),
-        display: Display.flex,
-        alignItems: AlignItems.center,
-        gap: Gap.column(1.5.rem),
-        padding: Padding.symmetric(horizontal: 1.5.rem),
-        backgroundColor: Color('var(--background)'),
-        border: Border.only(bottom: BorderSide(color: Color('#27272a'), width: 1.px)),
-      ),
-    ]),
+        // Header
+        css('.site-header', [
+          css('&').styles(
+            position: Position.fixed(
+                top: Unit.zero, left: Unit.zero, right: Unit.zero),
+            zIndex: ZIndex(100),
+            height: Unit.pixels(64),
+            display: Display.flex,
+            alignItems: AlignItems.center,
+            gap: Gap.column(1.5.rem),
+            padding: Padding.symmetric(horizontal: 1.5.rem),
+            backgroundColor: Color('var(--background)'),
+            border: Border.only(
+                bottom: BorderSide(color: Color('#27272a'), width: 1.px)),
+          ),
+        ]),
 
-    // Light mode header
-    css(':root[data-theme="light"] .site-header', [
-      css('&').styles(
-        border: Border.only(bottom: BorderSide(color: Color('#e4e4e7'), width: 1.px)),
-      ),
-    ]),
+        // Light mode header
+        css(':root[data-theme="light"] .site-header', [
+          css('&').styles(
+            border: Border.only(
+                bottom: BorderSide(color: Color('#e4e4e7'), width: 1.px)),
+          ),
+        ]),
 
-    // Logo
-    css('.site-logo', [
-      css('&').styles(
-        display: Display.flex,
-        alignItems: AlignItems.center,
-        gap: Gap.column(0.5.rem),
-        raw: {
-          'text-decoration': 'none',
-          'font-weight': '700',
-          'font-size': '1.25rem',
-          'color': 'var(--text)',
-        },
-      ),
-      css('img').styles(height: 56.px, width: 56.px),
-    ]),
+        // Logo
+        css('.site-logo', [
+          css('&').styles(
+            display: Display.flex,
+            alignItems: AlignItems.center,
+            gap: Gap.column(0.5.rem),
+            raw: {
+              'text-decoration': 'none',
+              'font-weight': '700',
+              'font-size': '1.25rem',
+              'color': 'var(--text)',
+            },
+          ),
+          css('img').styles(height: 56.px, width: 56.px),
+        ]),
 
-    // Navigation
-    css('.site-nav', [
-      css('&').styles(
-        display: Display.flex,
-        alignItems: AlignItems.center,
-        gap: Gap.column(0.25.rem),
-        flex: Flex(grow: 1),
-      ),
-    ]),
+        // Navigation
+        css('.site-nav', [
+          css('&').styles(
+            display: Display.flex,
+            alignItems: AlignItems.center,
+            gap: Gap.column(0.25.rem),
+            flex: Flex(grow: 1),
+          ),
+        ]),
 
-    // Header right
-    css('.site-header-right', [
-      css('&').styles(
-        display: Display.flex,
-        alignItems: AlignItems.center,
-        gap: Gap.column(0.75.rem),
-      ),
-    ]),
+        // Header right
+        css('.site-header-right', [
+          css('&').styles(
+            display: Display.flex,
+            alignItems: AlignItems.center,
+            gap: Gap.column(0.75.rem),
+          ),
+        ]),
 
-    // GitHub link
-    css('.site-github', [
-      css('&').styles(
-        display: Display.flex,
-        alignItems: AlignItems.center,
-        padding: Padding.all(0.5.rem),
-        color: Color('var(--text)'),
-        raw: {
-          'opacity': '0.7',
-          'transition': 'opacity 0.2s',
-        },
-      ),
-      css('&:hover').styles(raw: {'opacity': '1'}),
-    ]),
-  ];
+        // GitHub link
+        css('.site-github', [
+          css('&').styles(
+            display: Display.flex,
+            alignItems: AlignItems.center,
+            padding: Padding.all(0.5.rem),
+            color: Color('var(--text)'),
+            raw: {
+              'opacity': '0.7',
+              'transition': 'opacity 0.2s',
+            },
+          ),
+          css('&:hover').styles(raw: {'opacity': '1'}),
+        ]),
+      ];
 }

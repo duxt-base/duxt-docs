@@ -13,7 +13,7 @@ Signals are the core building block of duxt_signals. They hold a value and notif
 
 Use the `signal()` function to create a signal:
 
-```dart
+```
 // Basic types
 final count = signal(0);
 final name = signal('John');
@@ -29,14 +29,14 @@ final config = signal<Map<String, dynamic>>({});
 
 ### Call Syntax (Preferred)
 
-```dart
+```
 final count = signal(0);
 print(count()); // 0
 ```
 
 ### Property Syntax
 
-```dart
+```
 print(count.value); // 0
 ```
 
@@ -44,7 +44,7 @@ print(count.value); // 0
 
 Read without creating a dependency:
 
-```dart
+```
 print(count.peek()); // 0
 ```
 
@@ -56,7 +56,7 @@ Use `peek()` in event handlers or logging where you don't want to track dependen
 
 Replace the value:
 
-```dart
+```
 count.set(5);
 // or
 count.value = 5;
@@ -66,7 +66,7 @@ count.value = 5;
 
 Update based on the previous value:
 
-```dart
+```
 count.update((v) => v + 1);
 
 // Works great with collections
@@ -78,7 +78,7 @@ items.update((list) => list.where((i) => i != 'remove').toList());
 
 Subscribe to value changes:
 
-```dart
+```
 final unsubscribe = count.listen((value) {
   print('Count changed to: $value');
 });
@@ -94,7 +94,7 @@ count.set(10); // Nothing printed
 
 Clean up when done:
 
-```dart
+```
 count.dispose();
 print(count.isDisposed); // true
 
@@ -106,7 +106,7 @@ count.set(100); // Does nothing
 
 Signals only notify when the value actually changes:
 
-```dart
+```
 final count = signal(5);
 var notifications = 0;
 
@@ -123,7 +123,7 @@ print(notifications); // 1
 
 For objects, signals compare by reference:
 
-```dart
+```
 final user = signal(User(name: 'John'));
 
 // This triggers notification (new object)
@@ -141,7 +141,7 @@ user.update((u) => User(name: u.name.toUpperCase()));
 ### Keep Signals Focused
 Create separate signals for separate concerns:
 
-```dart
+```
 // Good
 final firstName = signal('');
 final lastName = signal('');
@@ -154,7 +154,7 @@ final formData = signal({'firstName': '', 'lastName': '', 'email': ''});
 ### Use Computed for Derived State
 Don't duplicate state:
 
-```dart
+```
 final firstName = signal('John');
 final lastName = signal('Doe');
 
@@ -169,7 +169,7 @@ final fullName = signal('John Doe');
 ### Dispose When Done
 Clean up signals to prevent memory leaks:
 
-```dart
+```
 class MyComponent {
   final count = signal(0);
 

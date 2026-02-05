@@ -22,7 +22,7 @@ dependencies:
 
 ### 1. Define Your Model
 
-```dart
+```
 import 'package:duxt_orm/duxt_orm.dart';
 
 class User extends Model {
@@ -68,7 +68,7 @@ class User extends Model {
 
 ### 2. Initialize and Migrate
 
-```dart
+```
 // Register models
 User.register();
 Post.register();
@@ -82,7 +82,7 @@ await DuxtOrm.migrate();
 
 ### 3. Use It
 
-```dart
+```
 // Create a query interface
 final users = Model<User>();
 final posts = Model<Post>();
@@ -137,7 +137,7 @@ for (final post in publishedPosts) {
 
 Configure in your `duxt.config.dart`:
 
-```dart
+```
 class DuxtConfig {
   static const database = (
     driver: 'postgres',  // 'postgres', 'mysql', 'sqlite'
@@ -165,6 +165,6 @@ Table names are auto-inferred from class names:
 
 Override with `tableName` parameter:
 
-```dart
+```
 Model.registerModel<User>(User.fromRow, tableName: 'app_users');
 ```

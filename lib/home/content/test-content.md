@@ -26,7 +26,7 @@ And is automatically routed to `/test-content` because it's in the `home` module
 
 ## Code Example
 
-```dart
+```
 // Generated route
 Route(
   path: '/test-content',

@@ -18,7 +18,7 @@ Duxt ORM supports four types of relationships between models:
 
 Relations are registered alongside your model:
 
-```dart
+```
 import 'package:duxt_orm/duxt_orm.dart';
 
 class Post extends Entity {
@@ -55,7 +55,7 @@ class Post extends Entity {
 }
 ```
 
-```dart
+```
 class Category extends Entity {
   int? _id;
   String name;
@@ -84,7 +84,7 @@ class Category extends Entity {
 
 Use `.with_()` to load related models in a single query, preventing N+1 queries:
 
-```dart
+```
 final posts = Model<Post>();
 
 // Load posts WITH their categories (2 queries total instead of N+1)
@@ -99,7 +99,7 @@ for (final post in results) {
 }
 ```
 
-```dart
+```
 final categories = Model<Category>();
 
 // Load categories WITH their posts
@@ -117,7 +117,7 @@ for (final category in results) {
 
 One-to-many relationship. The related model has a foreign key pointing to this model.
 
-```dart
+```
 // Category has many Posts
 Entity.registerRelation<Category>(
   'posts',
@@ -140,7 +140,7 @@ print(category?.posts.length);  // List<Post>
 
 Inverse of HasMany. This model has a foreign key pointing to the related model.
 
-```dart
+```
 // Post belongs to Category
 Entity.registerRelation<Post>(
   'category',
@@ -163,7 +163,7 @@ print(post?.category?.name);  // Category?
 
 One-to-one relationship. Similar to HasMany but returns a single model.
 
-```dart
+```
 // User has one Profile
 Entity.registerRelation<User>(
   'profile',
@@ -186,7 +186,7 @@ print(user?.profile?.bio);  // Profile?
 
 Many-to-many through a pivot table.
 
-```dart
+```
 // Post has many Tags through post_tags pivot table
 Entity.registerRelation<Post>(
   'tags',
@@ -218,7 +218,7 @@ print(post?.tags.map((t) => t.name));  // List<Tag>
 
 Manage many-to-many relationships with attach, detach, and sync:
 
-```dart
+```
 // Attach a tag to a post
 await post.attach('tags', tagId);
 
@@ -231,7 +231,7 @@ await post.sync('tags', [1, 2, 3]);
 
 ### Complete Many-to-Many Example
 
-```dart
+```
 class Post extends Entity {
   int? _id;
   String title;
@@ -293,7 +293,7 @@ for (final tag in loaded!.tags) {
 
 Models have helper methods for working with relations:
 
-```dart
+```
 class Post extends Entity {
   // Type-safe getter for loaded relation
   Category? get category => getRelation<Category>('category');
@@ -317,7 +317,7 @@ post.setRelation('category', someCategory);
 
 For relations to work correctly, include the `id` field in your `toMap()` method:
 
-```dart
+```
 @override
 Map<String, dynamic> toMap() => {
   'id': id,  // Important for relations!
@@ -330,7 +330,7 @@ Map<String, dynamic> toMap() => {
 
 Register models in dependency order (parent before child):
 
-```dart
+```
 void main() async {
   // Category first (no foreign keys)
   Category.register();
@@ -347,7 +347,7 @@ void main() async {
 
 Load multiple relations in one query:
 
-```dart
+```
 final posts = Model<Post>();
 final results = await posts.query()
     .with_(['category', 'author', 'comments'])
@@ -358,7 +358,7 @@ final results = await posts.query()
 
 Add helper methods to your models for common queries:
 
-```dart
+```
 class Post extends Entity {
   // Helper with optional eager loading
   static Future<List<Post>> findAll({

@@ -24,6 +24,7 @@ class App extends StatelessComponent {
           OrmLayout(),
           SignalsLayout(),
           CliLayout(),
+          HtmlLayout(),
           LandingLayout(),
         ],
         components: [

@@ -207,7 +207,7 @@ packages:
       path: "../duxt"
       relative: true
     source: path
-    version: "0.4.1"
+    version: "0.4.14"
   duxt_ui:
     dependency: "direct main"
     description:
@@ -223,6 +223,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.1"
+  fetch_api:
+    dependency: transitive
+    description:
+      name: fetch_api
+      sha256: "24cbd5616f3d4008c335c197bb90bfa0eb43b9e55c6de5c60d1f805092636034"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.1"
+  fetch_client:
+    dependency: transitive
+    description:
+      name: fetch_client
+      sha256: "3766964cc49ad1d007c261d7acecea61a73581e31fdbd948b446025851766bc8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   ffi:
     dependency: transitive
     description:

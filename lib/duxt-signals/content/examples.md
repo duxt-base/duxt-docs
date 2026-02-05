@@ -13,7 +13,7 @@ Real-world patterns for using duxt_signals effectively.
 
 The classic example:
 
-```dart
+```
 final count = signal(0);
 
 void increment() => count.update((v) => v + 1);
@@ -30,7 +30,7 @@ div([
 
 ## Todo List
 
-```dart
+```
 // State
 final todos = signal<List<Todo>>([]);
 final filter = signal<TodoFilter>(TodoFilter.all);
@@ -70,7 +70,7 @@ void removeTodo(int id) {
 
 ## Shopping Cart
 
-```dart
+```
 // State
 final cartItems = signal<List<CartItem>>([]);
 
@@ -120,7 +120,7 @@ void updateQuantity(int productId, int quantity) {
 
 ## User Authentication
 
-```dart
+```
 // State
 final currentUser = signal<User?>(null);
 final authToken = signal<String?>(null);
@@ -165,7 +165,7 @@ effect(() {
 
 ## Search with Debounce
 
-```dart
+```
 final searchQuery = signal('');
 final searchResults = signal<List<Result>>([]);
 final isSearching = signal(false);
@@ -197,7 +197,7 @@ effect(() {
 
 ## Theme Switcher
 
-```dart
+```
 final isDarkMode = signal(false);
 
 // Computed
@@ -225,7 +225,7 @@ effect(() {
 
 ## Form with Server Validation
 
-```dart
+```
 final usernameField = formField('', validators: [
   required('Username is required'),
   minLength(3, 'At least 3 characters'),
@@ -264,7 +264,7 @@ final usernameError = computed(() =>
 
 ## Pagination
 
-```dart
+```
 final currentPage = signal(1);
 final pageSize = signal(10);
 final totalItems = signal(0);
@@ -307,7 +307,7 @@ effect(() {
 
 ## Undo/Redo
 
-```dart
+```
 final history = signal<List<State>>([initialState]);
 final historyIndex = signal(0);
 
