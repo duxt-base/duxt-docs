@@ -25,3 +25,4 @@ Thumbs.db
 *.freezed.dart
 .output/
 .output/public/about/index.html
+.DS_Store
