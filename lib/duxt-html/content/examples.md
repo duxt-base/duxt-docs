@@ -9,7 +9,7 @@ order: 4
 
 ## Complete Page Layout
 
-```dart
+```
 import 'package:duxt_html/duxt_html.dart';
 
 Component buildPage() {
@@ -113,7 +113,7 @@ Component buildPage() {
 
 ## Contact Form
 
-```dart
+```
 class ContactForm extends StatefulComponent {
   @override
   State createState() => _ContactFormState();
@@ -211,7 +211,7 @@ class _ContactFormState extends State<ContactForm> {
 
 ## Data Table
 
-```dart
+```
 Component buildUserTable(List<User> users) {
   return Div(
     className: 'overflow-x-auto',
@@ -288,7 +288,7 @@ Component buildUserTable(List<User> users) {
 
 ## Card Grid
 
-```dart
+```
 Component buildCardGrid(List<Product> products) {
   return Div(
     className: 'grid md:grid-cols-2 lg:grid-cols-3 gap-6',
@@ -335,7 +335,7 @@ Component buildCardGrid(List<Product> products) {
 
 ## Modal Dialog
 
-```dart
+```
 class ConfirmDialog extends StatelessComponent {
   final String title;
   final String message;
@@ -404,7 +404,7 @@ class ConfirmDialog extends StatelessComponent {
 
 ## SVG Icon Component
 
-```dart
+```
 Component buildIcon(String name, {double size = 24, Color? color}) {
   final icons = {
     'home': 'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z',
@@ -431,7 +431,7 @@ buildIcon('home', size: 32, color: Color.hex(0x3B82F6))
 
 ## Accordion
 
-```dart
+```
 class Accordion extends StatefulComponent {
   final List<({String title, String content})> items;
 

@@ -13,7 +13,7 @@ order: 1
 
 duxt_html provides PascalCase HTML components that follow Flutter's composition patterns. Instead of Jaspr's lowercase functions, use components like `Div`, `Span`, and `Button` with the familiar `child`/`children` API.
 
-```dart
+```
 // Before (Jaspr)
 div(classes: 'container', [
   p([text('Hello World')]),
@@ -45,13 +45,13 @@ All components return Jaspr `Component` types. Mix and match freely.
 
 ## Quick Start
 
-```yaml
+```
 # pubspec.yaml
 dependencies:
   duxt_html: ^0.1.0
 ```
 
-```dart
+```
 import 'package:duxt_html/duxt_html.dart';
 
 Div(

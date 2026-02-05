@@ -11,14 +11,14 @@ order: 2
 
 Add duxt_html to your `pubspec.yaml`:
 
-```yaml
+```
 dependencies:
   duxt_html: ^0.1.0
 ```
 
 Or use the Duxt CLI to create a new project with duxt_html:
 
-```bash
+```
 duxt new myapp --template html
 ```
 
@@ -26,7 +26,7 @@ duxt new myapp --template html
 
 Import the package:
 
-```dart
+```
 import 'package:duxt_html/duxt_html.dart';
 ```
 
@@ -34,7 +34,7 @@ import 'package:duxt_html/duxt_html.dart';
 
 All components follow the same pattern:
 
-```dart
+```
 ComponentName(
   className: 'css classes',
   style: 'inline-css: value',
@@ -51,7 +51,7 @@ ComponentName(
 
 Use `child` when you have a single child component:
 
-```dart
+```
 Div(
   child: Text('Single child'),
 )
@@ -59,7 +59,7 @@ Div(
 
 Use `children` when you have multiple children:
 
-```dart
+```
 Div(
   children: [
     Text('First'),
@@ -74,7 +74,7 @@ Div(
 
 ### Page Layout
 
-```dart
+```
 Div(
   className: 'min-h-screen flex flex-col',
   children: [
@@ -110,7 +110,7 @@ Div(
 
 ### Form
 
-```dart
+```
 Form(
   method: FormMethod.post,
   children: [
@@ -142,7 +142,7 @@ Form(
 
 ### List Rendering
 
-```dart
+```
 final items = ['Apple', 'Banana', 'Cherry'];
 
 Ul(
@@ -155,7 +155,7 @@ Ul(
 
 ### Conditional Rendering
 
-```dart
+```
 Div(
   children: [
     if (isLoggedIn) ...[
@@ -177,7 +177,7 @@ Div(
 
 Use the `className` parameter:
 
-```dart
+```
 Div(
   className: 'flex items-center gap-4 p-4 bg-gray-100 rounded-lg',
   child: Text('Styled content'),
@@ -188,7 +188,7 @@ Div(
 
 Use the `style` parameter with CSS string:
 
-```dart
+```
 Div(
   style: 'display: flex; align-items: center; gap: 16px; padding: 16px;',
   child: Text('Inline styled'),
@@ -199,7 +199,7 @@ Div(
 
 Use the `attributes` parameter:
 
-```dart
+```
 Div(
   attributes: {
     'data-testid': 'my-component',

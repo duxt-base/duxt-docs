@@ -29,7 +29,7 @@ All components share common parameters plus element-specific ones.
 ### Div
 Generic container element.
 
-```dart
+```
 Div(
   className: 'container',
   child: Text('Content'),
@@ -39,14 +39,14 @@ Div(
 ### P
 Paragraph element.
 
-```dart
+```
 P(child: Text('This is a paragraph.'))
 ```
 
 ### Ul / Ol / Li
 List elements.
 
-```dart
+```
 Ul(
   className: 'list-disc',
   children: [
@@ -67,7 +67,7 @@ Ol(
 ### Dl / Dt / Dd
 Description list elements.
 
-```dart
+```
 Dl(children: [
   Dt(child: Text('Term')),
   Dd(child: Text('Definition')),
@@ -77,7 +77,7 @@ Dl(children: [
 ### Blockquote
 Block quotation.
 
-```dart
+```
 Blockquote(
   className: 'border-l-4 pl-4 italic',
   child: Text('A wise quote...'),
@@ -87,14 +87,14 @@ Blockquote(
 ### Pre
 Preformatted text.
 
-```dart
+```
 Pre(child: Code(child: Text('const x = 1;')))
 ```
 
 ### Hr
 Horizontal rule (no children).
 
-```dart
+```
 Hr(className: 'my-4 border-gray-300')
 ```
 
@@ -111,7 +111,7 @@ Anchor/link element.
 | `target` | `String?` | Link target (`_blank`, etc.) |
 | `download` | `String?` | Download filename |
 
-```dart
+```
 A(
   href: 'https://duxt.dev',
   target: '_blank',
@@ -122,14 +122,14 @@ A(
 ### Span
 Inline container.
 
-```dart
+```
 Span(className: 'text-red-500', child: Text('Highlighted'))
 ```
 
 ### Strong / B
 Bold text.
 
-```dart
+```
 Strong(child: Text('Important'))
 B(child: Text('Bold'))
 ```
@@ -137,7 +137,7 @@ B(child: Text('Bold'))
 ### Em / I
 Italic/emphasized text.
 
-```dart
+```
 Em(child: Text('Emphasized'))
 I(child: Text('Italic'))
 ```
@@ -145,7 +145,7 @@ I(child: Text('Italic'))
 ### U / S
 Underline and strikethrough.
 
-```dart
+```
 U(child: Text('Underlined'))
 S(child: Text('Strikethrough'))
 ```
@@ -153,21 +153,21 @@ S(child: Text('Strikethrough'))
 ### Small
 Smaller text.
 
-```dart
+```
 Small(child: Text('Fine print'))
 ```
 
 ### Code
 Inline code.
 
-```dart
+```
 Code(className: 'bg-gray-100 px-1 rounded', child: Text('const'))
 ```
 
 ### Br / Wbr
 Line break and word break opportunity (no children).
 
-```dart
+```
 P(children: [
   Text('Line one'),
   Br(),
@@ -182,7 +182,7 @@ P(children: [
 ### H1 - H6
 Heading levels 1-6.
 
-```dart
+```
 H1(child: Text('Main Title'))
 H2(child: Text('Section'))
 H3(child: Text('Subsection'))
@@ -206,7 +206,7 @@ Form container.
 | `noValidate` | `bool` | Disable validation |
 | `target` | `Target?` | Submission target |
 
-```dart
+```
 Form(
   method: FormMethod.post,
   action: '/api/submit',
@@ -228,7 +228,7 @@ Input field.
 | `onInput` | `ValueChanged<String>?` | Input handler |
 | `onChange` | `ValueChanged<String>?` | Change handler |
 
-```dart
+```
 Input(
   type: 'email',
   name: 'email',
@@ -253,7 +253,7 @@ Button element.
 | `autofocus` | `bool` | Auto focus |
 | `onClick` | `VoidCallback?` | Click handler |
 
-```dart
+```
 Button(
   type: 'submit',
   onClick: () => handleSubmit(),
@@ -264,7 +264,7 @@ Button(
 ### Select / Option / Optgroup
 Dropdown select.
 
-```dart
+```
 Select(
   name: 'country',
   onChange: (values) => print(values),
@@ -298,7 +298,7 @@ Multi-line text input.
 | `readonly` | `bool` | Read-only |
 | `required` | `bool` | Required field |
 
-```dart
+```
 Textarea(
   name: 'message',
   rows: 4,
@@ -313,7 +313,7 @@ Form label.
 |-----------|------|-------------|
 | `htmlFor` | `String?` | ID of associated input |
 
-```dart
+```
 Label(
   htmlFor: 'email',
   child: Text('Email Address'),
@@ -323,7 +323,7 @@ Label(
 ### Fieldset / Legend
 Field grouping.
 
-```dart
+```
 Fieldset(
   children: [
     Legend(child: Text('Personal Info')),
@@ -336,7 +336,7 @@ Fieldset(
 ### Progress / Meter
 Progress and meter elements.
 
-```dart
+```
 Progress(value: 0.7, max: 1)
 Meter(value: 0.6, min: 0, max: 1, low: 0.3, high: 0.8)
 ```
@@ -347,7 +347,7 @@ Meter(value: 0.6, min: 0, max: 1, low: 0.3, high: 0.8)
 
 ### Table / Thead / Tbody / Tfoot / Tr / Th / Td
 
-```dart
+```
 Table(
   className: 'w-full',
   children: [
@@ -372,7 +372,7 @@ Table(
 ### Col / Colgroup
 Column styling.
 
-```dart
+```
 Colgroup(children: [
   Col(className: 'bg-gray-100'),
   Col(),
@@ -395,7 +395,7 @@ Image element (no children).
 | `height` | `int?` | Height in pixels |
 | `loading` | `MediaLoading?` | lazy or eager |
 
-```dart
+```
 Img(
   src: '/images/photo.jpg',
   alt: 'A photo',
@@ -416,7 +416,7 @@ Media players.
 | `loop` | `bool` | Loop playback |
 | `muted` | `bool` | Muted |
 
-```dart
+```
 Video(
   src: '/video.mp4',
   controls: true,
@@ -433,7 +433,7 @@ Audio(
 ### Source
 Media source for video/audio.
 
-```dart
+```
 Video(
   controls: true,
   children: [
@@ -452,7 +452,7 @@ Embedded frame.
 | `allow` | `String?` | Feature policy |
 | `sandbox` | `String?` | Sandbox restrictions |
 
-```dart
+```
 Iframe(
   src: 'https://www.youtube.com/embed/xyz',
   width: 560,
@@ -464,7 +464,7 @@ Iframe(
 ### Figure / Figcaption
 Figure with caption.
 
-```dart
+```
 Figure(children: [
   Img(src: '/photo.jpg', alt: 'Photo'),
   Figcaption(child: Text('Photo caption')),
@@ -478,7 +478,7 @@ Figure(children: [
 ### Header / Footer / Nav / Main / Article / Aside / Section
 Semantic layout elements.
 
-```dart
+```
 Header(child: Nav(children: [/* links */]))
 Main(child: Article(children: [/* content */]))
 Aside(child: Section(children: [/* sidebar */]))
@@ -492,7 +492,7 @@ Disclosure widget.
 |-----------|------|-------------|
 | `open` | `bool` | Initially open |
 
-```dart
+```
 Details(
   open: true,
   children: [
@@ -509,7 +509,7 @@ Dialog/modal element.
 |-----------|------|-------------|
 | `open` | `bool` | Dialog visible |
 
-```dart
+```
 Dialog(
   open: isOpen,
   children: [
@@ -533,7 +533,7 @@ SVG container.
 | `width` | `Unit?` | Width (use .px extension) |
 | `height` | `Unit?` | Height (use .px extension) |
 
-```dart
+```
 Svg(
   viewBox: '0 0 100 100',
   width: 100.px,
@@ -545,7 +545,7 @@ Svg(
 ### Rect / Circle / Ellipse / Line / Path / Polygon / Polyline
 SVG shapes.
 
-```dart
+```
 // Rectangle
 Rect(x: '10', y: '10', width: '80', height: '40', fill: Color.hex(0x3B82F6), rx: '4')
 
@@ -575,7 +575,7 @@ Polyline(points: '10,80 30,20 50,60 70,30 90,70', stroke: Color.hex(0x06B6D4), f
 ### Text
 Create text content.
 
-```dart
+```
 Text('Hello, World!')
 Text('With key', key: Key('text-1'))
 ```
@@ -583,14 +583,14 @@ Text('With key', key: Key('text-1'))
 ### Raw
 Insert raw HTML.
 
-```dart
+```
 Raw('<strong>Bold</strong> text')
 ```
 
 ### Fragment
 Group components without a wrapper element.
 
-```dart
+```
 Fragment([
   H1(child: Text('Title')),
   P(child: Text('Paragraph')),
