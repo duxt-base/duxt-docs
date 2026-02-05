@@ -6,6 +6,7 @@ import '../components/site_header.dart';
 import '../components/sidebar_duxt.dart';
 import '../components/sidebar_ui.dart';
 import '../components/sidebar_orm.dart';
+import '../components/sidebar_signals.dart';
 
 /// Unified documentation layout that works for all doc sections.
 ///
@@ -127,6 +128,14 @@ class OrmLayout extends DocsLayout {
   const OrmLayout() : super(
     sidebar: const SidebarOrm(),
     layoutName: 'orm-layout',
+  );
+}
+
+/// Duxt Signals docs layout (with SidebarSignals)
+class SignalsLayout extends DocsLayout {
+  const SignalsLayout() : super(
+    sidebar: const SidebarSignals(),
+    layoutName: 'signals-layout',
   );
 }
 

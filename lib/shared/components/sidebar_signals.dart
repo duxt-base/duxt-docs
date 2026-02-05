@@ -1,9 +1,9 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 
-/// Sidebar navigation for Duxt Framework documentation.
-class SidebarDuxt extends StatelessComponent {
-  const SidebarDuxt({super.key});
+/// Sidebar navigation for Duxt Signals documentation.
+class SidebarSignals extends StatelessComponent {
+  const SidebarSignals({super.key});
 
   @override
   Component build(BuildContext context) {
@@ -11,31 +11,19 @@ class SidebarDuxt extends StatelessComponent {
       Document.head(children: [Style(styles: _styles)]),
       nav(classes: 'sidebar-nav', [
         _group('Getting Started', [
-          _link('Introduction', '/duxt'),
-          _link('Scaffold Tutorial', '/duxt/tutorial'),
+          _link('Introduction', '/duxt-signals'),
+          _link('Getting Started', '/duxt-signals/getting-started'),
         ]),
-        _group('Core Concepts', [
-          _link('Modules', '/duxt/modules'),
-          _link('Routing', '/duxt/routing'),
-          _link('Pages', '/duxt/pages'),
-          _link('Layouts', '/duxt/layouts'),
-          _link('Middleware', '/duxt/middleware'),
+        _group('Core', [
+          _link('Signals', '/duxt-signals/signals'),
+          _link('Computed', '/duxt-signals/computed'),
+          _link('Effects', '/duxt-signals/effects'),
         ]),
-        _group('Data & State', [
-          _link('API Client', '/duxt/api-client'),
-          _link('State Management', '/duxt/state'),
-          _link('Server API', '/duxt/server'),
+        _group('Forms', [
+          _link('Form State', '/duxt-signals/forms'),
         ]),
-        _group('Styling & Config', [
-          _link('Configuration', '/duxt/configuration'),
-          _link('Tailwind CSS', '/duxt/tailwind'),
-        ]),
-        _group('Tools', [
-          _link('CLI Commands', '/duxt/cli'),
-          _link('Content System', '/duxt/content'),
-        ]),
-        _group('Deployment', [
-          _link('Deploy', '/duxt/deploy'),
+        _group('Guides', [
+          _link('Examples', '/duxt-signals/examples'),
         ]),
       ]),
     ]);
