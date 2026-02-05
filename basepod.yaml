@@ -1,6 +1,6 @@
 name: duxt
 type: static
 domain: duxt.dev
-public: build/jaspr
+public: .output/public
 
 # Build locally with duxt build, then deploy pre-built files
