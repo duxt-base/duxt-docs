@@ -17,6 +17,10 @@ echo ""
 sed -i '' "s/v[0-9]\+\.[0-9]\+\.[0-9]\+/v$DUXT_VERSION/" lib/shared/components/landing_hero.dart
 echo "✓ Updated version to v$DUXT_VERSION"
 
+# Clean stale build output
+echo "→ Cleaning..."
+rm -rf .output/public
+
 # Build
 echo "→ Building..."
 duxt build
