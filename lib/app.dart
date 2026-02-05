@@ -59,6 +59,7 @@ Component _doc(Component child) {
   return Document(
     lang: 'en',
     head: [
+      RawText('<meta name="viewport" content="width=device-width, initial-scale=1.0">'),
       link(href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Nunito:wght@300;400;500;600;700&display=swap', rel: 'stylesheet'),
       link(href: '/styles.css', rel: 'stylesheet'),
       script(src: 'https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js'),

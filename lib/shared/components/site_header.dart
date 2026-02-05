@@ -29,12 +29,18 @@ class SiteHeader extends StatelessComponent {
       Document.head(children: [
         Style(styles: _styles),
         _themeScript(),
+        _mobileMenuScript(),
       ]),
       header(classes: 'site-header', [
         // Logo
         a(classes: 'site-logo', href: '/', [
           img(src: logo, alt: logoAlt, width: 56, height: 56),
         ]),
+        // Hamburger button (mobile only)
+        RawText('''<button class="hamburger-btn" aria-label="Open menu" onclick="toggleMobileMenu()">
+          <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>'''),
         // Navigation - use custom items if provided, otherwise default nav
         if (items != null)
           nav(classes: 'site-nav', items!)
@@ -90,6 +96,22 @@ class SiteHeader extends StatelessComponent {
         });
         observer.observe(document.documentElement, { attributes: true });
       })();
+    </script>''');
+  }
+
+  static Component _mobileMenuScript() {
+    return RawText('''<script>
+      function toggleMobileMenu() {
+        document.querySelector('.site-header').classList.toggle('mobile-open');
+      }
+      document.addEventListener('click', function(e) {
+        var header = document.querySelector('.site-header');
+        if (header && header.classList.contains('mobile-open')) {
+          if (e.target.closest('.nav-link')) {
+            header.classList.remove('mobile-open');
+          }
+        }
+      });
     </script>''');
   }
 
@@ -171,6 +193,26 @@ class SiteHeader extends StatelessComponent {
           css('img').styles(height: 56.px, width: 56.px),
         ]),
 
+        // Hamburger button - hidden on desktop
+        css('.hamburger-btn', [
+          css('&').styles(raw: {
+            'display': 'none',
+            'background': 'none',
+            'border': 'none',
+            'color': 'var(--text)',
+            'cursor': 'pointer',
+            'padding': '0.5rem',
+            'margin-left': 'auto',
+            'z-index': '101',
+          }),
+          css('.close-icon').styles(raw: {'display': 'none'}),
+        ]),
+        // Show close icon when open
+        css('.site-header.mobile-open .hamburger-btn', [
+          css('.hamburger-icon').styles(raw: {'display': 'none'}),
+          css('.close-icon').styles(raw: {'display': 'block'}),
+        ]),
+
         // Navigation
         css('.site-nav', [
           css('&').styles(
@@ -203,6 +245,74 @@ class SiteHeader extends StatelessComponent {
             },
           ),
           css('&:hover').styles(raw: {'opacity': '1'}),
+        ]),
+
+        // Mobile styles
+        css.media(MediaQuery.all(maxWidth: 768.px), [
+          css('.site-header').styles(raw: {
+            'padding': '0 1rem',
+            'flex-wrap': 'wrap',
+          }),
+          css('.site-logo img').styles(raw: {
+            'width': '40px',
+            'height': '40px',
+          }),
+          css('.hamburger-btn').styles(raw: {
+            'display': 'flex',
+            'align-items': 'center',
+          }),
+          css('.site-nav').styles(raw: {
+            'display': 'none',
+          }),
+          css('.site-header-right').styles(raw: {
+            'display': 'none',
+          }),
+
+          // Mobile open state - full screen overlay
+          css('.site-header.mobile-open').styles(raw: {
+            'position': 'fixed',
+            'top': '0',
+            'left': '0',
+            'right': '0',
+            'bottom': '0',
+            'height': '100vh',
+            'flex-direction': 'column',
+            'align-items': 'flex-start',
+            'padding-top': '1rem',
+            'overflow-y': 'auto',
+            'z-index': '1000',
+          }),
+          css('.site-header.mobile-open .site-logo').styles(raw: {
+            'width': '100%',
+            'padding-bottom': '1rem',
+            'border-bottom': '1px solid #27272a',
+          }),
+          css('.site-header.mobile-open .hamburger-btn').styles(raw: {
+            'position': 'absolute',
+            'top': '1rem',
+            'right': '1rem',
+          }),
+          css('.site-header.mobile-open .site-nav').styles(raw: {
+            'display': 'flex',
+            'flex-direction': 'column',
+            'width': '100%',
+            'gap': '0.25rem',
+            'padding': '1rem 0',
+          }),
+          css('.site-header.mobile-open .nav-link').styles(raw: {
+            'padding': '0.75rem 1rem',
+            'font-size': '1.125rem',
+            'border-radius': '0.5rem',
+            'width': '100%',
+          }),
+          css('.site-header.mobile-open .site-header-right').styles(raw: {
+            'display': 'flex',
+            'width': '100%',
+            'padding-top': '1rem',
+            'border-top': '1px solid #27272a',
+            'justify-content': 'center',
+            'gap': '1.5rem',
+          }),
         ]),
       ];
 }

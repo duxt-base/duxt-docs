@@ -33,6 +33,9 @@ class DocsLayout extends PageLayoutBase {
   Iterable<Component> buildHead(Page page) sync* {
     yield* super.buildHead(page);
     yield Style(styles: _layoutStyles);
+    if (sidebar != null) {
+      yield _sidebarDrawerScript();
+    }
   }
 
   @override
@@ -42,12 +45,40 @@ class DocsLayout extends PageLayoutBase {
     return div(classes: 'scaffold', [
       const SiteHeader(),
       div(classes: 'scaffold-container has-header', [
-        if (hasSidebar) aside(classes: 'scaffold-sidebar', [sidebar!]),
+        if (hasSidebar) ...[
+          // Backdrop overlay for mobile sidebar
+          RawText('<div class="sidebar-backdrop" onclick="closeSidebarDrawer()"></div>'),
+          aside(classes: 'scaffold-sidebar', [sidebar!]),
+          // Floating docs menu button for mobile
+          RawText('''<button class="sidebar-toggle-btn" aria-label="Open docs menu" onclick="toggleSidebarDrawer()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>
+            <span>Docs</span>
+          </button>'''),
+        ],
         main_(classes: 'scaffold-main ${hasSidebar ? "has-sidebar" : ""}', [
           article(classes: 'scaffold-content prose dark:prose-invert', [child]),
         ]),
       ]),
     ]);
+  }
+
+  static Component _sidebarDrawerScript() {
+    return RawText('''<script>
+      function toggleSidebarDrawer() {
+        document.querySelector('.scaffold-container').classList.toggle('sidebar-open');
+      }
+      function closeSidebarDrawer() {
+        document.querySelector('.scaffold-container').classList.remove('sidebar-open');
+      }
+      document.addEventListener('click', function(e) {
+        var container = document.querySelector('.scaffold-container');
+        if (container && container.classList.contains('sidebar-open')) {
+          if (e.target.closest('.scaffold-sidebar a')) {
+            container.classList.remove('sidebar-open');
+          }
+        }
+      });
+    </script>''');
   }
 
   static List<StyleRule> get _layoutStyles => [
@@ -101,10 +132,87 @@ class DocsLayout extends PageLayoutBase {
       ),
     ]),
 
-    // Mobile
+    // Sidebar backdrop (hidden by default)
+    css('.sidebar-backdrop', [
+      css('&').styles(raw: {
+        'display': 'none',
+        'position': 'fixed',
+        'top': '0',
+        'left': '0',
+        'right': '0',
+        'bottom': '0',
+        'background': 'rgba(0, 0, 0, 0.5)',
+        'z-index': '49',
+      }),
+    ]),
+
+    // Floating sidebar toggle button (hidden by default, shown on mobile)
+    css('.sidebar-toggle-btn', [
+      css('&').styles(raw: {
+        'display': 'none',
+        'position': 'fixed',
+        'bottom': '1.5rem',
+        'left': '1.5rem',
+        'z-index': '48',
+        'background': 'var(--nav-hover, #22d3ee)',
+        'color': '#09090b',
+        'border': 'none',
+        'border-radius': '2rem',
+        'padding': '0.625rem 1rem',
+        'font-family': "'Nunito', system-ui, sans-serif",
+        'font-size': '0.875rem',
+        'font-weight': '600',
+        'cursor': 'pointer',
+        'align-items': 'center',
+        'gap': '0.5rem',
+        'box-shadow': '0 4px 12px rgba(0, 0, 0, 0.3)',
+        'transition': 'transform 0.2s, box-shadow 0.2s',
+      }),
+      css('&:hover').styles(raw: {
+        'transform': 'scale(1.05)',
+        'box-shadow': '0 6px 16px rgba(0, 0, 0, 0.4)',
+      }),
+    ]),
+
+    // Mobile responsive
     css.media(MediaQuery.all(maxWidth: 768.px), [
-      css('.scaffold-sidebar').styles(display: Display.none),
+      // Sidebar becomes drawer (off-screen by default)
+      css('.scaffold-sidebar').styles(raw: {
+        'transform': 'translateX(-100%)',
+        'transition': 'transform 0.3s ease',
+        'z-index': '50',
+        'top': '0',
+        'padding-top': '1.5rem',
+      }),
       css('.scaffold-main.has-sidebar').styles(raw: {'margin-left': '0'}),
+      // Show floating button
+      css('.sidebar-toggle-btn').styles(raw: {'display': 'flex'}),
+      // Responsive padding
+      css('.scaffold-main').styles(raw: {'padding': '1rem'}),
+
+      // When sidebar is open
+      css('.scaffold-container.sidebar-open .sidebar-backdrop').styles(raw: {
+        'display': 'block',
+      }),
+      css('.scaffold-container.sidebar-open .scaffold-sidebar').styles(raw: {
+        'transform': 'translateX(0)',
+      }),
+      css('.scaffold-container.sidebar-open .sidebar-toggle-btn').styles(raw: {
+        'display': 'none',
+      }),
+    ]),
+
+    // Extra small screens
+    css.media(MediaQuery.all(maxWidth: 480.px), [
+      css('.scaffold-main').styles(raw: {'padding': '0.75rem'}),
+    ]),
+
+    // Overflow handling for code blocks and tables
+    css('.scaffold-content pre', [
+      css('&').styles(raw: {'overflow-x': 'auto'}),
+    ]),
+    css('.scaffold-content table', [
+      css('&').styles(raw: {'overflow-x': 'auto', 'display': 'block'}),
     ]),
   ];
 }
