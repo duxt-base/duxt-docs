@@ -1,6 +1,8 @@
 ---
 title: Scaffold Tutorial
 description: Build a complete blog application with the scaffold command
+layout: cli-layout
+order: 8
 ---
 
 # Scaffold Tutorial
@@ -11,7 +13,7 @@ Learn how to build a full-featured blog application using Duxt's scaffold comman
 
 Make sure you have Duxt installed:
 
-```bash
+```
 dart pub global activate duxt
 ```
 
@@ -19,7 +21,7 @@ dart pub global activate duxt
 
 Start with a fresh server-mode project:
 
-```bash
+```
 duxt create my_blog --template=minimal --mode=server
 cd my_blog
 ```
@@ -28,7 +30,7 @@ cd my_blog
 
 For a basic blog with posts and categories:
 
-```bash
+```
 duxt scaffold categories name:string slug:string description:text
 duxt scaffold posts title:string content:text published:bool category:belongsTo:Category
 duxt dev
@@ -46,7 +48,7 @@ Let's build a complete blog with users, categories, tags, posts, comments, and m
 
 Create a user model for authors:
 
-```bash
+```
 duxt scaffold users name:string email:email avatar:image bio:text role:string active:bool last_login:datetime
 ```
 
@@ -63,7 +65,7 @@ duxt scaffold users name:string email:email avatar:image bio:text role:string ac
 
 Create categories with self-referential parent relation:
 
-```bash
+```
 duxt scaffold categories name:string slug:string description:text icon:string color:string sort_order:int parent:belongsTo:Category
 ```
 
@@ -75,7 +77,7 @@ duxt scaffold categories name:string slug:string description:text icon:string co
 
 Create tags for flexible post labeling:
 
-```bash
+```
 duxt scaffold tags name:string slug:string color:string
 ```
 
@@ -83,7 +85,7 @@ duxt scaffold tags name:string slug:string color:string
 
 Create the main post model with multiple relations:
 
-```bash
+```
 duxt scaffold posts title:string slug:string content:text excerpt:text featured_image:image published:bool publish_date:datetime views:int author:belongsTo:User category:belongsTo:Category tags:toMany:Tag
 ```
 
@@ -96,7 +98,7 @@ duxt scaffold posts title:string slug:string content:text excerpt:text featured_
 
 Create comments with two belongsTo relations:
 
-```bash
+```
 duxt scaffold comments content:text author_name:string author_email:email website:string approved:bool ip_address:string post:belongsTo:Post user:belongsTo:User
 ```
 
@@ -106,13 +108,13 @@ duxt scaffold comments content:text author_name:string author_email:email websit
 
 Create a media management system:
 
-```bash
+```
 duxt scaffold media filename:string path:string mime_type:string size:int alt_text:string caption:text user:belongsTo:User
 ```
 
 ### Step 7: Run the Application
 
-```bash
+```
 duxt dev
 ```
 
@@ -130,7 +132,7 @@ Visit:
 
 Here's the complete setup in one block:
 
-```bash
+```
 duxt create my_blog --template=minimal --mode=server
 cd my_blog
 duxt scaffold users name:string email:email avatar:image bio:text role:string active:bool last_login:datetime
@@ -166,7 +168,7 @@ duxt dev
 
 ### BelongsTo Example
 
-```bash
+```
 duxt scaffold posts category:belongsTo:Category
 ```
 
@@ -177,7 +179,7 @@ Creates:
 
 ### ToMany Example
 
-```bash
+```
 duxt scaffold posts tags:toMany:Tag
 ```
 
@@ -228,7 +230,7 @@ server/
 
 Scaffold models in dependency order. Create referenced models first:
 
-```bash
+```
 # ✓ Correct order
 duxt scaffold users ...
 duxt scaffold posts author:belongsTo:User    # User exists
@@ -242,7 +244,7 @@ duxt scaffold users ...
 
 Use `--force` to overwrite existing files:
 
-```bash
+```
 duxt scaffold posts title:string --force
 ```
 
@@ -250,7 +252,7 @@ duxt scaffold posts title:string --force
 
 For SSR-only models without REST endpoints:
 
-```bash
+```
 duxt scaffold posts title:string --no-api
 ```
 
@@ -258,7 +260,7 @@ duxt scaffold posts title:string --no-api
 
 For client-only models (SPA mode):
 
-```bash
+```
 duxt scaffold posts title:string --no-orm
 ```
 

@@ -23,6 +23,7 @@ class App extends StatelessComponent {
           DuxtLayout(),
           OrmLayout(),
           SignalsLayout(),
+          CliLayout(),
           LandingLayout(),
         ],
         components: [

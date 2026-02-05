@@ -1,9 +1,9 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 
-/// Sidebar navigation for Duxt Framework documentation.
-class SidebarDuxt extends StatelessComponent {
-  const SidebarDuxt({super.key});
+/// Sidebar navigation for Duxt CLI documentation.
+class SidebarCli extends StatelessComponent {
+  const SidebarCli({super.key});
 
   @override
   Component build(BuildContext context) {
@@ -11,30 +11,33 @@ class SidebarDuxt extends StatelessComponent {
       Document.head(children: [Style(styles: _styles)]),
       nav(classes: 'sidebar-nav', [
         _group('Getting Started', [
-          _link('Introduction', '/duxt'),
+          _link('Overview', '/duxt-cli'),
+          _link('Installation', '/duxt-cli#installation'),
+          _link('Scaffold Tutorial', '/duxt-cli/tutorial'),
         ]),
-        _group('Core Concepts', [
-          _link('Modules', '/duxt/modules'),
-          _link('Routing', '/duxt/routing'),
-          _link('Pages', '/duxt/pages'),
-          _link('Layouts', '/duxt/layouts'),
-          _link('Middleware', '/duxt/middleware'),
+        _group('Project', [
+          _link('create', '/duxt-cli/create'),
         ]),
-        _group('Data & State', [
-          _link('API Client', '/duxt/api-client'),
-          _link('State Management', '/duxt/state'),
-          _link('Server API', '/duxt/server'),
+        _group('Development', [
+          _link('dev', '/duxt-cli/dev'),
+          _link('build', '/duxt-cli/build'),
+          _link('preview', '/duxt-cli/build#preview'),
+          _link('generate (SSG)', '/duxt-cli/build#generate'),
         ]),
-        _group('Styling & Config', [
-          _link('Configuration', '/duxt/configuration'),
-          _link('Tailwind CSS', '/duxt/tailwind'),
+        _group('Code Generation', [
+          _link('scaffold', '/duxt-cli/scaffold'),
+          _link('g (generate)', '/duxt-cli/generators'),
+          _link('d (delete)', '/duxt-cli/generators#delete'),
         ]),
-        _group('Tools', [
-          _link('CLI Commands', '/duxt-cli'),
-          _link('Content System', '/duxt/content'),
+        _group('Documentation', [
+          _link('docs', '/duxt-cli/docs'),
         ]),
-        _group('Deployment', [
-          _link('Deploy', '/duxt/deploy'),
+        _group('Utilities', [
+          _link('info', '/duxt-cli/utilities#info'),
+          _link('doctor', '/duxt-cli/utilities#doctor'),
+          _link('clean', '/duxt-cli/utilities#clean'),
+          _link('update', '/duxt-cli/utilities#update'),
+          _link('version', '/duxt-cli/utilities#version'),
         ]),
       ]),
     ]);
