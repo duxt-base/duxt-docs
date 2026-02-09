@@ -82,14 +82,14 @@ class Category extends Entity {
 
 ## Eager Loading
 
-Use `.with_()` to load related models in a single query, preventing N+1 queries:
+Use `.include()` to load related models in a single query, preventing N+1 queries:
 
 ```
 final posts = Model<Post>();
 
 // Load posts WITH their categories (2 queries total instead of N+1)
 final results = await posts.query()
-    .with_(['category'])
+    .include(['category'])
     .where('published', 1)
     .get();
 
@@ -104,7 +104,7 @@ final categories = Model<Category>();
 
 // Load categories WITH their posts
 final results = await categories.query()
-    .with_(['posts'])
+    .include(['posts'])
     .get();
 
 for (final category in results) {
@@ -130,7 +130,7 @@ Entity.registerRelation<Category>(
 // Access loaded relation
 final categories = Model<Category>();
 final category = await categories.query()
-    .with_(['posts'])
+    .include(['posts'])
     .find(1);
 
 print(category?.posts.length);  // List<Post>
@@ -153,7 +153,7 @@ Entity.registerRelation<Post>(
 // Access loaded relation
 final posts = Model<Post>();
 final post = await posts.query()
-    .with_(['category'])
+    .include(['category'])
     .find(1);
 
 print(post?.category?.name);  // Category?
@@ -176,7 +176,7 @@ Entity.registerRelation<User>(
 // Access loaded relation
 final users = Model<User>();
 final user = await users.query()
-    .with_(['profile'])
+    .include(['profile'])
     .find(1);
 
 print(user?.profile?.bio);  // Profile?
@@ -208,7 +208,7 @@ Entity.registerPivotTable('post_tags', schema: {
 // Access loaded relation
 final posts = Model<Post>();
 final post = await posts.query()
-    .with_(['tags'])
+    .include(['tags'])
     .find(1);
 
 print(post?.tags.map((t) => t.name));  // List<Tag>
@@ -281,7 +281,7 @@ await post.setTags([1, 2, 3]);
 
 // Load post with tags
 final loaded = await Model<Post>().query()
-    .with_(['tags'])
+    .include(['tags'])
     .find(post.id);
 
 for (final tag in loaded!.tags) {
@@ -350,7 +350,7 @@ Load multiple relations in one query:
 ```
 final posts = Model<Post>();
 final results = await posts.query()
-    .with_(['category', 'author', 'comments'])
+    .include(['category', 'author', 'comments'])
     .get();
 ```
 
@@ -368,7 +368,7 @@ class Post extends Entity {
     var query = Model<Post>().query();
 
     if (withCategory) {
-      query = query.with_(['category']);
+      query = query.include(['category']);
     }
 
     if (publishedOnly) {

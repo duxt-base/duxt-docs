@@ -57,7 +57,7 @@ Column.integer().references('users', 'uid') // References users(uid)
 
 ```
 static void register() {
-  Model.registerModel<Post>(
+  Entity.registerModel<Post>(
     Post.fromRow,
     schema: {
       // Primary key

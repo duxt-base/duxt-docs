@@ -22,7 +22,7 @@ Register your schema once. `DuxtOrm.migrate()` creates and updates tables automa
 Chain `.where()`, `.orderBy()`, `.limit()`, and more. Reads like English, compiles to efficient SQL.
 
 ### Relations & Eager Loading
-HasMany, BelongsTo, HasOne with `.with_()` for eager loading. No N+1 queries.
+HasMany, BelongsTo, HasOne with `.include()` for eager loading. No N+1 queries.
 
 ### Multi-Database
 Switch between PostgreSQL, MySQL, and SQLite with a config change. Same API everywhere.
@@ -39,7 +39,7 @@ dependencies:
 Define a model:
 
 ```
-class User extends Model {
+class User extends Entity {
   String? email;
   String? name;
 
@@ -48,7 +48,7 @@ class User extends Model {
   @override Map<String, dynamic> toMap() => {'email': email, 'name': name};
 
   static void register() {
-    Model.registerModel<User>(
+    Entity.registerModel<User>(
       (row) => User(id: row['id'], email: row['email'], name: row['name']),
       schema: {
         'id': Column.integer().primaryKey().autoIncrement(),
