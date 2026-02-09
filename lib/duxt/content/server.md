@@ -177,7 +177,7 @@ void main() {
   // Create server with middleware
   final server = DuxtServer(
     port: 3001,
-    middleware: [cors(), jsonBody(), logger()],
+    middleware: [securityHeaders(), bodyLimit(), cors(origins: ['http://localhost:4000']), jsonBody(), logger()],
   );
 
   // Register routes
@@ -195,7 +195,7 @@ void main() {
 ```
 final server = DuxtServer(
   port: 3001,
-  middleware: [cors(), jsonBody(), logger()],
+  middleware: [securityHeaders(), bodyLimit(), cors(origins: ['http://localhost:4000']), jsonBody(), logger()],
 );
 ```
 
@@ -230,14 +230,33 @@ return json({'error': 'Not found'}, statusCode: 404);
 
 ## Built-in Middleware
 
-### CORS
+### Security Headers
 
 ```
-cors(
-  origins: ['*'],  // or specific origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  headers: ['Content-Type', 'Authorization'],
-)
+securityHeaders()  // X-Content-Type-Options, X-Frame-Options, X-XSS-Protection
+```
+
+### Body Limit
+
+```
+bodyLimit()                         // Default 1 MB limit
+bodyLimit(maxBytes: 5 * 1024 * 1024) // Custom 5 MB limit
+```
+
+### Rate Limiting
+
+```
+rateLimit()                         // 100 requests/min per IP
+rateLimit(maxRequests: 50, window: Duration(seconds: 30))
+```
+
+### CORS
+
+Requires explicit origins. Use `['*']` only for public APIs:
+
+```
+cors(origins: ['https://myapp.com'])
+cors(origins: ['*'])  // Development only
 ```
 
 ### JSON Body Parser
@@ -251,6 +270,17 @@ jsonBody()  // Parses JSON request bodies
 ```
 logger()  // Logs requests: GET /api/posts 200 12ms
 ```
+
+### Auth
+
+```
+auth((request) async {
+  final token = request.headers['authorization'];
+  return token != null && await verifyToken(token);
+})
+```
+
+See the [Security](/duxt/security) guide for the complete middleware reference.
 
 ## Calling the API from Frontend
 
