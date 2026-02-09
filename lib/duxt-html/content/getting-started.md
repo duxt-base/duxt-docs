@@ -13,7 +13,7 @@ Add duxt_html to your `pubspec.yaml`:
 
 ```
 dependencies:
-  duxt_html: ^0.2.0
+  duxt_html: ^1.0.0
 ```
 
 Or use the Duxt CLI to create a new project with duxt_html:

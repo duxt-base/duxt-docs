@@ -683,6 +683,112 @@ Polyline(points: '10,80 30,20 50,60 70,30 90,70', stroke: Color.hex(0x06B6D4), f
 
 ---
 
+## HTML5 Extended Elements
+
+These elements are not in Jaspr's DOM helpers but are fully supported via `Component.element()`.
+
+### Text: Abbr, Mark, Sub, Sup, Time, Kbd, Del, Ins, and more
+
+```
+// Abbreviation with title
+Abbr(title: 'HyperText Markup Language', child: Text('HTML'))
+
+// Highlighted text
+Mark(child: Text('important'))
+
+// Subscript/superscript
+P(children: [Text('H'), Sub(child: Text('2')), Text('O')])
+P(children: [Text('x'), Sup(child: Text('2'))])
+
+// Date/time with machine-readable value
+Time(dateTime: '2026-02-09', child: Text('February 9'))
+
+// Keyboard input
+P(children: [Text('Press '), Kbd(child: Text('Ctrl+C')), Text(' to copy')])
+
+// Deleted/inserted text (diffs)
+P(children: [
+  Del(child: Text('old text')),
+  Ins(child: Text('new text')),
+])
+
+// Inline quotation
+Q(cite: 'https://example.com', child: Text('To be or not to be'))
+```
+
+### Media: Picture, Canvas, Track, ImageMap, Area
+
+```
+// Responsive images
+Picture(children: [
+  Source(src: '/photo.webp', type: 'image/webp'),
+  Source(src: '/photo.avif', type: 'image/avif'),
+  Img(src: '/photo.jpg', alt: 'Fallback'),
+])
+
+// Canvas for drawing
+Canvas(id: 'myCanvas', width: 400, height: 300)
+
+// Video with subtitles
+Video(src: '/movie.mp4', controls: true, children: [
+  Track(src: '/subs-en.vtt', kind: 'subtitles', srclang: 'en', label: 'English', isDefault: true),
+  Track(src: '/subs-es.vtt', kind: 'subtitles', srclang: 'es', label: 'Spanish'),
+])
+```
+
+### Document: Title, StyleElement, Base, Noscript
+
+```
+// Document head elements
+Head(children: [
+  Title(child: Text('My Page')),
+  Meta(charset: 'utf-8'),
+  StyleElement(content: 'body { margin: 0; }'),
+  Base(href: '/app/'),
+])
+
+// No-JavaScript fallback
+Noscript(child: P(child: Text('This app requires JavaScript.')))
+```
+
+### Semantic: Address, Hgroup, Search
+
+```
+// Contact info
+Address(child: A(href: 'mailto:hi@duxt.dev', child: Text('hi@duxt.dev')))
+
+// Heading with subtitle
+Hgroup(children: [
+  H1(child: Text('Duxt HTML')),
+  P(child: Text('Complete HTML5 components for Jaspr')),
+])
+
+// Search form
+Search(child: Form(children: [
+  Input(type: 'search', name: 'q', placeholder: 'Search...'),
+  Button(type: 'submit', child: Text('Go')),
+]))
+```
+
+### Forms: Output
+
+```
+Output(htmlFor: 'range', name: 'result', child: Text('50'))
+```
+
+### Web Components: HtmlTemplate, Slot
+
+```
+HtmlTemplate(id: 'card-template', children: [
+  Div(className: 'card', children: [
+    Slot(name: 'title'),
+    Slot(name: 'content'),
+  ]),
+])
+```
+
+---
+
 ## Helper Functions
 
 ### Text

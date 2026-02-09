@@ -11,7 +11,7 @@ order: 1
 
 ## What is Duxt HTML?
 
-Duxt HTML wraps **every** Jaspr DOM element with Flutter-style PascalCase components. Instead of Jaspr's lowercase functions with positional lists, use PascalCase components with named parameters. Everything returns standard Jaspr `Component` types, so you can mix and match freely.
+Duxt HTML provides **every HTML5 element** as a Flutter-style PascalCase component. Instead of Jaspr's lowercase functions with positional lists, use PascalCase components with named parameters. Everything returns standard Jaspr `Component` types, so you can mix and match freely.
 
 ```
 // Jaspr style
@@ -49,7 +49,7 @@ Add to your `pubspec.yaml`:
 
 ```
 dependencies:
-  duxt_html: ^0.2.0
+  duxt_html: ^1.0.0
 ```
 
 Then build your UI:
@@ -79,19 +79,20 @@ Div(
 
 ## Components
 
-86 components organized into 9 categories — full Jaspr DOM coverage:
+117 components organized into 10 categories — complete HTML5 coverage:
 
 | Category | Components |
 |----------|------------|
-| Document | Html, Head, Body, Meta, HtmlLink |
-| Content | Div, P, Ul, Ol, Li, Dl, Dt, Dd, Blockquote, Pre, Hr |
-| Text | A, Span, Strong, B, Em, I, U, S, Small, Code, Br, Wbr |
+| Document | Html, Head, Body, Title, StyleElement, Base, Meta, HtmlLink, Noscript |
+| Content | Div, P, Ul, Ol, Li, Dl, Dt, Dd, Blockquote, Pre, Hr, Menu |
+| Text | A, Span, Strong, B, Em, I, U, S, Small, Code, Br, Wbr, Abbr, Bdi, Bdo, Cite, HtmlData, Dfn, Kbd, Mark, Q, Rp, Rt, Ruby, Samp, Sub, Sup, Time, HtmlVar, Del, Ins |
 | Headings | H1, H2, H3, H4, H5, H6 |
-| Forms | Form, Input, Button, Select, Option, Textarea, Label, Fieldset, Legend, Datalist, Meter, Progress, Optgroup |
+| Forms | Form, Input, Button, Select, Option, Textarea, Label, Fieldset, Legend, Datalist, Meter, Progress, Optgroup, Output |
 | Table | Table, Tr, Td, Th, Thead, Tbody, Tfoot, Caption, Col, Colgroup |
-| Media | Img, Video, Audio, Source, Iframe, Embed, ObjectEmbed, Figure, Figcaption, Script |
-| Semantic | Header, Footer, Nav, Main, Article, Aside, Section, Details, Summary, Dialog |
+| Media | Img, Video, Audio, Source, Iframe, Embed, ObjectEmbed, Picture, Canvas, Track, ImageMap, Area, Figure, Figcaption, Script |
+| Semantic | Header, Footer, Nav, Main, Article, Aside, Section, Details, Summary, Dialog, Address, Hgroup, Search |
 | SVG | Svg, Rect, Circle, Ellipse, Line, Path, Polygon, Polyline |
+| Web Components | HtmlTemplate, Slot |
 
 ## Next Steps
 

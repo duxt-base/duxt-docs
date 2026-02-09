@@ -33,10 +33,14 @@ Components with children also accept `child` (single) or `children` (list) — n
 | `Html` | `<html>` | yes | — |
 | `Head` | `<head>` | yes | — |
 | `Body` | `<body>` | yes | — |
+| `Title` | `<title>` | yes | — |
+| `StyleElement` | `<style>` | yes | `content` (inline CSS text), `media` |
+| `Base` | `<base>` | no | `href`, `target` |
 | `Meta` | `<meta>` | no | `name`, `content`, `charset`, `httpEquiv` |
 | `HtmlLink` | `<link>` | no | `href` (required), `rel`, `type`, `as` |
+| `Noscript` | `<noscript>` | yes | — |
 
-> `HtmlLink` is named to avoid conflict with jaspr_router's `Link` component.
+> Renamed: `HtmlLink` (vs jaspr_router Link), `StyleElement` (vs Styles class).
 
 ---
 
@@ -55,6 +59,7 @@ Components with children also accept `child` (single) or `children` (list) — n
 | `Blockquote` | `<blockquote>` | yes | `cite` |
 | `Pre` | `<pre>` | yes | — |
 | `Hr` | `<hr>` | no | — |
+| `Menu` | `<menu>` | yes | — |
 
 ---
 
@@ -74,6 +79,27 @@ Components with children also accept `child` (single) or `children` (list) — n
 | `Code` | `<code>` | yes | — |
 | `Br` | `<br>` | no | — |
 | `Wbr` | `<wbr>` | no | — |
+| `Abbr` | `<abbr>` | yes | `title` |
+| `Bdi` | `<bdi>` | yes | — |
+| `Bdo` | `<bdo>` | yes | `dir` |
+| `Cite` | `<cite>` | yes | — |
+| `HtmlData` | `<data>` | yes | `value` |
+| `Dfn` | `<dfn>` | yes | — |
+| `Kbd` | `<kbd>` | yes | — |
+| `Mark` | `<mark>` | yes | — |
+| `Q` | `<q>` | yes | `cite` |
+| `Rp` | `<rp>` | yes | — |
+| `Rt` | `<rt>` | yes | — |
+| `Ruby` | `<ruby>` | yes | — |
+| `Samp` | `<samp>` | yes | — |
+| `Sub` | `<sub>` | yes | — |
+| `Sup` | `<sup>` | yes | — |
+| `Time` | `<time>` | yes | `dateTime` |
+| `HtmlVar` | `<var>` | yes | — |
+| `Del` | `<del>` | yes | `cite`, `dateTime` |
+| `Ins` | `<ins>` | yes | `cite`, `dateTime` |
+
+> Renamed: `HtmlData` (vs common Data class), `HtmlVar` (vs `var` keyword).
 
 ---
 
@@ -107,6 +133,7 @@ Components with children also accept `child` (single) or `children` (list) — n
 | `Datalist` | `<datalist>` | yes | — |
 | `Meter` | `<meter>` | yes | `value`, `min`, `max`, `low`, `high`, `optimum` |
 | `Progress` | `<progress>` | yes | `value`, `max` |
+| `Output` | `<output>` | yes | `htmlFor`, `name` |
 
 ---
 
@@ -139,10 +166,15 @@ Components with children also accept `child` (single) or `children` (list) — n
 | `Embed` | `<embed>` | no | `src` (required), `type`, `width`, `height` |
 | `ObjectEmbed` | `<object>` | yes | `data`, `name`, `type`, `width`, `height` |
 | `Script` | `<script>` | no | `src`, `content`, `async`, `defer` |
+| `Picture` | `<picture>` | yes | — |
+| `Canvas` | `<canvas>` | yes | `width`, `height` |
+| `Track` | `<track>` | no | `src`, `kind`, `srclang`, `label`, `isDefault` |
+| `ImageMap` | `<map>` | yes | `name` |
+| `Area` | `<area>` | no | `href`, `alt`, `shape`, `coords`, `target`, `download` |
 | `Figure` | `<figure>` | yes | — |
 | `Figcaption` | `<figcaption>` | yes | — |
 
-> `ObjectEmbed` is named to avoid conflict with Dart's built-in `Object` class.
+> Renamed: `ObjectEmbed` (vs Dart's Object), `ImageMap` (vs Dart's Map).
 
 ---
 
@@ -160,6 +192,9 @@ Components with children also accept `child` (single) or `children` (list) — n
 | `Details` | `<details>` | yes | `open` |
 | `Summary` | `<summary>` | yes | — |
 | `Dialog` | `<dialog>` | yes | `open` |
+| `Address` | `<address>` | yes | — |
+| `Hgroup` | `<hgroup>` | yes | — |
+| `Search` | `<search>` | yes | — |
 
 ---
 
@@ -175,6 +210,15 @@ Components with children also accept `child` (single) or `children` (list) — n
 | `Path` | `<path>` | yes | `d`, `fill`, `stroke`, `strokeWidth` |
 | `Polygon` | `<polygon>` | yes | `points`, `fill`, `stroke`, `strokeWidth` |
 | `Polyline` | `<polyline>` | yes | `points`, `fill`, `stroke`, `strokeWidth` |
+
+---
+
+## Web Component Elements
+
+| Component | HTML | Children | Specific Parameters |
+|-----------|------|----------|-------------------|
+| `HtmlTemplate` | `<template>` | yes | — |
+| `Slot` | `<slot>` | yes | `name` |
 
 ---
 
