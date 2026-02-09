@@ -16,6 +16,7 @@ class SidebarHtml extends StatelessComponent {
         ]),
         _group('Reference', [
           _link('Components', '/duxt-html/components'),
+          _link('API Reference', '/duxt-html/api-reference'),
           _link('Examples', '/duxt-html/examples'),
         ]),
       ]),
