@@ -11,7 +11,7 @@ order: 1
 
 ## What is Duxt HTML?
 
-Duxt HTML provides 80+ HTML components that follow Flutter's composition patterns. Instead of Jaspr's lowercase functions with positional lists, use PascalCase components with named parameters. Everything returns standard Jaspr `Component` types, so you can mix and match freely.
+Duxt HTML wraps **every** Jaspr DOM element with Flutter-style PascalCase components. Instead of Jaspr's lowercase functions with positional lists, use PascalCase components with named parameters. Everything returns standard Jaspr `Component` types, so you can mix and match freely.
 
 ```
 // Jaspr style
@@ -49,7 +49,7 @@ Add to your `pubspec.yaml`:
 
 ```
 dependencies:
-  duxt_html: ^0.1.1
+  duxt_html: ^0.2.0
 ```
 
 Then build your UI:
@@ -79,16 +79,17 @@ Div(
 
 ## Components
 
-80 components organized into 8 categories:
+86 components organized into 9 categories — full Jaspr DOM coverage:
 
 | Category | Components |
 |----------|------------|
+| Document | Html, Head, Body, Meta, HtmlLink |
 | Content | Div, P, Ul, Ol, Li, Dl, Dt, Dd, Blockquote, Pre, Hr |
 | Text | A, Span, Strong, B, Em, I, U, S, Small, Code, Br, Wbr |
 | Headings | H1, H2, H3, H4, H5, H6 |
 | Forms | Form, Input, Button, Select, Option, Textarea, Label, Fieldset, Legend, Datalist, Meter, Progress, Optgroup |
 | Table | Table, Tr, Td, Th, Thead, Tbody, Tfoot, Caption, Col, Colgroup |
-| Media | Img, Video, Audio, Source, Iframe, Embed, Figure, Figcaption |
+| Media | Img, Video, Audio, Source, Iframe, Embed, ObjectEmbed, Figure, Figcaption, Script |
 | Semantic | Header, Footer, Nav, Main, Article, Aside, Section, Details, Summary, Dialog |
 | SVG | Svg, Rect, Circle, Ellipse, Line, Path, Polygon, Polyline |
 

@@ -24,6 +24,82 @@ All components share common parameters plus element-specific ones.
 
 ---
 
+## Document Elements
+
+These wrap the top-level HTML document elements and `<head>` metadata tags.
+
+### Html
+Root HTML document element.
+
+```
+Html(
+  attributes: {'lang': 'en'},
+  children: [
+    Head(children: [/* meta, links */]),
+    Body(children: [/* content */]),
+  ],
+)
+```
+
+### Head
+Document head — contains metadata, links, and scripts.
+
+```
+Head(children: [
+  Meta(charset: 'utf-8'),
+  Meta(name: 'viewport', content: 'width=device-width, initial-scale=1'),
+  HtmlLink(href: '/styles.css', rel: 'stylesheet'),
+  Script(src: '/app.js', defer: true),
+])
+```
+
+### Body
+Document body — contains all visible content.
+
+```
+Body(
+  className: 'bg-gray-50 text-gray-900',
+  children: [/* page content */],
+)
+```
+
+### Meta
+Metadata element (no children).
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `name` | `String?` | Meta name (viewport, description, etc.) |
+| `content` | `String?` | Meta content value |
+| `charset` | `String?` | Character encoding |
+| `httpEquiv` | `String?` | HTTP header equivalent |
+
+```
+Meta(charset: 'utf-8')
+Meta(name: 'description', content: 'My awesome app')
+Meta(name: 'viewport', content: 'width=device-width, initial-scale=1')
+Meta(httpEquiv: 'X-UA-Compatible', content: 'IE=edge')
+```
+
+### HtmlLink
+Link element for external resources (no children).
+
+Named `HtmlLink` to avoid confusion with jaspr_router's `Link` component used for SPA navigation.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `href` | `String` | **Required.** Resource URL |
+| `rel` | `String?` | Relationship (stylesheet, icon, etc.) |
+| `type` | `String?` | MIME type |
+| `as` | `String?` | Resource type for preloading |
+
+```
+HtmlLink(href: '/styles.css', rel: 'stylesheet')
+HtmlLink(href: '/favicon.ico', rel: 'icon')
+HtmlLink(href: '/font.woff2', rel: 'preload', as: 'font', type: 'font/woff2')
+```
+
+---
+
 ## Content Elements
 
 ### Div
@@ -459,6 +535,43 @@ Iframe(
   height: 315,
   allow: 'accelerometer; autoplay; encrypted-media',
 )
+```
+
+### ObjectEmbed
+Embedded external resource (plugin content, nested browsing context).
+
+Named `ObjectEmbed` to avoid conflict with Dart's built-in `Object` class.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `data` | `String?` | Resource URL |
+| `name` | `String?` | Browsing context name |
+| `type` | `String?` | MIME type |
+| `width` | `int?` | Width in pixels |
+| `height` | `int?` | Height in pixels |
+
+```
+ObjectEmbed(
+  data: '/document.pdf',
+  type: 'application/pdf',
+  width: 600,
+  height: 400,
+)
+```
+
+### Script
+Script element for executable code or external scripts.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `src` | `String?` | External script URL |
+| `content` | `String?` | Inline script (trusted content only) |
+| `async` | `bool` | Async loading |
+| `defer` | `bool` | Deferred execution |
+
+```
+Script(src: '/app.js', defer: true)
+Script(content: 'console.log("hello")')
 ```
 
 ### Figure / Figcaption
