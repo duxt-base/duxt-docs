@@ -22,7 +22,13 @@ Register your schema once. `DuxtOrm.migrate()` creates and updates tables automa
 Chain `.where()`, `.orderBy()`, `.limit()`, and more. Reads like English, compiles to efficient SQL.
 
 ### Relations & Eager Loading
-HasMany, BelongsTo, HasOne with `.include()` for eager loading. No N+1 queries.
+HasMany, BelongsTo, HasOne with `.include()` for eager loading. Supports nested dot notation (`author.profile`). No N+1 queries.
+
+### Soft Deletes
+Enabled by default on all models. `destroy()` sets `deleted_at` instead of removing rows. Query scopes like `withTrashed()` and `onlyTrashed()` give you full control.
+
+### Lifecycle Hooks
+Override `beforeSave()`, `afterSave()`, `beforeDelete()`, `afterDelete()` to run logic around persistence operations.
 
 ### Multi-Database
 Switch between PostgreSQL, MySQL, and SQLite with a config change. Same API everywhere.
@@ -33,7 +39,7 @@ Add to your `pubspec.yaml`:
 
 ```
 dependencies:
-  duxt_orm: ^0.2.2
+  duxt_orm: ^0.3.0
 ```
 
 Define a model:
@@ -74,8 +80,9 @@ final admins = await users.where('role', 'admin').get();
 
 ## Next Steps
 
-- [Models](/duxt-orm/models) - Define and register models
+- [Models](/duxt-orm/models) - Define and register models, soft deletes, lifecycle hooks
 - [Schema](/duxt-orm/schema) - Column types and modifiers
-- [Queries](/duxt-orm/queries) - Query builder reference
-- [Relations](/duxt-orm/relations) - HasMany, BelongsTo, HasOne with eager loading
+- [Queries](/duxt-orm/queries) - Query builder reference, soft delete scopes
+- [Relations](/duxt-orm/relations) - HasMany, BelongsTo, HasOne with eager loading and nested dot notation
 - [Transactions](/duxt-orm/transactions) - Transactions and raw queries
+- [API Reference](/duxt-orm/api-reference) - Complete method listing

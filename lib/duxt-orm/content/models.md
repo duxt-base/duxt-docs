@@ -202,3 +202,103 @@ await posts.count();
 ```
 
 This gives you Rails-like syntax without the complexity.
+
+## Soft Deletes
+
+Soft deletes are **enabled by default** for all models. When you call `destroy()`, the record gets a `deleted_at` timestamp instead of being permanently removed. The `deleted_at` column is auto-injected into your schema during registration.
+
+### Deleting Records
+
+```
+final post = await Model<Post>().find(1);
+
+// Soft delete (sets deleted_at)
+await post!.destroy();
+
+// Check if soft-deleted
+print(post.trashed); // true
+
+// Restore
+await post.restore();
+
+// Permanently delete (bypasses soft deletes)
+await post.forceDelete();
+```
+
+### Querying Soft-Deleted Records
+
+By default, queries automatically exclude soft-deleted records:
+
+```
+final posts = Model<Post>();
+
+// Only returns non-deleted posts
+final active = await posts.all();
+
+// Include soft-deleted posts
+final all = await posts.withTrashed().get();
+
+// Only soft-deleted posts
+final trashed = await posts.onlyTrashed().get();
+```
+
+### Opting Out of Soft Deletes
+
+To disable soft deletes for a specific model, pass `softDeletes: false` during registration:
+
+```
+static void register() {
+  Entity.registerModel<LogEntry>(
+    LogEntry.fromRow,
+    softDeletes: false,  // Hard deletes only
+    schema: {
+      'id': Column.integer().primaryKey().autoIncrement(),
+      'message': Column.text().notNull(),
+    },
+  );
+}
+```
+
+## Lifecycle Hooks
+
+Override lifecycle hooks to run logic before or after persistence operations:
+
+```
+class Post extends Entity {
+  String? title;
+  String? slug;
+
+  @override
+  Future<void> beforeSave() async {
+    // Auto-generate slug from title
+    slug ??= title?.toLowerCase().replaceAll(' ', '-');
+  }
+
+  @override
+  Future<void> afterSave() async {
+    // Log or trigger side effects
+    print('Post saved: $id');
+  }
+
+  @override
+  Future<void> beforeDelete() async {
+    // Validate or clean up before deletion
+  }
+
+  @override
+  Future<void> afterDelete() async {
+    // Clean up related resources
+  }
+}
+```
+
+### Available Hooks
+
+| Hook | When it runs |
+|------|-------------|
+| `beforeSave()` | Before INSERT or UPDATE |
+| `afterSave()` | After INSERT or UPDATE |
+| `beforeDelete()` | Before DELETE (including soft delete) |
+| `afterDelete()` | After DELETE (including soft delete) |
+
+All hooks are async and return `Future<void>`. The default implementation does nothing.

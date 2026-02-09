@@ -259,6 +259,49 @@ await products.where('id', 1).query().increment('stock', 10);
 await products.where('id', 1).query().decrement('stock', 5);
 ```
 
+## Soft Delete Scopes
+
+By default, queries exclude soft-deleted records. Use these methods to change that behavior:
+
+### Include Soft-Deleted Records
+
+```
+final posts = Model<Post>();
+
+// Include trashed records in results
+final all = await posts.withTrashed().get();
+
+// Also works with other query methods
+final count = await posts.withTrashed().count();
+```
+
+### Only Soft-Deleted Records
+
+```
+final posts = Model<Post>();
+
+// Only return soft-deleted records
+final trashed = await posts.onlyTrashed().get();
+```
+
+### Restore and Force Delete via Query
+
+```
+final posts = Model<Post>();
+
+// Restore all trashed posts by a user
+await posts.query()
+    .onlyTrashed()
+    .where('user_id', 1)
+    .restore();
+
+// Permanently delete trashed records
+await posts.query()
+    .onlyTrashed()
+    .where('user_id', 1)
+    .forceDelete();
+```
+
 ## Chaining Example
 
 ```

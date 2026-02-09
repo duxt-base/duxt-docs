@@ -7,56 +7,57 @@ import 'package:duxt/content.dart';
 import '../home/pages/index.dart' as page_homepage;
 import '../about/pages/index.dart' as page_aboutindexpage;
 import '../duxt-ui/pages/index.dart' as page_uiindexpage;
+import '../showcase/pages/index.dart' as page_showcaseindexpage;
 import '../duxt-ui/pages/components/index.dart' as page_componentsindexpage;
 import '../duxt-ui/pages/components/kbd.dart' as page_kbdpage;
-import '../duxt-ui/pages/components/card.dart' as page_cardpage;
 import '../duxt-ui/pages/components/icon.dart' as page_iconpage;
-import '../duxt-ui/pages/components/link.dart' as page_linkpage;
 import '../duxt-ui/pages/components/tabs.dart' as page_tabspage;
 import '../duxt-ui/pages/components/page.dart' as page_pagepage;
+import '../duxt-ui/pages/components/card.dart' as page_cardpage;
 import '../duxt-ui/pages/components/form.dart' as page_formpage;
 import '../duxt-ui/pages/components/chat.dart' as page_chatpage;
+import '../duxt-ui/pages/components/link.dart' as page_linkpage;
 import '../duxt-ui/pages/components/test.dart' as page_testpage;
 import '../duxt-ui/pages/components/badge.dart' as page_badgepage;
-import '../duxt-ui/pages/components/toast.dart' as page_toastpage;
 import '../duxt-ui/pages/components/table.dart' as page_tablepage;
+import '../duxt-ui/pages/components/toast.dart' as page_toastpage;
 import '../duxt-ui/pages/components/theme.dart' as page_themepage;
 import '../duxt-ui/pages/components/modal.dart' as page_modalpage;
 import '../duxt-ui/pages/components/error.dart' as page_errorpage;
 import '../duxt-ui/pages/components/input.dart' as page_inputpage;
 import '../duxt-ui/pages/components/alert.dart' as page_alertpage;
 import '../duxt-ui/pages/components/empty.dart' as page_emptypage;
-import '../duxt-ui/pages/components/select.dart' as page_selectpage;
-import '../duxt-ui/pages/components/switch.dart' as page_switchpage;
 import '../duxt-ui/pages/components/button.dart' as page_buttonpage;
-import '../duxt-ui/pages/components/slider.dart' as page_sliderpage;
+import '../duxt-ui/pages/components/switch.dart' as page_switchpage;
+import '../duxt-ui/pages/components/select.dart' as page_selectpage;
 import '../duxt-ui/pages/components/banner.dart' as page_bannerpage;
 import '../duxt-ui/pages/components/avatar.dart' as page_avatarpage;
-import '../duxt-ui/pages/components/tooltip.dart' as page_tooltippage;
+import '../duxt-ui/pages/components/slider.dart' as page_sliderpage;
+import '../duxt-ui/pages/components/stepper.dart' as page_stepperpage;
 import '../duxt-ui/pages/components/spinner.dart' as page_spinnerpage;
-import '../duxt-ui/pages/components/marquee.dart' as page_marqueepage;
 import '../duxt-ui/pages/components/popover.dart' as page_popoverpage;
 import '../duxt-ui/pages/components/pricing.dart' as page_pricingpage;
-import '../duxt-ui/pages/components/stepper.dart' as page_stepperpage;
-import '../duxt-ui/pages/components/calendar.dart' as page_calendarpage;
-import '../duxt-ui/pages/components/carousel.dart' as page_carouselpage;
-import '../duxt-ui/pages/components/checkbox.dart' as page_checkboxpage;
+import '../duxt-ui/pages/components/marquee.dart' as page_marqueepage;
+import '../duxt-ui/pages/components/tooltip.dart' as page_tooltippage;
 import '../duxt-ui/pages/components/dropdown.dart' as page_dropdownpage;
+import '../duxt-ui/pages/components/progress.dart' as page_progresspage;
 import '../duxt-ui/pages/components/skeleton.dart' as page_skeletonpage;
 import '../duxt-ui/pages/components/textarea.dart' as page_textareapage;
-import '../duxt-ui/pages/components/progress.dart' as page_progresspage;
+import '../duxt-ui/pages/components/checkbox.dart' as page_checkboxpage;
+import '../duxt-ui/pages/components/calendar.dart' as page_calendarpage;
+import '../duxt-ui/pages/components/carousel.dart' as page_carouselpage;
+import '../duxt-ui/pages/components/pin-input.dart' as page_pininputpage;
+import '../duxt-ui/pages/components/separator.dart' as page_separatorpage;
+import '../duxt-ui/pages/components/accordion.dart' as page_accordionpage;
 import '../duxt-ui/pages/components/dashboard.dart' as page_dashboardpage;
 import '../duxt-ui/pages/components/slideover.dart' as page_slideoverpage;
-import '../duxt-ui/pages/components/separator.dart' as page_separatorpage;
 import '../duxt-ui/pages/components/container.dart' as page_containerpage;
-import '../duxt-ui/pages/components/pin-input.dart' as page_pininputpage;
-import '../duxt-ui/pages/components/accordion.dart' as page_accordionpage;
 import '../duxt-ui/pages/components/breadcrumb.dart' as page_breadcrumbpage;
 import '../duxt-ui/pages/components/pagination.dart' as page_paginationpage;
-import '../duxt-ui/pages/components/file-upload.dart' as page_fileuploadpage;
-import '../duxt-ui/pages/components/collapsible.dart' as page_collapsiblepage;
-import '../duxt-ui/pages/components/scroll-area.dart' as page_scrollareapage;
 import '../duxt-ui/pages/components/radio-group.dart' as page_radiogrouppage;
+import '../duxt-ui/pages/components/file-upload.dart' as page_fileuploadpage;
+import '../duxt-ui/pages/components/scroll-area.dart' as page_scrollareapage;
+import '../duxt-ui/pages/components/collapsible.dart' as page_collapsiblepage;
 import '../duxt-ui/pages/components/input-number.dart' as page_inputnumberpage;
 import '../duxt-ui/pages/components/checkbox-group.dart' as page_checkboxgrouppage;
 import '../duxt-ui/pages/components/navigation-menu.dart' as page_navigationmenupage;
@@ -119,14 +120,19 @@ const _contentRoutes = <ContentRouteInfo>[
     moduleName: 'duxt-signals',
   ),
   ContentRouteInfo(
-    path: '/test-content',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/home/content/test-content.md',
-    moduleName: 'home',
-  ),
-  ContentRouteInfo(
     path: '/duxt-cli/dev',
     filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/dev.md',
     moduleName: 'duxt-cli',
+  ),
+  ContentRouteInfo(
+    path: '/duxt/routing',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt/content/routing.md',
+    moduleName: 'duxt',
+  ),
+  ContentRouteInfo(
+    path: '/test-content',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/home/content/test-content.md',
+    moduleName: 'home',
   ),
   ContentRouteInfo(
     path: '/duxt/layouts',
@@ -144,11 +150,6 @@ const _contentRoutes = <ContentRouteInfo>[
     moduleName: 'duxt',
   ),
   ContentRouteInfo(
-    path: '/duxt/routing',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt/content/routing.md',
-    moduleName: 'duxt',
-  ),
-  ContentRouteInfo(
     path: '/duxt-cli/docs',
     filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/docs.md',
     moduleName: 'duxt-cli',
@@ -159,23 +160,23 @@ const _contentRoutes = <ContentRouteInfo>[
     moduleName: 'duxt',
   ),
   ContentRouteInfo(
-    path: '/duxt-cli/build',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/build.md',
-    moduleName: 'duxt-cli',
-  ),
-  ContentRouteInfo(
     path: '/tutorials/blog',
     filePath: '/Volumes/External/Duxt/duxt_docs/lib/tutorials/content/blog.md',
     moduleName: 'tutorials',
   ),
   ContentRouteInfo(
-    path: '/duxt-orm/schema',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-orm/content/schema.md',
-    moduleName: 'duxt-orm',
+    path: '/duxt-cli/build',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/build.md',
+    moduleName: 'duxt-cli',
   ),
   ContentRouteInfo(
-    path: '/duxt-orm/models',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-orm/content/models.md',
+    path: '/duxt/api-client',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt/content/api-client.md',
+    moduleName: 'duxt',
+  ),
+  ContentRouteInfo(
+    path: '/duxt-orm/schema',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-orm/content/schema.md',
     moduleName: 'duxt-orm',
   ),
   ContentRouteInfo(
@@ -184,13 +185,13 @@ const _contentRoutes = <ContentRouteInfo>[
     moduleName: 'duxt-cli',
   ),
   ContentRouteInfo(
-    path: '/duxt/middleware',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt/content/middleware.md',
-    moduleName: 'duxt',
+    path: '/duxt-orm/models',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-orm/content/models.md',
+    moduleName: 'duxt-orm',
   ),
   ContentRouteInfo(
-    path: '/duxt/api-client',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt/content/api-client.md',
+    path: '/duxt/middleware',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt/content/middleware.md',
     moduleName: 'duxt',
   ),
   ContentRouteInfo(
@@ -199,14 +200,24 @@ const _contentRoutes = <ContentRouteInfo>[
     moduleName: 'duxt-orm',
   ),
   ContentRouteInfo(
+    path: '/duxt-cli/scaffold',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/scaffold.md',
+    moduleName: 'duxt-cli',
+  ),
+  ContentRouteInfo(
     path: '/duxt-cli/tutorial',
     filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/tutorial.md',
     moduleName: 'duxt-cli',
   ),
   ContentRouteInfo(
-    path: '/duxt-cli/scaffold',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/scaffold.md',
+    path: '/duxt-cli/utilities',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/utilities.md',
     moduleName: 'duxt-cli',
+  ),
+  ContentRouteInfo(
+    path: '/duxt-orm/relations',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-orm/content/relations.md',
+    moduleName: 'duxt-orm',
   ),
   ContentRouteInfo(
     path: '/duxt-html/examples',
@@ -219,16 +230,6 @@ const _contentRoutes = <ContentRouteInfo>[
     moduleName: 'duxt',
   ),
   ContentRouteInfo(
-    path: '/duxt-orm/relations',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-orm/content/relations.md',
-    moduleName: 'duxt-orm',
-  ),
-  ContentRouteInfo(
-    path: '/duxt-cli/utilities',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/utilities.md',
-    moduleName: 'duxt-cli',
-  ),
-  ContentRouteInfo(
     path: '/duxt-signals/forms',
     filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-signals/content/forms.md',
     moduleName: 'duxt-signals',
@@ -237,6 +238,11 @@ const _contentRoutes = <ContentRouteInfo>[
     path: '/duxt-cli/generators',
     filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-cli/content/generators.md',
     moduleName: 'duxt-cli',
+  ),
+  ContentRouteInfo(
+    path: '/duxt-html/components',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-html/content/components.md',
+    moduleName: 'duxt-html',
   ),
   ContentRouteInfo(
     path: '/duxt-signals/effects',
@@ -249,9 +255,9 @@ const _contentRoutes = <ContentRouteInfo>[
     moduleName: 'duxt-signals',
   ),
   ContentRouteInfo(
-    path: '/duxt-html/components',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-html/content/components.md',
-    moduleName: 'duxt-html',
+    path: '/duxt-signals/computed',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-signals/content/computed.md',
+    moduleName: 'duxt-signals',
   ),
   ContentRouteInfo(
     path: '/duxt-signals/examples',
@@ -264,9 +270,9 @@ const _contentRoutes = <ContentRouteInfo>[
     moduleName: 'duxt-orm',
   ),
   ContentRouteInfo(
-    path: '/duxt-signals/computed',
-    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-signals/content/computed.md',
-    moduleName: 'duxt-signals',
+    path: '/duxt-orm/api-reference',
+    filePath: '/Volumes/External/Duxt/duxt_docs/lib/duxt-orm/content/api-reference.md',
+    moduleName: 'duxt-orm',
   ),
   ContentRouteInfo(
     path: '/duxt-html/getting-started',
@@ -301,6 +307,12 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
+    path: '/showcase',
+    builder: (context, state) {
+      return const page_showcaseindexpage.ShowcaseIndexPage();
+    },
+  ),
+  Route(
     path: '/duxt-ui/components',
     builder: (context, state) {
       return const page_componentsindexpage.ComponentsIndexPage();
@@ -313,21 +325,9 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/card',
-    builder: (context, state) {
-      return const page_cardpage.CardPage();
-    },
-  ),
-  Route(
     path: '/duxt-ui/components/icon',
     builder: (context, state) {
       return const page_iconpage.IconPage();
-    },
-  ),
-  Route(
-    path: '/duxt-ui/components/link',
-    builder: (context, state) {
-      return const page_linkpage.LinkPage();
     },
   ),
   Route(
@@ -343,6 +343,12 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
+    path: '/duxt-ui/components/card',
+    builder: (context, state) {
+      return const page_cardpage.CardPage();
+    },
+  ),
+  Route(
     path: '/duxt-ui/components/form',
     builder: (context, state) {
       return const page_formpage.FormPage();
@@ -352,6 +358,12 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     path: '/duxt-ui/components/chat',
     builder: (context, state) {
       return const page_chatpage.ChatPage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/link',
+    builder: (context, state) {
+      return const page_linkpage.LinkPage();
     },
   ),
   Route(
@@ -367,15 +379,15 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/toast',
-    builder: (context, state) {
-      return const page_toastpage.ToastPage();
-    },
-  ),
-  Route(
     path: '/duxt-ui/components/table',
     builder: (context, state) {
       return const page_tablepage.TablePage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/toast',
+    builder: (context, state) {
+      return const page_toastpage.ToastPage();
     },
   ),
   Route(
@@ -415,9 +427,9 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/select',
+    path: '/duxt-ui/components/button',
     builder: (context, state) {
-      return const page_selectpage.SelectPage();
+      return const page_buttonpage.ButtonPage();
     },
   ),
   Route(
@@ -427,15 +439,9 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/button',
+    path: '/duxt-ui/components/select',
     builder: (context, state) {
-      return const page_buttonpage.ButtonPage();
-    },
-  ),
-  Route(
-    path: '/duxt-ui/components/slider',
-    builder: (context, state) {
-      return const page_sliderpage.SliderPage();
+      return const page_selectpage.SelectPage();
     },
   ),
   Route(
@@ -451,21 +457,21 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/tooltip',
+    path: '/duxt-ui/components/slider',
     builder: (context, state) {
-      return const page_tooltippage.TooltipPage();
+      return const page_sliderpage.SliderPage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/stepper',
+    builder: (context, state) {
+      return const page_stepperpage.StepperPage();
     },
   ),
   Route(
     path: '/duxt-ui/components/spinner',
     builder: (context, state) {
       return const page_spinnerpage.SpinnerPage();
-    },
-  ),
-  Route(
-    path: '/duxt-ui/components/marquee',
-    builder: (context, state) {
-      return const page_marqueepage.MarqueePage();
     },
   ),
   Route(
@@ -481,33 +487,27 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/stepper',
+    path: '/duxt-ui/components/marquee',
     builder: (context, state) {
-      return const page_stepperpage.StepperPage();
+      return const page_marqueepage.MarqueePage();
     },
   ),
   Route(
-    path: '/duxt-ui/components/calendar',
+    path: '/duxt-ui/components/tooltip',
     builder: (context, state) {
-      return const page_calendarpage.CalendarPage();
-    },
-  ),
-  Route(
-    path: '/duxt-ui/components/carousel',
-    builder: (context, state) {
-      return const page_carouselpage.CarouselPage();
-    },
-  ),
-  Route(
-    path: '/duxt-ui/components/checkbox',
-    builder: (context, state) {
-      return const page_checkboxpage.CheckboxPage();
+      return const page_tooltippage.TooltipPage();
     },
   ),
   Route(
     path: '/duxt-ui/components/dropdown',
     builder: (context, state) {
       return const page_dropdownpage.DropdownPage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/progress',
+    builder: (context, state) {
+      return const page_progresspage.ProgressPage();
     },
   ),
   Route(
@@ -523,9 +523,39 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/progress',
+    path: '/duxt-ui/components/checkbox',
     builder: (context, state) {
-      return const page_progresspage.ProgressPage();
+      return const page_checkboxpage.CheckboxPage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/calendar',
+    builder: (context, state) {
+      return const page_calendarpage.CalendarPage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/carousel',
+    builder: (context, state) {
+      return const page_carouselpage.CarouselPage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/pin-input',
+    builder: (context, state) {
+      return const page_pininputpage.PinInputPage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/separator',
+    builder: (context, state) {
+      return const page_separatorpage.SeparatorPage();
+    },
+  ),
+  Route(
+    path: '/duxt-ui/components/accordion',
+    builder: (context, state) {
+      return const page_accordionpage.AccordionPage();
     },
   ),
   Route(
@@ -541,27 +571,9 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/separator',
-    builder: (context, state) {
-      return const page_separatorpage.SeparatorPage();
-    },
-  ),
-  Route(
     path: '/duxt-ui/components/container',
     builder: (context, state) {
       return const page_containerpage.ContainerPage();
-    },
-  ),
-  Route(
-    path: '/duxt-ui/components/pin-input',
-    builder: (context, state) {
-      return const page_pininputpage.PinInputPage();
-    },
-  ),
-  Route(
-    path: '/duxt-ui/components/accordion',
-    builder: (context, state) {
-      return const page_accordionpage.AccordionPage();
     },
   ),
   Route(
@@ -577,15 +589,15 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/file-upload',
+    path: '/duxt-ui/components/radio-group',
     builder: (context, state) {
-      return const page_fileuploadpage.FileUploadPage();
+      return const page_radiogrouppage.RadioGroupPage();
     },
   ),
   Route(
-    path: '/duxt-ui/components/collapsible',
+    path: '/duxt-ui/components/file-upload',
     builder: (context, state) {
-      return const page_collapsiblepage.CollapsiblePage();
+      return const page_fileuploadpage.FileUploadPage();
     },
   ),
   Route(
@@ -595,9 +607,9 @@ List<Route> generatedRoutes({DuxtPageConfig? config}) => [
     },
   ),
   Route(
-    path: '/duxt-ui/components/radio-group',
+    path: '/duxt-ui/components/collapsible',
     builder: (context, state) {
-      return const page_radiogrouppage.RadioGroupPage();
+      return const page_collapsiblepage.CollapsiblePage();
     },
   ),
   Route(

@@ -22,6 +22,9 @@ class SidebarOrm extends StatelessComponent {
           _link('Queries', '/duxt-orm/queries'),
           _link('Transactions', '/duxt-orm/transactions'),
         ]),
+        _group('Reference', [
+          _link('API Reference', '/duxt-orm/api-reference'),
+        ]),
       ]),
     ]);
   }

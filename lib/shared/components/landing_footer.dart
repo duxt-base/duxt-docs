@@ -15,6 +15,7 @@ class LandingFooter extends StatelessComponent {
           div(classes: 'flex flex-wrap gap-6 justify-center mb-8', [
             _footerLink('/duxt', 'material-symbols:book-outline', 'Docs'),
             _footerLink('/duxt-ui', 'material-symbols:widgets-outline', 'Components'),
+            _footerLink('/showcase', 'material-symbols:star-outline', 'Showcase'),
             _footerLink('https://github.com/duxt-base/duxt', 'mdi:github', 'GitHub', external: true),
             _footerLink('https://pub.dev/packages/duxt', 'simple-icons:dart', 'pub.dev', external: true),
           ]),

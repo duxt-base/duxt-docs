@@ -343,6 +343,40 @@ void main() async {
 }
 ```
 
+### Nested Eager Loading (Dot Notation)
+
+Load nested relations using dot notation. This loads relations on the related models:
+
+```
+final posts = Model<Post>();
+
+// Load Post -> Author -> Profile
+final results = await posts.include(['author.profile']).get();
+
+for (final post in results) {
+  print(post.author?.name);
+  print(post.author?.profile?.bio);  // Nested relation loaded!
+}
+```
+
+You can combine multiple nested and flat relations:
+
+```
+// Load Post -> Author -> Profile, Post -> Comments -> User
+final results = await posts
+    .include(['author.profile', 'comments.user', 'category'])
+    .get();
+```
+
+Deeper nesting also works:
+
+```
+// Load Post -> Author -> Profile -> Avatar
+final results = await posts
+    .include(['author.profile.avatar'])
+    .get();
+```
+
 ### Eager Loading Multiple Relations
 
 Load multiple relations in one query:

@@ -24,26 +24,47 @@ class LandingEcosystem extends StatelessComponent {
         // Packages grid
         div(classes: 'grid grid-cols-1 md:grid-cols-3 gap-6', [
           _packageCard(
+            'Duxt Framework',
+            'The meta-framework for Jaspr. Routing, layouts, static builds, and full-stack Dart web apps.',
+            '/duxt',
+            'material-symbols:rocket-launch-outline',
+          ),
+          _packageCard(
+            'Duxt ORM',
+            'ActiveRecord-style ORM with soft deletes, lifecycle hooks, and nested eager loading. PostgreSQL, MySQL & SQLite.',
+            '/duxt-orm',
+            'material-symbols:database-outline',
+          ),
+          _packageCard(
+            'Duxt HTML',
+            'Flutter-style HTML components for Jaspr. 80+ typed components with clean builder syntax.',
+            '/duxt-html',
+            'material-symbols:code',
+          ),
+          _packageCard(
+            'Duxt Signals',
+            'Reactive signals for Dart. Lightweight state management with auto-tracking.',
+            '/duxt-signals',
+            'material-symbols:bolt',
+          ),
+          _packageCard(
             'Duxt UI',
             'Beautiful, accessible UI components built for Duxt. 50+ components ready to use.',
             '/duxt-ui',
             'material-symbols:widgets-outline',
-            true,
           ),
           _packageCard(
-            'Duxt ORM',
-            'ActiveRecord-style ORM with auto-migrations. Supports PostgreSQL, MySQL & SQLite.',
-            '/duxt-orm',
-            'material-symbols:database-outline',
-            true,
+            'Duxt CLI',
+            'Command-line interface for building, serving, and deploying Duxt web apps.',
+            '/duxt-cli',
+            'material-symbols:terminal',
           ),
-          _comingSoonCard(),
         ]),
       ]),
     ]);
   }
 
-  Component _packageCard(String title, String description, String href, String icon, bool available) {
+  Component _packageCard(String title, String description, String href, String icon) {
     return a(
       href: href,
       classes: 'group block bg-white dark:bg-zinc-800/50 border border-slate-200 dark:border-zinc-700/50 rounded-2xl p-8 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/5 dark:hover:shadow-cyan-500/10 transition-all duration-300',
@@ -70,20 +91,4 @@ class LandingEcosystem extends StatelessComponent {
     );
   }
 
-  Component _comingSoonCard() {
-    return div(
-      classes: 'bg-gradient-to-br from-slate-100 to-slate-50 dark:from-zinc-800/30 dark:to-zinc-900/30 border border-dashed border-slate-300 dark:border-zinc-700 rounded-2xl p-8 flex flex-col items-center justify-center text-center',
-      [
-        div(classes: 'w-12 h-12 rounded-xl bg-slate-200 dark:bg-zinc-700/50 flex items-center justify-center text-slate-400 dark:text-zinc-500 mb-4', [
-          RawText('<iconify-icon icon="material-symbols:add" width="24" height="24"></iconify-icon>'),
-        ]),
-        h3(classes: 'text-xl font-semibold text-slate-500 dark:text-zinc-500 mb-2', [
-          Component.text('More Coming Soon'),
-        ]),
-        p(classes: 'text-slate-400 dark:text-zinc-600 text-sm', [
-          Component.text('Auth, Forms, Analytics, and more packages are in development'),
-        ]),
-      ],
-    );
-  }
 }
