@@ -37,10 +37,14 @@ class SiteHeader extends StatelessComponent {
           img(src: logo, alt: logoAlt, width: 56, height: 56),
         ]),
         // Hamburger button (mobile only)
-        RawText('''<button class="hamburger-btn" aria-label="Open menu" onclick="toggleMobileMenu()">
-          <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>'''),
+        button(
+          classes: 'hamburger-btn',
+          attributes: {'aria-label': 'Open menu', 'onclick': 'toggleMobileMenu()'},
+          [
+            RawText('<svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>'),
+            RawText('<svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'),
+          ],
+        ),
         // Navigation - use custom items if provided, otherwise default nav
         if (items != null)
           nav(classes: 'site-nav', items!)
@@ -203,6 +207,7 @@ class SiteHeader extends StatelessComponent {
             'cursor': 'pointer',
             'padding': '0.5rem',
             'margin-left': 'auto',
+            'flex-shrink': '0',
             'z-index': '101',
           }),
           css('.close-icon').styles(raw: {'display': 'none'}),
@@ -250,8 +255,8 @@ class SiteHeader extends StatelessComponent {
         // Mobile styles
         css.media(MediaQuery.all(maxWidth: 768.px), [
           css('.site-header').styles(raw: {
-            'padding': '0 1rem',
-            'flex-wrap': 'wrap',
+            'padding': '0 0.75rem',
+            'overflow': 'hidden',
           }),
           css('.site-logo img').styles(raw: {
             'width': '40px',

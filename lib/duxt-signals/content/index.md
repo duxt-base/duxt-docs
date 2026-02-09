@@ -1,78 +1,67 @@
 ---
-title: Introduction
-description: Reactive signals for Dart - lightweight state management
+title: Duxt Signals
+description: Reactive signals for Dart - lightweight state management.
 layout: signals-layout
 order: 1
 ---
 
-# duxt_signals
+# Duxt Signals
 
-**Reactive signals for Dart** - lightweight state management inspired by Solid.js, Angular, and Preact Signals.
+**Reactive signals for Dart** - lightweight state management inspired by Solid.js, Angular, and Preact Signals. Fine-grained reactivity with zero boilerplate.
 
 ## What are Signals?
 
-Signals are reactive primitives that hold a value and automatically notify dependents when that value changes. They provide a simple, fine-grained approach to state management without the complexity of streams or state management libraries.
+Signals are reactive primitives that hold a value and automatically notify dependents when it changes. No streams, no controllers, no boilerplate - just read, write, and react.
 
 ```
-// Create a signal
 final count = signal(0);
 
-// Read value
+// Read
 print(count()); // 0
 
-// Update value
+// Write
 count.set(5);
 count.update((v) => v + 1);
 ```
 
-## Why Signals?
+## Why Duxt Signals?
 
-### Simple API
-Signals have a minimal API - just read, write, and listen. No boilerplate, no complex patterns.
+### Minimal API
+Three primitives cover everything: `signal` for state, `computed` for derived values, `effect` for side effects.
 
-### Fine-grained Reactivity
-Only the parts of your app that depend on a signal re-run when it changes. No unnecessary rebuilds.
+### Fine-Grained Reactivity
+Only the parts that depend on a signal re-run when it changes. No unnecessary rebuilds.
 
-### Automatic Dependency Tracking
-Computed signals automatically track which signals they depend on. When dependencies change, computed values update.
+### Automatic Tracking
+Computed signals automatically discover their dependencies. No manual subscription management.
 
 ### Works Everywhere
-Pure Dart with no framework dependencies. Use with Jaspr, Flutter, or any Dart application.
+Pure Dart with no framework dependencies. Use with Jaspr, Flutter, or any Dart project.
 
-## Core Concepts
+## Quick Start
 
-### Signals
-The basic unit of reactive state. Holds a value and notifies listeners when changed.
+Add to your `pubspec.yaml`:
 
 ```
+dependencies:
+  duxt_signals: ^0.1.2
+```
+
+Core concepts at a glance:
+
+```
+import 'package:duxt_signals/duxt_signals.dart';
+
+// Signal - reactive state
 final name = signal('John');
-print(name()); // "John"
-name.set('Jane');
-```
 
-### Computed
-Derived values that automatically update when dependencies change.
+// Computed - derived value, auto-updates
+final greeting = computed(() => 'Hello, ${name()}!');
 
-```
-final firstName = signal('John');
-final lastName = signal('Doe');
-final fullName = computed(() => '${firstName()} ${lastName()}');
-// fullName automatically updates when firstName or lastName changes
-```
+// Effect - runs when dependencies change
+effect(() => print(greeting()));
 
-### Effects
-Side effects that run when signals change.
-
-```
-effect(() {
-  print('Name changed to: ${name()}');
-});
-```
-
-### Form Signals
-Specialized signals for form state with validation.
-
-```
+// Form field with validation
 final email = formField('', validators: [
   required(),
   email('Invalid email'),
@@ -81,6 +70,9 @@ final email = formField('', validators: [
 
 ## Next Steps
 
-- [Getting Started](/duxt-signals/getting-started) - Install and start using signals
+- [Getting Started](/duxt-signals/getting-started) - Installation and setup
 - [Signals](/duxt-signals/signals) - Deep dive into the Signal API
-- [Examples](/duxt-signals/examples) - Real-world usage patterns
+- [Computed](/duxt-signals/computed) - Derived reactive values
+- [Effects](/duxt-signals/effects) - Side effects and subscriptions
+- [Forms](/duxt-signals/forms) - Form state and validation
+- [Examples](/duxt-signals/examples) - Real-world patterns

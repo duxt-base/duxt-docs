@@ -47,13 +47,21 @@ class DocsLayout extends PageLayoutBase {
       div(classes: 'scaffold-container has-header', [
         if (hasSidebar) ...[
           // Backdrop overlay for mobile sidebar
-          RawText('<div class="sidebar-backdrop" onclick="closeSidebarDrawer()"></div>'),
+          div(
+            classes: 'sidebar-backdrop',
+            attributes: {'onclick': 'closeSidebarDrawer()'},
+            [],
+          ),
           aside(classes: 'scaffold-sidebar', [sidebar!]),
           // Floating docs menu button for mobile
-          RawText('''<button class="sidebar-toggle-btn" aria-label="Open docs menu" onclick="toggleSidebarDrawer()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>
-            <span>Docs</span>
-          </button>'''),
+          button(
+            classes: 'sidebar-toggle-btn',
+            attributes: {'aria-label': 'Open docs menu', 'onclick': 'toggleSidebarDrawer()'},
+            [
+              RawText('<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>'),
+              span([Component.text('Docs')]),
+            ],
+          ),
         ],
         main_(classes: 'scaffold-main ${hasSidebar ? "has-sidebar" : ""}', [
           article(classes: 'scaffold-content prose dark:prose-invert', [child]),
@@ -85,8 +93,10 @@ class DocsLayout extends PageLayoutBase {
     css('.scaffold', [
       css('&').styles(
         minHeight: 100.vh,
+        width: 100.percent,
         backgroundColor: Color('var(--background, #09090b)'),
         color: Color('var(--text, #e4e4e7)'),
+        raw: {'overflow-x': 'hidden'},
       ),
     ]),
 

@@ -7,48 +7,41 @@ order: 0
 
 # Duxt CLI
 
-The Duxt CLI is your primary tool for creating, developing, and deploying Duxt applications. It provides a streamlined workflow with intelligent code generation, hot reload development, and optimized production builds.
+**Command-line tools for Duxt** - create, develop, generate, and deploy Duxt applications from the terminal.
 
-## Installation
+## What is Duxt CLI?
 
-Install the Duxt CLI globally using Dart's package manager:
+The Duxt CLI is your primary tool for working with Duxt projects. It handles project creation, development server with hot reload, code generation (modules, pages, components, full CRUD scaffolds), production builds, and deployment. One tool for the entire workflow.
 
-```
-dart pub global activate duxt
-```
+## Why Duxt CLI?
 
-Make sure the pub cache bin directory is in your PATH. Add this to your shell config (`~/.bashrc`, `~/.zshrc`, etc.):
+### Zero Config Dev Server
+`duxt dev` starts a hot-reload server with Tailwind compilation, file watching, and route generation. No setup needed.
 
-```
-export PATH="$PATH:$HOME/.pub-cache/bin"
-```
+### Code Generators
+Generate modules, pages, components, layouts, models, and APIs with a single command. Full CRUD scaffolding included.
 
-Verify the installation:
+### Smart Builds
+Production builds with SSR or SSG output, optimized assets, and Tailwind purging.
 
-```
-duxt --version
-```
+### Integrated Docs
+Generate API documentation from your code, or create doc pages and tutorials.
 
 ## Quick Start
 
-Create and run your first Duxt app:
+Install globally and create a project:
 
 ```
-# Create a new project
+dart pub global activate duxt
 duxt create my-app
-
-# Enter the project directory
-cd my-app
-
-# Start development server
-duxt dev
+cd my-app && duxt dev
 ```
 
-Your app is now running at `http://localhost:4000`.
+Your app is running at `http://localhost:4000`.
 
-## Command Categories
+## Commands
 
-### Project Commands
+### Project
 
 | Command | Description |
 |---------|-------------|
@@ -56,7 +49,7 @@ Your app is now running at `http://localhost:4000`.
 | [`update`](/duxt-cli/utilities#update) | Update Duxt CLI to latest version |
 | [`version`](/duxt-cli/utilities#version) | Show current version |
 
-### Development Commands
+### Development
 
 | Command | Description |
 |---------|-------------|
@@ -64,14 +57,14 @@ Your app is now running at `http://localhost:4000`.
 | [`preview`](/duxt-cli/build#preview) | Preview production build locally |
 | [`start`](/duxt-cli/build#start) | Start production server |
 
-### Build Commands
+### Build
 
 | Command | Description |
 |---------|-------------|
 | [`build`](/duxt-cli/build) | Build for production deployment |
 | [`generate`](/duxt-cli/build#generate) | Generate static site (SSG) |
 
-### Generator Commands
+### Generators
 
 | Command | Description |
 |---------|-------------|
@@ -79,7 +72,7 @@ Your app is now running at `http://localhost:4000`.
 | [`g`](/duxt-cli/generators) | Generate module, page, component, model, api, layout |
 | [`d`](/duxt-cli/generators#delete) | Delete generated files |
 
-### Documentation Commands
+### Documentation
 
 | Command | Description |
 |---------|-------------|
@@ -87,7 +80,7 @@ Your app is now running at `http://localhost:4000`.
 | [`docs page`](/duxt-cli/docs#page) | Create documentation page |
 | [`docs tutorial`](/duxt-cli/docs#tutorial) | Create tutorial page |
 
-### Utility Commands
+### Utilities
 
 | Command | Description |
 |---------|-------------|
@@ -95,19 +88,16 @@ Your app is now running at `http://localhost:4000`.
 | [`doctor`](/duxt-cli/utilities#doctor) | Check environment and dependencies |
 | [`clean`](/duxt-cli/utilities#clean) | Clean build artifacts |
 
-## Getting Help
+## Next Steps
 
 For help with any command:
 
 ```
 duxt help
 duxt help <command>
-duxt <command> --help
 ```
 
-## Version Requirements
-
-- **Dart SDK**: ^3.0.0
-- **Jaspr**: ^0.22.0
-
-The CLI will check for compatible versions and warn you if updates are needed.
+- [Create](/duxt-cli/create) - Project creation options
+- [Dev](/duxt-cli/dev) - Development server details
+- [Generators](/duxt-cli/generators) - Code generation guide
+- [Build](/duxt-cli/build) - Production builds

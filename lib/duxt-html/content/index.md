@@ -1,55 +1,58 @@
 ---
-title: Introduction
-description: Flutter-style HTML components for Jaspr
+title: Duxt HTML
+description: Flutter-style HTML components for Jaspr.
 layout: html-layout
 order: 1
 ---
 
-# duxt_html
+# Duxt HTML
 
-**Flutter-style HTML components for Jaspr** - build web UIs with familiar patterns.
+**Flutter-style HTML components for Jaspr** - build web UIs with familiar patterns using PascalCase components, `child`/`children` API, and `className` props.
 
-## What is duxt_html?
+## What is Duxt HTML?
 
-duxt_html provides PascalCase HTML components that follow Flutter's composition patterns. Instead of Jaspr's lowercase functions, use components like `Div`, `Span`, and `Button` with the familiar `child`/`children` API.
+Duxt HTML provides 80+ HTML components that follow Flutter's composition patterns. Instead of Jaspr's lowercase functions with positional lists, use PascalCase components with named parameters. Everything returns standard Jaspr `Component` types, so you can mix and match freely.
 
 ```
-// Before (Jaspr)
+// Jaspr style
 div(classes: 'container', [
   p([text('Hello World')]),
 ]);
 
-// After (duxt_html)
+// Duxt HTML style
 Div(
   className: 'container',
   child: P(child: Text('Hello World')),
 );
 ```
 
-## Why duxt_html?
+## Why Duxt HTML?
 
 ### Familiar Syntax
-If you know Flutter, you know duxt_html. PascalCase components with named parameters.
+If you know Flutter, you know Duxt HTML. PascalCase components with named parameters feel natural.
 
 ### child/children Pattern
-Use `child` for single components, `children` for lists - just like Flutter.
+Use `child` for single components, `children` for lists - just like Flutter widgets.
 
 ### className Prop
-Use `className` instead of `classes` - more intuitive naming.
+Use `className` instead of `classes` for a more intuitive API.
 
 ### CSS String Support
-Pass styles as CSS strings: `style: 'color: red; padding: 16px'`
+Pass inline styles as CSS strings: `style: 'color: red; padding: 16px'`.
 
-### Full Jaspr Compatibility
-All components return Jaspr `Component` types. Mix and match freely.
+### Full Compatibility
+All components return Jaspr `Component` types. Use alongside Jaspr's built-in elements without any wrappers.
 
 ## Quick Start
 
+Add to your `pubspec.yaml`:
+
 ```
-# pubspec.yaml
 dependencies:
-  duxt_html: ^0.1.0
+  duxt_html: ^0.1.1
 ```
+
+Then build your UI:
 
 ```
 import 'package:duxt_html/duxt_html.dart';
@@ -74,9 +77,9 @@ Div(
 );
 ```
 
-## Component Categories
+## Components
 
-duxt_html includes **80 components** organized into 8 categories:
+80 components organized into 8 categories:
 
 | Category | Components |
 |----------|------------|
