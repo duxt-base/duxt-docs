@@ -55,6 +55,7 @@ class SiteHeader extends StatelessComponent {
             NavLink(href: '/duxt-ui', text: 'Duxt UI'),
             NavLink(href: '/duxt-orm', text: 'Duxt ORM'),
             NavLink(href: '/duxt-html', text: 'Duxt HTML'),
+            NavLink(href: '/duxt-icons', text: 'Duxt Icons'),
             NavLink(href: '/duxt-signals', text: 'Duxt Signals'),
             NavLink(href: '/about', text: 'About'),
           ]),
