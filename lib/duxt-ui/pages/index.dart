@@ -17,9 +17,35 @@ class UiIndexPage extends StatelessComponent {
       sidebar: SidebarUi(),
       body: Component.fragment([
         h1([Component.text('Duxt UI')]),
-        p(classes: 'text-zinc-500 dark:text-zinc-400', [
-          Component.text('A comprehensive UI component library for Duxt applications.'),
+        p([
+          strong([Component.text('Pre-built, styled UI components for Jaspr')]),
+          Component.text(' - buttons, inputs, badges, alerts, spinners, switches, and more. Drop them into any Duxt app with zero configuration.'),
         ]),
+
+        h2([Component.text('What is Duxt UI?')]),
+        p([
+          Component.text('Duxt UI provides ready-to-use components that handle styling, variants, and accessibility out of the box. Instead of building form controls and feedback elements from scratch with raw HTML, use typed Dart components with variant props like '),
+          code([Component.text('color')]),
+          Component.text(', '),
+          code([Component.text('variant')]),
+          Component.text(', and '),
+          code([Component.text('size')]),
+          Component.text('.'),
+        ]),
+
+        h2([Component.text('Why Duxt UI?')]),
+        h3([Component.text('Zero Configuration')]),
+        p([Component.text('Components come pre-styled with a consistent dark/light theme. No CSS to write, no design tokens to configure.')]),
+        h3([Component.text('Type-Safe Variants')]),
+        p([
+          Component.text('Every option is an enum. '),
+          code([Component.text('DButtonColor.primary')]),
+          Component.text(', '),
+          code([Component.text('DButtonVariant.outline')]),
+          Component.text(' - your IDE catches mistakes before the browser does.'),
+        ]),
+        h3([Component.text('Works with Duxt HTML')]),
+        p([Component.text('Duxt UI components return standard Jaspr Components. Mix them freely with duxt_html elements, Tailwind classes, or raw Jaspr.')]),
 
         // Live component showcase
         div(classes: 'not-prose my-8', [
