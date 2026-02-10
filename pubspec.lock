@@ -207,14 +207,22 @@ packages:
       path: "../duxt"
       relative: true
     source: path
-    version: "0.4.14"
+    version: "0.5.1"
+  duxt_html:
+    dependency: transitive
+    description:
+      name: duxt_html
+      sha256: e4bdd85b83f4ec2090c2176edbb814c9c0a859857e36288e8b1dce962281f540
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   duxt_ui:
     dependency: "direct main"
     description:
       path: "../duxt_ui"
       relative: true
     source: path
-    version: "0.3.0"
+    version: "0.3.1"
   fbh_front_matter:
     dependency: transitive
     description:

@@ -74,6 +74,13 @@ class _ShowcaseGrid extends StatelessComponent {
             image: '/images/showcase-omnius.png',
             tags: ['Streaming', 'SaaS', 'Marketing Site'],
           ),
+          _showcaseCard(
+            name: 'Basecode',
+            description: 'Software product studio. We make things — products built to ship. No committees, no bloat, just tools that work.',
+            url: 'https://basecode.al',
+            image: '/images/showcase-basecode.png',
+            tags: ['Product Studio', 'Software', 'Open Source'],
+          ),
         ]),
       ]),
     ]);
