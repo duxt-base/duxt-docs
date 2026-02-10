@@ -9,6 +9,7 @@ import '../components/sidebar_orm.dart';
 import '../components/sidebar_signals.dart';
 import '../components/sidebar_cli.dart';
 import '../components/sidebar_html.dart';
+import '../components/sidebar_icons.dart';
 
 /// Unified documentation layout that works for all doc sections.
 ///
@@ -272,6 +273,14 @@ class HtmlLayout extends DocsLayout {
   const HtmlLayout() : super(
     sidebar: const SidebarHtml(),
     layoutName: 'html-layout',
+  );
+}
+
+/// Duxt Icons docs layout (with SidebarIcons)
+class IconsLayout extends DocsLayout {
+  const IconsLayout() : super(
+    sidebar: const SidebarIcons(),
+    layoutName: 'icons-layout',
   );
 }
 
