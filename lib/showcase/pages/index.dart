@@ -1,5 +1,6 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
+import 'package:duxt_icons/duxt_icons.dart' as duxt_icons;
 
 import '../../shared/components/app_scaffold.dart';
 import '../../shared/components/landing_footer.dart';
@@ -130,7 +131,7 @@ class _ShowcaseGrid extends StatelessComponent {
                   classes: 'opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-white text-sm font-medium',
                   [
                     Component.text('Visit site'),
-                    RawText('<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>'),
+                    duxt_icons.Icon('lucide:external-link', size: 16, className: 'w-4 h-4'),
                   ],
                 ),
               ],
@@ -170,7 +171,7 @@ class _SubmitSection extends StatelessComponent {
       [
         div(classes: 'max-w-2xl mx-auto text-center', [
           div(classes: 'w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-cyan-500/20', [
-            RawText('<iconify-icon icon="material-symbols:add-circle-outline" width="28" height="28" style="color: rgb(34, 211, 238)"></iconify-icon>'),
+            duxt_icons.Icon('material-symbols:add-circle-outline', size: 28, style: 'color: rgb(34, 211, 238)'),
           ]),
           h2(classes: 'text-3xl font-bold text-white mb-4', [
             Component.text('Built something with Duxt?'),
@@ -183,7 +184,7 @@ class _SubmitSection extends StatelessComponent {
             target: Target.blank,
             classes: 'inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-lg bg-cyan-500 text-white hover:bg-cyan-600 transition-colors',
             [
-              RawText('<iconify-icon icon="mdi:github" width="18" height="18"></iconify-icon>'),
+              duxt_icons.Icon('mdi:github', size: 18),
               Component.text('Submit Your Site'),
             ],
           ),
