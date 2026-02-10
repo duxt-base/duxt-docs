@@ -17,7 +17,7 @@ class UiIndexPage extends StatelessComponent {
       sidebar: SidebarUi(),
       body: Component.fragment([
         h1([Component.text('Duxt UI')]),
-        p(classes: 'text-xl text-zinc-500 dark:text-zinc-400', [
+        p(classes: 'text-zinc-500 dark:text-zinc-400', [
           Component.text('A comprehensive UI component library for Duxt applications.'),
         ]),
 
