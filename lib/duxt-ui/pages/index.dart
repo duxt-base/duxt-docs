@@ -16,36 +16,36 @@ class UiIndexPage extends StatelessComponent {
     return AppScaffold(
       sidebar: SidebarUi(),
       body: Component.fragment([
-        h1([Component.text('Duxt UI')]),
-        p([
-          strong([Component.text('Pre-built, styled UI components for Jaspr')]),
+        h1(classes: 'text-3xl font-bold text-zinc-900 dark:text-white mb-4', [Component.text('Duxt UI')]),
+        p(classes: 'text-lg text-zinc-600 dark:text-zinc-400 mb-8', [
+          strong(classes: 'text-zinc-900 dark:text-white', [Component.text('Pre-built, styled UI components for Jaspr')]),
           Component.text(' - buttons, inputs, badges, alerts, spinners, switches, and more. Drop them into any Duxt app with zero configuration.'),
         ]),
 
-        h2([Component.text('What is Duxt UI?')]),
-        p([
+        h2(classes: 'text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4', [Component.text('What is Duxt UI?')]),
+        p(classes: 'text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed', [
           Component.text('Duxt UI provides ready-to-use components that handle styling, variants, and accessibility out of the box. Instead of building form controls and feedback elements from scratch with raw HTML, use typed Dart components with variant props like '),
-          code([Component.text('color')]),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('color')]),
           Component.text(', '),
-          code([Component.text('variant')]),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('variant')]),
           Component.text(', and '),
-          code([Component.text('size')]),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('size')]),
           Component.text('.'),
         ]),
 
-        h2([Component.text('Why Duxt UI?')]),
-        h3([Component.text('Zero Configuration')]),
-        p([Component.text('Components come pre-styled with a consistent dark/light theme. No CSS to write, no design tokens to configure.')]),
-        h3([Component.text('Type-Safe Variants')]),
-        p([
+        h2(classes: 'text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4', [Component.text('Why Duxt UI?')]),
+        h3(classes: 'text-lg font-semibold text-zinc-900 dark:text-white mt-6 mb-2', [Component.text('Zero Configuration')]),
+        p(classes: 'text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed', [Component.text('Components come pre-styled with a consistent dark/light theme. No CSS to write, no design tokens to configure.')]),
+        h3(classes: 'text-lg font-semibold text-zinc-900 dark:text-white mt-6 mb-2', [Component.text('Type-Safe Variants')]),
+        p(classes: 'text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed', [
           Component.text('Every option is an enum. '),
-          code([Component.text('DButtonColor.primary')]),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('DButtonColor.primary')]),
           Component.text(', '),
-          code([Component.text('DButtonVariant.outline')]),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('DButtonVariant.outline')]),
           Component.text(' - your IDE catches mistakes before the browser does.'),
         ]),
-        h3([Component.text('Works with Duxt HTML')]),
-        p([Component.text('Duxt UI components return standard Jaspr Components. Mix them freely with duxt_html elements, Tailwind classes, or raw Jaspr.')]),
+        h3(classes: 'text-lg font-semibold text-zinc-900 dark:text-white mt-6 mb-2', [Component.text('Works with Duxt HTML')]),
+        p(classes: 'text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed', [Component.text('Duxt UI components return standard Jaspr Components. Mix them freely with duxt_html elements, Tailwind classes, or raw Jaspr.')]),
 
         // Live component showcase
         div(classes: 'not-prose my-8', [

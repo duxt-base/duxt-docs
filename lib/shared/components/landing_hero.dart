@@ -55,6 +55,12 @@ class LandingHero extends StatelessComponent {
               classes: 'px-8 py-3 rounded-lg font-semibold border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-100 hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-500/5 transition-all',
               [Component.text('Showcase')],
             ),
+            a(
+              href: 'https://mcp.duxt.dev',
+              target: Target.blank,
+              classes: 'px-8 py-3 rounded-lg font-semibold border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-100 hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-500/5 transition-all',
+              [Component.text('MCP')],
+            ),
           ]),
           // Install command
           div(

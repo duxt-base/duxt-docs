@@ -59,6 +59,12 @@ class LandingEcosystem extends StatelessComponent {
             '/duxt-cli',
             'material-symbols:terminal',
           ),
+          _packageCard(
+            'Duxt MCP',
+            'Hosted MCP server giving AI tools full Duxt framework knowledge. Works with Claude Code, Cursor, and more.',
+            'https://github.com/duxt-base/duxt_mcp',
+            'material-symbols:smart-toy-outline',
+          ),
         ]),
       ]),
     ]);
