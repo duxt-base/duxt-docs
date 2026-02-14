@@ -156,9 +156,9 @@ The generated `pubspec.yaml` includes all necessary dependencies:
 
 ```
 dependencies:
-  jaspr: ^0.22.0
+  jaspr: ^0.22.2
   jaspr_router: ^0.8.0
-  duxt: ^0.4.14
+  duxt: ^0.6.0
   duxt_ui: ^0.3.0
   # Server mode only:
   duxt_orm: ^0.2.0

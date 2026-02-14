@@ -113,7 +113,8 @@ duxt preview [options]
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--port`, `-p` | Server port | `3000` |
+| `--port`, `-p` | Frontend server port | `4000` |
+| `--api-port` | API server port | `3001` |
 
 ## Examples
 
@@ -150,16 +151,20 @@ duxt start [options]
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--port`, `-p` | Server port | `3000` |
+| `--port`, `-p` | Server port | Auto-finds free port |
+| `--open`, `-o` | Open browser after starting | `false` |
 
 ## Examples
 
 ```
-# Start on default port
+# Start on auto-detected free port
 duxt start
 
-# Start on custom port
+# Start on specific port
 duxt start --port=8080
+
+# Start and open browser
+duxt start --open
 ```
 
 ## Production Deployment

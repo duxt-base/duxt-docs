@@ -31,7 +31,7 @@ duxt info
   Name:       my-app
   Version:    1.0.0
   Mode:       server
-  Duxt:       0.4.14
+  Duxt:       0.6.0
 
   Structure:
     Modules:    5
@@ -41,9 +41,9 @@ duxt info
     API Routes: 4
 
   Dependencies:
-    jaspr:        ^0.22.0
+    jaspr:        ^0.22.2
     jaspr_router: ^0.8.0
-    duxt:         ^0.4.14
+    duxt:         ^0.6.0
     duxt_ui:      ^0.3.0
     duxt_orm:     ^0.2.0
 
@@ -83,8 +83,8 @@ duxt doctor
 Checking environment...
 
   ✓ Dart SDK 3.5.0
-  ✓ Duxt CLI 0.4.14
-  ✓ Jaspr 0.22.0
+  ✓ Duxt CLI 0.6.0
+  ✓ Jaspr 0.22.2
 
 Checking project...
 
@@ -95,9 +95,9 @@ Checking project...
 
 Checking dependencies...
 
-  ✓ jaspr ^0.22.0 (0.22.1 installed)
-  ✓ jaspr_router ^0.8.0 (0.8.0 installed)
-  ✓ duxt ^0.4.14 (0.4.14 installed)
+  ✓ jaspr ^0.22.2 (0.22.2 installed)
+  ✓ jaspr_router ^0.8.0 (0.8.1 installed)
+  ✓ duxt ^0.6.0 (0.6.0 installed)
   ✓ duxt_ui ^0.3.0 (0.3.0 installed)
   ⚠ duxt_orm ^0.2.0 (0.1.9 installed) - update available
 
@@ -227,45 +227,29 @@ duxt update
 ### Output
 
 ```
-╭─────────────────────────────────────╮
-│  Duxt Update                        │
-╰─────────────────────────────────────╯
+Duxt Checking for updates...
 
-Current version: 0.4.13
-Latest version:  0.4.14
+  Current version: 0.5.7
+  Latest version:  0.6.0
 
-→ Updating Duxt CLI...
-  ✓ Downloaded duxt 0.4.14
-  ✓ Activated globally
+→ Updating...
 
-✓ Updated to Duxt 0.4.14!
-
-What's new:
-  - Improved scaffold relations
-  - Better error messages
-  - Fixed hot reload issues
-
-See full changelog:
-  https://github.com/duxt-base/duxt/releases/tag/v0.4.14
+✓ Updated to 0.6.0!
 ```
 
 ### What It Does
 
-Runs `dart pub global activate duxt` to fetch and install the latest version from pub.dev.
+Checks pub.dev for the latest version and runs `dart pub global activate duxt` to install it. The version check uses Dart's `HttpClient` with a 10-second timeout.
 
 ### Checking for Updates
 
-The CLI automatically checks for updates when you run any command. If an update is available, you'll see:
+The CLI automatically checks for updates in the background when you run any command (with a 2-second timeout so it never slows you down). If an update is available, you'll see:
 
 ```
-╭─────────────────────────────────────╮
-│  Update Available                   │
-│                                     │
-│  Current: 0.4.13                    │
-│  Latest:  0.4.14                    │
-│                                     │
-│  Run 'duxt update' to update        │
-╰─────────────────────────────────────╯
+┌─────────────────────────────────────────────────┐
+│  Update available: 0.5.7 → 0.6.0               │
+│  Run duxt update to update                      │
+└─────────────────────────────────────────────────┘
 ```
 
 ---
@@ -285,7 +269,7 @@ duxt -v
 ### Output
 
 ```
-Duxt v0.4.14
+Duxt 0.6.0
 ```
 
 ### Version Format
@@ -306,11 +290,11 @@ Use version in scripts:
 
 ```
 # Check version
-VERSION=$(duxt version | sed 's/Duxt v//')
+VERSION=$(duxt version | sed 's/Duxt //')
 echo "Using Duxt $VERSION"
 
 # Require minimum version
-REQUIRED="0.4.0"
+REQUIRED="0.6.0"
 if [[ "$(printf '%s\n' "$REQUIRED" "$VERSION" | sort -V | head -n1)" != "$REQUIRED" ]]; then
   echo "Duxt $REQUIRED or higher required"
   exit 1

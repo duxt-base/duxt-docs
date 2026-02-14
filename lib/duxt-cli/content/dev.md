@@ -29,10 +29,12 @@ When you run `duxt dev`, the CLI:
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--port`, `-p` | Frontend server port | `4000` |
-| `--api-port` | API server port | `3001` |
+| `--port`, `-p` | Base port (api=+1, jaspr=+2, webdev=+3) | `4000` |
 | `--no-api` | Skip API server | `false` |
 | `--verbose`, `-v` | Show detailed logs | `false` |
+| `--perf` | Print rebuild stage timings | `false` |
+| `--reload` | Use module reload mode (faster, experimental) | `false` |
+| `--desktop` | Run in a native desktop window (Tauri) | `false` |
 
 ## Examples
 
@@ -40,14 +42,21 @@ When you run `duxt dev`, the CLI:
 # Default ports
 duxt dev
 
-# Custom frontend port
+# Custom base port (api=3001, jaspr=3002, etc.)
 duxt dev --port=3000
-
-# Custom API port
-duxt dev --api-port=8080
 
 # Frontend only (no API server)
 duxt dev --no-api
+
+# Show rebuild performance timings
+duxt dev --perf
+
+# Use module reload mode for faster hot reloads
+duxt dev --reload
+
+# Run multiple apps simultaneously
+duxt dev --port=4000   # App 1
+duxt dev --port=5000   # App 2
 ```
 
 ## Output
@@ -92,7 +101,7 @@ lib/
 └── contact/pages/index.dart   → /contact
 ```
 
-Route files are generated to `.generated/routes.dart` and updated on every file change.
+Route files are generated to `.generated/routes.dart`. The generator only rewrites the file when routes actually change, preventing unnecessary build_runner rebuild cycles. Only structural file changes (adding or removing pages) trigger route regeneration — editing existing pages does not.
 
 ### Dynamic Routes
 
@@ -103,6 +112,22 @@ Use underscores for dynamic segments:
 | `_id_.dart` | `:id` |
 | `_slug_.dart` | `:slug` |
 | `_...all_.dart` | `*all` (catch-all) |
+
+## Performance Tracing
+
+Use `--perf` to diagnose slow rebuilds:
+
+```
+duxt dev --perf
+```
+
+Each rebuild prints stage timings:
+
+```
+⏱ Rebuild: save→build 1.2s | build→compile 3.4s | compile→reload 0.1s | total 4.7s
+```
+
+This helps identify whether slowness comes from build_runner analysis, compilation, or browser reload.
 
 ## Hot Reload
 
@@ -115,12 +140,22 @@ When you modify component code, the browser updates without losing state:
 - Style changes
 - Minor logic changes
 
+Use `--reload` for experimental module-level reload (faster but can be less stable):
+
+```
+duxt dev --reload
+```
+
 ### Full Reload
 
 Some changes require a full page reload:
-- Route changes
+- Route changes (pages added or removed)
 - Layout changes
 - Server restart
+
+### Content Hot Reload
+
+Markdown and YAML files in `content/` directories are reloaded instantly without triggering a full build_runner cycle.
 
 ## Browser Overlay
 
