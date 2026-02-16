@@ -205,20 +205,20 @@ class TablePage extends StatelessComponent {
                 div(classes: 'w-full', [
                   DTable<Map<String, String>>(
                     columns: [
-                      DTableColumn(key: 'id', label: 'ID', classes: 'w-16'),
-                      DTableColumn(key: 'name', label: 'Name', classes: 'font-medium'),
+                      DTableColumn(key: 'id', label: 'ID', className: 'w-16'),
+                      DTableColumn(key: 'name', label: 'Name', className: 'font-medium'),
                       DTableColumn(key: 'email', label: 'Email'),
-                      DTableColumn(key: 'role', label: 'Role', classes: 'text-right'),
+                      DTableColumn(key: 'role', label: 'Role', className: 'text-right'),
                     ],
                     data: sampleData,
                   ),
                 ]),
               ], code: '''DTable<Map<String, String>>(
   columns: [
-    DTableColumn(key: 'id', label: 'ID', classes: 'w-16'),
-    DTableColumn(key: 'name', label: 'Name', classes: 'font-medium'),
+    DTableColumn(key: 'id', label: 'ID', className: 'w-16'),
+    DTableColumn(key: 'name', label: 'Name', className: 'font-medium'),
     DTableColumn(key: 'email', label: 'Email'),
-    DTableColumn(key: 'role', label: 'Role', classes: 'text-right'),
+    DTableColumn(key: 'role', label: 'Role', className: 'text-right'),
   ],
   data: [...],
 )'''),
@@ -230,7 +230,7 @@ class TablePage extends StatelessComponent {
                 div(classes: 'w-full', [
                   DTable<Map<String, String>>(
                     columns: [
-                      DTableColumn(key: 'id', label: '#', classes: 'w-12'),
+                      DTableColumn(key: 'id', label: '#', className: 'w-12'),
                       DTableColumn<Map<String, String>>(
                         key: 'name',
                         label: 'User',
@@ -253,7 +253,7 @@ class TablePage extends StatelessComponent {
                       DTableColumn<Map<String, String>>(
                         key: 'actions',
                         label: '',
-                        classes: 'w-24 text-right',
+                        className: 'w-24 text-right',
                         render: (item) => DButton(
                           label: 'View',
                           size: DButtonSize.xs,
@@ -268,14 +268,14 @@ class TablePage extends StatelessComponent {
                 ]),
               ], code: '''DTable<Map<String, String>>(
   columns: [
-    DTableColumn(key: 'id', label: '#', classes: 'w-12'),
+    DTableColumn(key: 'id', label: '#', className: 'w-12'),
     DTableColumn<Map<String, String>>(
       key: 'name',
       label: 'User',
       render: (item) => div(classes: 'flex items-center gap-3', [
         DAvatar(src: 'https://i.pravatar.cc/40?u=\${item['id']}', size: DAvatarSize.sm),
         div([
-          p(classes: 'font-medium', [Component.text(item['name'] ?? '')]),
+          p(className: 'font-medium', [Component.text(item['name'] ?? '')]),
           p(classes: 'text-sm text-gray-500', [Component.text(item['email'] ?? '')]),
         ]),
       ]),
@@ -341,7 +341,7 @@ class TablePage extends StatelessComponent {
                   _apiRow('key', 'String', 'required', 'Data property key'),
                   _apiRow('label', 'String', 'required', 'Column header text'),
                   _apiRow('render', 'Component Function(T)?', 'null', 'Custom cell renderer'),
-                  _apiRow('classes', 'String?', 'null', 'CSS classes for column cells'),
+                  _apiRow('className', 'String?', 'null', 'CSS classes for column cells'),
                 ]),
               ]),
             ]),
