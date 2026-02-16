@@ -256,6 +256,42 @@ class PostsApi {
 }
 ```
 
+## Namespaces
+
+Modules can be grouped into **namespaces** for logical organization. A namespace is a directory under `lib/` that contains other modules with their own `pages/` directories.
+
+```
+lib/
+  # Flat modules (standard)
+  posts/
+    pages/index.dart             -> /posts
+
+  # Namespace: admin
+  admin/
+    layouts/default.dart         AdminLayout (auto-wraps all /admin/* routes)
+    posts/
+      pages/index.dart           -> /admin/posts
+    users/
+      pages/index.dart           -> /admin/users
+
+  # Namespace: theme (special - strips prefix)
+  theme/
+    home/
+      pages/index.dart           -> /
+    blog/
+      pages/index.dart           -> /blog
+```
+
+Create namespaced modules with uppercase first letter:
+
+```
+duxt g module Admin/Posts
+duxt g module Admin/Users
+duxt g layout Admin          # Auto-wraps all admin routes
+```
+
+See [Namespaces](/duxt/namespaces) for full documentation.
+
 ## Shared Code
 
 The `shared/` directory contains code used across multiple modules:

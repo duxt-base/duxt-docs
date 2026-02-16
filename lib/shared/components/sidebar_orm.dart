@@ -12,6 +12,7 @@ class SidebarOrm extends StatelessComponent {
       nav(classes: 'sidebar-nav', [
         _group('Getting Started', [
           _link('Introduction', '/duxt-orm'),
+          _link('Configuration', '/duxt-orm/configuration'),
         ]),
         _group('Core', [
           _link('Models', '/duxt-orm/models'),

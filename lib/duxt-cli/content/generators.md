@@ -46,11 +46,25 @@ duxt g mod posts
 ```
 lib/posts/
 ├── pages/
-│   └── .gitkeep
+│   └── index.dart
 ├── components/
-│   └── .gitkeep
-└── model.dart
 ```
+
+### Namespaced Modules
+
+Use uppercase first letter to create modules inside a namespace:
+
+```
+# Admin namespace
+duxt g module Admin/Posts       # lib/admin/posts/ -> /admin/posts
+duxt g module Admin/Users       # lib/admin/users/ -> /admin/users
+
+# Theme namespace (routes to root /)
+duxt g module Theme/Home        # lib/theme/home/ -> /
+duxt g module Theme/Blog        # lib/theme/blog/ -> /blog
+```
+
+See [Namespaces](/duxt/namespaces) for full details.
 
 ---
 
@@ -65,6 +79,14 @@ duxt g p posts/index
 
 **Creates:** `lib/posts/pages/index.dart`
 
+### Namespaced Pages
+
+```
+duxt g page Admin/Posts/edit    # lib/admin/posts/pages/edit.dart -> /admin/posts/edit
+duxt g page Admin/Posts/_id_    # lib/admin/posts/pages/_id_.dart -> /admin/posts/:id
+duxt g page Theme/Blog/_slug_   # lib/theme/blog/pages/_slug_.dart -> /blog/:slug
+```
+
 ### Dynamic Routes
 
 Use bracket notation for dynamic segments:
@@ -72,11 +94,11 @@ Use bracket notation for dynamic segments:
 ```
 # Single parameter
 duxt g page posts/[id]
-# Creates: lib/posts/pages/_id_.dart → /posts/:id
+# Creates: lib/posts/pages/_id_.dart -> /posts/:id
 
 # Nested routes
 duxt g page posts/[id]/edit
-# Creates: lib/posts/pages/_id_/edit.dart → /posts/:id/edit
+# Creates: lib/posts/pages/_id_/edit.dart -> /posts/:id/edit
 
 # Multiple parameters
 duxt g page users/[userId]/posts/[postId]
@@ -271,6 +293,18 @@ duxt g l dashboard
 
 **Creates:** `lib/shared/layouts/dashboard.dart`
 
+### Namespace Layouts
+
+Use uppercase first letter to create a namespace layout that auto-wraps all routes in that namespace:
+
+```
+duxt g layout Admin
+```
+
+**Creates:** `lib/admin/layouts/default.dart`
+
+All routes under `/admin/*` are automatically wrapped with `AdminLayout`. See [Namespaces](/duxt/namespaces) for details.
+
 ### Layout Template
 
 ```
@@ -421,4 +455,27 @@ Or use `scaffold` for all at once:
 
 ```
 duxt scaffold posts title:string content:text published:bool
+```
+
+### Namespace Workflow
+
+```
+# 1. Create admin modules
+duxt g module Admin/Dashboard
+duxt g module Admin/Posts
+duxt g module Admin/Users
+
+# 2. Create namespace layout (auto-wraps all admin routes)
+duxt g layout Admin
+
+# 3. Add pages
+duxt g page Admin/Posts/edit
+duxt g page Admin/Posts/_id_
+
+# 4. Create theme modules (public pages at root URLs)
+duxt g module Theme/Home
+duxt g module Theme/Blog
+
+# 5. Create theme layout
+duxt g layout Theme
 ```

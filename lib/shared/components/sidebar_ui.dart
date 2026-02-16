@@ -13,6 +13,7 @@ class SidebarUi extends StatelessComponent {
         _group('Getting Started', [
           _link('Introduction', '/duxt-ui'),
           _link('Components', '/duxt-ui/components'),
+          _link('Customization', '/duxt-ui/customization'),
         ]),
         _group('Form', [
           _link('Button', '/duxt-ui/components/button'),

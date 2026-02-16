@@ -117,7 +117,7 @@ DTooltip(
                     child: DIcon(
                       name: DIconNames.info,
                       size: DIconSize.sm,
-                      classes: 'text-zinc-400 cursor-help',
+                      className: 'text-zinc-400 cursor-help',
                     ),
                   ),
                 ]),
@@ -128,7 +128,7 @@ DTooltip(
     child: DIcon(
       name: DIconNames.info,
       size: DIconSize.sm,
-      classes: 'text-gray-400 cursor-help',
+      className: 'text-gray-400 cursor-help',
     ),
   ),
 ])'''),

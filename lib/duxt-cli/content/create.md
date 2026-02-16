@@ -24,6 +24,9 @@ duxt create my-app
 # Create with server mode (includes ORM)
 duxt create my-app --mode=server
 
+# Create a desktop app (Tauri)
+duxt create my-app --desktop
+
 # Create in a specific directory
 duxt create my-app --directory=./projects
 ```
@@ -33,6 +36,7 @@ duxt create my-app --directory=./projects
 | Option | Description | Default |
 |--------|-------------|---------|
 | `--mode` | Project mode: `static` or `server` | `static` |
+| `--desktop` | Create as desktop app (Tauri + SPA) | `false` |
 | `--directory`, `-d` | Target directory | Current directory |
 | `--template` | Template to use: `minimal`, `full` | `minimal` |
 
@@ -66,6 +70,22 @@ Creates a project with:
 - Server entry point (`server/main.dart`)
 - Database configuration (`server/db.dart`)
 - Auto-migration on startup
+
+### Desktop Mode
+
+Best for native desktop applications:
+
+```
+duxt create my-app --desktop
+```
+
+Creates a Client (SPA) project configured for Tauri v2:
+- Uses client-side rendering (`jaspr.mode: client`)
+- Tauri project auto-scaffolded on first `dev --desktop` or `build desktop`
+- Native window with system webview
+- Cross-platform builds (macOS, Windows, Linux)
+
+Requires Rust installed from [rustup.rs](https://rustup.rs/). See [Desktop Apps](/duxt-cli/desktop) for full documentation.
 
 ## Generated Structure
 
@@ -126,6 +146,30 @@ my-app/
 ├── pubspec.yaml
 ├── duxt.yaml
 └── README.md
+```
+
+### Desktop Mode
+
+```
+my-app/
+  lib/
+    home/
+      pages/
+        index.dart
+    shared/
+      layouts/
+        default.dart
+  web/
+    index.html
+    styles.tw.css
+  src-tauri/                    Tauri backend (auto-scaffolded)
+    Cargo.toml
+    tauri.conf.json
+    src/
+      main.rs
+      lib.rs
+  pubspec.yaml
+  duxt.config.dart
 ```
 
 ## Configuration Files

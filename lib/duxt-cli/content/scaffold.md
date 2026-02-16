@@ -35,6 +35,12 @@ duxt scaffold posts \
   content:text \
   category:belongsTo:Category \
   tags:toMany:Tag
+
+# Namespace scaffold (Admin panel)
+duxt scaffold Admin/Post title:string content:text
+# Creates full CRUD in lib/admin/post/
+# Routes: /admin/post, /admin/post/:id
+# API: /api/admin/post
 ```
 
 ## Options
@@ -51,21 +57,46 @@ Running `duxt scaffold posts title:string content:text author:string` generates:
 
 ```
 lib/
-├── posts/
-│   ├── pages/
-│   │   ├── index.dart          List all posts
-│   │   ├── _id_.dart           View single post
-│   │   └── new.dart            Create new post
-│   └── components/
-│       ├── post_card.dart      Card component
-│       └── post_form.dart      Form component
-├── models/
-│   └── post.dart               DuxtORM Entity
+  posts/
+    pages/
+      index.dart          List all posts
+      _id_.dart           View single post
+    components/
+      post_card.dart      Card component
+      post_form.dart      Form component
+    model.dart            Client model
+  models/
+    post.dart             DuxtORM Entity
 
 server/
-└── api/
-    └── posts.dart              REST API routes
+  api/
+    posts.dart            REST API routes
 ```
+
+### Namespace Scaffold
+
+Running `duxt scaffold Admin/Post title:string content:text` generates:
+
+```
+lib/
+  admin/
+    post/
+      pages/
+        index.dart        List (/admin/post)
+        _id_.dart         Detail (/admin/post/:id)
+      components/
+        post_card.dart
+        post_form.dart
+      model.dart
+  models/
+    post.dart             DuxtORM Entity
+
+server/
+  api/
+    admin_post.dart       REST API routes (/api/admin/post)
+```
+
+Routes and API endpoints include the namespace prefix automatically.
 
 ## Field Types
 
@@ -405,4 +436,5 @@ duxt scaffold posts title:string content:text
 
 - [Scaffold Tutorial](/duxt-cli/tutorial) - Complete step-by-step tutorial
 - [Generators](/duxt-cli/generators) - Generate individual files
+- [Namespaces](/duxt/namespaces) - Namespace architecture
 - [DuxtORM](/duxt-orm) - Database operations

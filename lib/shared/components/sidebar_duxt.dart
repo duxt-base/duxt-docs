@@ -15,6 +15,7 @@ class SidebarDuxt extends StatelessComponent {
         ]),
         _group('Core Concepts', [
           _link('Modules', '/duxt/modules'),
+          _link('Namespaces', '/duxt/namespaces'),
           _link('Routing', '/duxt/routing'),
           _link('Pages', '/duxt/pages'),
           _link('Layouts', '/duxt/layouts'),

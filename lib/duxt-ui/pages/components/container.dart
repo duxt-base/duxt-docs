@@ -103,7 +103,7 @@ DContainer(size: DContainerSize.full, children: [...])'''),
             _section('Custom Classes', [
               ComponentPreviewCard(preview: [
                 DContainer(
-                  classes: 'bg-zinc-800/30 py-6 rounded-xl',
+                  className: 'bg-zinc-800/30 py-6 rounded-xl',
                   children: [
                     div(classes: 'text-center text-zinc-300', [
                       Component.text('Container with custom classes'),
@@ -111,7 +111,7 @@ DContainer(size: DContainerSize.full, children: [...])'''),
                   ],
                 ),
               ], code: '''DContainer(
-  classes: 'bg-zinc-800/30 py-6 rounded-xl',
+  className: 'bg-zinc-800/30 py-6 rounded-xl',
   children: [
     Component.text('Container with custom classes'),
   ],
@@ -134,7 +134,7 @@ DContainer(size: DContainerSize.full, children: [...])'''),
                   _apiRow('children', 'List<Component>', '[]', 'Content to render inside the container'),
                   _apiRow('size', 'DContainerSize', 'xl', 'Maximum width (xs, sm, md, lg, xl, xxl, full)'),
                   _apiRow('padded', 'bool', 'true', 'Whether to apply responsive horizontal padding'),
-                  _apiRow('classes', 'String?', 'null', 'Additional CSS classes'),
+                  _apiRow('className', 'String?', 'null', 'Additional CSS classes'),
                 ]),
               ]),
             ]),

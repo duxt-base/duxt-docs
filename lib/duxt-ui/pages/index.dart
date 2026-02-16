@@ -45,7 +45,19 @@ class UiIndexPage extends StatelessComponent {
           Component.text(' - your IDE catches mistakes before the browser does.'),
         ]),
         h3(classes: 'text-lg font-semibold text-zinc-900 dark:text-white mt-6 mb-2', [Component.text('Works with Duxt HTML')]),
-        p(classes: 'text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed', [Component.text('Duxt UI components return standard Jaspr Components. Mix them freely with duxt_html elements, Tailwind classes, or raw Jaspr.')]),
+        p(classes: 'text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed', [Component.text('Duxt UI components return standard Jaspr Components. Mix them freely with duxt_html elements, Tailwind classes, or raw Jaspr.')]),
+        h3(classes: 'text-lg font-semibold text-zinc-900 dark:text-white mt-6 mb-2', [Component.text('Fully Customizable')]),
+        p(classes: 'text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed', [
+          Component.text('Every component supports '),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('className')]),
+          Component.text(' for Tailwind overrides, '),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('id')]),
+          Component.text(', '),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('attributes')]),
+          Component.text(', and '),
+          code(classes: 'bg-zinc-200 dark:bg-zinc-800 text-cyan-600 dark:text-cyan-400 px-1.5 py-0.5 rounded text-sm font-mono', [Component.text('events')]),
+          Component.text(' for full HTML control. Smart class merging replaces conflicting Tailwind utilities automatically.'),
+        ]),
 
         // Live component showcase
         div(classes: 'not-prose my-8', [

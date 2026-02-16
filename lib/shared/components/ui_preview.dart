@@ -80,7 +80,7 @@ class DuxtUiComponents extends CustomComponentBase {
 
       case 'DSkeleton':
         return DSkeleton(
-          classes: attrs['classes'] ?? 'h-4 w-full',
+          className: attrs['classes'] ?? 'h-4 w-full',
         );
 
       case 'DKbd':
@@ -348,9 +348,9 @@ class UiPreview extends CustomComponentBase {
 
       case 'skeleton':
         return div(classes: 'w-full max-w-sm space-y-3', [
-          DSkeleton(classes: 'h-4 w-3/4'),
-          DSkeleton(classes: 'h-4 w-1/2'),
-          DSkeleton(classes: 'h-4 w-5/6'),
+          DSkeleton(className: 'h-4 w-3/4'),
+          DSkeleton(className: 'h-4 w-1/2'),
+          DSkeleton(className: 'h-4 w-5/6'),
         ]);
 
       case 'kbd':
@@ -369,7 +369,7 @@ class UiPreview extends CustomComponentBase {
       case 'separator':
         return div(classes: 'w-full max-w-sm', [
           div(classes: 'text-zinc-400 text-sm', [Component.text('Above')]),
-          DSeparator(classes: 'my-4'),
+          DSeparator(className: 'my-4'),
           div(classes: 'text-zinc-400 text-sm', [Component.text('Below')]),
         ]);
 
@@ -461,7 +461,7 @@ class UiPreview extends CustomComponentBase {
 
       case 'skeleton':
         return '''<span class="text-cyan-400">DSkeleton</span>(
-  <span class="text-purple-400">classes</span>: <span class="text-green-400">'h-4 w-3/4'</span>,
+  <span class="text-purple-400">className</span>: <span class="text-green-400">'h-4 w-3/4'</span>,
 )''';
 
       case 'kbd':
@@ -572,8 +572,8 @@ class UiPreviewCard extends CustomComponentBase {
 
       case 'skeleton':
         return div(classes: 'w-full max-w-[180px] space-y-2 scale-90', [
-          DSkeleton(classes: 'h-3 w-full'),
-          DSkeleton(classes: 'h-3 w-3/4'),
+          DSkeleton(className: 'h-3 w-full'),
+          DSkeleton(className: 'h-3 w-3/4'),
         ]);
 
       case 'spinner':

@@ -102,6 +102,30 @@ DButton(label: 'Disabled', disabled: true)'''),
 DButton(label: 'Next', trailingIcon: DIcon(name: DIconNames.arrowRight))'''),
             ]),
 
+            // Custom Styling
+            _section('Custom Styling', [
+              ComponentPreviewCard(preview: [
+                div(classes: 'flex flex-wrap gap-3', [
+                  DButton(label: 'Custom BG', className: 'bg-purple-500 hover:bg-purple-600'),
+                  DButton(label: 'Rounded Full', className: 'rounded-full'),
+                  DButton(label: 'With ID', id: 'my-btn', className: 'shadow-lg'),
+                ]),
+              ], code: '''// Override background color
+DButton(label: 'Custom BG', className: 'bg-purple-500 hover:bg-purple-600')
+
+// Override border radius
+DButton(label: 'Rounded Full', className: 'rounded-full')
+
+// Add HTML id and extra classes
+DButton(label: 'With ID', id: 'my-btn', className: 'shadow-lg')
+
+// Pass arbitrary HTML attributes
+DButton(label: 'Submit', attributes: {'data-testid': 'submit-btn'})
+
+// Add custom event handlers
+DButton(label: 'Track', events: {'mouseenter': (e) => track()})'''),
+            ]),
+
             // API Reference
             h2([Component.text('API Reference')]),
             div(classes: 'not-prose overflow-x-auto', [
@@ -124,6 +148,10 @@ DButton(label: 'Next', trailingIcon: DIcon(name: DIconNames.arrowRight))'''),
                   _apiRow('leadingIcon', 'String?', 'null', 'Icon before label'),
                   _apiRow('trailingIcon', 'String?', 'null', 'Icon after label'),
                   _apiRow('onPressed', 'VoidCallback?', 'null', 'Click handler'),
+                  _apiRow('className', 'String?', 'null', 'Additional/override Tailwind classes (smart merge)'),
+                  _apiRow('id', 'String?', 'null', 'HTML id attribute'),
+                  _apiRow('attributes', 'Map<String, String>?', 'null', 'Arbitrary HTML attributes'),
+                  _apiRow('events', 'Map<String, EventCallback>?', 'null', 'Additional event handlers'),
                 ]),
               ]),
             ]),

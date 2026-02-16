@@ -31,6 +31,7 @@ When you run `duxt dev`, the CLI:
 |--------|-------------|---------|
 | `--port`, `-p` | Base port (api=+1, jaspr=+2, webdev=+3) | `4000` |
 | `--no-api` | Skip API server | `false` |
+| `--desktop` | Open in native desktop window (Tauri) | `false` |
 | `--verbose`, `-v` | Show detailed logs | `false` |
 | `--perf` | Print rebuild stage timings | `false` |
 | `--reload` | Use module reload mode (faster, experimental) | `false` |
@@ -57,6 +58,9 @@ duxt dev --reload
 # Run multiple apps simultaneously
 duxt dev --port=4000   # App 1
 duxt dev --port=5000   # App 2
+
+# Desktop mode - opens native window
+duxt dev --desktop
 ```
 
 ## Output
@@ -92,16 +96,33 @@ The dev server automatically generates routes from your `pages/` directories:
 
 ```
 lib/
-├── home/pages/index.dart      → /
-├── about/pages/index.dart     → /about
-├── blog/pages/
-│   ├── index.dart             → /blog
-│   ├── _id_.dart              → /blog/:id
-│   └── _id_/edit.dart         → /blog/:id/edit
-└── contact/pages/index.dart   → /contact
+  home/pages/index.dart        -> /
+  about/pages/index.dart       -> /about
+  blog/pages/
+    index.dart                 -> /blog
+    _id_.dart                  -> /blog/:id
+    _id_/edit.dart             -> /blog/:id/edit
+  contact/pages/index.dart     -> /contact
 ```
 
 Route files are generated to `.generated/routes.dart`. The generator only rewrites the file when routes actually change, preventing unnecessary build_runner rebuild cycles. Only structural file changes (adding or removing pages) trigger route regeneration — editing existing pages does not.
+
+### Namespace Routes
+
+Namespaced modules are discovered recursively:
+
+```
+lib/
+  admin/
+    layouts/default.dart       AdminLayout (auto-wraps)
+    posts/pages/index.dart     -> /admin/posts
+    users/pages/index.dart     -> /admin/users
+  theme/
+    home/pages/index.dart      -> /
+    blog/pages/index.dart      -> /blog
+```
+
+See [Namespaces](/duxt/namespaces) for details.
 
 ### Dynamic Routes
 
@@ -188,6 +209,37 @@ API_URL=http://localhost:3001 duxt dev
 # Or in .env file (auto-loaded)
 API_URL=http://localhost:3001
 ```
+
+## Desktop Development
+
+Run `duxt dev --desktop` to launch your app in a native Tauri window instead of the browser.
+
+```
+duxt dev --desktop
+```
+
+This starts the normal Duxt dev server and additionally:
+- Compiles the Tauri native shell
+- Opens a native window pointing at the dev server
+- Hot reloads both Dart and CSS in the native window
+
+On first run, the `src-tauri/` directory is auto-scaffolded if it doesn't exist. Requires Rust from [rustup.rs](https://rustup.rs/).
+
+Tauri output is prefixed with `[desktop]`:
+
+```
+[desktop] Running cargo tauri dev...
+[desktop] Compiling my-app v0.1.0
+[desktop] Finished dev [unoptimized + debuginfo]
+```
+
+Use `--verbose` to see full Rust compilation progress:
+
+```
+duxt dev --desktop --verbose
+```
+
+See [Desktop Apps](/duxt-cli/desktop) for full documentation.
 
 ## Troubleshooting
 

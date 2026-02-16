@@ -105,10 +105,10 @@ DCalendar(firstDayOfWeek: 0)'''),
             _section('Custom Styling', [
               ComponentPreviewCard(preview: [
                 DCalendar(
-                  classes: 'shadow-lg',
+                  className: 'shadow-lg',
                 ),
               ], code: '''DCalendar(
-  classes: 'shadow-lg',
+  className: 'shadow-lg',
 )'''),
             ]),
 
@@ -168,7 +168,7 @@ DCalendar(firstDayOfWeek: 0)'''),
                   _apiRow('maxDate', 'String?', 'null', 'Maximum selectable date (YYYY-MM-DD)'),
                   _apiRow('firstDayOfWeek', 'int', '1', 'First day of week (0=Sun, 1=Mon)'),
                   _apiRow('name', 'String?', 'null', 'Form field name for submission'),
-                  _apiRow('classes', 'String?', 'null', 'Additional CSS classes'),
+                  _apiRow('className', 'String?', 'null', 'Additional CSS classes'),
                 ]),
               ]),
             ]),

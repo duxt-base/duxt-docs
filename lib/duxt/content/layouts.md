@@ -152,6 +152,52 @@ class DashboardLayout extends DuxtLayout {
 }
 ```
 
+### Namespace Layout
+
+Namespace layouts auto-wrap all routes in a namespace. Create one with:
+
+```
+duxt g layout Admin
+```
+
+This creates `lib/admin/layouts/default.dart`:
+
+```
+import 'package:jaspr/jaspr.dart';
+import 'package:jaspr/dom.dart';
+
+class AdminLayout extends StatelessComponent {
+  final Component child;
+
+  const AdminLayout({super.key, required this.child});
+
+  @override
+  Component build(BuildContext context) {
+    return div(classes: 'min-h-screen', [
+      header(classes: 'bg-gray-900 border-b border-gray-700', [
+        div(classes: 'max-w-7xl mx-auto px-4 py-3 flex items-center justify-between', [
+          a(href: '/admin', classes: 'text-white font-semibold', [
+            text('Admin'),
+          ]),
+          nav(classes: 'flex gap-4', [
+            a(href: '/admin/dashboard', classes: 'text-gray-300 hover:text-white', [text('Dashboard')]),
+            a(href: '/admin/posts', classes: 'text-gray-300 hover:text-white', [text('Posts')]),
+            a(href: '/admin/users', classes: 'text-gray-300 hover:text-white', [text('Users')]),
+          ]),
+        ]),
+      ]),
+      main_(classes: 'max-w-7xl mx-auto px-4 py-8', [
+        child,
+      ]),
+    ]);
+  }
+}
+```
+
+All `/admin/*` routes are automatically wrapped. No per-page configuration needed.
+
+See [Namespaces](/duxt/namespaces) for details.
+
 ### Auth Layout
 
 ```

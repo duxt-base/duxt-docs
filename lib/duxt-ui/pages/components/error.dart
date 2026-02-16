@@ -89,14 +89,14 @@ DError(severity: DErrorSeverity.fatal, title: 'Fatal', description: '...')'''),
               ComponentPreviewCard(preview: [
                 div(classes: 'w-full max-w-md', [
                   DError(
-                    iconComponent: DIcon(name: 'wifi-off', size: DIconSize.lg, classes: 'text-red-500'),
+                    iconComponent: DIcon(name: 'wifi-off', size: DIconSize.lg, className: 'text-red-500'),
                     title: 'No connection',
                     description: 'Please check your internet connection.',
                     onRetry: () {},
                   ),
                 ]),
               ], code: '''DError(
-  iconComponent: DIcon(name: 'wifi-off', size: 48, classes: 'text-red-500'),
+  iconComponent: DIcon(name: 'wifi-off', size: 48, className: 'text-red-500'),
   title: 'No connection',
   description: 'Please check your internet connection.',
   onRetry: () => checkConnection(),

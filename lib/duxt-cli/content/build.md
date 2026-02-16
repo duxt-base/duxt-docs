@@ -47,6 +47,12 @@ duxt build --target=linux-x64
 
 # Build for all platforms
 duxt build --all-targets
+
+# Build native desktop app
+duxt build desktop
+
+# Desktop debug build
+duxt build desktop --debug
 ```
 
 ## Target Platforms
@@ -96,6 +102,45 @@ duxt build --all-targets
   Frontend: .output/public/
   Server:   .output/server-macos-arm64
 ```
+
+---
+
+# duxt build desktop
+
+Build a native desktop application using Tauri v2.
+
+## Usage
+
+```
+duxt build desktop [options]
+```
+
+## Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--debug` | Build without optimizations | `false` |
+
+## What It Does
+
+1. Checks prerequisites (Rust/Cargo)
+2. Auto-installs `cargo-tauri` if missing
+3. Compiles Tailwind CSS
+4. Generates routes
+5. Runs `jaspr build`
+6. Runs `cargo tauri build`
+
+## Output
+
+```
+src-tauri/target/release/bundle/
+  macos/            .app bundle
+  dmg/              macOS installer
+  deb/              Linux package
+  msi/              Windows installer
+```
+
+See [Desktop Apps](/duxt-cli/desktop) for full documentation.
 
 ---
 

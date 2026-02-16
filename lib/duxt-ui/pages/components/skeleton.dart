@@ -16,15 +16,15 @@ class SkeletonPage extends StatelessComponent {
             h1([Component.text('Skeleton')]),
             p(classes: 'text-xl text-zinc-500 dark:text-zinc-400', [Component.text('Loading placeholders for content.')]),
             _section('Basic Usage', [
-              ComponentPreviewCard(preview: [div(classes: 'w-full max-w-sm space-y-3', [DSkeleton(classes: 'h-4 w-full'), DSkeleton(classes: 'h-4 w-3/4'), DSkeleton(classes: 'h-4 w-1/2')])],
-                code: "DSkeleton(classes: 'h-4 w-full')\nDSkeleton(classes: 'h-4 w-3/4')"),
+              ComponentPreviewCard(preview: [div(classes: 'w-full max-w-sm space-y-3', [DSkeleton(className: 'h-4 w-full'), DSkeleton(className: 'h-4 w-3/4'), DSkeleton(className: 'h-4 w-1/2')])],
+                code: "DSkeleton(className: 'h-4 w-full')\nDSkeleton(className: 'h-4 w-3/4')"),
             ]),
             _section('Card Skeleton', [
               ComponentPreviewCard(preview: [div(classes: 'w-full max-w-sm p-4 border border-zinc-800 rounded-lg space-y-4', [
-                DSkeleton(classes: 'h-32 w-full rounded-lg'),
-                DSkeleton(classes: 'h-4 w-3/4'),
-                DSkeleton(classes: 'h-4 w-1/2'),
-              ])], code: "// Card skeleton\nDSkeleton(classes: 'h-32 w-full rounded-lg')"),
+                DSkeleton(className: 'h-32 w-full rounded-lg'),
+                DSkeleton(className: 'h-4 w-3/4'),
+                DSkeleton(className: 'h-4 w-1/2'),
+              ])], code: "// Card skeleton\nDSkeleton(className: 'h-32 w-full rounded-lg')"),
             ]),
           ]),
     );

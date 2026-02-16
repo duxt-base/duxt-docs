@@ -80,6 +80,7 @@ final admins = await users.where('role', 'admin').get();
 
 ## Next Steps
 
+- [Configuration](/duxt-orm/configuration) - Set up MySQL, PostgreSQL, or SQLite in duxt.config.dart
 - [Models](/duxt-orm/models) - Define and register models, soft deletes, lifecycle hooks
 - [Schema](/duxt-orm/schema) - Column types and modifiers
 - [Queries](/duxt-orm/queries) - Query builder reference, soft delete scopes

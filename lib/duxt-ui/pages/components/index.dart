@@ -55,8 +55,8 @@ class ComponentsIndexPage extends StatelessComponent {
           ]),
           _card('Skeleton', 'Loading placeholders', '/duxt-ui/components/skeleton', [
             div(classes: 'w-24 space-y-2', [
-              DSkeleton(classes: 'h-3 w-full'),
-              DSkeleton(classes: 'h-3 w-3/4'),
+              DSkeleton(className: 'h-3 w-full'),
+              DSkeleton(className: 'h-3 w-3/4'),
             ]),
           ]),
         ]),

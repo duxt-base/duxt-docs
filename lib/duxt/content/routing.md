@@ -268,6 +268,40 @@ duxt dev
 duxt build
 ```
 
+## Namespace Routes
+
+Modules inside namespaces are routed with the namespace as a URL prefix:
+
+| File | Route |
+|------|-------|
+| `lib/admin/posts/pages/index.dart` | `/admin/posts` |
+| `lib/admin/posts/pages/_id_.dart` | `/admin/posts/:id` |
+| `lib/admin/users/pages/index.dart` | `/admin/users` |
+
+### Theme Namespace
+
+The `theme/` namespace is special - it strips the prefix, routing directly to root paths:
+
+| File | Route |
+|------|-------|
+| `lib/theme/home/pages/index.dart` | `/` |
+| `lib/theme/blog/pages/index.dart` | `/blog` |
+| `lib/theme/blog/pages/_slug_.dart` | `/blog/:slug` |
+| `lib/theme/about/pages/index.dart` | `/about` |
+
+### Namespace Layouts
+
+If a namespace has a `layouts/default.dart` file, all routes in that namespace are automatically wrapped with the layout:
+
+```
+lib/admin/
+  layouts/default.dart        AdminLayout
+  posts/pages/index.dart      /admin/posts (wrapped in AdminLayout)
+  users/pages/index.dart      /admin/users (wrapped in AdminLayout)
+```
+
+See [Namespaces](/duxt/namespaces) for full documentation.
+
 ## Content Routes
 
 In addition to Dart pages, Duxt also routes markdown files from `content/` directories:

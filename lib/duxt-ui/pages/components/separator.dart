@@ -18,7 +18,7 @@ class SeparatorPage extends StatelessComponent {
             _section('Horizontal', [
               ComponentPreviewCard(preview: [div(classes: 'w-full max-w-sm', [
                 div(classes: 'text-zinc-400 text-sm', [Component.text('Section 1')]),
-                DSeparator(classes: 'my-4'),
+                DSeparator(className: 'my-4'),
                 div(classes: 'text-zinc-400 text-sm', [Component.text('Section 2')]),
               ])], code: 'DSeparator()'),
             ]),

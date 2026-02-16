@@ -21,6 +21,7 @@ class SidebarCli extends StatelessComponent {
         _group('Development', [
           _link('dev', '/duxt-cli/dev'),
           _link('build', '/duxt-cli/build'),
+          _link('desktop', '/duxt-cli/desktop'),
           _link('preview', '/duxt-cli/build#preview'),
           _link('generate (SSG)', '/duxt-cli/build#generate'),
         ]),

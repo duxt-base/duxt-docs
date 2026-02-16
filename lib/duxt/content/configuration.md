@@ -168,6 +168,37 @@ Pass values at build time:
 duxt build --define=API_BASE=https://api.example.com
 ```
 
+### Database
+
+Server projects include a `database` record for ORM configuration:
+
+```
+static const database = (
+  driver: String.fromEnvironment('DB_DRIVER', defaultValue: 'sqlite'),
+  host: String.fromEnvironment('DB_HOST', defaultValue: 'localhost'),
+  port: int.fromEnvironment('DB_PORT', defaultValue: 5432),
+  database: String.fromEnvironment('DB_NAME', defaultValue: 'myapp'),
+  username: String.fromEnvironment('DB_USER', defaultValue: ''),
+  password: String.fromEnvironment('DB_PASS', defaultValue: ''),
+  path: String.fromEnvironment('DB_PATH', defaultValue: 'data/myapp.db'),
+  ssl: bool.fromEnvironment('DB_SSL', defaultValue: false),
+);
+```
+
+Pass it to the ORM during initialization:
+
+```
+await DuxtOrm.init(DuxtConfig.database);
+```
+
+Supported drivers: `sqlite` (default), `postgres`, `mysql`. Set environment variables to switch databases without code changes:
+
+```
+DB_DRIVER=mysql DB_HOST=localhost DB_PORT=3306 DB_NAME=myapp DB_USER=root DB_PASS=secret duxt dev
+```
+
+See [Database Configuration](/duxt-orm/configuration) for full setup guides for each database.
+
 ## Accessing Configuration
 
 Import and use the config anywhere in your app:
@@ -218,6 +249,17 @@ class DuxtConfig {
   static const int port = int.fromEnvironment(
     'PORT',
     defaultValue: 3000,
+  );
+
+  static const database = (
+    driver: String.fromEnvironment('DB_DRIVER', defaultValue: 'postgres'),
+    host: String.fromEnvironment('DB_HOST', defaultValue: 'localhost'),
+    port: int.fromEnvironment('DB_PORT', defaultValue: 5432),
+    database: String.fromEnvironment('DB_NAME', defaultValue: 'my_saas'),
+    username: String.fromEnvironment('DB_USER', defaultValue: 'postgres'),
+    password: String.fromEnvironment('DB_PASS', defaultValue: ''),
+    path: '',
+    ssl: bool.fromEnvironment('DB_SSL', defaultValue: false),
   );
 }
 ```
