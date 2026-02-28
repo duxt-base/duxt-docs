@@ -259,6 +259,48 @@ static void register() {
 }
 ```
 
+## Disabling Timestamps
+
+By default, `save()` auto-sets `created_at` and `updated_at` on every model. You can disable this per model during registration.
+
+### Disable all timestamps
+
+For write-once entities like sessions or one-time tokens:
+
+```
+Entity.registerModel<Session>(
+  Session.fromRow,
+  timestamps: false,  // No created_at or updated_at
+  schema: {
+    'id': Column.integer().primaryKey().autoIncrement(),
+    'token': Column.string(255).notNull(),
+    'expires_at': Column.dateTime().notNull(),
+  },
+);
+```
+
+### Disable only updated_at
+
+For immutable-after-creation entities like audit logs:
+
+```
+Entity.registerModel<AuditLog>(
+  AuditLog.fromRow,
+  updatedAt: false,  // Keeps created_at, skips updated_at
+  schema: {
+    'id': Column.integer().primaryKey().autoIncrement(),
+    'action': Column.string(255).notNull(),
+    'created_at': Column.dateTime().nullable(),
+  },
+);
+```
+
+| Option | `created_at` | `updated_at` |
+|--------|:---:|:---:|
+| Default | auto | auto |
+| `timestamps: false` | skip | skip |
+| `updatedAt: false` | auto | skip |
+
 ## Lifecycle Hooks
 
 Override lifecycle hooks to run logic before or after persistence operations:

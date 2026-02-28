@@ -39,7 +39,7 @@ Add to your `pubspec.yaml`:
 
 ```
 dependencies:
-  duxt_orm: ^0.3.0
+  duxt_orm: ^0.4.1
 ```
 
 Define a model:
